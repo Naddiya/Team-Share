@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+{% for project in bestProjects %}
+<div>
+id => {{ project.id| json_encode() }}
+</div>
+<div>
+titre => {{ project.title| json_encode() }}
+</div>
+<div>
+description => {{ project.description| json_encode() }}
+</div>
+<div>
+content => {{ project.content| json_encode() }}
+<div>
+<div>
+Likes => {{ project.nbLike| json_encode() }}
+<div>
+<div>
+Facebook => {{ project.urlFacebook| json_encode() }}
+<div>
+
+</div>
+
+    {% for tag in project.tags %}
+
+    <div>
+       Tag : {{ tag.name | json_encode() }}
+    </div>
+
+    {% endfor %}
+ 
+    {% endfor %}
+{% endblock %}
