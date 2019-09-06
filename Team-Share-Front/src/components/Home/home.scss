@@ -1,0 +1,61 @@
+@import 'src/styles/_vars.scss';
+
+
+
+.main-container {
+    display: flex;
+    width: 70vw;
+    margin: auto;
+    justify-content: space-between;
+    margin-top: 9rem;
+    margin-bottom:9rem;
+}
+
+.welcome {
+    text-align: left;
+    color: $eerie-black;
+
+    &-title {
+        font-size: 3em;
+        padding: .5em;
+        color: $dark-cerulean;
+    }
+
+    &-subtitle {
+        font-size: 20px;
+        width: 60%;
+        padding: .5em 1.2em;
+    }
+
+    &-buttons {
+        margin: 4em 2em;
+
+        &-button {
+            padding: 1em 3em;
+            margin-left: 1em;
+            background-color: $yankees-blue;
+            color: #FFF;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+
+            &.cta-button {
+                background-color: $dark-cerulean;
+            }
+        }
+    }
+}
+
+.team-pic {
+    width: 45%;
+    height: 45%;
+    border-radius: 15px;
+}
+
+@media (max-width: 750px) {
+   .main-container {
+       display: block;
+   }
+
+   
+  }

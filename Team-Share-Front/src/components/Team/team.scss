@@ -1,0 +1,47 @@
+@import 'src/styles/_vars.scss';
+
+.team {
+    width: 70%;
+    margin: auto;
+
+    &-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: $dark-cerulean;
+    // padding: 1rem;
+    }
+
+    &-members {
+        display: flex;
+        justify-content: space-around;
+        padding: 4em;
+    }
+
+    &-image {
+        border: none;
+        border-radius: 50%; 
+        overflow: hidden;
+        width: 150px;
+        height: 150px;
+    }
+
+    &-member {
+        text-align: center;
+        transition: .2s;
+        padding: 2em;
+
+        &-name {
+            font-size: 2em;
+        }
+
+        &-role {
+            font-size: 1.2em;
+        }
+
+        &:hover {
+            transform: scale(1.2);
+            background-color: darken($gainsboro, 10%);
+        }
+    }
+
+}

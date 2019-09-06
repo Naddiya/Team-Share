@@ -1,0 +1,46 @@
+@import 'src/styles/_vars.scss';
+
+.projects {
+    text-align: center;
+    background-color: #FFF;
+
+    &-title {
+        font-size: 2.5em;
+        padding: 1.5em;
+        color: $dark-cerulean;
+    }
+
+    &-container {
+        margin-bottom: 8em;
+    }
+}
+
+.ui {
+
+    &.cards {
+        width: 66.8%;
+        margin: auto;
+
+        &>.card {
+            margin: 1em;
+            margin-bottom: 6em;
+            height: 450px;
+
+            &>.image {
+                height: 45%;
+
+                &>img {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+.header, .meta, .description {
+    margin: 1em 0 !important;
+}
+
+
+

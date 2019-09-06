@@ -1,0 +1,81 @@
+.profile {
+    height: 100%;
+    background-color: #fff;
+
+    &-headpic {
+        width: 100vw;
+        height: 30vh;
+        background: no-repeat url('../../assets/teamPic.png');
+        background-size: cover;
+    }
+}
+
+.select {
+    display: flex;
+    
+    &-left {
+        width: 70%;
+        text-align: center;
+        position: relative;
+        top: -175px;
+
+        &-picture {
+            &>img {
+                width: 350px;
+                height: 350px;
+                border-radius: 50%;
+            }
+        }
+
+        &-contact {
+            width: 50%;
+            margin: 1.2em auto;
+            font-size: 1.5em;
+            padding: 1em;
+            border: 1px solid #000;
+
+            &>svg {
+                font-size: 2.5em;
+            }
+
+            &>span {
+                display: block;
+                padding: .5em;
+            }
+        }
+    }
+
+    &-right {
+
+        margin-top: 1.5em;
+
+        &-name {
+            font-size: 1.5em;
+        }
+
+        &-links {
+            font-size: 1.5em;
+            margin-top: 1em;
+
+            &>svg {
+                font-size: 1.5em;
+            }
+            
+            &>span {
+                margin: 0 1em;
+            }
+        }
+
+        &-container {
+            padding: 4em;
+        }
+        
+        &-description {
+            font-size: 1.3em;
+        }
+
+        &-subtitle {
+            margin: 3em 0 2em 0;
+        }
+    }
+}
