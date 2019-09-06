@@ -1,0 +1,140 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>DO</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>USER</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>firstname</span>,
+    <span class='normal'>lastname</span>,
+    <span class='normal'>password</span>,
+    <span class='normal'>jobTitle</span>,
+    <span class='normal'>mail</span>,
+    <span class='normal'>city</span>,
+    <span class='normal'>phone</span>,
+    <span class='normal'>score</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>description</span>,
+    <span class='normal'>urlFacebook</span>,
+    <span class='normal'>urlTwitter</span>,
+    <span class='normal'>urlGithub</span>,
+    <span class='normal'>urlLinkedin</span>,
+    <span class='normal'>isActive</span>,
+    <span class='foreign'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>ROLE</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>name</span>,
+    <span class='normal'>code</span>
+  )
+</div>
+<div>
+  <span class='relation'>TECHNO</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>CAN DO</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>WANT</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>SKILL</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>COMMENT</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>content</span>,
+    <span class='normal'>createdAt</span>,
+    <span class='normal'>isActive</span>,
+    <span class='foreign'>id.1</span>,
+    <span class='foreign'>id.2</span>
+  )
+</div>
+<div>
+  <span class='relation'>REQUEST</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>createdAt</span>,
+    <span class='normal'>response</span>,
+    <span class='normal'>title</span>,
+    <span class='normal'>content</span>,
+    <span class='foreign'>id.1</span>,
+    <span class='foreign'>id.2</span>
+  )
+</div>
+<div>
+  <span class='relation'>STATUT</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>name</span>
+  )
+</div>
+<div>
+  <span class='relation'>SEARCH</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>PROJECT</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>title</span>,
+    <span class='normal'>description</span>,
+    <span class='normal'>content</span>,
+    <span class='normal'>image</span>,
+    <span class='normal'>createdAt</span>,
+    <span class='normal'>updatedAt</span>,
+    <span class='normal'>startedAt</span>,
+    <span class='normal'>finishedAt</span>,
+    <span class='normal'>nbCollaborator</span>,
+    <span class='normal'>isActived</span>,
+    <span class='normal'>nbLike</span>,
+    <span class='normal'>urlFacebook</span>,
+    <span class='normal'>urlTwitter</span>,
+    <span class='normal'>urlGithub</span>,
+    <span class='normal'>urlInsta</span>,
+    <span class='normal'>urlTipeee</span>,
+    <span class='foreign'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>RELATED TO</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>TAG</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>name</span>
+  )
+</div>
+</div>
+</body>
+</html>
