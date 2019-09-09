@@ -20,10 +20,10 @@ class HomeController extends AbstractController
        $bestProjects = $projetcRepository->bestProjects();
 
        // Encode le résultat en json
-       $jsonContent = $serializer->serialize($bestProjects, 'json');
+       //$jsonContent = $serializer->serialize($bestProjects, 'json');
 
        // Crée une response au format json
-        $response = new JsonResponse($jsonContent);
+        $response = new JsonResponse($bestProjects);
         // dd($response);
         return $response;
    }
