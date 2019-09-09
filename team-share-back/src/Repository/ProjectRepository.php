@@ -22,25 +22,36 @@ class ProjectRepository extends ServiceEntityRepository
     // /**
     //  * @return Project[] Returns an array of Project objects
     //  */
+    // public function bestProjects()
+    // {
+    //     return $this->getEntityManager()
+    //         ->createQuery('
+    //             SELECT p
+    //             FROM App\Entity\Project p 
+    //             ORDER BY p.nbLike DESC
+    //         ')
+    //         ->setMaxResults(4)
+    //         ->getResult();
+            
+    // }
+
     public function bestProjects()
     {
-        return $this->getEntityManager()
-            ->createQuery('
-                SELECT p
-                FROM App\Entity\Project p 
-                ORDER BY p.nbLike DESC
-            ')
-            ->setMaxResults(4)
-            ->getResult();
-            
-    }
-
-    public function ProjetcWithTags()
-    {
      $qb = $this->CreateQueryBuilder('p')
-                ->innerJoin('p.tags', 't')
-                ->addSelect('t.name');
-      return $qb->getQuery()->getResult();
+                ->leftJoin('p.tags', 't')
+                ->leftJoin('p.technos', 'th')
+                ->leftJoin('p.skills', 's')
+                ->leftJoin('p.users', 'u')
+                ->addSelect('t', 'th', 's', 'u')
+                ->orderBy('p.nbLike', 'DESC');
+                //->select('p.id', 't.name', 'u.firstname')
+                
+                
+                
+                
+                
+
+      return $qb->getQuery()->getArrayResult();
                 
     }
 }
