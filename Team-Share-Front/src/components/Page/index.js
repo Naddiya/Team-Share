@@ -8,9 +8,10 @@ import Team from 'src/components/Team';
 import Profile from 'src/components/Profile';
 import Projects from 'src/components/Projects';
 import homeprojects from 'src/data/data.json';
+import ProjectDetail from 'src/components/ProjectDetail';
 
 
-const view = 'projects';
+const view = 'home';
 
 // == Composant
 const Page = () => (
@@ -20,6 +21,7 @@ const Page = () => (
     {view === 'home' && <Team />}
     {view === 'profile' && <Profile projects={homeprojects} />}
     {view === 'projects' && <Projects projects={homeprojects} />}
+    {view === 'project' && <ProjectDetail />}
   </>
 );
 
