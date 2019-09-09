@@ -4,8 +4,8 @@ import { FaHeartbeat, FaRegCheckCircle , FaGithubSquare, FaCarrot } from "react-
 
 // == Import : local
 import './projectdetail.scss';
-import ProgressBar from "../ProgressBar/";
-import Comments from "../Comments/";
+import ProgressBar from "./ProgressBar/";
+import Comments from "./Comments/";
 
 // == Composant
 const ProjectDetail = () => (
