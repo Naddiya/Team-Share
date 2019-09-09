@@ -109,3 +109,21 @@
 #### À Suivre
 >* Front : inté suite
 >* Back : routes
+
+---
+# 09/09/2019 - J7 - Sprint 0
+>* Intégration réstante : legal mentions, modale de connexion, detail d'un profil
+>* Correction des routes pour les wireframes dans la docs
+>* Json pour les inté faites
+#### Infos individuelles
+>## Julien :
+> Json 
+>## Alexis :
+> Intégration des données statiques 
+>## Alexandre :
+> Json 
+>## Nadia :
+> intégration 
+#### À Suivre
+>* Front : inté suite
+>* Back : json correspondant aux vues
