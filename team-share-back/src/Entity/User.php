@@ -101,7 +101,7 @@ class User implements UserInterface, \Serializable
     private $projects;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Role", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Role")
      * @ORM\JoinColumn(nullable=false)
      */
     private $role;
