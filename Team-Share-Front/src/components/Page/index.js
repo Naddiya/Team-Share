@@ -9,6 +9,7 @@ import Team from 'src/components/Team';
 import Profile from 'src/components/Profile';
 import Projects from 'src/components/Projects';
 import homeprojects from 'src/data/data.json';
+import ProjectCreation from 'src/components/ProjectCreation';
 
 
 // == Composant
@@ -19,11 +20,14 @@ const Page = () => (
       <HomeProjects projects={homeprojects} />
     )} />
     <Route path="/" exact component={Team} />
-    <Route path="/profile" exact render={() => (
+    <Route path="/profile" render={() => (
       <Profile projects={homeprojects} />
     )} />
-    <Route path="/projects" exact render={() => (
+    <Route path="/projects" render={() => (
       <Projects projects={homeprojects} />
+    )} />
+    <Route path="/project-creation" render={() => (
+      <ProjectCreation />
     )} />
   </>
 );

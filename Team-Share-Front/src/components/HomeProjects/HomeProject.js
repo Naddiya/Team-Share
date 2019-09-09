@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom'; 
 import 'semantic-ui-css/semantic.min.css';
 
 // == Import : local
@@ -8,7 +9,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 // == Composant
 const HomeProject = ({ image, title, tag, description, nbLike }) => (
-  <Card>
+  <Card as={NavLink} to="/projects">
     <Image src={image} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{title}</Card.Header>

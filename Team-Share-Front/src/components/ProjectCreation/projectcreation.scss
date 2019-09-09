@@ -1,0 +1,93 @@
+.project {
+    width: 70%;
+    margin: auto;
+
+    &-heading {
+        text-align: center;
+        margin-bottom: 4em;
+
+        &>input {
+        }
+    }
+
+    &-intro {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4em;
+
+        &-inputs {
+
+            .input-title {
+                font-size: 1.5em;
+            }
+
+            &>input {
+                width: 250px;
+                height: 35px;
+                border: none;
+            }
+        }
+    }
+
+    &-description {
+        margin: 2em 0 4em;
+    }
+
+    &-technos, &-skills {
+        margin: 2em auto 4em;
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+    }
+
+    &-links {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 2em 0 4em;
+        font-size: 1.2em;
+
+        &-left {
+            width: 45%;
+        }
+
+        &-right {
+
+            &>ul>li {
+                padding: .5em;
+            }
+        }
+
+        &-validation {
+            display: flex;
+            
+            &>input {
+                height: 20px;
+                width: 20px;
+            }
+
+            &>button {
+                margin-bottom: 4em;
+            }
+        }
+    }
+
+}
+
+
+.input {
+    font-size: 1.2em;
+    height: 35px;
+    width: 350px;
+    border: none;
+    margin: 1em 0;
+}
+
+.add-file {
+    margin-bottom: 2em;
+}
+
+.project-validation {
+    margin: 0 2em;
+    font-size: 1.2em;
+    font-weight: bold;
+}

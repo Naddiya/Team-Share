@@ -67,7 +67,7 @@ class Navbar extends React.Component {
             <NavLink to="/profile" className="navbar-link">Mon Profil</NavLink>
           </li>
           <li>
-            <button className= "button-link">
+            <button className="button-link">
               <a href="#" className="button-link">Se connecter</a>
             </button>
           </li>

@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import './home.scss';
@@ -14,7 +15,7 @@ const Home = () => (
         <p className="welcome-subtitle">Première plateforme d'appel à projets collaboratifs en France</p>
 
         <div className="welcome-buttons">
-          <button className="welcome-buttons-button cta-button">Lancez-vous !</button>
+          <NavLink to="/project-creation"><button className="welcome-buttons-button cta-button">Lancez-vous !</button></NavLink>
           <button className="welcome-buttons-button">En savoir plus</button>
         </div>
       </div>
