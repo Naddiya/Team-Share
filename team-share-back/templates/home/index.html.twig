@@ -3,36 +3,18 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
 
-{% for project in bestProjects %}
-<div>
-id => {{ project.id| json_encode() }}
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/var/www/html/Apothéose/Team-Share/team-share-back/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/var/www/html/Apothéose/Team-Share/team-share-back/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
+    </ul>
 </div>
-<div>
-titre => {{ project.title| json_encode() }}
-</div>
-<div>
-description => {{ project.description| json_encode() }}
-</div>
-<div>
-content => {{ project.content| json_encode() }}
-<div>
-<div>
-Likes => {{ project.nbLike| json_encode() }}
-<div>
-<div>
-Facebook => {{ project.urlFacebook| json_encode() }}
-<div>
-
-</div>
-
-    {% for tag in project.tags %}
-
-    <div>
-       Tag : {{ tag.name | json_encode() }}
-    </div>
-
-    {% endfor %}
- 
-    {% endfor %}
 {% endblock %}
