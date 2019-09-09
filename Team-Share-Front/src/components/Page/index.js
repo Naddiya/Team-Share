@@ -37,7 +37,7 @@ const Page = () => (
       <ProjectCreation />
     )} />
   </>
->>>>>>> 11090347325cccf8deab1fbb3f3cb6cf8a876954
+>>>>>>> 11090347325cccfgit 8deab1fbb3f3cb6cf8a876954
 );
 
 export default Page;
