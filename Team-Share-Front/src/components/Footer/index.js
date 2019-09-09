@@ -18,8 +18,8 @@ const Footer = () => (
                 <li><NavLink exact to="/">Accueil</NavLink></li>
                 <li><NavLink to="/projects">Projets</NavLink></li>
                 <li><NavLink to="/subscribe">S'inscire</NavLink></li>
-                <li><a >Se connecter</a></li>
-                <li><NavLink to="/legal-mentions">Mentions Légales</NavLink></li>
+                <li><NavLink to="/login">Se connecter</NavLink></li>
+                <li><NavLink to="/legalmentions">Mentions Légales</NavLink></li>
               </ul>
           </div>
       <div className="footer-upper-contacts">
