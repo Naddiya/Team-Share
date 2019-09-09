@@ -1,0 +1,24 @@
+@import 'src/styles/_vars.scss';
+
+
+.project {
+  border-top: solid black 2px;
+  &-title, &-presentation, &-team, &-description, &-actions {
+    border-top : solid black 2px;
+    text-align : center;
+    padding : 1rem;
+  }
+  &-presentation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+  }
+  &-comments {
+    &-counter, &-content {
+      border-top : solid black 2px;
+    }
+  }
+}
+
+
