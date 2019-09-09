@@ -11,7 +11,7 @@ import homeprojects from 'src/data/data.json';
 import ProjectDetail from 'src/components/ProjectDetail';
 
 
-const view = 'home';
+const view = 'project';
 
 // == Composant
 const Page = () => (
