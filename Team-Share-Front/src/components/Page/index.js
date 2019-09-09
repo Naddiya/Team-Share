@@ -9,8 +9,12 @@ import Team from 'src/components/Team';
 import Profile from 'src/components/Profile';
 import Projects from 'src/components/Projects';
 import homeprojects from 'src/data/data.json';
+<<<<<<< HEAD
 import ProjectDetail from 'src/components/ProjectDetail';
 
+=======
+import ProjectCreation from 'src/components/ProjectCreation';
+>>>>>>> 11090347325cccf8deab1fbb3f3cb6cf8a876954
 
 
 // == Composant
@@ -21,12 +25,19 @@ const Page = () => (
       <HomeProjects projects={homeprojects} />
     )} />
     <Route path="/" exact component={Team} />
-    <Route path="/profile" exact render={() => (
+    <Route path="/profile" render={() => (
       <Profile projects={homeprojects} />
     )} />
-    <Route path="/projects" exact render={() => (
+    <Route path="/projects" render={() => (
       <Projects projects={homeprojects} />
     )} />
+<<<<<<< HEAD
+=======
+    <Route path="/project-creation" render={() => (
+      <ProjectCreation />
+    )} />
+  </>
+>>>>>>> 11090347325cccf8deab1fbb3f3cb6cf8a876954
 );
 
 export default Page;

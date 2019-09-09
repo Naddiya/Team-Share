@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Item, Select, Input, Divider, Segment, Radio } from 'semantic-ui-react';
+import { Item, Select, Input, Divider, Radio } from 'semantic-ui-react';
 
 
 // == Import : local

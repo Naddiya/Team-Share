@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { IoIosAt , IoLogoGithub , IoLogoTwitter, IoLogoFacebook, IoLogoLinkedin } from "react-icons/io";
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import './footer.scss';
@@ -13,12 +14,12 @@ const Footer = () => (
           <div className="footer-upper-links">
             <h3>Navigation</h3>
               <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Projets</a></li>
-                <li><a href="#">S'inscire</a></li>
-                <li><a href="#">Se connecter</a></li>
-                <li><a href="#">Mentions Légales</a></li>
+                <li><NavLink to="/about">About</NavLink></li>
+                <li><NavLink exact to="/">Accueil</NavLink></li>
+                <li><NavLink to="/projects">Projets</NavLink></li>
+                <li><NavLink to="/subscribe">S'inscire</NavLink></li>
+                <li><a >Se connecter</a></li>
+                <li><NavLink to="/legal-mentions">Mentions Légales</NavLink></li>
               </ul>
           </div>
       <div className="footer-upper-contacts">
