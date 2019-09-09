@@ -22,19 +22,23 @@ class UserRepository extends ServiceEntityRepository
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
-    /*
-    public function findByExampleField($value)
+    public function viewOneUserById($id)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+     $qb = $this->CreateQueryBuilder('u')
+                ->where('u.id = :idOfUser')
+                ->setParameter('idOfUser', $id)
+                ->leftJoin('u.projects', 'p')
+                ->leftJoin('u.technos', 'th')
+                ->leftJoin('u.skills', 's')
+                ->leftJoin('u.role', 'r')
+                ->leftJoin('u.comments', 'c')
+                ->leftJoin('u.requests', 're')
+                ->addSelect('r', 'th', 's', 're', 'c', 'p');
+                
+  
+      return $qb->getQuery()->getArrayResult();
+                
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?User

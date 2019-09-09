@@ -38,20 +38,37 @@ class ProjectRepository extends ServiceEntityRepository
     public function bestProjects()
     {
      $qb = $this->CreateQueryBuilder('p')
+                ->leftJoin('p.statut', 'st')
                 ->leftJoin('p.tags', 't')
                 ->leftJoin('p.technos', 'th')
                 ->leftJoin('p.skills', 's')
                 ->leftJoin('p.users', 'u')
-                ->addSelect('t', 'th', 's', 'u')
+                ->addSelect('t', 'th', 's', 'u.username', 'st.name')
                 ->orderBy('p.nbLike', 'DESC');
                 //->select('p.id', 't.name', 'u.firstname')
-                
-                
-                
-                
-                
-
+ 
       return $qb->getQuery()->getArrayResult();
                 
     }
+    public function viewOneProjectById($id)
+    {
+     $qb = $this->CreateQueryBuilder('p')
+                ->where('p.id = :idOfProject')
+                ->setParameter('idOfProject', $id)
+                ->leftJoin('p.tags', 't')
+                ->leftJoin('p.technos', 'th')
+                ->leftJoin('p.skills', 's')
+                ->leftJoin('p.statut', 'st')
+                ->leftJoin('p.comments', 'c')
+                ->leftJoin('p.users', 'u')
+                ->addSelect('t', 'th', 's', 'u.username', 'st', 'c');
+                
+  
+      return $qb->getQuery()->getArrayResult();
+                
+    }
+
+       
 }
+
+
