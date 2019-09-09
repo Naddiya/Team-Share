@@ -1,0 +1,73 @@
+@import 'src/styles/_vars.scss';
+
+
+.project {
+  width:90%;
+  margin:auto;
+
+  &-title, &-presentation, &-team, &-description {
+    border-top : solid grey 1px;
+    padding : 2rem;
+    & h1 {
+      text-align : center;
+      color: $easy-blue;
+      font-size: 2em;
+    }
+    & p {
+      text-align:center;
+      font-size: 1.5em;
+    } 
+  }
+
+  &-presentation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &-content{
+      width:80%;
+      align-self: flex-end;
+      &-icons, &-text, &-progress {
+        width:80%;
+        margin-top: 5rem;
+      }
+      & i {
+        font-size:2em;
+        margin-right:0.5rem
+      }
+      &-text {
+        font-size:1.5em;
+      }
+    }
+    &-avatar {
+      padding:0.6rem;
+      border-radius: 25px;
+    }
+  }
+
+  &-description {
+    &-text {
+      margin: 4rem 0;
+      padding: 1rem;
+      font-size: 1.5em; 
+    }
+    &-actions {
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 1.5em;
+      width:90%;
+      margin: 3rem auto;
+      &-right-git {
+      margin-right:2rem;
+      }
+    }
+  }
+
+
+  &-comments {
+      border-top : solid grey 1px;
+      margin-bottom: 4rem;
+    }
+
+}
+

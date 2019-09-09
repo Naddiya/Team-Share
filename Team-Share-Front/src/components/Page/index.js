@@ -9,6 +9,8 @@ import Team from 'src/components/Team';
 import Profile from 'src/components/Profile';
 import Projects from 'src/components/Projects';
 import homeprojects from 'src/data/data.json';
+import ProjectDetail from 'src/components/ProjectDetail';
+
 
 
 // == Composant
@@ -25,8 +27,6 @@ const Page = () => (
     <Route path="/projects" exact render={() => (
       <Projects projects={homeprojects} />
     )} />
-  </>
 );
 
-// == Export
 export default Page;

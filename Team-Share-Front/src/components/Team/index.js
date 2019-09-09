@@ -18,7 +18,7 @@ const Team = () => (
             <div className="team-member">
                 <img className="team-image" src="src/assets/teamPic.png" />
                 <h3 className="team-member-name">Julien</h3>
-                <p className="team-member-role">Prodoct Owner</p>
+                <p className="team-member-role">Product Owner</p>
             </div>
             <div className="team-member">
                 <img className="team-image" src="src/assets/teamPic.png" />
