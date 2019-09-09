@@ -37,6 +37,12 @@
   &-subscribe {
     background-color: $dark-cerulean;
   }
+  &-connect {
+    background-color: $easy-blue;
+  }
+  &-connect:hover {
+    color: #2185D0;
+  }
 }
 
 @media (max-width: 750px) {

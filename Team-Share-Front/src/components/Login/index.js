@@ -6,7 +6,7 @@ import { Button, Header, Icon, Modal, Form } from 'semantic-ui-react'
 
 
 const LoginModal = () => (
-  <Modal size="tiny" trigger={<Button>Se connecter</Button>} closeIcon>
+  <Modal size="tiny" trigger={<button className="button-link button-link-connect">Se connecter</button>} closeIcon>
     <Header icon='user secret' content='Se connecter' />
     <Modal.Content>
       <Form.Input label='Email' placeholder='joe@schmoe.com' type='email' />
