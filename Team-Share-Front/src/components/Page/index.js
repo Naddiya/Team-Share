@@ -1,5 +1,6 @@
 // == Import : npm
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 // == Import : local
 import Home from 'src/components/Home';
@@ -10,16 +11,20 @@ import Projects from 'src/components/Projects';
 import homeprojects from 'src/data/data.json';
 
 
-const view = 'projects';
-
 // == Composant
 const Page = () => (
   <>
-    {view === 'home' && <Home />}
-    {view === 'home' && <HomeProjects projects={homeprojects} />}
-    {view === 'home' && <Team />}
-    {view === 'profile' && <Profile projects={homeprojects} />}
-    {view === 'projects' && <Projects projects={homeprojects} />}
+    <Route path="/" exact component={Home} />
+    <Route path="/" exact render={() => (
+      <HomeProjects projects={homeprojects} />
+    )} />
+    <Route path="/" exact component={Team} />
+    <Route path="/profile" exact render={() => (
+      <Profile projects={homeprojects} />
+    )} />
+    <Route path="/projects" exact render={() => (
+      <Projects projects={homeprojects} />
+    )} />
   </>
 );
 

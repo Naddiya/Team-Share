@@ -1,4 +1,4 @@
-.projects-container {
+.project-container {
     width: 70%;
     margin: auto auto 6em auto;
 
@@ -21,4 +21,20 @@
 
 h4 {
     margin: 1em 2em; 
+}
+
+.item-follow {
+    font-weight: 400;
+    float:right;
+    color: #000;
+    vertical-align: baseline;
+    font-size: 1.5em;
+    
+    &>svg {
+        margin-right: .6em;
+    }
+}
+
+.description {
+    font-size: 1.5em;
 }

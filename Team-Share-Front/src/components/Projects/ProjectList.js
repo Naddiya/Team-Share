@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
+import { IoIosAddCircle, IoIosBatteryCharging } from "react-icons/io";
 
 // == Import : local
 
@@ -12,14 +13,24 @@ const ProjectList = ({ image, title, tag, description, nbLike }) => (
       <Item.Image src={image} />
 
       <Item.Content>
-        <Item.Header as='a'>{title}</Item.Header>
-        <Item.Description>{description}</Item.Description>
+        <Item.Header as='a'>{title}
+        </Item.Header>
+          <span className="item-follow"><IoIosAddCircle size="28px" />Follow</span>
         <Item.Extra>
           <Label>{tag}</Label>
+          <Label>le 20/12/2015</Label>
           <a>
             <Icon name='heart' />
             {nbLike} likes
         </a>
+        <span className="item-follow"><IoIosBatteryCharging size="28px" />Progression</span>
+        </Item.Extra>
+        <Item.Description>{description}</Item.Description>
+        <Item.Extra>
+          <span>Catégories : </span>
+          <Label>{tag}</Label>
+          <span>Compétences : </span>
+          <Label>{tag}</Label>
         </Item.Extra>
       </Item.Content>
     </Item>

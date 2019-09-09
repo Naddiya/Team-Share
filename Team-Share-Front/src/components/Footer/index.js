@@ -14,7 +14,7 @@ const Footer = () => (
             <h3>Navigation</h3>
               <ul>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Acceuil</a></li>
+                <li><a href="#">Accueil</a></li>
                 <li><a href="#">Projets</a></li>
                 <li><a href="#">S'inscire</a></li>
                 <li><a href="#">Se connecter</a></li>

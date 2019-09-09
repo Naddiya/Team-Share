@@ -12,19 +12,20 @@
 
     &-container {
         margin-bottom: 8em;
+        width: 100%;
     }
 }
 
 .ui {
 
     &.cards {
-        width: 66.8%;
+        width: 67%;
         margin: auto;
 
         &>.card {
             margin: 1em;
             margin-bottom: 6em;
-            height: 450px;
+            height: 550px;
 
             &>.image {
                 height: 45%;

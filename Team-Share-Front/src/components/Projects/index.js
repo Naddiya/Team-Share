@@ -39,9 +39,9 @@ const skills = [
 
 // == Composant
 const Projects = ({ projects }) => (
-    <div className="projects-container">
+    <div className="project-container">
 
-        <div className="projects-container-inputs">
+        <div className="project-container-inputs">
         <Select placeholder='Trier par' options={sortBy} />
         <Select placeholder='Filtrer' options={category} />
         <Select placeholder='Technologies' options={technos} />
