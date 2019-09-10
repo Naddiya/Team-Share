@@ -120,6 +120,13 @@ const ProjectCreation = (
             frontTechnos: technos,
             backTechnos: technos,
             skills,
+            /* === Few stuff missing === 
+            image,
+            isActive (on project page ? when created)
+            url -Facebook -Twitter -Github -Insta -Tipee
+            creating a new line for front and back technos ?
+            tags 
+            */
           })
           .then(function (response) {
             console.log(response);
