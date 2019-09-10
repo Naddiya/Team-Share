@@ -79,3 +79,73 @@
         }
     }
 }
+
+@media (max-width: 750px) {
+    .profile {
+        &-headpic {
+            margin-bottom: 2.5rem;
+        }
+    }
+    .select {
+        display: block;
+        &-left {
+            width: 95%;
+            text-align: left;
+            position: static;
+            margin:auto;
+            &-picture {
+                &>img {
+                    position: absolute;
+                    top:19rem;
+                    width: 5rem;
+                    height: 5rem;
+                    border-radius: 50%;
+                    box-shadow: 0 0 2em grey;
+                }
+            }
+            &-contact {
+                width: 90%;
+                margin: 0.5rem auto;
+                font-size: 1em;
+                padding: 0.5em;
+                border: 0.5px solid rgb(201, 199, 199);
+                &>svg {
+                    display:none;
+                    font-size: 2.5em;
+                }
+                &>span {
+                 padding: 0;
+                }
+            }
+        }
+        &-right {
+            width:95%;
+            margin: 0 auto;
+            &-name {
+                font-size: 1em;
+                margin-top:1rem;
+            }
+            &-links {
+                font-size: 1em;
+                margin-top: 1em;
+                &>svg {
+                    font-size: 1.5em;
+                } 
+                &>span {
+                    margin: 0 15px 0 0;
+                }
+            }
+            &-container {
+                margin-top: 1rem;
+                margin-bottom:1rem;
+                padding: 1em;
+            }
+            &-description {
+                font-size: 1em;
+            }
+            &-subtitle {
+                margin: 2em 0 0 0;
+            }
+        }
+    }
+}
