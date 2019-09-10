@@ -40,33 +40,33 @@
 
 
 @media (max-width: 750px) {
-
-.footer {
-  margin:0;
-  border-radius:0;
-  &-upper {
-    display: flex;
-    & h3 {
-      font-size:1.1em;
-      margin-left:0.6rem;
-      margin-bottom:1rem;
+  .footer {
+    margin:0;
+    border-radius:0;
+    &-upper {
+      display: flex;
+      & h3 {
+        font-size:1.1em;
+        margin-left:0.6rem;
+        margin-bottom:1rem;
+      }
+      &-links, &-contacts {
+        padding:0.5rem;
+        & li {
+          font-size: 1em;
+        }
+        & a {
+          font: size 1.1rem;
+        }
+        }
+      &-contacts a {
+      font-size: 1.5rem;
+      }
     }
-    &-links, &-contacts {
-      padding:0.5rem;
-      & li {
-        font-size: 1em;
-      }
-      & a {
-        font: size 1.1rem;
-      }
-      }
-    &-contacts a {
-    font-size: 1.5rem;
-  
+    &-bottom {
+      text-align:center;
+      padding-bottom:0.1rem;
+      font-size:0.6em;
     }
   }
-
-}
-
-
 }
