@@ -35,7 +35,7 @@ const Footer = () => (
     </div>
     <div className="footer-bottom">
       <div className="footer-bottom-copyright">
-      &copy; 2019 Team-Share-Project.com Apothéose O'Clock
+      &copy; 2019 Team-Share-Project.io Apothéose O'Clock
       </div>
     </div>
     
