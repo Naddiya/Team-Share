@@ -108,6 +108,26 @@ const ProjectCreation = (
         const { value } = options;
         changeSkills(value);
     };
+
+    const handleSubmit = (e) => {
+        axios.post('/project/new', {
+            title: projectName,
+            shortDescription: description,
+            description: content,
+            startDate: started_at,
+            endDate: finished_at,
+            collabNumber: nbCollaborator,
+            frontTechnos: technos,
+            backTechnos: technos,
+            skills,
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    };
     return (
         <div className="project">
             <div className="project-heading">
@@ -168,7 +188,7 @@ const ProjectCreation = (
             <div className="project-links-validation">
                 <input name="send-project" type="checkbox" />
                 <label htmlFor="send-project" className="project-validation">I agree, à tout ce que vous voudrez</label>
-                <button name="send-project" className="button-link">Submit</button>
+                <button onSubmit={handleSubmit} name="send-project" className="button-link">Submit</button>
             </div>
         </div>
     );
