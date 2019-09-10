@@ -10,6 +10,7 @@ import Profile from 'src/components/Profile';
 import Projects from 'src/components/Projects';
 import homeprojects from 'src/data/data.json';
 import ProjectDetail from 'src/components/ProjectDetail';
+import ProjectCreation from 'src/components/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
 
 
@@ -27,6 +28,9 @@ const Page = () => (
     )} />
     <Route path="/projects" render={() => (
       <Projects projects={homeprojects} />
+    )} />
+    <Route path="/project-creation" render={() => (
+      <ProjectCreation />
     )} />
     <Route path="/projectdetail" render={() => (
       <ProjectDetail />
