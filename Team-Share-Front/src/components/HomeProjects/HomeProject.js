@@ -21,10 +21,8 @@ const HomeProject = ({ image, title, tag, description, nbLike }) => (
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
-      <a>
         <Icon name='heart' />
         {nbLike} likes
-      </a>
     </Card.Content>
   </Card>
 );

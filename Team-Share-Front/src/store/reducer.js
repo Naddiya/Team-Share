@@ -1,18 +1,19 @@
 // == Initial State
 const initialState = {
-  message: 'Hello',
+  logged: false,
+  modalIsOpen: false,
 };
 
 // == Types
-const DO_SOMETHING = 'DO_SOMETHING';
+const OPEN_MODAL = 'OPEN_MODAL';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case DO_SOMETHING:
+    case OPEN_MODAL:
       return {
         ...state,
-        message: action.message,
+        modalIsOpen: action.clickEvent,
       };
 
     default:
@@ -21,9 +22,9 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
-export const doSomething = message => ({
-  type: DO_SOMETHING,
-  message,
+export const openModal = clickEvent => ({
+  type: OPEN_MODAL,
+  clickEvent,
 });
 
 
