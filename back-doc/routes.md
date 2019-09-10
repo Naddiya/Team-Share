@@ -12,7 +12,7 @@
 | `/user/[id]` | Profil de **** | Affichage du profil de l'utilisateur | GET | UserController | user_show |  |
 | `/user/edit` | Mon profil | Affichage/modification de mon profil utilisateur | GET POST | UserController | user_edit |  |
 | `/user/delete` | Supprimer mon compte | Supprimer mon compte | POST | UserController | user_delete |  |
-| `/signup` | Inscription | Page d'inscription | POST | UserController | user_new |  |
+| `/user/register` | Inscription | Page d'inscription | POST | UserController | user_register |  |
 | `/login` | Connexion | Page de connexion | POST | SecurityController | login |  |
 | `/logout` | Déconnexion | déonnexion | - | SecurityController | logout |  |
 | `/request/new` | Demande de participation | Demande de participation | POST | RequestController | request_new |  |
