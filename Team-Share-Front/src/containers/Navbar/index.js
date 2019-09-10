@@ -7,7 +7,6 @@ import Navbar from 'src/components/Navbar';
 /* === State (données) === */
 const mapStateToProps = (state) => ({
   logged: state.logged,
-  modalIsOpen: state.modalIsOpen,
 });
 
 /* === Actions === */

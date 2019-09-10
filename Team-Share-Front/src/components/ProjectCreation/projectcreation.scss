@@ -2,6 +2,9 @@
     width: 70%;
     margin: auto;
 
+    &-title, &-presentation, &-team, &-description {
+        border-top: none;
+    }
     &-heading {
         text-align: center;
         margin-bottom: 4em;
