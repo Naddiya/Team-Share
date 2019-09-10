@@ -7,6 +7,10 @@ const initialState = {
   projectType: '',
   shortDescription: '',
   description: '',
+  collabNumber: 0,
+  frontTechnos: '',
+  backTechnos: '',
+  skills: '',
 };
 
 // == Types
@@ -16,6 +20,10 @@ const CHANGE_ENDDATE = 'CHANGE_ENDDATE';
 const CHANGE_PROJECTTYPE = 'CHANGE_PROJECTTYPE';
 const CHANGE_DESCRIPTION = 'CHANGE_DESCRIPTION';
 const CHANGE_SHORTDESCRIPTION = 'CHANGE_SHORTDESCRIPTION';
+const CHANGE_COLLABNUMBER = 'CHANGE_COLLABNUMBER';
+const CHANGE_FRONTTECHNOS = 'CHANGE_FRONTTECHNOS';
+const CHANGE_BACKTECHNOS = 'CHANGE_BACKTECHNOS';
+const CHANGE_SKILLS = 'CHANGE_SKILLS';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -40,6 +48,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         projectType: action.value,
       };
+    case CHANGE_COLLABNUMBER:
+      return {
+        ...state,
+        collabNumber: action.value,
+      };
     case CHANGE_DESCRIPTION:
       return {
         ...state,
@@ -48,7 +61,22 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_SHORTDESCRIPTION:
       return {
         ...state,
-        description: action.value,
+        shortDescription: action.value,
+      };
+    case CHANGE_FRONTTECHNOS:
+      return {
+        ...state,
+        frontTechnos: action.value,
+      };
+      case CHANGE_BACKTECHNOS:
+      return {
+        ...state,
+        backTechnos: action.value,
+      };
+    case CHANGE_SKILLS:
+      return {
+        ...state,
+        skills: action.value,
       };
     default:
       return state;
@@ -76,6 +104,11 @@ export const changeProjectType = value => ({
   value,
 });
 
+export const changeCollabNumber = value => ({
+  type: CHANGE_COLLABNUMBER,
+  value,
+});
+
 export const changeDescription = value => ({
   type: CHANGE_DESCRIPTION,
   value,
@@ -83,6 +116,21 @@ export const changeDescription = value => ({
 
 export const changeShortDescription = value => ({
   type: CHANGE_SHORTDESCRIPTION,
+  value,
+});
+
+export const changeFrontTechnos= value => ({
+  type: CHANGE_FRONTTECHNOS,
+  value,
+});
+
+export const changeBackTechnos = value => ({
+  type: CHANGE_BACKTECHNOS,
+  value,
+});
+
+export const changeSkills = value => ({
+  type: CHANGE_SKILLS,
   value,
 });
 // == Selectors

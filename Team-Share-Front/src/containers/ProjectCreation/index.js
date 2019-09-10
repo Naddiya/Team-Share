@@ -7,8 +7,12 @@ import { changeProjectName } from 'src/store/reducer';
 import { changeStartDate } from 'src/store/reducer';
 import { changeEndDate } from 'src/store/reducer';
 import { changeProjectType } from 'src/store/reducer';
+import { changeCollabNumber } from 'src/store/reducer';
 import { changeDescription } from 'src/store/reducer';
 import { changeShortDescription } from 'src/store/reducer';
+import { changeFrontTechnos } from 'src/store/reducer';
+import { changeBackTechnos } from 'src/store/reducer';
+import { changeSkills } from 'src/store/reducer';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -33,12 +37,28 @@ const mapDispatchToProps = (dispatch) => ({
         const action = changeProjectType(value);
         dispatch(action);
     },
+    changeInputCollabNumber: value => {
+        const action = changeCollabNumber(value);
+        dispatch(action);
+    },
     changeInputDescription: value => {
         const action = changeDescription(value);
         dispatch(action);
     },
     changeInputShortDescription: value => {
         const action = changeShortDescription(value);
+        dispatch(action);
+    },
+    changeInputFrontTechnos: value => {
+        const action = changeFrontTechnos(value);
+        dispatch(action);
+    },
+    changeInputBackTechnos: value => {
+        const action = changeBackTechnos(value);
+        dispatch(action);
+    },
+    changeSkills: value => {
+        const action = changeSkills(value);
         dispatch(action);
     },
 });

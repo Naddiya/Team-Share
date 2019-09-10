@@ -8,39 +8,39 @@ import PropTypes from 'prop-types';
 import './projectcreation.scss';
 
 const technosFront = [
-    { key: 'af', value: 'af', text: 'HTML' },
-    { key: 'ax', value: 'ax', text: 'CSS' },
-    { key: 'al', value: 'al', text: 'Javascript' },
-    { key: 'at', value: 'al', text: 'React' },
+    { key: 'af', value: 'html', text: 'HTML' },
+    { key: 'ax', value: 'css', text: 'CSS' },
+    { key: 'al', value: 'js', text: 'Javascript' },
+    { key: 'at', value: 'react', text: 'React' },
 ]
 
 const technosBack = [
-    { key: 'az', value: 'al', text: 'PHP' },
-    { key: 'aw', value: 'al', text: 'Symfony' },
-    { key: 'av', value: 'al', text: 'Lumen' },
-    { key: 'am', value: 'al', text: 'Twig' },
+    { key: 'az', value: 'php', text: 'PHP' },
+    { key: 'aw', value: 'symfo', text: 'Symfony' },
+    { key: 'av', value: 'lum', text: 'Lumen' },
+    { key: 'am', value: 'twig', text: 'Twig' },
 ]
 
-const skills = [
-    { key: 'af', value: 'af', text: 'Gestion de projet' },
-    { key: 'ax', value: 'ax', text: 'Management' },
-    { key: 'al', value: 'al', text: 'Community Management' },
-    { key: 'ah', value: 'al', text: 'Finance' },
-    { key: 'ag', value: 'al', text: 'Git' },
+const skillsList = [
+    { key: 'af', value: 'gestproj', text: 'Gestion de projet' },
+    { key: 'ax', value: 'manag', text: 'Management' },
+    { key: 'al', value: 'cm', text: 'Community Management' },
+    { key: 'ah', value: 'finance', text: 'Finance' },
+    { key: 'ag', value: 'git', text: 'Git' },
 ]
 
 const collabs = [
-    { key: 'bc', value: 'af', text: '1' },
-    { key: 'bg', value: 'ax', text: '2' },
-    { key: 'bj', value: 'al', text: '3' },
-    { key: 'bk', value: 'al', text: '4' },
+    { key: 'bc', value: '1', text: 1 },
+    { key: 'bg', value: '2', text: 2 },
+    { key: 'bj', value: '3', text: 3 },
+    { key: 'bk', value: '4', text: 4 },
 ]
 
 const projType = [
-    { key: 'cc', value: 'af', text: 'Développement web' },
-    { key: 'cg', value: 'ax', text: 'Développement software' },
-    { key: 'cj', value: 'al', text: 'Pyjama party' },
-    { key: 'ck', value: 'al', text: 'Octoberfest' },
+    { key: 'cc', value: 'devweb', text: 'Développement web' },
+    { key: 'cg', value: 'devsoft', text: 'Développement software' },
+    { key: 'cj', value: 'pyj', text: 'Pyjama party' },
+    { key: 'ck', value: 'oct', text: 'Octoberfest' },
 ]
 
 // == Composant
@@ -50,8 +50,12 @@ const ProjectCreation = (
         changeInputStartDate,
         changeInputEndDate,
         changeInputProjectType,
+        changeInputCollabNumber,
         changeInputDescription,
         changeInputShortDescription,
+        changeInputFrontTechnos,
+        changeInputBackTechnos,
+        changeSkills,
     }
     ) => {
     
@@ -70,9 +74,14 @@ const ProjectCreation = (
         changeInputEndDate(value);
     };
 
-    const handleChangeProjectType = (e) => {
-        const { value } = e.target;
+    const handleChangeProjectType = (e, options) => {
+        const { value } = options;
         changeInputProjectType(value);
+    };
+
+    const handleChangeCollabNumber = (e, options) => {
+        const { value } = options;
+        changeInputCollabNumber(value);
     };
 
     const handleChangeDescription = (e) => {
@@ -85,6 +94,20 @@ const ProjectCreation = (
         changeInputShortDescription(value);
     };
 
+    const handleChangeFrontTechnos = (e, options) => {
+        const { value } = options;
+        changeInputFrontTechnos(value);
+    };
+
+    const handleChangeBackTechnos = (e, options) => {
+        const { value } = options;
+        changeInputBackTechnos(value);
+    };
+
+    const handleChangeSkills = (e, options) => {
+        const { value } = options;
+        changeSkills(value);
+    };
     return (
         <div className="project">
             <div className="project-heading">
@@ -100,28 +123,24 @@ const ProjectCreation = (
                     <h3 className="input-title">Type de projet</h3>
                     <Select onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
                     <h3 className="input-title">Nombre de collaborateurs souhaité</h3>
-                    <Select placeholder='Choisir' options={collabs} />
+                    <Select onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs} />
                     <h3 className="input-title">Description en quelques mots</h3>
                     <Input onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
                 </div>
                 <img src="src/assets/teamPic.png" />
-            </div>  
+            </div>
             <Divider />
             <h2>Les technos</h2>
             <div className="project-technos">
-                <Select placeholder='Choisir' options={technosFront
+                <Select onChange={handleChangeFrontTechnos} placeholder='Choisir' options={technosFront
                 } />
-                <Select placeholder='Choisir'  options={technosBack
+                <Select onChange={handleChangeBackTechnos} placeholder='Choisir'  options={technosBack
                 } />
             </div>  
             <h2>Compétences subsidiaires</h2>
             <Divider />
             <div className="project-skills">
-                <Select placeholder='Choisir'  options={skills
-                } />
-                <Select placeholder='Choisir' options={skills
-                } />
-                <Select placeholder='Choisir' options={skills
+                <Select onChange={handleChangeSkills} placeholder='Choisir'  options={skillsList
                 } />
             </div> 
             <Divider />
@@ -163,6 +182,10 @@ ProjectCreation.propTypes = {
     changeInputProjectType: PropTypes.func.isRequired,
     changeInputDescription: PropTypes.func.isRequired,
     changeInputShortDescription: PropTypes.func.isRequired,
+    changeInputCollabNumber: PropTypes.func.isRequired,
+    changeInputFrontTechnos: PropTypes.func.isRequired,
+    changeInputBackTechnos: PropTypes.func.isRequired,
+    changeSkills: PropTypes.func.isRequired,
 }
 
 // == Export
