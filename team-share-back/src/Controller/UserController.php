@@ -14,13 +14,15 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-
+/**
+ * @Route("/user", name="user",)
+ */
 class UserController extends AbstractController
 {
     /**
-     * @Route("/signin", name="signin", methods={"POST"})
+     * @Route("/register", name="_register", methods={"POST"})
      */
-    public function signin(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, RoleRepository $roleRepository)
+    public function register(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, RoleRepository $roleRepository)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
@@ -46,7 +48,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}", name="user_show", methods={"GET"})
+     * @Route("/{id}", name="_show", methods={"GET"}, requirements={"id": "\d+"})
      */
     public function show(UserRepository $userRepository, $id)
     {
