@@ -12,7 +12,7 @@ const Home = () => (
 
       <div className="welcome">
         <h1 className="welcome-title">Bienvenue chez Team-Share !</h1>
-        <p className="welcome-subtitle">Première plateforme d'appel à projets collaboratifs en France</p>
+        <p className="welcome-subtitle">Première plateforme d'appel à projets collaboratifs en France.</p>
 
         <div className="welcome-buttons">
           <NavLink to="/project-creation"><button className="welcome-buttons-button cta-button">Lancez-vous !</button></NavLink>

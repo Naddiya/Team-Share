@@ -53,9 +53,38 @@
 }
 
 @media (max-width: 750px) {
-   .main-container {
-       display: block;
-   }
+    .main-container {
+        display: block;
+        width: 100vw;
+        margin-top: 0rem;
+        margin-bottom:0rem;
+    }
+    .welcome {
+        text-align: left;
+        &-title {
+            font-size: 1.7em;
+        }
+        &-subtitle {
+            width:100%;
+            font-size: 1.1em;
+            padding: 1rem;
+        }
+    
+        &-buttons {
+            width:80%;
+            display:flex;
+            justify-content: space-around;
+    
+            &-button {
+                padding: .8rem 2rem;
+                margin-left: 0;
+                background-color: $yankees-blue;
+                font-size: 1rem;
+            }
+        }
+    }
+    .team-pic {
+        display:none;
+    }
+}
 
-   
-  }
