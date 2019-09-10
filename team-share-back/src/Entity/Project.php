@@ -50,12 +50,12 @@ class Project
     private $updatedAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=25, nullable=true)
      */
     private $startedAt;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="string", length=25, nullable=true)
      */
     private $finishedAt;
 
@@ -106,22 +106,22 @@ class Project
     private $statut;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Techno", inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Techno", inversedBy="projects", cascade={"persist"})
      */
     private $technos;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Skill", inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Skill", inversedBy="projects", cascade={"persist"})
      */
     private $skills;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="projects", cascade={"persist"})
      */
     private $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projects", cascade={"persist"})
      */
     private $users;
 
@@ -138,9 +138,6 @@ class Project
     public function __construct()
     {
         $this->createdAt = new DateTime();
-        $this->updatedAt = new DateTime();
-        $this->startedAt = new DateTime();
-        $this->finishedAt = new DateTime();
         $this->isActive = true;
         $this->isSleep = false;
         $this->technos = new ArrayCollection();
@@ -228,24 +225,24 @@ class Project
         return $this;
     }
 
-    public function getStartedAt(): ?\DateTimeInterface
+    public function getStartedAt(): ?string
     {
         return $this->startedAt;
     }
 
-    public function setStartedAt(\DateTimeInterface $startedAt): self
+    public function setStartedAt(string $startedAt): self
     {
         $this->startedAt = $startedAt;
 
         return $this;
     }
 
-    public function getFinishedAt(): ?\DateTimeInterface
+    public function getFinishedAt(): ?string
     {
         return $this->finishedAt;
     }
 
-    public function setFinishedAt(?\DateTimeInterface $finishedAt): self
+    public function setFinishedAt(string $finishedAt): self
     {
         $this->finishedAt = $finishedAt;
 

@@ -61,7 +61,7 @@ class ProjectRepository extends ServiceEntityRepository
                 ->leftJoin('p.statut', 'st')
                 ->leftJoin('p.comments', 'c')
                 ->leftJoin('p.users', 'u')
-                ->addSelect('t', 'th', 's', 'u.username', 'st', 'c');
+                ->addSelect('t', 'th', 's', 'u', 'st', 'c');
                 
   
       return $qb->getQuery()->getArrayResult();

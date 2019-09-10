@@ -116,7 +116,7 @@ class AppFixtures extends Fixture
         // table "statut"
         $populator->addEntity(Statut::class, 3, [
             'name' => function () use ($generator) {
-                return $generator->randomElement(['Not Start', 'In Progress', 'Finished']);
+                return $generator->unique()->randomElement(['Not Start', 'In Progress', 'Finished']);
             },
         ]);
 
@@ -134,8 +134,6 @@ class AppFixtures extends Fixture
             'image' => function () use ($generator) {
                 return $generator->imageUrl($width = 600, $height = 600, 'business');
             },
-            //'startedAt' => function() use ($generator) { return $generator->dateTime($max = 'now', $timezone = 'Europe/Paris');},
-            //'finishedAt' => function() use ($generator) { return $generator->dateTime($max = 'now', $timezone = 'Europe/Paris');},
             'nbCollaborator' => function () use ($generator) {
                 return $generator->numberBetween($min = 1, $max = 10);
             },
