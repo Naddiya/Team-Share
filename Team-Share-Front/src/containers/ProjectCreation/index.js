@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import ProjectCreation from 'src/components/ProjectCreation';
-import { changeProjectName } from 'src/store/reducer';
-import { changeStartDate } from 'src/store/reducer';
-import { changeEndDate } from 'src/store/reducer';
-import { changeProjectType } from 'src/store/reducer';
-import { changeCollabNumber } from 'src/store/reducer';
-import { changeDescription } from 'src/store/reducer';
-import { changeShortDescription } from 'src/store/reducer';
-import { changeFrontTechnos } from 'src/store/reducer';
-import { changeBackTechnos } from 'src/store/reducer';
-import { changeSkills } from 'src/store/reducer';
+import { 
+    changeProjectName,
+    changeStartDate,
+    changeEndDate,
+    changeProjectType,
+    changeCollabNumber,
+    changeDescription,
+    changeShortDescription,
+    changeFrontTechnos,
+    changeBackTechnos,
+    changeSkills,
+    } from 'src/store/reducer';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
