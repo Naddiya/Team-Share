@@ -33,7 +33,7 @@ class AppFixtures extends Fixture
 
         // REMPLIT LES TABLES SIMPLES
 
-        // table role
+        // table "role"
         $populator->addEntity(
             Role::class,
             2,
@@ -52,7 +52,7 @@ class AppFixtures extends Fixture
             ]
         );
 
-        // table user
+        // table "user"
         $populator->addEntity(
             User::class,
             10,
@@ -113,14 +113,14 @@ class AppFixtures extends Fixture
             ]
         );
 
-        // table statut
+        // table "statut"
         $populator->addEntity(Statut::class, 3, [
             'name' => function () use ($generator) {
                 return $generator->randomElement(['Not Start', 'In Progress', 'Finished']);
             },
         ]);
 
-        // table project
+        // table "project"
         $populator->addEntity(Project::class, 10, [
             'title' => function () use ($generator) {
                 return ($generator->catchPhrase());
@@ -160,28 +160,28 @@ class AppFixtures extends Fixture
 
         ]);
 
-        // table techno
+        // table "techno"
         $populator->addEntity(Techno::class, 20, [
             'name' => function () use ($generator) {
                 return $generator->unique()->word();
             },
         ]);
 
-        // table skill
+        // table "skill"
         $populator->addEntity(Skill::class, 20, [
             'name' => function () use ($generator) {
                 return $generator->unique()->word();
             },
         ]);
 
-        // table tag
+        // table "tag"
         $populator->addEntity(Tag::class, 10, [
             'name' => function () use ($generator) {
                 return $generator->unique()->word();
             },
         ]);
 
-        // table comment
+        // table "comment"
         $populator->addEntity(Comment::class, 30, [
             'content' => function () use ($generator) {
                 return ($generator->realText($maxNbChars = 100, $indexSize = 2));
@@ -189,7 +189,7 @@ class AppFixtures extends Fixture
             'isActive' => 1,
         ]);
 
-        // table request
+        // table "request"
         $populator->addEntity(Request::class, 10, [
             'title' => function () use ($generator) {
                 return ($generator->catchPhrase());
@@ -206,7 +206,7 @@ class AppFixtures extends Fixture
 
         // REMPLIT LES TABLES DE RELATIONS "MANY TO MANY"
 
-        // table project_tag
+        // table "project_tag"
         $projects = $inserted[Project::class];
         $tags = $inserted[Tag::class];
 
@@ -220,7 +220,7 @@ class AppFixtures extends Fixture
             $manager->persist($project);
         }
 
-        // table project_techno
+        // table "project_techno"
         $technos = $inserted[Techno::class];
 
         foreach ($projects as $project){
@@ -232,7 +232,7 @@ class AppFixtures extends Fixture
             $manager->persist($project);
         }
 
-        // table project_skill
+        // table "project_skill"
         $skills = $inserted[Skill::class];
 
         foreach ($projects as $project) {
@@ -244,8 +244,7 @@ class AppFixtures extends Fixture
             $manager->persist($project);
         }
 
-        // table project_user
-
+        // table "project_user"
         $users = $inserted[User::class];
 
         foreach ($projects as $project) {
@@ -257,7 +256,7 @@ class AppFixtures extends Fixture
             $manager->persist($project);
         }
 
-        // table user_skill
+        // table "user_skill"
         $users = $inserted[User::class];
         $skills = $inserted[Skill::class];
 
@@ -270,7 +269,7 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
 
-        // table user_techno
+        // table "user_techno"
         $technos = $inserted[Techno::class];
 
         foreach ($users as $user) {

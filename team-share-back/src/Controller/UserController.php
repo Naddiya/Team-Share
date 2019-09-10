@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 class UserController extends AbstractController
@@ -19,12 +20,16 @@ class UserController extends AbstractController
   /**
    * @Route("/signin", name="signin")
    */
-  public function signin(Request $request, EntityManagerInterface $entityManager, SerializerInterface $serializer, RoleRepository $roleRepository)
+  public function signin(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, RoleRepository $roleRepository)
   {
     // Récupére le contenu du json reçu
     $jsonContent = $request->getContent();
     // Déserialize le json et crée un objet User avec les propriétés du json reçu
     $newUserObject = $serializer->deserialize($jsonContent, User::class, 'json');
+
+    // Encode le password
+    $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getUsername());
+    $newUserObject->setPassword($encodedPassword);
 
     // Récupère l'objet Role "USER" et l'attribut par défaut
     $role = $roleRepository->findOneBy(['name' => 'USER']);
