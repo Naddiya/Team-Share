@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import './navbar.scss';
+import LoginModal from 'src/components/Login/';
 
 
 const customStyles = {
@@ -130,9 +131,7 @@ const NavBar = ({ logged }) => {
             {logged && <NavLink to="/profile" className="navbar-link">Mon Profil</NavLink>}
           </li>
           <li>
-            <button className="button-link">
-              <a href="#" className="button-link">Se connecter</a>
-            </button>
+            <LoginModal className="button-link-connect"/>
           </li>
           <li className="navbar-link">
             <button className= "button-link button-link-subscribe">

@@ -9,7 +9,9 @@ import Team from 'src/components/Team';
 import Profile from 'src/components/Profile';
 import Projects from 'src/components/Projects';
 import homeprojects from 'src/data/data.json';
-import ProjectCreation from 'src/components/ProjectCreation';
+import ProjectDetail from 'src/components/ProjectDetail';
+import LegalMentions from 'src/components/LegalMentions';
+
 
 
 // == Composant
@@ -26,11 +28,13 @@ const Page = () => (
     <Route path="/projects" render={() => (
       <Projects projects={homeprojects} />
     )} />
-    <Route path="/project-creation" render={() => (
-      <ProjectCreation />
+    <Route path="/projectdetail" render={() => (
+      <ProjectDetail />
+    )} />
+    <Route path="/legalmentions" render={() => (
+      <LegalMentions />
     )} />
   </>
 );
 
-// == Export
 export default Page;
