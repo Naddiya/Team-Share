@@ -196,7 +196,7 @@ class AppFixtures extends Fixture
                 return ($generator->realText($maxNbChars = 100, $indexSize = 2));
             },
             'statut' => function () use ($generator) {
-                return $generator->randomElement([null, 'In Progress', 'Validate']);
+                return $generator->randomElement([null, 'In Progress', 'Checked']);
             },
         ]);
 

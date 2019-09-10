@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -32,6 +33,11 @@ class Request
     private $statut;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $response;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -47,6 +53,11 @@ class Request
      * @ORM\JoinColumn(nullable=false)
      */
     private $project;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +96,18 @@ class Request
     public function setStatut(?string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getResponse(): ?bool
+    {
+        return $this->response;
+    }
+
+    public function setResponse(bool $response): self
+    {
+        $this->response = $response;
 
         return $this;
     }

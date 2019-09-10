@@ -20,7 +20,7 @@ class Project
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $title;
 
@@ -122,6 +122,7 @@ class Project
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projects", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $users;
 
