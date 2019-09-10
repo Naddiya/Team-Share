@@ -48,14 +48,14 @@ const Projects = ({ projects }) => (
         <Select placeholder='Compétences' options={skills} />
         <Input icon='search' placeholder='Recherche...' />
         </div>
-        <Divider />
+        <Divider className="project-container-divider1"/>
         <div className="radio">
         <Radio toggle />
-        <h4>Afficher seulement les projets disponibles</h4>
+        <label>Projets disponibles</label>
         <Radio toggle /> 
-        <h4>Afficher seulement les projets suivis</h4>
+        <label>Projets suivis</label>
         </div>
-        <Divider />
+        <Divider className="project-container-divider2" />
         <Item.Group divided>
             {projects.map((project) => (
                 <ProjectList key={project.title} {...project} />
