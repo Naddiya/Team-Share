@@ -1,5 +1,5 @@
 DO, 0N TECHNO, 0N USER
-USER : id, firstname, lastname, password, jobTitle, mail, city, phone, score, photo, description, urlFacebook, urlTwitter, urlGithub, urlLinkedin, isActive
+USER : id, username, firstname, lastname, password, jobTitle, mail, city, phone, score, photo, description, urlFacebook, urlTwitter, urlGithub, urlLinkedin, isActive
 HAS, 11 USER, 0N ROLE
 ROLE : id, name, code
 
@@ -12,7 +12,7 @@ REQUEST BY, 0N USER, 11 REQUEST
 WANT, 0N TECHNO, 0N PROJECT
 SKILL : id, name
 COMMENT : id, content, createdAt, isActive
-REQUEST : id, createdAt, response, title, content
+REQUEST : id, createdAt, response, title, content, statut
 
 STATUT : id, name
 SEARCH, 0N SKILL, 0N PROJECT
@@ -21,6 +21,6 @@ REQUEST TO, 0N PROJECT, 11 REQUEST
 
 
 IS, 11 PROJECT, 0N STATUT
-PROJECT : id, title, description, content, image, createdAt, updatedAt, startedAt, finishedAt, nbCollaborator, isActived, nbLike, urlFacebook, urlTwitter, urlGithub, urlInsta, urlTipeee
+PROJECT : id, title, description, content, image, createdAt, updatedAt, startedAt, finishedAt, nbCollaborator, isActive, isSleep, nbLike, urlFacebook, urlTwitter, urlGithub, urlTipeee
 RELATED TO, 0N PROJECT, 0N TAG
 TAG : id, name
