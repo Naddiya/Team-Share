@@ -3,7 +3,7 @@ USER : id, username, firstname, lastname, password, jobTitle, mail, city, phone,
 HAS, 11 USER, 0N ROLE
 ROLE : id, name, code
 
-TECHNO : id, name
+TECHNO : id, name, type
 CAN DO, 0N SKILL, 0N USER
 WRITE, 0N USER, 11 COMMENT
 REQUEST BY, 0N USER, 11 REQUEST

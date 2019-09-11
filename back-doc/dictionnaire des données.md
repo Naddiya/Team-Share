@@ -105,6 +105,7 @@
 |-|-|-|-|
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de la techno|
 |name|VARCHAR(100)|NOT NULL, UNIQUE|Le nom de la techno|
+|type|VARCHAR(100)|NOT NULL|Le type de la techno (front, back...|
 |projects|entity|NULL|Les projets qui recherchent cette techno|
 |users|entity|NULL|Les utilisateurs qui possédent cette techno|
 
