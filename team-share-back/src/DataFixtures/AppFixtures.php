@@ -163,6 +163,9 @@ class AppFixtures extends Fixture
             'name' => function () use ($generator) {
                 return $generator->unique()->word();
             },
+            'type' => function () use ($generator) {
+                return $generator->randomElement(['front', 'back']);
+            },
         ]);
 
         // table "skill"
