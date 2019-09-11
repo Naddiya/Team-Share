@@ -8,22 +8,15 @@ import './subscribe.scss';
 
 const SubscribeModal = (
   {
-    identification,
     email,
     password,
     phoneNumber,
-    changeInputIdentification,
     changeInputEmail,
     changeInputPassword,
     changeInputPasswordConfirmation,
     changeInputPhoneNumber,
   }
   ) => {
-
-    const handleChangeIdentification = (e) => {
-      const { value } = e.target;
-      changeInputIdentification(value);
-    };
 
     const handleChangeEmail = (e) => {
       const { value } = e.target;
@@ -46,7 +39,7 @@ const SubscribeModal = (
     };
 
     const handleSubmit = (e) => {
-      axios.post('/subscribe', {
+      axios.post('/user', {
         identification,
         email,
         password,
@@ -65,7 +58,6 @@ const SubscribeModal = (
       <Header icon='user secret' content="S'inscrire" />
       <Form onSubmit={handleSubmit} >
       <Modal.Content>
-        <Form.Input onChange={handleChangeIdentification} value={identification} label='Identifiant' placeholder='Identifiant' type='text' />
         <Form.Input onChange={handleChangeEmail} label='Email' placeholder='joe@mail.com' type='email' />
         <Form.Input onChange={handleChangePassword} label='Mot de passe' placeholder="Mot de passe" type='password' />
         <Form.Input onChange={handleChangePasswordConfirmation} label='Confirmation' placeholder="Confirmation du mot de passe" type='password' />
@@ -82,8 +74,6 @@ const SubscribeModal = (
 };
 
 SubscribeModal.propTypes = {
-  identification: PropTypes.string.isRequired,
-  changeInputIdentification: PropTypes.func.isRequired,
   changeInputEmail: PropTypes.func.isRequired,
   changeInputPassword: PropTypes.func.isRequired,
   changeInputPasswordConfirmation: PropTypes.func.isRequired,

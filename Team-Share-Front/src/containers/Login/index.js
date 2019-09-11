@@ -2,13 +2,8 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import Subscribe from 'src/components/Subscribe';
-import { 
-    changeEmail,
-    changePassword,
-    changePasswordConfirmation,
-    changePhoneNumber,
-    } from 'src/store/reducer';
+import Login from 'src/components/Login';
+import { changeEmail, changePassword } from 'src/store/reducer';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -25,22 +20,14 @@ const mapDispatchToProps = (dispatch) => ({
         const action = changePassword(value);
         dispatch(action);
     },
-    changeInputPasswordConfirmation: (value) => {
-        const action = changePasswordConfirmation(value);
-        dispatch(action);
-    },
-    changeInputPhoneNumber: (value) => {
-        const action = changePhoneNumber(value);
-        dispatch(action);
-    },
 });
 
 // Container
-const SubscribeContainer = connect(
+const LoginContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Subscribe);
+)(Login);
 
 // == Export
-export default SubscribeContainer;
+export default LoginContainer;
 

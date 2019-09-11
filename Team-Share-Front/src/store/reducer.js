@@ -13,7 +13,6 @@ const initialState = {
   skills: '',
   // === Subscribe props ===
   logged: false,
-  identification: '',
   email: '',
   password: '',
   passwordConfirmation: '',
@@ -31,7 +30,6 @@ export const CHANGE_COLLABNUMBER = 'CHANGE_COLLABNUMBER';
 export const CHANGE_FRONTTECHNOS = 'CHANGE_FRONTTECHNOS';
 export const CHANGE_BACKTECHNOS = 'CHANGE_BACKTECHNOS';
 export const CHANGE_SKILLS = 'CHANGE_SKILLS';
-export const CHANGE_IDENTIFICATION = 'CHANGE_IDENTIFICATION';
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const CHANGE_PASSWORDCONFIRM = 'CHANGE_PASSWORDCONFIRM';
@@ -92,11 +90,6 @@ const reducer = (state = initialState, action = {}) => {
         skills: action.value,
       };
     /* === SUBSCRIBE ACTIONS === */
-    case CHANGE_IDENTIFICATION:
-      return {
-        ...state,
-        identification: action.value,
-      };
     case CHANGE_EMAIL:
       return {
         ...state,
