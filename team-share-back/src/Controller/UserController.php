@@ -34,7 +34,7 @@ class UserController extends AbstractController
         $newUserObject->setPassword($encodedPassword);
 
         // Récupère l'objet Role "USER" et l'attribut par défaut
-        $role = $roleRepository->findOneBy(['name' => 'USER']);
+        $role = $roleRepository->findOneBy(['code' => 'USER']);
         $newUserObject->setRole($role);
 
         // Enregistre le nouvel utilisateur en bdd

@@ -15,10 +15,12 @@ use App\Entity\Request;
 use Faker\ORM\Doctrine\Populator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\DataFixtures\Provider;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+
     private $encoder;
     public function __construct(UserPasswordEncoderInterface $encoder)
     {
@@ -28,6 +30,10 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $generator = Factory::create('fr_FR');
+
+        // Ajout provider custom Provider 
+        $generator->addProvider(new Provider($generator));
+
         $populator = new Populator($generator, $manager);
 
 
@@ -40,14 +46,18 @@ class AppFixtures extends Fixture
             [
                 'code' => function () use ($generator) {
                     return $generator->unique()->randomElement(['ADMIN', 'USER']);
-                },
+                }
             ],
             [
                 // Fonction de callbacks custom appelée sur l'objet en cours de création
                 function ($currentRole) {
                     // Le nom du rôle sera égal à son code pour simplifier
-                    $code = $currentRole->getCode();
-                    $currentRole->setName($code);
+                    $codeRole = $currentRole->getCode();
+                    if ($codeRole === 'ADMIN') {
+                        $currentRole->setName('Administrateur');
+                    } else {
+                        $currentRole->setName('Utilisateur');
+                    };
                 }
             ]
         );
@@ -61,7 +71,7 @@ class AppFixtures extends Fixture
                     return ($generator->userName());
                 },
                 'firstname' => function () use ($generator) {
-                    return ($generator->firstNameMale());
+                    return ($generator->firstName());
                 },
                 'lastname' => function () use ($generator) {
                     return ($generator->lastName());
@@ -101,8 +111,6 @@ class AppFixtures extends Fixture
                 },
                 'isActive' => 1,
             ],
-
-
             [
                 // Fonction de callbacks custom appelée sur l'objet en cours de création
                 function ($currentUser) {
@@ -123,7 +131,7 @@ class AppFixtures extends Fixture
         // table "project"
         $populator->addEntity(Project::class, 10, [
             'title' => function () use ($generator) {
-                return ($generator->catchPhrase());
+                return ($generator->unique()->projectTitle());
             },
             'description' => function () use ($generator) {
                 return ($generator->realText($maxNbChars = 100, $indexSize = 2));
@@ -140,6 +148,8 @@ class AppFixtures extends Fixture
             'isActive' => 1,
             'isSleep' => 0,
             'updatedAt' => null,
+            'startedAt' => 'Le plus vite possible',
+            'finishedAt' => 'Fin 2020',
             'nbLike' => function () use ($generator) {
                 return $generator->numberBetween($min = 0, $max = 1000);
             },
@@ -159,26 +169,43 @@ class AppFixtures extends Fixture
         ]);
 
         // table "techno"
-        $populator->addEntity(Techno::class, 20, [
+        $populator->addEntity(Techno::class, 16, [
             'name' => function () use ($generator) {
-                return $generator->unique()->word();
+                return $generator->unique()->technoName();
             },
-            'type' => function () use ($generator) {
-                return $generator->randomElement(['front', 'back']);
-            },
+            // 'type' => function () use ($generator) {
+            //     return $generator->randomElement(['front', 'back']);
+            // },
+        ],
+        [
+            function ($currentTechno) {
+                $technoName = $currentTechno->getName();
+                if ($technoName === 'HTML' ||
+                    $technoName === 'CSS' ||
+                    $technoName === 'Bootstrap' ||
+                    $technoName === 'Javascript' ||
+                    $technoName === 'Angular' ||
+                    $technoName === 'Bulma' ||
+                    $technoName === 'React' ||
+                    $technoName === 'jQuery') {
+                    $currentTechno->setType('front');
+                } else {
+                    $currentTechno->setType('back');
+                };
+            }
         ]);
-
+       
         // table "skill"
-        $populator->addEntity(Skill::class, 20, [
+        $populator->addEntity(Skill::class, 10, [
             'name' => function () use ($generator) {
-                return $generator->unique()->word();
+                return $generator->unique()->skillName();
             },
         ]);
 
         // table "tag"
         $populator->addEntity(Tag::class, 10, [
             'name' => function () use ($generator) {
-                return $generator->unique()->word();
+                return $generator->unique()->tagName();
             },
         ]);
 
@@ -204,6 +231,7 @@ class AppFixtures extends Fixture
         ]);
 
         $inserted = $populator->execute();
+
 
         // REMPLIT LES TABLES DE RELATIONS "MANY TO MANY"
 
