@@ -16,11 +16,23 @@ const LoginModal = ({ changeInputEmail, changeInputPassword }) => {
     const { value } = e.target;
     changeInputPassword(value);
   };
-
+  
+  const handleSubmit = (e) => {
+    axios.post('/user', {
+      email,
+      password,
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
   return (
     <Modal size="small" trigger={<button className="button-link button-link-connect">Se connecter</button>} closeIcon>
       <Header icon='user secret' content='Se connecter' />
-      <Form>
+      <Form onSubmit={handleSubmit} >
       <Modal.Content>
         <Form.Input onChange={handleChangeEmail} label='Email' placeholder='joe@schmoe.com' type='email' />
         <Form.Input onChange={handleChangePassword} label='Login' placeholder="your password" type='password' />
