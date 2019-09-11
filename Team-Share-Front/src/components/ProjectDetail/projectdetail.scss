@@ -2,16 +2,17 @@
 
 
 .project {
-  width:100%;
-  margin:auto;
+  width:100vw;
+  // margin:auto;
 
   &-title, &-presentation, &-team, &-description {
-    border-top : solid grey 1px;
     padding : 2rem;
     & h1 {
       text-align : center;
       color: $easy-blue;
       font-size: 2em;
+      padding-bottom:1rem;
+      border-bottom : solid lightgrey 1px;
     }
     & p {
       text-align:center;
@@ -24,7 +25,7 @@
     flex-direction: row;
     justify-content: space-between;
     &-content{
-      width:80%;
+      width:90%;
       align-self: flex-end;
       &-icons, &-text, &-progress {
         width:80%;
