@@ -14,7 +14,6 @@ const Footer = () => (
           <div className="footer-upper-links">
             <h3>Navigation</h3>
               <ul>
-                <li><NavLink to="/about">About</NavLink></li>
                 <li><NavLink exact to="/">Accueil</NavLink></li>
                 <li><NavLink to="/projects">Projets</NavLink></li>
                 <li><NavLink to="/subscribe">S'inscire</NavLink></li>

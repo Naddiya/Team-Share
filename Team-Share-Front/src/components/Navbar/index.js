@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 // == Import : local
 import './navbar.scss';
 import LoginModal from 'src/components/Login';
-import SubscribeModal from 'src/components/Subscribe';
+import SubscribeModal from 'src/containers/Subscribe';
 
 
 
