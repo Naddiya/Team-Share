@@ -127,3 +127,39 @@
 #### À Suivre
 >* Front : inté suite
 >* Back : json correspondant aux vues
+
+---
+# 10/09/2019 - J8 - Sprint 0
+>* Préparation des requêtes ajax pour la page nouveau-Projet: traitement et enregistrement en Bdd.
+>* Contrôle des champs de la page nouveau-projet
+>* Responsive design 
+#### Infos individuelles
+>## Julien :
+> Préparation des requête (traitement en enregistrement en Bdd) 
+>## Alexis :
+> Controle des champs de la page nouveau-projet
+>## Alexandre :
+> Préparation des requête (traitement en enregistrement en Bdd) 
+>## Nadia :
+> responsiv design
+#### À Suivre
+>* Front : responsiv + middleware + controle des modales
+>* Back : Deploiement
+
+---
+# 11/09/2019 - J9 - Sprint 0
+>* Déploiement
+>* controle des modals + middlware
+>* Responsive design 
+#### Infos individuelles
+>## Julien :
+> Déploiement
+>## Alexis :
+> contole modals + middlware
+>## Alexandre :
+> Déploiement
+>## Nadia :
+> responsiv design +
+#### À Suivre
+>* Front : connexion au back
+>* Back : connexion au front
