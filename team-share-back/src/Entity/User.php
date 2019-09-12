@@ -139,6 +139,7 @@ class User implements UserInterface, \Serializable
         $this->skills = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->requests = new ArrayCollection();
+        $this->username = $this->mail;
     }
 
     public function getSalt()

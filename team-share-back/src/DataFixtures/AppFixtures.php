@@ -67,9 +67,6 @@ class AppFixtures extends Fixture
             User::class,
             10,
             [
-                'username' => function () use ($generator) {
-                    return ($generator->userName());
-                },
                 'firstname' => function () use ($generator) {
                     return ($generator->firstName());
                 },
@@ -114,6 +111,9 @@ class AppFixtures extends Fixture
             [
                 // Fonction de callbacks custom appelée sur l'objet en cours de création
                 function ($currentUser) {
+                    // Récupère le mail du User crée et l'attribut en tant que username
+                    $currentUserMail = $currentUser->getMail();
+                    $currentUser->setUsername($currentUserMail) ;
                     // Je récupère le username de l'objet qui servira aussi de mot de passe
                     $encodedPassword = $this->encoder->encodePassword($currentUser, $currentUser->getUsername());
                     $currentUser->setPassword($encodedPassword);
