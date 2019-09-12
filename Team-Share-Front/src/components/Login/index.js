@@ -35,7 +35,7 @@ const LoginModal = ({ changeInputEmail, changeInputPassword }) => {
       <Form onSubmit={handleSubmit} >
       <Modal.Content>
         <Form.Input onChange={handleChangeEmail} label='Email' placeholder='joe@schmoe.com' type='email' />
-        <Form.Input onChange={handleChangePassword} label='Login' placeholder="your password" type='password' />
+        <Form.Input onChange={handleChangePassword} label='Mot de passe' placeholder="Mot de passe" type='password' />
       </Modal.Content>
       <Modal.Actions>
         <Button className="submit" color='green'>
