@@ -111,7 +111,7 @@
 >* Back : routes
 
 ---
-# 09/09/2019 - J7 - Sprint 0
+# 09/09/2019 - J7 - Sprint 1
 >* Intégration réstante : legal mentions, modale de connexion, detail d'un profil
 >* Correction des routes pour les wireframes dans la docs
 >* Json pour les inté faites
@@ -129,7 +129,7 @@
 >* Back : json correspondant aux vues
 
 ---
-# 10/09/2019 - J8 - Sprint 0
+# 10/09/2019 - J8 - Sprint 1
 >* Préparation des requêtes ajax pour la page nouveau-Projet: traitement et enregistrement en Bdd.
 >* Contrôle des champs de la page nouveau-projet
 >* Responsive design 
@@ -147,19 +147,39 @@
 >* Back : Deploiement
 
 ---
-# 11/09/2019 - J9 - Sprint 0
+# 11/09/2019 - J9 - Sprint 1
 >* Déploiement
 >* controle des modals + middlware
 >* Responsive design 
+>* Préparation des requêtes technos
 #### Infos individuelles
 >## Julien :
-> Déploiement
+> Préparation des requêtes technos + connexion front-back
 >## Alexis :
-> contole modals + middlware
+> contole modals + middlware + connexion front-back
 >## Alexandre :
-> Déploiement
+> Préparation des requêtes technos + connexion front-back
 >## Nadia :
-> responsiv design +
+> responsiv design + deploiement front
 #### À Suivre
->* Front : connexion au back
->* Back : connexion au front
+>* Presentation de l'avancée du projet à l'equipe pédagogique
+>* Responsive suite
+>* Regler les problemes de build (rendu différent sur le server)
+
+---
+# 12/09/2019 - J10 - Sprint 1
+>* Déploiement
+>* controle des modals + middlware
+>* Responsive design 
+>* Présentation 
+#### Infos individuelles
+>## Julien :
+> deploiement du back
+>## Alexis :
+> Présentation + controle des inputs avec redux
+>## Alexandre :
+> Déploiement back
+>## Nadia :
+> responsiv design + controle inputs 
+#### À Suivre
+>* Connexion back/front
