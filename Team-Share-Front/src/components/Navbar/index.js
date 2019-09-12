@@ -1,12 +1,13 @@
 // == Import : npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 // == Import : local
 import './navbar.scss';
-import LoginModal from 'src/components/Login';
-import SubscribeModal from 'src/components/Subscribe';
+import LoginModal from 'src/containers/Login';
+import SubscribeModal from 'src/containers/Subscribe';
 
 
 
@@ -38,5 +39,9 @@ const NavBar = ({ logged }) => {
     </div>
   );
 };
+
+NavBar.propTypes = {
+  logged: PropTypes.bool.isRequired,
+}
 
 export default NavBar;

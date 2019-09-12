@@ -1,6 +1,6 @@
 // == Initial State
 const initialState = {
-  logged: false,
+  // === ProjectCreation props ===
   projectName: '',
   startDate: 'DD/MM/YYYY',
   endDate: 'DD/MM/YYYY',
@@ -11,23 +11,38 @@ const initialState = {
   frontTechnos: '',
   backTechnos: '',
   skills: '',
+  // === Subscribe props ===
+  logged: true,
+  email: '',
+  password: '',
+  passwordConfirmation: '',
+  phoneNumber: 0,
 };
 
 // == Types
-const CHANGE_PROJECTNAME = 'CHANGE_PROJECTNAME';
-const CHANGE_STARTDATE = 'CHANGE_STARTDATE';
-const CHANGE_ENDDATE = 'CHANGE_ENDDATE';
-const CHANGE_PROJECTTYPE = 'CHANGE_PROJECTTYPE';
-const CHANGE_DESCRIPTION = 'CHANGE_DESCRIPTION';
-const CHANGE_SHORTDESCRIPTION = 'CHANGE_SHORTDESCRIPTION';
-const CHANGE_COLLABNUMBER = 'CHANGE_COLLABNUMBER';
-const CHANGE_FRONTTECHNOS = 'CHANGE_FRONTTECHNOS';
-const CHANGE_BACKTECHNOS = 'CHANGE_BACKTECHNOS';
-const CHANGE_SKILLS = 'CHANGE_SKILLS';
+// === PROJECT CREATION ACTION TYPES ===
+export const CHANGE_PROJECTNAME = 'CHANGE_PROJECTNAME';
+export const CHANGE_STARTDATE = 'CHANGE_STARTDATE';
+export const CHANGE_ENDDATE = 'CHANGE_ENDDATE';
+export const CHANGE_PROJECTTYPE = 'CHANGE_PROJECTTYPE';
+export const CHANGE_DESCRIPTION = 'CHANGE_DESCRIPTION';
+export const CHANGE_SHORTDESCRIPTION = 'CHANGE_SHORTDESCRIPTION';
+export const CHANGE_COLLABNUMBER = 'CHANGE_COLLABNUMBER';
+export const CHANGE_FRONTTECHNOS = 'CHANGE_FRONTTECHNOS';
+export const CHANGE_BACKTECHNOS = 'CHANGE_BACKTECHNOS';
+export const CHANGE_SKILLS = 'CHANGE_SKILLS';
+
+// === SUBSCRIBE ACTION TYPES ===
+export const CHANGE_EMAIL = 'CHANGE_EMAIL';
+export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+export const CHANGE_PASSWORDCONFIRM = 'CHANGE_PASSWORDCONFIRM';
+export const CHANGE_PHONENUMBER = 'CHANGE_PHONENUMBER';
+export const DO_SUBSCRIBE = 'DO_SUBSCRIBE';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    /* === PROJECT CREATION ACTIONS === */
     case CHANGE_PROJECTNAME:
       return {
         ...state,
@@ -78,12 +93,39 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         skills: action.value,
       };
+    /* === SUBSCRIBE & LOGIN ACTIONS === */
+    case CHANGE_EMAIL:
+      return {
+        ...state,
+        email: action.value,
+      };
+    case CHANGE_PASSWORD:
+      return {
+        ...state,
+        password: action.value,
+      };
+    case CHANGE_PASSWORDCONFIRM:
+      return {
+        ...state,
+        passwordConfirmation: action.value,
+      };
+    case CHANGE_PHONENUMBER:
+      return {
+        ...state,
+        phoneNumber: action.value,
+      }; 
+    case DO_SUBSCRIBE:
+      return {
+        ...state,
+        logged: true,
+      };    
     default:
       return state;
   }
 };
 
 // == Action Creators
+// === PROJECT CREATION ACTION CREATORS ===
 export const changeProjectName = value => ({
   type: CHANGE_PROJECTNAME,
   value,
@@ -132,6 +174,32 @@ export const changeBackTechnos = value => ({
 export const changeSkills = value => ({
   type: CHANGE_SKILLS,
   value,
+});
+
+// === SUBSCRIBE & LOGIN ACTION CREATORS ===
+
+export const changeEmail = value => ({
+  type: CHANGE_EMAIL,
+  value,
+});
+
+export const changePassword = value => ({
+  type: CHANGE_PASSWORD,
+  value,
+});
+
+export const changePasswordConfirmation = value => ({
+  type: CHANGE_PASSWORDCONFIRM,
+  value,
+});
+
+export const changePhoneNumber = value => ({
+  type: CHANGE_PHONENUMBER,
+  value,
+});
+
+export const doSubscribe = () => ({
+  type: DO_SUBSCRIBE,
 });
 // == Selectors
 
