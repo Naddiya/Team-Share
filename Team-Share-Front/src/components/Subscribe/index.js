@@ -2,19 +2,16 @@
 import React from 'react'
 import { Button, Header, Icon, Modal, Form } from 'semantic-ui-react'
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
-import './subscribe.scss';  
+import './subscribe.scss'; 
 
 const SubscribeModal = (
   {
-    email,
-    password,
-    phoneNumber,
     changeInputEmail,
     changeInputPassword,
     changeInputPasswordConfirmation,
     changeInputPhoneNumber,
+    sendSubscribe,
   }
   ) => {
 
@@ -39,19 +36,8 @@ const SubscribeModal = (
     };
 
     const handleSubmit = (e) => {
-      axios.post('/user', {
-        identification,
-        email,
-        password,
-        phoneNumber,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
+      sendSubscribe()
+    };
 
   return (
     <Modal size="small" trigger={<button className="button-link button-link-subscribe">S'inscrire</button>} closeIcon>

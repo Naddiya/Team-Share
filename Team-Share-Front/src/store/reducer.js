@@ -12,7 +12,7 @@ const initialState = {
   backTechnos: '',
   skills: '',
   // === Subscribe props ===
-  logged: false,
+  logged: true,
   email: '',
   password: '',
   passwordConfirmation: '',
@@ -20,6 +20,7 @@ const initialState = {
 };
 
 // == Types
+// === PROJECT CREATION ACTION TYPES ===
 export const CHANGE_PROJECTNAME = 'CHANGE_PROJECTNAME';
 export const CHANGE_STARTDATE = 'CHANGE_STARTDATE';
 export const CHANGE_ENDDATE = 'CHANGE_ENDDATE';
@@ -30,10 +31,13 @@ export const CHANGE_COLLABNUMBER = 'CHANGE_COLLABNUMBER';
 export const CHANGE_FRONTTECHNOS = 'CHANGE_FRONTTECHNOS';
 export const CHANGE_BACKTECHNOS = 'CHANGE_BACKTECHNOS';
 export const CHANGE_SKILLS = 'CHANGE_SKILLS';
+
+// === SUBSCRIBE ACTION TYPES ===
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const CHANGE_PASSWORDCONFIRM = 'CHANGE_PASSWORDCONFIRM';
 export const CHANGE_PHONENUMBER = 'CHANGE_PHONENUMBER';
+export const DO_SUBSCRIBE = 'DO_SUBSCRIBE';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -89,7 +93,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         skills: action.value,
       };
-    /* === SUBSCRIBE ACTIONS === */
+    /* === SUBSCRIBE & LOGIN ACTIONS === */
     case CHANGE_EMAIL:
       return {
         ...state,
@@ -109,6 +113,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         phoneNumber: action.value,
+      }; 
+    case DO_SUBSCRIBE:
+      return {
+        ...state,
+        logged: true,
       };    
     default:
       return state;
@@ -116,6 +125,7 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
+// === PROJECT CREATION ACTION CREATORS ===
 export const changeProjectName = value => ({
   type: CHANGE_PROJECTNAME,
   value,
@@ -166,12 +176,7 @@ export const changeSkills = value => ({
   value,
 });
 
-// === SUBSCRIBE MODAL ===
-
-export const changeIdentification = value => ({
-  type: CHANGE_IDENTIFICATION,
-  value,
-});
+// === SUBSCRIBE & LOGIN ACTION CREATORS ===
 
 export const changeEmail = value => ({
   type: CHANGE_EMAIL,
@@ -193,6 +198,9 @@ export const changePhoneNumber = value => ({
   value,
 });
 
+export const doSubscribe = () => ({
+  type: DO_SUBSCRIBE,
+});
 // == Selectors
 
 

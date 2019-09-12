@@ -8,6 +8,7 @@ import {
     changePassword,
     changePasswordConfirmation,
     changePhoneNumber,
+    doSubscribe,
     } from 'src/store/reducer';
 
 /* === State (données) === */
@@ -31,6 +32,10 @@ const mapDispatchToProps = (dispatch) => ({
     },
     changeInputPhoneNumber: (value) => {
         const action = changePhoneNumber(value);
+        dispatch(action);
+    },
+    sendSubscribe: () => {
+        const action = doSubscribe();
         dispatch(action);
     },
 });
