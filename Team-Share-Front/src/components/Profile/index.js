@@ -10,12 +10,14 @@ import Projects from './projects';
 // == Composant
 const Profile = ({ projects }) => (
   <div className="profile">
-    <div className="profile-headpic" />
+    <div className="profile-headpic">
+    <img src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
+    </div>
     <div className="select">
         <div className="select-left">
-            <div className="select-left-picture">
+            {/* <div className="select-left-picture">
                 <img src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
-            </div>
+            </div> */}
             <div className="select-left-contact">
                 <IoIosContact />
                 <span>adresse.mail@mail.com</span>
