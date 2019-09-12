@@ -11,17 +11,19 @@
 .input {
     margin-left: 4em;
 }
-.ui.fitted.toggle.checkbox {
-    margin: 1em 0;
-}
+
 .radio {
-    display: flex;
-    margin: 2em 0;
+    margin-top:2rem;
+    display:flex;
+    justify-content: space-around;
+        &-left, &-right {
+            display:flex;
+        }
+        &-label {
+            margin-left:0.5rem;
+        }
 }
 
-h4 {
-    margin: 1em 2em; 
-}
 
 .item-follow {
     font-weight: 400;
@@ -65,21 +67,24 @@ h4 {
         padding:0!important;
         }
 
-    .ui.fitted.toggle.checkbox {
-        margin: 0;
-    }
     .radio {
-        margin:0em;
-        display: flex;
-        justify-content: space-between;
-        vertical-align: middle;
-    }
-    label {
-        font-size:0.8em;
-        margin-bottom:0;
+        margin-top:2rem;
+        display:flex;
+        justify-content: space-around;
+            &-left, &-right {
+                display:flex;
+            }
+            &-label {
+                margin-left:0.3rem;
+                margin-top:0.25rem;
+                & h3 {
+                    font-size:0.8em;
+                }
+            }
     }
 
     .item-follow {
+        width:90%;
         font-weight: 400;
         float:right;
         color: #000;
@@ -91,8 +96,8 @@ h4 {
         }
     }
 
-.description {
+    .description {
     font-size: 1.5em;
-}
+    }
 
 }
