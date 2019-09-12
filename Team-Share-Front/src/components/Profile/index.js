@@ -14,7 +14,7 @@ const Profile = ({ projects }) => (
     <div className="select">
         <div className="select-left">
             <div className="select-left-picture">
-                <img src="src/assets/teamPic.png" alt="pic" />
+                <img src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
             </div>
             <div className="select-left-contact">
                 <IoIosContact />

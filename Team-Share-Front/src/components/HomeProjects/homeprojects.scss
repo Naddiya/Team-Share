@@ -19,7 +19,7 @@
 .ui {
 
     &.cards {
-        width: 67%;
+        width: 66%;
         margin: auto;
 
         &>.card {
@@ -44,4 +44,37 @@
 }
 
 
+@media (max-width: 750px) {
+    .projects {
+        &-title {
+            font-size: 1.5em;
+            padding: 1em;
+            color: $dark-cerulean;
+        }
+    
+        &-container {
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+    }
 
+    .ui {
+            &.cards {
+            margin: auto;
+            &>.card {
+                margin:0.6rem;
+                height: 450px;
+                &>.image {
+                    height: 40%;
+                    width:auto;
+                }
+            }
+        }
+    }
+
+    .header, .meta, .description, .extra {
+        font-size: 1em !important;
+        margin:auto;
+    }
+    
+}
