@@ -28,7 +28,7 @@ class ProjectController extends AbstractController
     public function index(ProjectRepository $projetcRepository)
     {
         // Récupére tous les projets du plus grand au plus petits nombres de likes
-        $bestProjects = $projetcRepository->bestProjects();
+        $bestProjects = $projetcRepository->findBestProjects();
 
         // Crée une response au format json
         $response = new JsonResponse($bestProjects);
@@ -42,7 +42,7 @@ class ProjectController extends AbstractController
     public function show(ProjectRepository $projetcRepository, $id)
     {
         // Récupére un projet en fonction de son id
-        $oneProject = $projetcRepository->viewOneProjectById($id);
+        $oneProject = $projetcRepository->findOneProjectById($id);
 
         // Crée une response au format json
         $response = new JsonResponse($oneProject);

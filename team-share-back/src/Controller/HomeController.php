@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     public function home(ProjectRepository $projetcRepository)
     {
         // Récupére les 4 projets ayant le plus de "likes" (dans l'ordre)
-        $bestProjects = $projetcRepository->bestProjects();
+        $bestProjects = $projetcRepository->findBestProjects();
 
         // Crée une response au format json
         $response = new JsonResponse($bestProjects);

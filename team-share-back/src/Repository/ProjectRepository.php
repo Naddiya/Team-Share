@@ -14,61 +14,61 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class ProjectRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+  public function __construct(ManagerRegistry $registry)
+  {
+    parent::__construct($registry, Project::class);
+  }
+
+  // /**
+  //  * @return Project[] Returns an array of Project objects
+  //  */
+  // public function bestProjects()
+  // {
+  //     return $this->getEntityManager()
+  //         ->createQuery('
+  //             SELECT p
+  //             FROM App\Entity\Project p 
+  //             ORDER BY p.nbLike DESC
+  //         ')
+  //         ->setMaxResults(4)
+  //         ->getResult();
+
+  // }
+
+    /**
+     * @return Project[] Returns an array of Project objects
+     */
+    public function findBestProjects()
     {
-        parent::__construct($registry, Project::class);
+        $qb = $this->CreateQueryBuilder('p')
+            ->leftJoin('p.statut', 'st')
+            ->leftJoin('p.tags', 't')
+            ->leftJoin('p.technos', 'te')
+            ->leftJoin('p.skills', 's')
+            ->leftJoin('p.users', 'u')
+            ->addSelect('t', 'te', 's', 'PARTIAL u.{id, username}', 'st')
+            ->orderBy('p.nbLike', 'DESC');
+
+        return $qb->getQuery()->getArrayResult();
     }
 
-    // /**
-    //  * @return Project[] Returns an array of Project objects
-    //  */
-    // public function bestProjects()
-    // {
-    //     return $this->getEntityManager()
-    //         ->createQuery('
-    //             SELECT p
-    //             FROM App\Entity\Project p 
-    //             ORDER BY p.nbLike DESC
-    //         ')
-    //         ->setMaxResults(4)
-    //         ->getResult();
-            
-    // }
-
-    public function bestProjects()
+      /**
+     * @return Project[] Returns an array of Project objects
+     */
+    public function findOneProjectById($id)
     {
-     $qb = $this->CreateQueryBuilder('p')
-                ->leftJoin('p.statut', 'st')
-                ->leftJoin('p.tags', 't')
-                ->leftJoin('p.technos', 'th')
-                ->leftJoin('p.skills', 's')
-                ->leftJoin('p.users', 'u')
-                ->addSelect('t', 'th', 's', 'u.username', 'st.name')
-                ->orderBy('p.nbLike', 'DESC');
-                //->select('p.id', 't.name', 'u.firstname')
- 
-      return $qb->getQuery()->getArrayResult();
-                
-    }
-    public function viewOneProjectById($id)
-    {
-     $qb = $this->CreateQueryBuilder('p')
-                ->where('p.id = :idOfProject')
-                ->setParameter('idOfProject', $id)
-                ->leftJoin('p.tags', 't')
-                ->leftJoin('p.technos', 'th')
-                ->leftJoin('p.skills', 's')
-                ->leftJoin('p.statut', 'st')
-                ->leftJoin('p.comments', 'c')
-                ->leftJoin('p.users', 'u')
-                ->addSelect('t', 'th', 's', 'u', 'st', 'c');
-                
-  
-      return $qb->getQuery()->getArrayResult();
-                
-    }
+        $qb = $this->CreateQueryBuilder('p')
+            ->where('p.id = :idOfProject')
+            ->setParameter('idOfProject', $id)
+            ->leftJoin('p.tags', 't')
+            ->leftJoin('p.technos', 'th')
+            ->leftJoin('p.skills', 's')
+            ->leftJoin('p.statut', 'st')
+            ->leftJoin('p.comments', 'c')
+            ->leftJoin('p.users', 'u')
+            ->leftJoin('p.requests', 'r')
+            ->addSelect('t', 'th', 's', 'PARTIAL u.{id, username}', 'st', 'c', 'r');
 
-       
+        return $qb->getQuery()->getArrayResult();
+    }
 }
-
-

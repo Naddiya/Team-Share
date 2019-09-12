@@ -53,7 +53,7 @@ class UserController extends AbstractController
     public function show(UserRepository $userRepository, $id)
     {
         // Récupére un Utilisateur en fonction de son id
-        $user = $userRepository->viewOneUserById($id);
+        $user = $userRepository->findOneUserById($id);
 
         // Crée une response au format json
         $response = new JsonResponse($user);

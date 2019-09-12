@@ -19,25 +19,25 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    // /**
-    //  * @return User[] Returns an array of User objects
-    //  */
-    public function viewOneUserById($id)
+    /**
+     * @return User Return one User objects
+     */
+    public function findOneUserById($id)
     {
-     $qb = $this->CreateQueryBuilder('u')
-                ->where('u.id = :idOfUser')
-                ->setParameter('idOfUser', $id)
-                ->leftJoin('u.projects', 'p')
-                ->leftJoin('u.technos', 'th')
-                ->leftJoin('u.skills', 's')
-                ->leftJoin('u.role', 'r')
-                ->leftJoin('u.comments', 'c')
-                ->leftJoin('u.requests', 're')
-                ->addSelect('r', 'th', 's', 're', 'c', 'p');
-                
-  
-      return $qb->getQuery()->getArrayResult();
-                
+        $qb = $this->CreateQueryBuilder('u')
+            ->where('u.id = :idOfUser')
+            ->setParameter('idOfUser', $id)
+            ->leftJoin('u.projects', 'p')
+            ->leftJoin('u.technos', 't')
+            ->leftJoin('u.skills', 's')
+            ->leftJoin('u.role', 'r')
+            ->leftJoin('u.comments', 'c')
+            ->leftJoin('u.requests', 're')
+            ->addSelect('r', 't', 's', 're', 'c', 'p');
+            //pour enlever password...
+            //->select('u.id', 'u.username', 'u.firstname', 'u.lastname', 'u.jobTitle', 'u.mail', 'u.city', 'u.phone', 'u.score', 'u.photo', 'u.description', 'u.isActive', 'u.urlFacebook', 'u.urlGithub', 'u.urlTwitter', 'u.urlLinkedin');
+
+        return $qb->getQuery()->getArrayResult();
     }
 
     /*
