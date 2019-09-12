@@ -31,13 +31,15 @@ export const CHANGE_COLLABNUMBER = 'CHANGE_COLLABNUMBER';
 export const CHANGE_FRONTTECHNOS = 'CHANGE_FRONTTECHNOS';
 export const CHANGE_BACKTECHNOS = 'CHANGE_BACKTECHNOS';
 export const CHANGE_SKILLS = 'CHANGE_SKILLS';
+export const DO_SUBMIT = 'DO_SUBMIT';
 
-// === SUBSCRIBE ACTION TYPES ===
+// === SUBSCRIBE & LOGIN ACTION TYPES ===
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const CHANGE_PASSWORDCONFIRM = 'CHANGE_PASSWORDCONFIRM';
 export const CHANGE_PHONENUMBER = 'CHANGE_PHONENUMBER';
 export const DO_SUBSCRIBE = 'DO_SUBSCRIBE';
+export const DO_CONNECT = 'DO_CONNECT';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -93,6 +95,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         skills: action.value,
       };
+    case DO_SUBMIT:
+      return {
+        ...state,
+      };
     /* === SUBSCRIBE & LOGIN ACTIONS === */
     case CHANGE_EMAIL:
       return {
@@ -115,6 +121,11 @@ const reducer = (state = initialState, action = {}) => {
         phoneNumber: action.value,
       }; 
     case DO_SUBSCRIBE:
+      return {
+        ...state,
+        logged: true,
+      }; 
+    case DO_CONNECT:
       return {
         ...state,
         logged: true,
@@ -176,6 +187,10 @@ export const changeSkills = value => ({
   value,
 });
 
+export const doSubmit = value => ({
+  type: DO_SUBMIT,
+});
+
 // === SUBSCRIBE & LOGIN ACTION CREATORS ===
 
 export const changeEmail = value => ({
@@ -200,6 +215,10 @@ export const changePhoneNumber = value => ({
 
 export const doSubscribe = () => ({
   type: DO_SUBSCRIBE,
+});
+
+export const doConnect = () => ({
+  type: DO_CONNECT,
 });
 // == Selectors
 

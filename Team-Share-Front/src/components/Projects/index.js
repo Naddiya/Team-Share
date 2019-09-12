@@ -8,33 +8,33 @@ import './projects.scss';
 import ProjectList from './ProjectList';
 
 const sortBy = [
-    { key: 'af', value: 'af', text: 'Date de création' },
-    { key: 'ax', value: 'ax', text: 'Ordre alphabétique' },
-    { key: 'al', value: 'al', text: 'Popularité' },
+    { key: 'date', value: 'date', text: 'Date de création' },
+    { key: 'order', value: 'aorderx', text: 'Ordre alphabétique' },
+    { key: 'pop', value: 'pop', text: 'Popularité' },
 ]
 
 const category = [
-    { key: 'af', value: 'af', text: 'Tous' },
-    { key: 'ax', value: 'ax', text: 'E-commerce' },
-    { key: 'al', value: 'al', text: 'Jeux vidéo' },
-    { key: 'al', value: 'al', text: 'Blog' },
-    { key: 'al', value: 'al', text: 'Nouvelles tech' },
-    { key: 'al', value: 'al', text: 'Services' },
+    { key: 'all', value: 'all', text: 'Tous' },
+    { key: 'ecom', value: 'ecom', text: 'E-commerce' },
+    { key: 'jv', vjvue: 'al', text: 'Jeux vidéo' },
+    { key: 'blog', value: 'blog', text: 'Blog' },
+    { key: 'newtec', value: 'newtec', text: 'Nouvelles tech' },
+    { key: 'serv', value: 'serv', text: 'Services' },
 ]
 
 const technos = [
-    { key: 'af', value: 'af', text: 'HTML' },
-    { key: 'ax', value: 'ax', text: 'CSS' },
-    { key: 'al', value: 'al', text: 'Javascript' },
-    { key: 'al', value: 'al', text: 'PHP' },
-    { key: 'al', value: 'al', text: 'Git' },
+    { key: 'html', value: 'html', text: 'HTML' },
+    { key: 'css', value: 'css', text: 'CSS' },
+    { key: 'js', value: 'js', text: 'Javascript' },
+    { key: 'php', value: 'php', text: 'PHP' },
+    { key: 'git', value: 'git', text: 'Git' },
 ]
 
 const skills = [
-    { key: 'af', value: 'af', text: 'Gestion de projet' },
-    { key: 'ax', value: 'ax', text: 'Management' },
-    { key: 'al', value: 'al', text: 'Community Management' },
-    { key: 'al', value: 'al', text: 'Finance' },
+    { key: 'gesproj', value: 'gesproj', text: 'Gestion de projet' },
+    { key: 'manag', value: 'manag', text: 'Management' },
+    { key: 'cm', value: 'cm', text: 'Community Management' },
+    { key: 'fin', value: 'fin', text: 'Finance' },
 ]
 
 // == Composant

@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Input, Select, Divider, Form, TextArea } from 'semantic-ui-react'
+import { Button, Input, Select, Divider, Form, TextArea } from 'semantic-ui-react'
 import { IoIosFolderOpen } from 'react-icons/io';
 import PropTypes from 'prop-types';
 
@@ -56,6 +56,7 @@ const ProjectCreation = (
         changeInputFrontTechnos,
         changeInputBackTechnos,
         changeSkills,
+        sendSubmit,
     }
     ) => {
     
@@ -110,49 +111,27 @@ const ProjectCreation = (
     };
 
     const handleSubmit = (e) => {
-        axios.post('/project/new', {
-            title: projectName,
-            shortDescription: description,
-            description: content,
-            startDate: started_at,
-            endDate: finished_at,
-            collabNumber: nbCollaborator,
-            frontTechnos: technos,
-            backTechnos: technos,
-            skills,
-            /* === Few stuff missing === 
-            image,
-            isActive (on project page ? when created)
-            url -Facebook -Twitter -Github -Insta -Tipee
-            creating a new line for front and back technos ?
-            tags 
-            */
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        sendSubmit();
     };
     return (
         <div className="project">
+            <Form onSubmit={handleSubmit}>
             <div className="project-heading">
                 <h1 className="project-heading-title">Ton super projet</h1>
-                <Input  value={projectName} onChange={handleChangeProjectName} placeholder='Nom du projet' />
+                <Form.Input  value={projectName} onChange={handleChangeProjectName} placeholder='Nom du projet' />
             </div>
             <div className="project-intro">
                 <div className="project-intro-inputs">
                     <h3 className="input-title">Date de début</h3>
-                    <input onChange={handleChangeStartDate} type="date" />
+                    <Form.Input onChange={handleChangeStartDate} type="date" />
                     <h3 className="input-title">Date de fin</h3>
-                    <input onChange={handleChangeEndDate} type="date" />
+                    <Form.Input onChange={handleChangeEndDate} type="date" />
                     <h3 className="input-title">Type de projet</h3>
                     <Select onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
                     <h3 className="input-title">Nombre de collaborateurs souhaité</h3>
                     <Select onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs} />
                     <h3 className="input-title">Description en quelques mots</h3>
-                    <Input onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
+                    <Form.Input onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
                 </div>
                 <img src="src/assets/teamPic.png" />
             </div>
@@ -173,15 +152,13 @@ const ProjectCreation = (
             <Divider />
             <div className="project-description">
                 <h2 className="project-title">Décris ton projet</h2>
-                <Form>
                     <TextArea rows={15} onChange={handleChangeDescription} placeholder='Description complète du projet' />
-                </Form>
             </div> 
             <Divider />
             <div className="project-links">
                 <div className="project-links-left">
                 <h3 className="add-file">Ajouter un fichier</h3>
-                <input type="file" />
+                <Form.Input type="file" />
                 </div>
                 <div className="project-links-right">
                 <ul>
@@ -193,10 +170,11 @@ const ProjectCreation = (
                 </div>
             </div>
             <div className="project-links-validation">
-                <input name="send-project" type="checkbox" />
+                <Form.Input name="send-project" type="checkbox" />
                 <label htmlFor="send-project" className="project-validation">I agree, à tout ce que vous voudrez</label>
-                <button onSubmit={handleSubmit} name="send-project" className="button-link">Submit</button>
             </div>
+            <Button className="submit" color="blue">Envoyer</Button>
+            </Form>
         </div>
     );
 };
@@ -213,6 +191,7 @@ ProjectCreation.propTypes = {
     changeInputFrontTechnos: PropTypes.func.isRequired,
     changeInputBackTechnos: PropTypes.func.isRequired,
     changeSkills: PropTypes.func.isRequired,
+    sendSubmit: PropTypes.func.isRequired,
 }
 
 // == Export

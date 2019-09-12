@@ -5,7 +5,11 @@ import PropTypes from 'prop-types';
 
 
 
-const LoginModal = ({ changeInputEmail, changeInputPassword }) => {
+const LoginModal = ({ 
+  changeInputEmail,
+  changeInputPassword,
+  sendConnection,
+}) => {
 
   const handleChangeEmail = (e) => {
     const { value } = e.target;
@@ -18,16 +22,7 @@ const LoginModal = ({ changeInputEmail, changeInputPassword }) => {
   };
   
   const handleSubmit = (e) => {
-    axios.post('/user', {
-      email,
-      password,
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    sendConnection();
   }
   return (
     <Modal size="small" trigger={<button className="button-link button-link-connect">Se connecter</button>} closeIcon>

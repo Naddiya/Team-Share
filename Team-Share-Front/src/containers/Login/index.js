@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import Login from 'src/components/Login';
-import { changeEmail, changePassword } from 'src/store/reducer';
+import { 
+    changeEmail,
+    changePassword,
+    doConnect,
+} from 'src/store/reducer';
 
 /* === State (données) === */
 const mapStateToProps = (state) => ({
@@ -18,6 +22,10 @@ const mapDispatchToProps = (dispatch) => ({
     },
     changeInputPassword: (value) => {
         const action = changePassword(value);
+        dispatch(action);
+    },
+    sendConnection: () => {
+        const action = doConnect();
         dispatch(action);
     },
 });

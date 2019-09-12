@@ -14,6 +14,7 @@ import {
     changeFrontTechnos,
     changeBackTechnos,
     changeSkills,
+    doSubmit,
     } from 'src/store/reducer';
 
 /* === State (données) === */
@@ -63,6 +64,11 @@ const mapDispatchToProps = (dispatch) => ({
         const action = changeSkills(value);
         dispatch(action);
     },
+    sendSubmit: () => {
+        const action = doSubmit();
+        dispatch(action);
+    },
+    
 });
 
 // Container
