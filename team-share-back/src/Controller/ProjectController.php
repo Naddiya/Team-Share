@@ -57,10 +57,10 @@ class ProjectController extends AbstractController
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
-
+        // dd($jsonContent);
         // Déserialize le json et crée un objet Project avec les propriétés du json reçu
         $newProjectObject = $serializer->deserialize($jsonContent, Project::class, 'json');
-
+        // dd($newProjectObject);
         // Ajout des tags
         // boucle sur la liste des tags récupérés du fichier json
         foreach ($newProjectObject->getTags() as $jsonTag) {
@@ -74,13 +74,16 @@ class ProjectController extends AbstractController
 
         // Ajout du user
         // récupère le user du fichier json dans le tableau (le 1er car il n'y a qu'un user qui puisse créer un projet)
-        $jsonUser = $newProjectObject->getUsers()['0'];
+        foreach ($newProjectObject->getUsers() as $jsonUser) {
+        // dd($newProjectObject->getUsers());
         // récupère en bdd le user qui a crée le projet via son "username" à partir du user fourni dans le json
-        $dbUser = $userRepository->findOneBy(['username' => $jsonUser->getUsername()]);
+        $dbUser = $userRepository->findOneBy(['mail' => $jsonUser->getUsername()]);
+        // dd($dbUser);
         // ajoute cet user comme créateur du projet (1er user faisant partit de la liste des users du projet)
         $newProjectObject->addUser($dbUser);
         // supprime le user fournit par le json pour ne pas qu'il soit "persisté" en bdd une 2ème fois
         $newProjectObject->removeUser($jsonUser);
+        }
 
         // Ajout des technos
         foreach ($newProjectObject->getTechnos() as $jsonTechno) {
