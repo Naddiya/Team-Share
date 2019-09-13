@@ -127,7 +127,7 @@ class User implements UserInterface, \Serializable
     private $requests;
 
     /**
-     * @ORM\Column(type="string", length=100, unique=true)
+     * @ORM\Column(type="string", length=100, unique=true, nullable=true)
      */
     private $username;
 
