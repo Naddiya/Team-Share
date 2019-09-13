@@ -6,9 +6,9 @@ import { DO_CONNECT } from 'src/store/reducer';
 const connectionMiddleware = store => next => (action) => {
     const state = store.getState();
     const headers = {
-        'Access-Control-Allow-Origin': 'http://92.243.10.99',
+        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
-        'Postman-Token': '020e6101-5a10-494f-89c1-978ca6aa44ae,f5baf393-747d-4389-8858-b28786b907a6',
+        'Postman-Token': 'f0d22539-4c31-4dc9-a6ca-b513778e229e,59c924e4-c4a5-4def-927c-e4281aa091a1',
         'cache-control': 'no-cache',
     };
 
@@ -21,7 +21,7 @@ const connectionMiddleware = store => next => (action) => {
                 }
             headers,
             console.log(dataSubs);
-            axios.post('http://92.243.10.99/Team-Share/user/register', dataSubs, headers)
+            axios.post('http://92.243.10.99/Team-Share/team-share-back/public/user/register', dataSubs, headers)
             .then((response) => {
                 console.log(response);
             })

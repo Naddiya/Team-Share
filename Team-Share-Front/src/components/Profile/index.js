@@ -11,26 +11,20 @@ import Projects from './projects';
 const Profile = ({ projects }) => (
   <div className="profile">
     <div className="profile-headpic">
-    <img src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
+    {/* <img src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" /> */}
     </div>
     <div className="select">
         <div className="select-left">
-<<<<<<< HEAD
             <div className="select-left-picture">
                 <img className="modifiable" src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
             </div>
-=======
-            {/* <div className="select-left-picture">
-                <img src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
-            </div> */}
->>>>>>> 468957cdcb6cc82badadddb6302a8dc952130a97
             <div className="select-left-contact">
                 <IoIosContact />
                 <span className="modifiable">adresse.mail@mail.com</span>
                 <span className="modifiable">06 85 85 85 85</span>
             </div>
             <div className="select-left-contact modifiable">
-                <span>Compétences</span>
+                <span>Compétences</span>    
                 <span>HTML/CSS/JS</span>
                 <span>REACT/REDUX</span>
                 <span>GESTION DE PROJET</span>

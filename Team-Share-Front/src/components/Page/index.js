@@ -10,6 +10,7 @@ import Profile from 'src/components/Profile';
 import Projects from 'src/components/Projects';
 import homeprojects from 'src/data/data.json';
 import ProjectDetail from 'src/components/ProjectDetail';
+import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
 
@@ -33,7 +34,7 @@ const Page = () => (
       <ProjectCreation />
     )} />
     <Route path="/projectdetail" render={() => (
-      <ProjectDetail />
+      <ProjectDetail key={projectdetails.title} {...projectdetails} />
     )} />
     <Route path="/legalmentions" render={() => (
       <LegalMentions />
