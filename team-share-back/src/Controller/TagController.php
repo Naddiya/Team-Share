@@ -6,7 +6,6 @@ use App\Entity\Tag;
 use App\Repository\TagRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Nelmio\CorsBundle\NelmioCorsBundle;
 
@@ -27,12 +26,12 @@ class TagController extends AbstractController
     }
 
     /**
-     * @Route("/{name}", name="_show", methods={"GET"}, requirements={"name"="\w+"})
+     * @Route("/{id}", name="_show", methods={"GET"}, requirements={"id"="\d+"})
      */
-    public function show($name, TagRepository $tagRepository)
+    public function show($id, TagRepository $tagRepository)
     {
         // Crée une response au format json avec la liste des projets d'un tag
-        $response = new JsonResponse($tagRepository->findProjectsByTag($name));
+        $response = new JsonResponse($tagRepository->findProjectsByTag($id));
 
         return $response;
     }

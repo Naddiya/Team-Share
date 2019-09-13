@@ -34,11 +34,11 @@ class TagRepository extends ServiceEntityRepository
     /**
      * @return Projects[] Returns an array of Projects objects
      */
-    public function findProjectsByTag($name) 
+    public function findProjectsByTag($id) 
     {
         $qb = $this->CreateQueryBuilder('t')
-            ->where('t.name = :nameOfTag')
-            ->setParameter('nameOfTag', $name)
+            ->where('t.id = :idOfTag')
+            ->setParameter('idOfTag', $id)
             ->leftJoin('t.projects', 'p')
             ->addSelect('PARTIAL p.{id, title}')
             ->orderBy('p.title', 'ASC');

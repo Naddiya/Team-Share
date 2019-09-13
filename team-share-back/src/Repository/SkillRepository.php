@@ -34,11 +34,11 @@ class SkillRepository extends ServiceEntityRepository
     /**
      * @return Projects[] Returns an array of Projects objects
      */
-    public function findProjectsBySkill($name)
+    public function findProjectsBySkill($id)
     {
         $qb = $this->CreateQueryBuilder('t')
-            ->where('t.name = :nameOfSkill')
-            ->setParameter('nameOfSkill', $name)
+            ->where('t.id = :idOfSkill')
+            ->setParameter('idOfSkill', $id)
             ->leftJoin('t.projects', 'p')
             ->addSelect('PARTIAL p.{id, title}')
             ->orderBy('p.title', 'ASC');
