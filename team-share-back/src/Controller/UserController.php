@@ -29,11 +29,13 @@ class UserController extends AbstractController
         $jsonContent = $request->getContent();
         // Déserialize le json et crée un objet User avec les propriétés du json reçu
         $newUserObject = $serializer->deserialize($jsonContent, User::class, 'json');
-
+        // dd($newUserObject);
         // Encode le password
         $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getMail());
         $newUserObject->setPassword($encodedPassword);
-
+        
+        $newUserObject->setUsername($newUserObject->getMail());
+        // dd($newUserObject);
         // Récupère l'objet Role "USER" et l'attribut par défaut
         $role = $roleRepository->findOneBy(['code' => 'USER']);
         $newUserObject->setRole($role);
