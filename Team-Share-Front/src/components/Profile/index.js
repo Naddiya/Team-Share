@@ -14,14 +14,14 @@ const Profile = ({ projects }) => (
     <div className="select">
         <div className="select-left">
             <div className="select-left-picture">
-                <img src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
+                <img className="modifiable" src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
             </div>
             <div className="select-left-contact">
                 <IoIosContact />
-                <span>adresse.mail@mail.com</span>
-                <span>06 85 85 85 85</span>
+                <span className="modifiable">adresse.mail@mail.com</span>
+                <span className="modifiable">06 85 85 85 85</span>
             </div>
-            <div className="select-left-contact">
+            <div className="select-left-contact modifiable">
                 <span>Compétences</span>
                 <span>HTML/CSS/JS</span>
                 <span>REACT/REDUX</span>
@@ -31,18 +31,18 @@ const Profile = ({ projects }) => (
 
         <div className="select-right">
             <div className="select-right-name">
-                <h2>Prénom Nom</h2>
-                <p>Intitulé du poste</p>
+                <h2 className="modifiable sized">Prénom Nom</h2>
+                <p className="modifiable sized">Intitulé du poste</p>
             </div>
             <div className="select-right-links">
-                <IoMdPin /><span>Ville</span>
-                <IoLogoFacebook /><span>Facebook</span>
-                <IoLogoTwitter /><span>Twitter</span>
-                <IoLogoGithub /><span>Github</span>
+                <IoMdPin /><span className="modifiable">Ville</span>
+                <IoLogoFacebook /><span className="modifiable">Facebook</span>
+                <IoLogoTwitter /><span className="modifiable">Twitter</span>
+                <IoLogoGithub /><span className="modifiable">Github</span>
             </div>
             <div className="select-right-container">
                 <h3>Description :</h3>
-                <p className="select-right-description">
+                <p className="select-right-description modifiable">
                 Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
                 </p>
                 <h2 className="select-right-subtitle">Projets en cours :

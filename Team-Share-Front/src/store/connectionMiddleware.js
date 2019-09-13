@@ -5,22 +5,23 @@ import { DO_CONNECT } from 'src/store/reducer';
 
 const connectionMiddleware = store => next => (action) => {
     const state = store.getState();
-    let data = {};
     const headers = {
+        'Access-Control-Allow-Origin': 'http://92.243.10.99',
         'Content-Type': 'application/json',
-        'Postman-Token': 'fd2aeac5-eaaa-430b-b91f-cbd3d90f5208',
+        'Postman-Token': '020e6101-5a10-494f-89c1-978ca6aa44ae,f5baf393-747d-4389-8858-b28786b907a6',
         'cache-control': 'no-cache',
     };
 
     switch (action.type) {
         case DO_SUBSCRIBE:
-            data = {
+            const dataSubs = {
                 mail: state.email,
                 password: state.password,
                 phone: state.phoneNumber,
                 }
-            headers
-            axios.post('http://127.0.0.8000/user/register', data, headers)
+            headers,
+            console.log(dataSubs);
+            axios.post('http://92.243.10.99/Team-Share/user/register', dataSubs, headers)
             .then((response) => {
                 console.log(response);
             })
@@ -29,13 +30,13 @@ const connectionMiddleware = store => next => (action) => {
             });
             break;
         case DO_CONNECT:
-            data = {
+            const dataConnect = {
                 mail: state.email,
                 password: state.password,
                 }
-            headers
+            headers,
             console.log(data);
-            axios.post('http://127.0.0.8000/user/connect', data, headers)
+            axios.post('http://127.0.0.8000/Team-Share/user/connect', dataConnect, headers)
             .then((response) => {
                 console.log(response);
             })

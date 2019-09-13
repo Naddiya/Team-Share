@@ -23,7 +23,7 @@ const projectCreationMiddleware = store => next => (action) => {
             'cache-control': 'no-cache',
         }
         console.log(data);
-        axios.post('http://127.0.0.8000/project/new', data, headers)
+        axios.post('http://127.0.0.8000/Team-Share/project/new', data, headers)
         .then((response) => {
             console.log(response);
         })
