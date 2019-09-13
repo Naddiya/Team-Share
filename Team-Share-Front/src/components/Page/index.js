@@ -15,7 +15,6 @@ import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
 
 
-
 // == Composant
 const Page = () => (
   <>

@@ -31,12 +31,12 @@ const connectionMiddleware = store => next => (action) => {
             break;
         case DO_CONNECT:
             const dataConnect = {
-                mail: state.email,
+                username: state.email,
                 password: state.password,
                 }
             headers,
-            console.log(data);
-            axios.post('http://127.0.0.8000/Team-Share/user/connect', dataConnect, headers)
+            console.log(dataConnect);
+            axios.post('http://92.243.10.99/Team-Share/team-share-back/public/api/login_check', dataConnect, headers)
             .then((response) => {
                 console.log(response);
             })

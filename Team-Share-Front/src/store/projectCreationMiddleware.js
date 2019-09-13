@@ -10,8 +10,10 @@ const projectCreationMiddleware = store => next => (action) => {
           title: state.projectName,
           description: state.shortDescription,
           content: state.description,
+        //   image (not obligatoire)
           started_at: state.startDate,
           finished_at: state.endDate,
+          tag, 
           nbCollaborator: state.collabNumber,
           technos: state.frontTechnos,
           technos: state.backTechnos,
@@ -23,7 +25,7 @@ const projectCreationMiddleware = store => next => (action) => {
             'cache-control': 'no-cache',
         }
         console.log(data);
-        axios.post('http://127.0.0.8000/Team-Share/project/new', data, headers)
+        axios.post('http://92.243.10.99/Team-Share/team-share-back/public/project/new', data, headers)
         .then((response) => {
             console.log(response);
         })
