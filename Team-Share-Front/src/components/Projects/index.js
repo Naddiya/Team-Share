@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Item, Select, Input, Divider, Radio } from 'semantic-ui-react';
+import { Item, Select, Input, Divider, Radio, Label } from 'semantic-ui-react';
 
 
 // == Import : local
@@ -42,18 +42,22 @@ const Projects = ({ projects }) => (
     <div className="project-container">
 
         <div className="project-container-inputs">
-        <Select placeholder='Trier par' options={sortBy} />
-        <Select placeholder='Filtrer' options={category} />
-        <Select placeholder='Technologies' options={technos} />
-        <Select placeholder='Compétences' options={skills} />
-        <Input icon='search' placeholder='Recherche...' />
+            <Select placeholder='Trier par' options={sortBy} />
+            <Select placeholder='Filtrer' options={category} />
+            <Select placeholder='Technologies' options={technos} />
+            <Select placeholder='Compétences' options={skills} />
+            <Input icon='search' placeholder='Recherche...' />
         </div>
-        <Divider className="project-container-divider1"/>
+            <Divider className="project-container-divider1"/>
         <div className="radio">
-        <Radio toggle />
-        <label>Projets disponibles</label>
-        <Radio toggle /> 
-        <label>Projets suivis</label>
+            <div className="radio-left">
+                <Radio toggle />
+                <div className="radio-label"><h3>Projets Suivies</h3></div>
+            </div>
+            <div className="radio-right">
+                <div><Radio toggle /></div>
+                <div className="radio-label"><h3>Projets Disponibles</h3></div>
+            </div>
         </div>
         <Divider className="project-container-divider2" />
         <Item.Group divided>

@@ -7,8 +7,16 @@
     &-headpic {
         width: 100vw;
         height: 30vh;
-        background: no-repeat url('../../assets/teamPic.png');
+        background: no-repeat url('http://92.243.10.99/pics/teamPic.png');
         background-size: cover;
+        &>img {
+            margin-top : 8rem;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 2em grey;
+            margin-left: 2rem;
+        }
     }
 }
 
@@ -18,23 +26,25 @@
     &-left {
         width: 70%;
         text-align: center;
-        position: relative;
-        top: -175px;
+        margin-top: 2rem;
 
         &-picture {
             &>img {
                 width: 350px;
                 height: 350px;
                 border-radius: 50%;
+                box-shadow: 0 0 2em grey;
             }
         }
 
         &-contact {
             width: 50%;
-            margin: 1.2em auto;
+            margin: 1.2rem auto;
             font-size: 1.5em;
-            padding: 1em;
+            padding: 1rem;
             border: 1px solid #000;
+            box-sizing:content-box;
+            overflow:auto;
 
             &>svg {
                 font-size: 2.5em;
@@ -86,6 +96,10 @@
     .profile {
         &-headpic {
             margin-bottom: 2.5rem;
+            &>img {
+                width: 100px;
+                height: 100px;
+            }
         }
     }
     .select {
@@ -94,17 +108,17 @@
             width: 95%;
             text-align: left;
             position: static;
-            margin:auto;
-            &-picture {
-                &>img {
-                    position: absolute;
-                    top:19rem;
-                    width: 5rem;
-                    height: 5rem;
-                    border-radius: 50%;
-                    box-shadow: 0 0 2em grey;
-                }
-            }
+            margin-top: 4rem;
+            // &-picture {
+            //     &>img {
+            //         position: absolute;
+            //         top:19rem;
+            //         width: 5rem;
+            //         height: 5rem;
+            //         border-radius: 50%;
+            //         box-shadow: 0 0 2em grey;
+            //     }
+            // }
             &-contact {
                 width: 90%;
                 margin: 0.5rem auto;

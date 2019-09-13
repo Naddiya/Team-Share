@@ -45,12 +45,6 @@
   }
 }
 
-@media (max-width: 750px) {
-  .navbar-links {
-    display: none;
-  }
-  
-}
 
 .modal {
 
@@ -84,4 +78,23 @@
     font-size: 1.5em;
     }
   } 
+}
+
+@media (max-width: 750px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  
+    &-logo {
+      width: 50%;
+      margin: 0;
+    }
+  
+    &-links {
+      display: none;
+    }
+  
+
+  }
 }

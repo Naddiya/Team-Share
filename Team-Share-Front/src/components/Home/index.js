@@ -19,7 +19,7 @@ const Home = () => (
           <button className="welcome-buttons-button">En savoir plus</button>
         </div>
       </div>
-      <img className="team-pic" alt="image-team" src="src/assets/teamPic.png" />
+      <img className="team-pic" alt="image-team" src="http://92.243.10.99/pics/teamPic.png" />
     </main>
 
     <svg className="wave" viewBox="0 0 1170 126" xmlns="http://www.w3.org/2000/svg">
