@@ -24,12 +24,12 @@ class SkillController extends AbstractController
     }
 
     /**
-     * @Route("/{name}", name="_show", methods={"GET"}, requirements={"name"="\w+"})
+     * @Route("/{id}", name="_show", methods={"GET"}, requirements={"id"="\d+"})
      */
-    public function show($name, SkillRepository $skillRepository)
+    public function show($id, SkillRepository $skillRepository)
     {
         // Crée une response au format json avec la liste des projets d'un skill
-        $response = new JsonResponse($skillRepository->findProjectsBySkill($name));
+        $response = new JsonResponse($skillRepository->findProjectsBySkill($id));
 
         return $response;
     }

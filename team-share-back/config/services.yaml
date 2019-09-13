@@ -25,3 +25,16 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    
+    #ici je definit explicitement mon service
+    App\Utils\Slugger:
+        arguments: #je sepcifie les argument et la valeur qui va etre prise par ces meme arguments dans le constructeur de ce service
+            $toLower : true
+    
+    # pour declarer un service qui sera declenché par un event doctrine
+    #je dois le declarer comme un service normal (cf slugger) puis lui attribuer
+    # un tag doctrine.event_listener + l'evenement qui va declencher l'appel a la classe et sa fonction associée
+    App\EventListener\Slugifier:
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }

@@ -24,12 +24,12 @@ class TechnoController extends AbstractController
     }
 
     /**
-     * @Route("/{name}", name="_show", methods={"GET"}, requirements={"name"="\w+"})
+     * @Route("/{id}", name="_show", methods={"GET"}, requirements={"id"="\d+"})
      */
-    public function show($name, TechnoRepository $technoRepository)
+    public function show($id, TechnoRepository $technoRepository)
     {
         // Crée une response au format json avec la liste des projets d'un techno
-        $response = new JsonResponse($technoRepository->findProjectsByTechno($name));
+        $response = new JsonResponse($technoRepository->findProjectsByTechno($id));
 
         return $response;
     }
