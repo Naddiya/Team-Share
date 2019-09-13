@@ -18,7 +18,7 @@ const NavBar = ({ logged }) => {
       <div className="navbar">
         <div>
           <NavLink to="/" exact>
-            <img className="navbar-logo" alt="logo" src="http://92.243.10.99/pics/logo-team-share.png"/>
+            <img className="navbar-logo" alt="logo" src="http://92.243.10.99/pics/logo-team-share_cut.png"/>
           </NavLink>
         </div>
         <ul className="navbar-links">
