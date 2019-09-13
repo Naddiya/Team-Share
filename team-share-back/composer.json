@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "fzaninotto/faker": "^1.8",
+        "lexik/jwt-authentication-bundle": "^2.6",
         "nelmio/cors-bundle": "^1.5",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.3.*",
