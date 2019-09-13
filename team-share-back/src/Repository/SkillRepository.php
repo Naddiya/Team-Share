@@ -19,32 +19,30 @@ class SkillRepository extends ServiceEntityRepository
         parent::__construct($registry, Skill::class);
     }
 
-    // /**
-    //  * @return Skill[] Returns an array of Skill objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Skill[] Returns an array of Skill objects
+     */
+    public function findAllSkills()
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->CreateQueryBuilder('t')
+            ->select('t.id', 't.name')
+            ->orderBy('t.name', 'ASC');
 
-    /*
-    public function findOneBySomeField($value): ?Skill
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $qb->getQuery()->getArrayResult();
     }
-    */
+
+    /**
+     * @return Projects[] Returns an array of Projects objects
+     */
+    public function findProjectsBySkill($name)
+    {
+        $qb = $this->CreateQueryBuilder('t')
+            ->where('t.name = :nameOfSkill')
+            ->setParameter('nameOfSkill', $name)
+            ->leftJoin('t.projects', 'p')
+            ->addSelect('PARTIAL p.{id, title}')
+            ->orderBy('p.title', 'ASC');
+
+        return $qb->getQuery()->getArrayResult();
+    }
 }

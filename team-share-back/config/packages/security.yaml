@@ -11,6 +11,8 @@ security:
             security: false
         main:
             anonymous: true
+                # where to redirect after logout
+                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

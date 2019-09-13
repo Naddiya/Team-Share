@@ -19,19 +19,33 @@ class TagRepository extends ServiceEntityRepository
         parent::__construct($registry, Tag::class);
     }
 
-    // /**
-    //  * @return Tag[] Returns an array of Tag objects
-    //  */
-    
-    // public function getTagsByProject() {
-    //     return $this->createQueryBuilder('t')
-    //         ->join('t.projects', 'p')
-    //         ->where()
-    //         ->getQuery()
-    //         ->getResult();
-    // }
-    
+    /**
+     * @return Tag[] Returns an array of Tag objects
+     */
+    public function findAllTags()
+    {
+        $qb = $this->CreateQueryBuilder('t')
+            ->select('t.id', 't.name')
+            ->orderBy('t.name', 'ASC');
 
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    /**
+     * @return Projects[] Returns an array of Projects objects
+     */
+    public function findProjectsByTag($name) 
+    {
+        $qb = $this->CreateQueryBuilder('t')
+            ->where('t.name = :nameOfTag')
+            ->setParameter('nameOfTag', $name)
+            ->leftJoin('t.projects', 'p')
+            ->addSelect('PARTIAL p.{id, title}')
+            ->orderBy('p.title', 'ASC');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+    
     /*
     public function findOneBySomeField($value): ?Tag
     {

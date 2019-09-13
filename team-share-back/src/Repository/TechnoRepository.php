@@ -19,32 +19,31 @@ class TechnoRepository extends ServiceEntityRepository
         parent::__construct($registry, Techno::class);
     }
 
-    // /**
-    //  * @return Techno[] Returns an array of Techno objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Techno[] Returns an array of Techno objects
+     */
+    public function findAllTechnos()
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->CreateQueryBuilder('t')
+            ->select('t.id', 't.name', 't.type')
+            ->orderBy('t.type', 'ASC')
+            ->orderBy('t.name', 'ASC');
 
-    /*
-    public function findOneBySomeField($value): ?Techno
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $qb->getQuery()->getArrayResult();
     }
-    */
+
+    /**
+     * @return Projects[] Returns an array of Projects objects
+     */
+    public function findProjectsByTechno($name)
+    {
+        $qb = $this->CreateQueryBuilder('t')
+            ->where('t.name = :nameOfTechno')
+            ->setParameter('nameOfTechno', $name)
+            ->leftJoin('t.projects', 'p')
+            ->addSelect('PARTIAL p.{id, title}')
+            ->orderBy('p.title', 'ASC');
+
+        return $qb->getQuery()->getArrayResult();
+    }
 }

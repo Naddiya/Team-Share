@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Controller;
+
+use App\Repository\TechnoRepository;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+/**
+ * @Route("/techno", name="techno")
+ */
+class TechnoController extends AbstractController
+{
+    /**
+     * @Route("/index", name="_index", methods={"GET"})
+     */
+    public function index(TechnoRepository $technoRepository)
+    {
+        // Crée une response au format json avec la liste des technos par ordre alphabétique
+        $response = new JsonResponse($technoRepository->findAllTechnos());
+
+        return $response;
+    }
+
+    /**
+     * @Route("/{name}", name="_show", methods={"GET"}, requirements={"name"="\w+"})
+     */
+    public function show($name, TechnoRepository $technoRepository)
+    {
+        // Crée une response au format json avec la liste des projets d'un techno
+        $response = new JsonResponse($technoRepository->findProjectsByTechno($name));
+
+        return $response;
+    }
+}
