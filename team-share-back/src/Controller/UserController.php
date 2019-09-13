@@ -31,7 +31,7 @@ class UserController extends AbstractController
         $newUserObject = $serializer->deserialize($jsonContent, User::class, 'json');
 
         // Encode le password
-        $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getUsername());
+        $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getMail());
         $newUserObject->setPassword($encodedPassword);
 
         // Récupère l'objet Role "USER" et l'attribut par défaut
