@@ -17,14 +17,23 @@ security:
             pattern:  ^/api/login
             stateless: true
             anonymous: true
+            provider: teamshare_provider
             json_login:
                 check_path:               /api/login_check
                 success_handler:          lexik_jwt_authentication.handler.authentication_success
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
+            guard:
+                authenticators:
+                    - App\Security\AppCustomAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
 
         api:
             pattern:   ^/api
             stateless: true
+            provider: teamshare_provider
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
