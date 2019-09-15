@@ -11,7 +11,7 @@ const Team = () => (
         <h1 className="team-title">Notre fabuleuse équipe</h1>
         <div className="team-members">
             <div className="team-member">
-                <img className="team-image" src="src/assets/nadiapic.png" />
+                <img className="team-image" src="src/assets/nadiapic.jpg" />
                 <h3 className="team-member-name">Nadia</h3>
                 <p className="team-member-role">Project Manager</p>
             </div>
