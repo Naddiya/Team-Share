@@ -1,4 +1,14 @@
 @import 'src/styles/_vars.scss';
+
+@media (min-width: 750px) {
+  .bm-overlay {
+    display:none;
+  }
+  .bm-menu-wrap {
+    display:none;
+  }
+}
+
 @media (max-width: 750px){
 
   html,
@@ -90,8 +100,4 @@
   .bm-overlay {
     background:rgba(0, 0, 0, 0.7);
   }
-
-
-
-
 }

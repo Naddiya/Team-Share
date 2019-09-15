@@ -12,12 +12,15 @@
   }
 
   &-links {
+    z-index:2000;
+    margin-top:1rem;
     display: flex;
     align-items: center;
     margin-top: .5rem;
   }
 
   &-link {
+    z-index:2000;
     padding: 1rem;
     color: $eerie-black;
     font-size: 1.4em;
@@ -91,6 +94,7 @@
     &-logo {
       width: 30%;
       margin: 0.5rem;
+      z-index:2000;
     }
   
     &-links {
