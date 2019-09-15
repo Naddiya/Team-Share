@@ -3,12 +3,13 @@
 
 
 .main-container {
+    font-family: 'Open Sans', sans-serif;
     display: flex;
-    width: 70vw;
+    width: 70%;
     margin: auto;
     justify-content: space-between;
-    margin-top: 9rem;
-    margin-bottom:9rem;
+    margin-top: 8rem;
+    margin-bottom:8rem;
 }
 
 .welcome {
@@ -24,15 +25,20 @@
     &-subtitle {
         font-size: 20px;
         width: 60%;
-        padding: .5em 1.2em;
+        padding: .5rem 1.5rem;
     }
 
     &-buttons {
-        margin: 4em 2em;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        
+        margin:2rem;
+
 
         &-button {
             padding: 1em 3em;
-            margin-left: 1em;
+            // margin-left: 1em;
             background-color: $yankees-blue;
             color: #FFF;
             border: none;
@@ -47,6 +53,7 @@
 }
 
 .team-pic {
+    margin: auto;
     width: 45%;
     height: 45%;
     border-radius: 15px;

@@ -6,27 +6,29 @@
   align-items: flex-start;
 
   &-logo {
-    width: 80%;
-    height: 80%;
-    margin: 1em;
+    width: 50%;
+    height: 50%;
+    margin: 1rem 1.5rem;
   }
 
   &-links {
     display: flex;
     align-items: center;
-    margin-top: .5em;
+    margin-top: .5rem;
   }
 
   &-link {
-    padding: 1em;
+    padding: 1rem;
     color: $eerie-black;
-    font-size: 1.2em;
-    margin-right: 1em;
+    font-size: 1.4em;
+    margin-right: 1rem;
+    font-weight:500;
+    font-family: &font-slab;
   }
 }
 
 .button-link {
-  padding: .5em .8em;
+  padding: .5rem .8rem;
   border-radius: 4px;
   width: 150px;
   border: none;
@@ -49,7 +51,7 @@
 .modal {
 
   &-close {
-    padding: 1em;
+    padding: 1rem;
     background: #fff;
     border: 2px solid #eee;
     border-radius: 50%;
@@ -57,7 +59,7 @@
 
     &-send {
       border-radius: 2px;
-      margin: 1em;
+      margin: 1rem;
     }
     
     &>img {
@@ -72,8 +74,8 @@
     &>label, input {
     display: block;
     text-align: center;
-    margin: .8em auto;
-    padding: .5em;
+    margin: .8rem auto;
+    padding: .5rem;
     width: 80%;
     font-size: 1.5em;
     }
@@ -87,8 +89,8 @@
     align-items: flex-start;
   
     &-logo {
-      width: 50%;
-      margin: 0;
+      width: 30%;
+      margin: 0.5rem;
     }
   
     &-links {

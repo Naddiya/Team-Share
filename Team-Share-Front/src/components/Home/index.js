@@ -11,7 +11,7 @@ const Home = () => (
     <main className="main-container">
 
       <div className="welcome">
-        <h1 className="welcome-title">Bienvenue chez Team-Share !</h1>
+        <h1 className="welcome-title">Bienvenue sur Team-Share !</h1>
         <p className="welcome-subtitle">Première plateforme d'appel à projets collaboratifs en France.</p>
 
         <div className="welcome-buttons">
