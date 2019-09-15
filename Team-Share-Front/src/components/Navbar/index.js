@@ -11,7 +11,6 @@ import SubscribeModal from 'src/containers/Subscribe';
 
 
 
-
 const NavBar = ({ logged }) => {
 
     return(
