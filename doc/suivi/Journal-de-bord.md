@@ -180,6 +180,25 @@
 >## Alexandre :
 > Déploiement back
 >## Nadia :
-> responsiv design + controle inputs 
-#### À Suivre
+> responsiv design
 >* Connexion back/front
+
+
+---
+# 13/09/2019 - J11 - Sprint 1
+>* créations des routes tags/skills/technos + routes filtres selon tags/skills/technos
+>* Présentation
+>* mise en place de JWT Token
+#### Infos individuelles
+>## Julien :
+> créations des routes tags/skills/technos + routes filtres selon tags/skills/technos + mise en place de JWT TOKEN
+>## Alexis :
+> Requete vers le back
+>## Alexandre :
+> créations des routes tags/skills/technos + routes filtres selon tags/skills/technos + mise en place de JWT TOKEN
+>## Nadia :
+> responsiv design
+#### À Suivre
+>* Terminer l'inté et le responsive
+>* Mettre en place toutes les routes
+>* Finir la dynamisation du front
