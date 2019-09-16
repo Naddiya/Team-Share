@@ -1,0 +1,103 @@
+@import 'src/styles/_vars.scss';
+
+@media (min-width: 750px) {
+  .bm-overlay {
+    display:none;
+  }
+  .bm-menu-wrap {
+    display:none;
+  }
+}
+
+@media (max-width: 750px){
+
+  html,
+  body {
+    margin: 0;
+  }
+
+  #App {
+    font-family: sans-serif;
+
+    /* Give app full page to work with */
+    height: 100%;
+  }
+
+  #page-wrap {
+    text-align: center;
+
+    /* Prevent sidebar from showing a scrollbar on page */
+    overflow: auto;
+  }
+
+  .menu-item {
+    padding:1rem;
+    outline: none;
+  }
+
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+
+    /* Our sidebar item styling */
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: $gainsboro;
+    transition: color 0.2s;
+  }
+
+  /* Change color on hover */
+  .bm-item:hover {
+    color: gray;
+  }
+
+  /* The rest copied directly from react-burger-menu docs */
+
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 20px;
+    right : 1rem;
+    top: 1.2rem;
+  }
+
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: rgb(79, 87, 110);
+    border-radius:15px;
+  }
+
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: $gainsboro ;
+  }
+
+  /* General sidebar styles */
+  .bm-menu {
+    background: $yankees-blue;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: $shadow-blue;
+  }
+
+  /* Styling of overlay */
+  .bm-overlay {
+    background:rgba(0, 0, 0, 0.7);
+  }
+}

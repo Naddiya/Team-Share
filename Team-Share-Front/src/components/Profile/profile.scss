@@ -1,0 +1,176 @@
+@import 'src/styles/_vars.scss';
+
+.profile {
+    height: 100%;
+    background-color: #fff;
+
+    &-headpic {
+        width: 100vw;
+        height: 30vh;
+        background: no-repeat url('http://92.243.10.99/pics/teamPic.png');
+        background-size: cover;
+        &>img {
+            margin-top : 8rem;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 2em grey;
+            margin-left: 2rem;
+        }
+    }
+}
+
+.select {
+    display: flex;
+    
+    &-left {
+        width: 70%;
+        text-align: center;
+        margin-top: 2rem;
+
+        &-picture {
+            &>img {
+                width: 350px;
+                height: 350px;
+                border-radius: 50%;
+                box-shadow: 0 0 2em grey;
+            }
+        }
+
+        &-contact {
+            width: 50%;
+            margin: 1.2rem auto;
+            font-size: 1.5em;
+            padding: 1rem;
+            border: 1px solid #000;
+            box-sizing:content-box;
+            overflow:auto;
+
+            &>svg {
+                font-size: 2.5em;
+            }
+
+            &>span {
+                display: block;
+                padding: .5em;
+            }
+        }
+    }
+
+    &-right {
+
+        margin-top: 1.5em;
+
+        &-name {
+            font-size: 1.5em;
+        }
+
+        &-links {
+            font-size: 1.5em;
+            margin-top: 1em;
+
+            &>svg {
+                font-size: 1.5em;
+            }
+            
+            &>span {
+                margin: 0 1em;
+            }
+        }
+
+        &-container {
+            padding: 4em;
+        }
+        
+        &-description {
+            font-size: 1.3em;
+        }
+
+        &-subtitle {
+            margin: 3em 0 2em 0;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .profile {
+        &-headpic {
+            margin-bottom: 2.5rem;
+            &>img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+    .select {
+        display: block;
+        &-left {
+            width: 95%;
+            text-align: left;
+            position: static;
+            margin-top: 4rem;
+            // &-picture {
+            //     &>img {
+            //         position: absolute;
+            //         top:19rem;
+            //         width: 5rem;
+            //         height: 5rem;
+            //         border-radius: 50%;
+            //         box-shadow: 0 0 2em grey;
+            //     }
+            // }
+            &-contact {
+                width: 90%;
+                margin: 0.5rem auto;
+                font-size: 1em;
+                padding: 0.5em;
+                border: 0.5px solid rgb(201, 199, 199);
+                &>svg {
+                    display:none;
+                    font-size: 2.5em;
+                }
+                &>span {
+                 padding: 0;
+                }
+            }
+        }
+        &-right {
+            width:95%;
+            margin: 0 auto;
+            &-name {
+                font-size: 1em;
+                margin-top:1rem;
+            }
+            &-links {
+                font-size: 1em;
+                margin-top: 1em;
+                &>svg {
+                    font-size: 1.5em;
+                } 
+                &>span {
+                    margin: 0 15px 0 0;
+                }
+            }
+            &-container {
+                margin-top: 1rem;
+                margin-bottom:1rem;
+                padding: 1em;
+            }
+            &-description {
+                font-size: 1em;
+            }
+            &-subtitle {
+                margin: 2em 0 0 0;
+            }
+        }
+    }
+}
+.modifiable:hover {
+    padding: 0.5em;
+    background-color: darken($gainsboro, 10%);
+    cursor: uri('../../assets/cross.png'), auto;
+}
+
+.sized {
+    width: 180px;
+}

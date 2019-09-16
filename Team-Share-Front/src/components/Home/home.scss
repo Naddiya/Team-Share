@@ -1,0 +1,98 @@
+@import 'src/styles/_vars.scss';
+
+
+
+.main-container {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    width: 70%;
+    margin: auto;
+    justify-content: space-between;
+    margin-top: 8rem;
+    margin-bottom:8rem;
+}
+
+.welcome {
+    text-align: left;
+    color: $eerie-black;
+
+    &-title {
+        font-size: 3em;
+        font-weight:900;
+        padding: .5em;
+        color: $dark-cerulean;
+    }
+
+    &-subtitle {
+        font-size: 20px;
+        width: 60%;
+        padding: .5rem 1.5rem;
+    }
+
+    &-buttons {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+        margin:2rem;
+
+
+        &-button {
+            padding: 1em 3em;
+            background-color: $yankees-blue;
+            color: #FFF;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+
+            &.cta-button {
+                background-color: $dark-cerulean;
+            }
+        }
+    }
+}
+
+.team-pic {
+    margin: auto;
+    width: 45%;
+    height: 45%;
+    border-radius: 15px;
+    box-shadow: 0 0 2em grey;
+}
+
+@media (max-width: 750px) {
+    .main-container {
+        display: block;
+        width: 100vw;
+        margin-top: 0rem;
+        margin-bottom:0rem;
+    }
+    .welcome {
+        text-align: left;
+        &-title {
+            font-size: 1.7em;
+        }
+        &-subtitle {
+            width:100%;
+            font-size: 1.1em;
+            padding: 1rem;
+        }
+    
+        &-buttons {
+            width:90%;
+            display:flex;
+            justify-content: space-between;
+            margin: 2rem auto;
+    
+            &-button {
+                padding: .8rem 2rem;
+                margin-left: 0;
+                background-color: $yankees-blue;
+                font-size: 1rem;
+            }
+        }
+    }
+    .team-pic {
+        display:none;
+    }
+}
+

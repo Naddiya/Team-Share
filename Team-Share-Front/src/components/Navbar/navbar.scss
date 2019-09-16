@@ -1,0 +1,106 @@
+@import 'src/styles/_vars.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &-logo {
+    width: 50%;
+    height: 50%;
+    margin: 1rem 1.5rem;
+  }
+
+  &-links {
+    z-index:2000;
+    margin-top:1rem;
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
+  }
+
+  &-link {
+    z-index:2000;
+    padding: 1rem;
+    color: $eerie-black;
+    font-size: 1.4em;
+    margin-right: 1rem;
+    font-weight:500;
+    font-family: &font-slab;
+  }
+}
+
+.button-link {
+  padding: .5rem .8rem;
+  border-radius: 4px;
+  width: 150px;
+  border: none;
+  background-color: $yankees-blue;
+  font-size: 16px;
+  color: #FFF;
+
+  &-subscribe {
+    background-color: $dark-cerulean;
+  }
+  &-connect {
+    background-color: $easy-blue;
+  }
+  &-connect:hover {
+    color: #2185D0;
+  }
+}
+
+
+.modal {
+
+  &-close {
+    padding: 1rem;
+    background: #fff;
+    border: 2px solid #eee;
+    border-radius: 50%;
+    float: right;
+
+    &-send {
+      border-radius: 2px;
+      margin: 1rem;
+    }
+    
+    &>img {
+      height: 20px;
+      width: 20px;
+
+    }
+  }
+
+  &-form {
+
+    &>label, input {
+    display: block;
+    text-align: center;
+    margin: .8rem auto;
+    padding: .5rem;
+    width: 80%;
+    font-size: 1.5em;
+    }
+  } 
+}
+
+@media (max-width: 750px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  
+    &-logo {
+      width: 30%;
+      margin: 0.5rem;
+      z-index:2000;
+    }
+  
+    &-links {
+      display: none;
+    }
+  
+
+  }
+}

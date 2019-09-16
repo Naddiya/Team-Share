@@ -1,0 +1,15 @@
+label {
+    width: 200px;
+    display: inline-block;
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+.ui.modal {
+    padding: 1.5em;
+}
+
+.ui.modal>.content {
+    text-align: center;
+    border: none;
+}
