@@ -11,7 +11,7 @@ const initialState = {
   technos: '',
   skills: '',
   // === Subscribe props ===
-  logged: true,
+  logged: false,
   email: '',
   password: '',
   passwordConfirmation: '',

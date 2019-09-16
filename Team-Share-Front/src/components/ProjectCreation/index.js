@@ -176,8 +176,7 @@ ProjectCreation.propTypes = {
     changeInputDescription: PropTypes.func.isRequired,
     changeInputShortDescription: PropTypes.func.isRequired,
     changeInputCollabNumber: PropTypes.func.isRequired,
-    changeInputFrontTechnos: PropTypes.func.isRequired,
-    changeInputBackTechnos: PropTypes.func.isRequired,
+    changeInputTechnos: PropTypes.func.isRequired,
     changeSkills: PropTypes.func.isRequired,
     sendSubmit: PropTypes.func.isRequired,
 }

@@ -15,7 +15,7 @@ const projectCreationMiddleware = store => next => (action) => {
           finished_at: state.endDate,
           tag: state.projectType, 
           nbCollaborator: state.collabNumber,
-          technos: state.frontTechnos + " / " + state.backTechnos,
+          technos: state.technos,
           skills: state.skills,
         }
         const headers = {

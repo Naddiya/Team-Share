@@ -64,8 +64,8 @@ const ProjectDetail = ({
           <div className="team-members">
               <div className="team-member">
                   <img className="team-image" src="src/assets/teamPic.png" />
-                  <h3 className="team-member-name">{collaborators.name}</h3>
-                  <p className="team-member-role">{collaborators.job}</p>
+                  <h3 className="team-member-name">{collaborators[0].name}</h3>
+                  <p className="team-member-role">{collaborators[0].job}</p>
               </div>
               <div className="team-member">
                   <img className="team-image" src="src/assets/teamPic.png" />
