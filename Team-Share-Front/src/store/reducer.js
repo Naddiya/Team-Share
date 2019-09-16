@@ -4,18 +4,24 @@ const initialState = {
   projectName: '',
   startDate: 'DD/MM/YYYY',
   endDate: 'DD/MM/YYYY',
-  projectType: '',
+  projectType: [''],
   shortDescription: '',
   description: '',
   collabNumber: 0,
-  technos: '',
-  skills: '',
+  technos: [''],
+  skills: [''],
+  image: '',
+  urlFacebook: '',
+  urlTwitter: '',
+  urlTipeee: '',
+  urlGithub: '',
   // === Subscribe props ===
   logged: false,
   email: '',
   password: '',
   passwordConfirmation: '',
   phoneNumber: 0,
+  token: 'is8jEVwg6iy89i9bdTT7AnnLBKMWBdDs_mNCZwnl1El2v1MyzS0Exy1QknibI7QLEMc',
 };
 
 // == Types
@@ -29,6 +35,11 @@ export const CHANGE_SHORTDESCRIPTION = 'CHANGE_SHORTDESCRIPTION';
 export const CHANGE_COLLABNUMBER = 'CHANGE_COLLABNUMBER';
 export const CHANGE_TECHNOS = 'CHANGE_TECHNOS';
 export const CHANGE_SKILLS = 'CHANGE_SKILLS';
+export const CHANGE_IMAGE = 'CHANGE_IMAGE';
+export const CHANGE_URLFB = 'CHANGE_URLFB';
+export const CHANGE_URLTWIT = 'CHANGE_URLTWIT';
+export const CHANGE_URLTIP = 'CHANGE_URLTIP';
+export const CHANGE_URLGIT = 'CHANGE_URLGIT';
 export const DO_SUBMIT = 'DO_SUBMIT';
 
 // === SUBSCRIBE & LOGIN ACTION TYPES ===
@@ -36,6 +47,7 @@ export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 export const CHANGE_PASSWORDCONFIRM = 'CHANGE_PASSWORDCONFIRM';
 export const CHANGE_PHONENUMBER = 'CHANGE_PHONENUMBER';
+export const CHANGE_TOKEN = 'CHANGE_TOKEN';
 export const DO_SUBSCRIBE = 'DO_SUBSCRIBE';
 export const DO_CONNECT = 'DO_CONNECT';
 
@@ -88,6 +100,31 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         skills: action.value,
       };
+    case CHANGE_IMAGE:
+      return {
+        ...state,
+        image: action.value,
+      };
+    case CHANGE_URLFB:
+      return {
+        ...state,
+        urlFacebook: action.value,
+      };
+    case CHANGE_URLTWIT:
+      return {
+        ...state,
+        urlTwitter: action.value,
+      };
+    case CHANGE_URLTIP:
+      return {
+        ...state,
+        urlTipee: action.value,
+      };
+    case CHANGE_URLGIT:
+      return {
+        ...state,
+        urlGithub: action.value,
+      };
     case DO_SUBMIT:
       return {
         ...state,
@@ -112,7 +149,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         phoneNumber: action.value,
-      }; 
+      };
     case DO_SUBSCRIBE:
       return {
         ...state,
@@ -122,6 +159,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: true,
+        token: response.data.token,
       };    
     default:
       return state;
@@ -175,6 +213,31 @@ export const changeSkills = value => ({
   value,
 });
 
+export const changeImage = value => ({
+  type: CHANGE_IMAGE,
+  value,
+});
+
+export const changeUrlFb = value => ({
+  type: CHANGE_URLFB,
+  value,
+});
+
+export const changeUrlTwit = value => ({
+  type: CHANGE_URLTWIT,
+  value,
+});
+
+export const changeUrlTip = value => ({
+  type: CHANGE_URLTIP,
+  value,
+});
+
+export const changeUrlGit = value => ({
+  type: CHANGE_URLGIT,
+  value,
+});
+
 export const doSubmit = value => ({
   type: DO_SUBMIT,
 });
@@ -205,8 +268,10 @@ export const doSubscribe = () => ({
   type: DO_SUBSCRIBE,
 });
 
-export const doConnect = () => ({
+export const doConnect = (logged, token) => ({
   type: DO_CONNECT,
+  logged,
+  token,
 });
 // == Selectors
 

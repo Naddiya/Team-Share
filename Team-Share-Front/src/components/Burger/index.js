@@ -33,7 +33,7 @@ const Burger = () => {
       <NavLink className="menu-item" to="/legaleMentions" exact>
           About
       </NavLink>
-      <NavLink className="menu-item" to="/legaleMentions" exact>
+      <NavLink className="menu-item" to="/legalmentions" exact>
           Mentions legales
       </NavLink>
     </Menu>
