@@ -1,6 +1,7 @@
 @import 'src/styles/_vars.scss';
 
 .navbar {
+  z-index:2000;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -8,7 +9,7 @@
   &-logo {
     width: 50%;
     height: 50%;
-    margin: 1rem 1.5rem;
+    margin: 1rem 1.7rem;
   }
 
   &-links {
@@ -85,7 +86,7 @@
   } 
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -93,7 +94,7 @@
   
     &-logo {
       width: 30%;
-      margin: 0.5rem;
+      margin: 1rem 0.5rem;
       z-index:2000;
     }
   

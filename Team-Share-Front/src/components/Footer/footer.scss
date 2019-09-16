@@ -9,7 +9,7 @@
     display: flex;
     color: $gainsboro;
     & h3 {
-      font-weight:900;
+      font-weight:700;
       font-size:1.5em;
       margin-left:0.6rem;
       margin-bottom:1.4rem;
@@ -40,24 +40,24 @@
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .footer {
     margin:0;
     border-radius:0;
     &-upper {
       display: flex;
       & h3 {
-        font-size:1.1em;
+        font-size:1em;
         margin-left:0.6rem;
         margin-bottom:1rem;
       }
       &-links, &-contacts {
-        padding:0.5rem;
+        padding:0.4rem;
         & li {
-          font-size: 1em;
+          font-size: 0.8em;
         }
         & a {
-          font: size 1.1rem;
+          font-size: 0.9em;
         }
         }
       &-contacts a {

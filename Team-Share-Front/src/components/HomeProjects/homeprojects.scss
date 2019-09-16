@@ -1,58 +1,37 @@
 @import 'src/styles/_vars.scss';
 
 .projects {
-    text-align: center;
-    background-color: #FFF;
-
+     background-color: #FFF;
     &-title {
+        text-align:center;
+        font-weight: 700;
         font-size: 2.5em;
         padding: 1.5em;
         color: $dark-cerulean;
     }
-
-    &-container {
-        margin-bottom: 8em;
-        width: 100%;
-    }
 }
-
 .ui {
-    margin:auto;
     &.cards {
-        width: 67.7%;
-        margin: auto;
-
-        // &>.extra {
-            
-        // }
-
-
+        justify-content: center;
+        margin-bottom: 10%;
         &>.card {
-            margin: 1em;
-            margin-bottom: 6em;
-            height: 550px;
-
-            &>.image {
-                height: 45%;
-
-                &>img {
-                    height: 100%;
-                }
-            }
-
-
+            margin:2rem !important;
         }
-
     }
 }
 
+.extra.content {
+    text-align:center !important;
+    color: $dark-cerulean !important;
+}
 
 .header, .meta, .description {
-    margin: 1em 0 !important;
+    margin: 1em 0;
 }
 
 
-@media (max-width: 750px) {
+
+@media (max-width: 425px) {
     .projects {
         &-title {
             font-size: 1.5em;
@@ -67,20 +46,17 @@
     }
 
     .ui {
-            &.cards {
-            margin: auto;
+        &.cards {
+        margin: 0 2rem;
             &>.card {
-                margin:0.6rem;
-                height: 450px;
-                &>.image {
-                    height: 40%;
-                    width:auto;
+                &>.extra {
+                text-align:center !important;
                 }
             }
         }
     }
 
-    .header, .meta, .description, .extra {
+    .header, .meta, .description {
         font-size: 1em !important;
         margin:auto;
     }
