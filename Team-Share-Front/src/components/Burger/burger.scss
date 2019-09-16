@@ -1,13 +1,36 @@
 @import 'src/styles/_vars.scss';
 
 @media (min-width: 750px) {
-  .bm-overlay {
+
+  .bm {
     display:none;
-  }
-  .bm-menu-wrap {
-    display:none;
+    &-overlay {
+      display:none;
+    }
+    &-menu{
+      display:none;
+      &-wrap {
+        display:none;
+      }
+    }
+    &-burger {
+      display:none;
+      &-button {
+        display:none;
+      }
+    }
+    &-item {
+      display:none;
+      &-list {
+        display:none;
+        &>.active {
+          display:none;
+        }
+      }
+    }
   }
 }
+
 
 @media (max-width: 750px){
 
