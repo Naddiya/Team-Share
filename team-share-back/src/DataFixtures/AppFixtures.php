@@ -107,6 +107,7 @@ class AppFixtures extends Fixture
                     return $generator->url();
                 },
                 'isActive' => 1,
+                'token' => null
             ],
             [
                 // Fonction de callbacks custom appelée sur l'objet en cours de création

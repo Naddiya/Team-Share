@@ -54,58 +54,53 @@ class ProjectController extends AbstractController
     /**
      * @Route("/new", name="_new", methods={"POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager, SerializerInterface $serializer, TagRepository $tagRepository, StatutRepository $statutRepository, UserRepository $userRepository, SkillRepository $skillRepository, TechnoRepository $technoRepository)
+    public function new(Request $request, EntityManagerInterface $entityManager, TagRepository $tagRepository, StatutRepository $statutRepository, UserRepository $userRepository, SkillRepository $skillRepository, TechnoRepository $technoRepository)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
-        // dd($jsonContent);
-        // Déserialize le json et crée un objet Project avec les propriétés du json reçu
-        $newProjectObject = $serializer->deserialize($jsonContent, Project::class, 'json');
-        // dd($newProjectObject);
-        // Ajout des tags
-        // boucle sur la liste des tags récupérés du fichier json
-        foreach ($newProjectObject->getTags() as $jsonTag) {
-          // récupère en bdd le tag courant via son "name" à partir du tag fourni dans le json
-          $dbTag = $tagRepository->findOneBy(['name' => $jsonTag->getName()]);
-          // ajoute ce tag dans la liste des tags qui référencent le nouveau projet
-          $newProjectObject->addTag($dbTag);
-          // supprime le tag fournit par le json pour ne pas qu'il soit "persisté" en bdd une 2ème fois
-          $newProjectObject->removeTag($jsonTag);
-        }
 
-        // Ajout du user
-        // récupère le user du fichier json dans le tableau (le 1er car il n'y a qu'un user qui puisse créer un projet)
-        foreach ($newProjectObject->getUsers() as $jsonUser) {
-        // dd($newProjectObject->getUsers());
-        // récupère en bdd le user qui a crée le projet via son "username" à partir du user fourni dans le json
-        $dbUser = $userRepository->findOneBy(['mail' => $jsonUser->getUsername()]);
-        // dd($dbUser);
-        // ajoute cet user comme créateur du projet (1er user faisant partit de la liste des users du projet)
-        $newProjectObject->addUser($dbUser);
-        // supprime le user fournit par le json pour ne pas qu'il soit "persisté" en bdd une 2ème fois
-        $newProjectObject->removeUser($jsonUser);
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
+
+        // Crée un nouveau projet vide
+        $newProjectObject = New Project;
+
+        // Hydrate le nouveau projet en fonction du tableau
+        $newProjectObject->setTitle($jsonContentArray['title']);
+        $newProjectObject->setDescription($jsonContentArray['description']);
+        $newProjectObject->setContent($jsonContentArray['content']);
+        $newProjectObject->setImage($jsonContentArray['image']);
+        $newProjectObject->setStartedAt($jsonContentArray['startedAt']);
+        $newProjectObject->setNbCollaborator($jsonContentArray['nbCollaborator']);
+        $newProjectObject->setFinishedAt($jsonContentArray['finishedAt']);
+        $newProjectObject->setUrlFacebook($jsonContentArray['urlFacebook']);
+        $newProjectObject->setUrlTwitter($jsonContentArray['urlTwitter']);
+        $newProjectObject->setUrlGithub($jsonContentArray['urlGithub']);
+        $newProjectObject->setUrlTipeee($jsonContentArray['urlTipeee']);
+
+        // Ajout des tags
+        foreach ($jsonContentArray['tags'] as $jsonTag) {
+          $dbTag = $tagRepository->findOneBy(['name' => $jsonTag]);
+          $newProjectObject->addTag($dbTag);
         }
 
         // Ajout des technos
-        foreach ($newProjectObject->getTechnos() as $jsonTechno) {
-          $dbTechno = $technoRepository->findOneBy(['name' => $jsonTechno->getName()]);
+        foreach ($jsonContentArray['technos'] as $jsonTechno) {
+          $dbTechno = $technoRepository->findOneBy(['name' => $jsonTechno]);
           $newProjectObject->addTechno($dbTechno);
-          $newProjectObject->removeTechno($jsonTechno);
         }
 
         // Ajout des skills
-        foreach ($newProjectObject->getSkills() as $jsonSkill) {
-          $dbSkill = $skillRepository->findOneBy(['name' => $jsonSkill->getName()]);
+        foreach ($jsonContentArray['skills'] as $jsonSkill) {
+          $dbSkill = $skillRepository->findOneBy(['name' => $jsonSkill]);
           $newProjectObject->addSkill($dbSkill);
-          $newProjectObject->removeSkill($jsonSkill);
         }
-        
 
         // Récupère l'objet Statut "Not Start" et l'attribut par défaut au nouveau projet
         $jsonStatut = $statutRepository->findOneBy(['name' => 'Not Start']);
         $newProjectObject->setStatut($jsonStatut);
 
-        // Enregistre le nouvel utilisateur en bdd
+        // Enregistre le nouveau projet en bdd
         $entityManager->persist($newProjectObject);
         $entityManager->flush();
 

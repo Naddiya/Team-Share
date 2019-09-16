@@ -26,14 +26,14 @@ class SecurityController extends AbstractController
         $checkUser = $serializer->deserialize($jsonContent, User::class, 'json');
 
         $user = $userRepository->findOneBy(['username' => $checkUser->getUsername()]);
-        //dd($user);
+
         if(!$user) {
             return new Response("L'utilisatteur n'existe pas !");
         }
         if ($encoder->isPasswordValid($user, $checkUser->getPassword())){
             $tokenBrut = rtrim(strtr(base64_encode(random_bytes(50)), '+/', '-_'), '=');
-            $token = '{"token" : " '. $tokenBrut . '"}';
-            $user->setToken($token);
+            $user->setToken($tokenBrut);
+            $token = ["token" => $tokenBrut];
             $entityManager->flush();
             return new JsonResponse($token);
         }
