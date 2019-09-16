@@ -77,18 +77,10 @@
   .project {
     width:100%;
       &-title, &-presentation, &-description, &-team {
-      border-top :0;
       padding : 0;
-      & h1 {
-        font-size: 700;
-        text-align : center;
-        font-size: 1.5em;
-        margin-bottom:0;
-      }
       & p {
-        margin:1rem;
-        font-size:1em;
-        margin-bottom:.5rem;
+        font-size: 0.9em;
+        margin:.5rem;
       }
 
     }
@@ -97,8 +89,9 @@
       padding:0;
       & h1 {
         font-size: 600;
-        font-size: 0.8em;
+        font-size: 1em;
         margin:0.5rem;
+        padding-bottom:0.5rem;
       }
       & .team-members {
         padding:0;
@@ -138,11 +131,14 @@
     }
   
     &-description {
-      & h1 { 
-        display:none;
+      & h1 {
+        font-size:1em;
+        padding-bottom:0.5rem;
       }
       &-text {
-        display:none;
+        text-align: left !important;
+        margin:0;
+        padding:0;
       }
       &-files {
         display:none;

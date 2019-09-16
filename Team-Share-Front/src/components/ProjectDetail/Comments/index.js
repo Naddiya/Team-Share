@@ -8,7 +8,7 @@ const Comments = () => (
     </Header>
 
     <Comment>
-      <Comment.Avatar src='/images/avatar/small/matt.jpg' />
+      <Comment.Avatar src='http://92.243.10.99/pics/teamPic.png' />
       <Comment.Content>
         <Comment.Author as='a'>Matt</Comment.Author>
         <Comment.Metadata>
@@ -22,7 +22,7 @@ const Comments = () => (
     </Comment>
 
     <Comment>
-      <Comment.Avatar src='/images/avatar/small/elliot.jpg' />
+      <Comment.Avatar src='http://92.243.10.99/pics/teamPic.png' />
       <Comment.Content>
         <Comment.Author as='a'>Elliot Fu</Comment.Author>
         <Comment.Metadata>
@@ -37,7 +37,7 @@ const Comments = () => (
       </Comment.Content>
       <Comment.Group>
         <Comment>
-          <Comment.Avatar src='/images/avatar/small/jenny.jpg' />
+          <Comment.Avatar src='http://92.243.10.99/pics/teamPic.png' />
           <Comment.Content>
             <Comment.Author as='a'>Jenny Hess</Comment.Author>
             <Comment.Metadata>
@@ -53,7 +53,7 @@ const Comments = () => (
     </Comment>
 
     <Comment>
-      <Comment.Avatar src='/images/avatar/small/joe.jpg' />
+      <Comment.Avatar src='http://92.243.10.99/pics/teamPic.png' />
       <Comment.Content>
         <Comment.Author as='a'>Joe Henderson</Comment.Author>
         <Comment.Metadata>

@@ -74,12 +74,12 @@ const ProjectDetail = ({
               <div className="team-member">
                   <img className="team-image" src="src/assets/teamPic.png" />
                   <h3 className="team-member-name">Samantha</h3>
-                  <p className="team-member-role">Lead Dev Back</p>
+                  <p className="team-member-role">Lead Back</p>
               </div>
               <div className="team-member">
                   <img className="team-image" src="src/assets/teamPic.png" />
                   <h3 className="team-member-name">Kelly</h3>
-                  <p className="team-member-role">Lead Dev Front</p>
+                  <p className="team-member-role">Lead Front</p>
               </div>
           </div>
       </section>
@@ -99,12 +99,12 @@ const ProjectDetail = ({
               Rejoindre le projet ? <FaRegCheckCircle />
             </div>
           <div className="project-descritpion-actions-right">
-            <span className="project-description-actions-right-git">
+            <div className="project-description-actions-right-git">
               Curieux ? <FaGithubSquare />
-              </span>
-            <span className="project-description-actions-right-tip">
+              </div>
+            <div className="project-description-actions-right-tip">
               Soutenir le projet ? <FaCarrot />
-              </span>
+              </div>
           </div>
       </section>
 
