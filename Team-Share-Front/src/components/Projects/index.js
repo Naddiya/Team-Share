@@ -41,23 +41,34 @@ const skills = [
 const Projects = ({ projects }) => (
     <div className="project-container">
 
-        <div className="project-container-inputs">
-            <Select placeholder='Trier par' options={sortBy} />
-            <Select placeholder='Filtrer' options={category} />
-            <Select placeholder='Technologies' options={technos} />
-            <Select placeholder='Compétences' options={skills} />
-            <Input icon='search' placeholder='Recherche...' />
+        <div className="project-container-line">
+            <div className="project-container-select">
+                <Select placeholder='Trier par' options={sortBy} />
+                <Select placeholder='Filtrer' options={category} />
+                <Select placeholder='Technologies' options={technos} />
+                <Select placeholder='Compétences' options={skills} />
+            </div>
+            <div className="project-container-search">
+                <Input fluid icon='search' placeholder='Recherche...' />
+            </div>
         </div>
+
             <Divider className="project-container-divider1"/>
         <div className="radio">
             <div className="radio-left">
                 <Radio toggle />
-                <div className="radio-label"><h3>Projets Suivies</h3></div>
+                <div className="radio-label">
+                    Projets Suivis
+                </div>
             </div>
+
             <div className="radio-right">
-                <div><Radio toggle /></div>
-                <div className="radio-label"><h3>Projets Disponibles</h3></div>
+                <Radio toggle />
+                <div className="radio-label">
+                Projets Disponibles
+                </div>
             </div>
+
         </div>
         <Divider className="project-container-divider2" />
         <Item.Group divided>
