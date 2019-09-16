@@ -2,28 +2,43 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(Request $request, UserPasswordEncoderInterface $encoder, SerializerInterface $serializer, UserRepository $userRepository, EntityManagerInterface $entityManager): Response
     {
-        // if ($this->getUser()) {
-        //    $this->redirectToRoute('target_path');
-        // }
+        $jsonContent = $request->getContent();
+        
+        $checkUser = $serializer->deserialize($jsonContent, User::class, 'json');
 
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
+        $user = $userRepository->findOneBy(['username' => $checkUser->getUsername()]);
+        //dd($user);
+        if(!$user) {
+            return new Response("L'utilisatteur n'existe pas !");
+        }
+        if ($encoder->isPasswordValid($user, $checkUser->getPassword())){
+            $tokenBrut = rtrim(strtr(base64_encode(random_bytes(50)), '+/', '-_'), '=');
+            $token = '{"token" : " '. $tokenBrut . '"}';
+            $user->setToken($token);
+            $entityManager->flush();
+            return new JsonResponse($token);
+        }
 
-        return $this->render('Le token a bien été envoyé');
+        return new Response("Mot de passe invalide");
     }
 
     /**
@@ -31,6 +46,7 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
+        
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
 }
