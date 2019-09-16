@@ -61,10 +61,9 @@
 
 @media (max-width: 768px) {
     .main-container {
-        display: block;
-        width: 100vw;
-        margin-top: 0rem;
-        margin-bottom:0rem;
+        display: flex;
+        width:90%;
+        margin:auto;
     }
     .welcome {
         text-align: left;
@@ -80,7 +79,7 @@
         &-buttons {
             width:90%;
             display:flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             margin: 2rem auto;
     
             &-button {
@@ -92,7 +91,14 @@
         }
     }
     .team-pic {
-        display:none;
+        float:left;
     }
 }
 
+@media (max-width: 462px) {
+
+    .team-pic {
+        display:none;
+    }
+
+}
