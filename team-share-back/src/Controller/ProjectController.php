@@ -96,6 +96,10 @@ class ProjectController extends AbstractController
           $newProjectObject->addSkill($dbSkill);
         }
 
+        // Ajout de l'utilisateur
+        $dbUser = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
+        $newProjectObject->addUser($dbUser);
+
         // Récupère l'objet Statut "Not Start" et l'attribut par défaut au nouveau projet
         $jsonStatut = $statutRepository->findOneBy(['name' => 'Not Start']);
         $newProjectObject->setStatut($jsonStatut);
