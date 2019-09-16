@@ -10,17 +10,24 @@ const projectCreationMiddleware = store => next => (action) => {
           title: state.projectName,
           description: state.shortDescription,
           content: state.description,
-        //   image (not obligatoire)
-          started_at: state.startDate,
-          finished_at: state.endDate,
-          tag: state.projectType, 
+          image: state.image,
+          startedAt: state.startDate,
+          finishedAt: state.endDate,
+          tags: state.projectType, 
           nbCollaborator: state.collabNumber,
           technos: state.technos,
           skills: state.skills,
+          image: state.image,
+          urlFacebook: state.urlFacebook,
+          urlTwitter: state.urlTwitter,
+          urlTipeee: state.urlTipeee,
+          urlGithub: state.urlGithub,
+          token: state.token,
         }
         const headers = {
+            'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            'Postman-Token': 'fd2aeac5-eaaa-430b-b91f-cbd3d90f5208',
+            'Postman-Token': 'f0d22539-4c31-4dc9-a6ca-b513778e229e,59c924e4-c4a5-4def-927c-e4281aa091a1',
             'cache-control': 'no-cache',
         }
         console.log(data);

@@ -8,36 +8,29 @@ import PropTypes from 'prop-types';
 import './projectcreation.scss';
 
 const technos = [
-    { key: 'af', value: 'html', text: 'HTML' },
-    { key: 'ax', value: 'css', text: 'CSS' },
-    { key: 'al', value: 'js', text: 'Javascript' },
-    { key: 'at', value: 'react', text: 'React' },
-    { key: 'az', value: 'php', text: 'PHP' },
-    { key: 'aw', value: 'symfo', text: 'Symfony' },
-    { key: 'av', value: 'lum', text: 'Lumen' },
-    { key: 'am', value: 'twig', text: 'Twig' },
+    { key: 'af', value: 'HTML', text: 'HTML' },
+    { key: 'ax', value: 'CSS', text: 'CSS' },
+    { key: 'al', value: 'Javascript', text: 'Javascript' },
+    { key: 'at', value: 'React', text: 'React' },
+    { key: 'az', value: 'PHP', text: 'PHP' },
+    { key: 'aw', value: 'Symfony', text: 'Symfony' },
 ]
 
 const skillsList = [
-    { key: 'af', value: 'gestproj', text: 'Gestion de projet' },
-    { key: 'ax', value: 'manag', text: 'Management' },
-    { key: 'al', value: 'cm', text: 'Community Management' },
-    { key: 'ah', value: 'finance', text: 'Finance' },
-    { key: 'ag', value: 'git', text: 'Git' },
+    { key: 'af', value: 'Graphisme', text: 'Graphisme' },
+    { key: 'ax', value: 'Big Data', text: 'Big Data' },
 ]
 
 const collabs = [
-    { key: 'bc', value: '1', text: 1 },
-    { key: 'bg', value: '2', text: 2 },
-    { key: 'bj', value: '3', text: 3 },
-    { key: 'bk', value: '4', text: 4 },
+    { key: 'bc', value: 1, text: 1 },
+    { key: 'bg', value: 2, text: 2 },
+    { key: 'bj', value: 3, text: 3 },
+    { key: 'bk', value: 4, text: 4 },
 ]
 
 const projType = [
-    { key: 'cc', value: 'devweb', text: 'Développement web' },
-    { key: 'cg', value: 'devsoft', text: 'Développement software' },
-    { key: 'cj', value: 'pyj', text: 'Pyjama party' },
-    { key: 'ck', value: 'oct', text: 'Octoberfest' },
+    { key: 'cc', value: 'Art', text: 'Art' },
+    { key: 'cg', value: 'Musique', text: 'Musique' },
 ]
 
 // == Composant
@@ -118,7 +111,7 @@ const ProjectCreation = (
                     <h3 className="input-title">Date de fin</h3>
                     <Form.Input onChange={handleChangeEndDate} type="date" />
                     <h3 className="input-title">Type de projet</h3>
-                    <Select onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
+                    <Dropdown multiple selection onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
                     <h3 className="input-title">Nombre de collaborateurs souhaité</h3>
                     <Select onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs} />
                     <h3 className="input-title">Description en quelques mots</h3>
@@ -134,7 +127,7 @@ const ProjectCreation = (
             <h2>Compétences subsidiaires</h2>
             <Divider />
             <div className="project-skills">
-                <Select onChange={handleChangeSkills} placeholder='Choisir'  options={skillsList
+                <Dropdown multiple selection onChange={handleChangeSkills} placeholder='Choisir'  options={skillsList
                 } />
             </div> 
             <Divider />

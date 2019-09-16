@@ -36,9 +36,11 @@ const connectionMiddleware = store => next => (action) => {
                 }
             headers,
             console.log(dataConnect);
-            axios.post('http://92.243.10.99/Team-Share/team-share-back/public/api/login_check', dataConnect, headers)
+            axios.post('http://92.243.10.99/Team-Share/team-share-back/public/login', dataConnect, headers)
             .then((response) => {
                 console.log(response);
+                console.log(response.data.token);
+                store.setState({ token: response.data.token });
             })
             .catch((error) => {
                 console.log(error);
