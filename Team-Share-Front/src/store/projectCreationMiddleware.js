@@ -13,12 +13,11 @@ const projectCreationMiddleware = store => next => (action) => {
         //   image (not obligatoire)
           started_at: state.startDate,
           finished_at: state.endDate,
-          tag, 
+          tag: state.projectType, 
           nbCollaborator: state.collabNumber,
-          technos: state.frontTechnos,
-          technos: state.backTechnos,
+          technos: state.frontTechnos + " / " + state.backTechnos,
           skills: state.skills,
-            }
+        }
         const headers = {
             'Content-Type': 'application/json',
             'Postman-Token': 'fd2aeac5-eaaa-430b-b91f-cbd3d90f5208',

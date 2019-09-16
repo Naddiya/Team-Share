@@ -11,8 +11,7 @@ import {
     changeCollabNumber,
     changeDescription,
     changeShortDescription,
-    changeFrontTechnos,
-    changeBackTechnos,
+    changeTechnos,
     changeSkills,
     doSubmit,
     } from 'src/store/reducer';
@@ -52,12 +51,8 @@ const mapDispatchToProps = (dispatch) => ({
         const action = changeShortDescription(value);
         dispatch(action);
     },
-    changeInputFrontTechnos: value => {
-        const action = changeFrontTechnos(value);
-        dispatch(action);
-    },
-    changeInputBackTechnos: value => {
-        const action = changeBackTechnos(value);
+    changeInputTechnos: value => {
+        const action = changeTechnos(value);
         dispatch(action);
     },
     changeSkills: value => {

@@ -1,20 +1,17 @@
 // == Import : npm
 import React from 'react';
-import { Button, Input, Select, Divider, Form, TextArea } from 'semantic-ui-react'
+import { Button, Input, Select, Divider, Form, TextArea, Dropdown } from 'semantic-ui-react'
 import { IoIosFolderOpen } from 'react-icons/io';
 import PropTypes from 'prop-types';
 
 // == Import : local
 import './projectcreation.scss';
 
-const technosFront = [
+const technos = [
     { key: 'af', value: 'html', text: 'HTML' },
     { key: 'ax', value: 'css', text: 'CSS' },
     { key: 'al', value: 'js', text: 'Javascript' },
     { key: 'at', value: 'react', text: 'React' },
-]
-
-const technosBack = [
     { key: 'az', value: 'php', text: 'PHP' },
     { key: 'aw', value: 'symfo', text: 'Symfony' },
     { key: 'av', value: 'lum', text: 'Lumen' },
@@ -53,8 +50,7 @@ const ProjectCreation = (
         changeInputCollabNumber,
         changeInputDescription,
         changeInputShortDescription,
-        changeInputFrontTechnos,
-        changeInputBackTechnos,
+        changeInputTechnos,
         changeSkills,
         sendSubmit,
     }
@@ -95,14 +91,9 @@ const ProjectCreation = (
         changeInputShortDescription(value);
     };
 
-    const handleChangeFrontTechnos = (e, options) => {
+    const handleChangeTechnos = (e, options) => {
         const { value } = options;
-        changeInputFrontTechnos(value);
-    };
-
-    const handleChangeBackTechnos = (e, options) => {
-        const { value } = options;
-        changeInputBackTechnos(value);
+        changeInputTechnos(value);
     };
 
     const handleChangeSkills = (e, options) => {
@@ -138,10 +129,7 @@ const ProjectCreation = (
             <Divider />
             <h2>Les technos</h2>
             <div className="project-technos">
-                <Select onChange={handleChangeFrontTechnos} placeholder='Choisir' options={technosFront
-                } />
-                <Select onChange={handleChangeBackTechnos} placeholder='Choisir'  options={technosBack
-                } />
+                <Dropdown multiple selection onChange={handleChangeTechnos} placeholder='Choisir' options={technos} />
             </div>  
             <h2>Compétences subsidiaires</h2>
             <Divider />

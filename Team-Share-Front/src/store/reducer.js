@@ -8,8 +8,7 @@ const initialState = {
   shortDescription: '',
   description: '',
   collabNumber: 0,
-  frontTechnos: '',
-  backTechnos: '',
+  technos: '',
   skills: '',
   // === Subscribe props ===
   logged: true,
@@ -28,8 +27,7 @@ export const CHANGE_PROJECTTYPE = 'CHANGE_PROJECTTYPE';
 export const CHANGE_DESCRIPTION = 'CHANGE_DESCRIPTION';
 export const CHANGE_SHORTDESCRIPTION = 'CHANGE_SHORTDESCRIPTION';
 export const CHANGE_COLLABNUMBER = 'CHANGE_COLLABNUMBER';
-export const CHANGE_FRONTTECHNOS = 'CHANGE_FRONTTECHNOS';
-export const CHANGE_BACKTECHNOS = 'CHANGE_BACKTECHNOS';
+export const CHANGE_TECHNOS = 'CHANGE_TECHNOS';
 export const CHANGE_SKILLS = 'CHANGE_SKILLS';
 export const DO_SUBMIT = 'DO_SUBMIT';
 
@@ -80,15 +78,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         shortDescription: action.value,
       };
-    case CHANGE_FRONTTECHNOS:
+    case CHANGE_TECHNOS:
       return {
         ...state,
-        frontTechnos: action.value,
-      };
-      case CHANGE_BACKTECHNOS:
-      return {
-        ...state,
-        backTechnos: action.value,
+        technos: action.value,
       };
     case CHANGE_SKILLS:
       return {
@@ -172,13 +165,8 @@ export const changeShortDescription = value => ({
   value,
 });
 
-export const changeFrontTechnos= value => ({
-  type: CHANGE_FRONTTECHNOS,
-  value,
-});
-
-export const changeBackTechnos = value => ({
-  type: CHANGE_BACKTECHNOS,
+export const changeTechnos= value => ({
+  type: CHANGE_TECHNOS,
   value,
 });
 
