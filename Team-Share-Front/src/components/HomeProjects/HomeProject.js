@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 
 // == Import : local
-
+import './homeprojects.scss';
 
 
 // == Composant
