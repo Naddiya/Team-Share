@@ -2,6 +2,7 @@
 
 
 .project {
+  height:100% !important;
 
   &-title, &-presentation, &-team, &-description {
     padding : 2rem;
@@ -17,8 +18,17 @@
       margin:1rem;
       text-align:center;
       font-size: 1.5em;
-    } 
+    }
   }
+
+  &-title-likeCount {
+    text-align:center;
+    color: $links;
+    margin:2rem;
+    font-size:1.5em;
+  }
+
+
 
   &-presentation {
     display: flex;
@@ -55,17 +65,18 @@
       font-size: 1.5em; 
     }
     &-actions {
-      display:flex;
-      flex-direction: row;
-      justify-content: space-between;
       font-size: 1.5em;
-      width:90%;
       margin: 3rem auto;
-      &-right-git {
-      margin-right:2rem;
+      display: flex;
+      flex-direction:row;
+      justify-content:space-between;
+      color: $links;
+      & a:hover {
+        color: darken($links, 30%);
       }
     }
   }
+
   &-comments {
       border-top : solid grey 1px;
       margin-bottom: 4rem;
@@ -74,8 +85,8 @@
 }
 
 @media (max-width: 768px) {
+
   .project {
-    width:100%;
       &-title, &-presentation, &-description, &-team {
       padding : 0;
       & p {
@@ -144,15 +155,15 @@
         display:none;
       }
       &-actions {
+        padding:1.5rem;
+        font-weight: 600;
         font-size: 1.2em;
         flex-direction:column;
-        width: 100%;
         text-align:center;
+        & svg {
+          font-size: 1.8rem;
+        }
       }
     }
-    &-comments {
-      display:none;
-      }
-  
   }
 }

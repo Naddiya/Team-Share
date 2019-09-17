@@ -28,7 +28,7 @@ const ProjectDetail = ({
   <div className="project">
     <div className="project-title">
       <h1>{title}</h1>
-      <p>{nbLike} &nbsp; <FaHeartbeat /></p>
+      <div className="project-title-likeCount">{nbLike} <FaHeartbeat /> &nbsp; </div>
     </div>
     <div className="project-presentation" >
 
@@ -96,16 +96,14 @@ const ProjectDetail = ({
 
       <section className="project-description-actions">
             <div className="project-description-actions-left">
-              Rejoindre le projet ? <FaRegCheckCircle />
+              <a href="#">Rejoindre le projet ? <FaRegCheckCircle /></a>
             </div>
-          <div className="project-descritpion-actions-right">
             <div className="project-description-actions-right-git">
-              Curieux ? <FaGithubSquare />
+              <a href="https://github.com/">Curieux ? <FaGithubSquare /></a>
               </div>
             <div className="project-description-actions-right-tip">
-              Soutenir le projet ? <FaCarrot />
+            <a href="https://fr.tipeee.com/" target="blank">Soutenir le projet ? <FaCarrot /></a>
               </div>
-          </div>
       </section>
 
       <section className="project-comments">
