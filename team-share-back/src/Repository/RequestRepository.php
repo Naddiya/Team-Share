@@ -19,6 +19,20 @@ class RequestRepository extends ServiceEntityRepository
         parent::__construct($registry, Request::class);
     }
 
+    /**
+     * @return Request[] Returns an array of Request objects
+     */
+    public function findByProjectId($idProject)
+    {
+        $qb = $this->CreateQueryBuilder('r')
+            ->where('r.project = :idOfProject')
+            ->setParameter('idOfProject', $idProject)
+            ->leftJoin('r.project', 'p')
+            ->leftJoin('r.user', 'u')
+            ->addSelect('PARTIAL p.{id, title}', 'PARTIAL u.{id, username}');
+
+        return $qb->getQuery()->getArrayResult();
+    }
     // /**
     //  * @return Request[] Returns an array of Request objects
     //  */

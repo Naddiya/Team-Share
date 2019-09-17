@@ -51,7 +51,7 @@ class UserController extends AbstractController
         // $newUserObject->setUrlLinkedin($jsonContentArray['urlLinkedin']);
 
         // Encode le password
-        $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getMail());
+        $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getPassword());
         $newUserObject->setPassword($encodedPassword);
 
         // Set username = mail

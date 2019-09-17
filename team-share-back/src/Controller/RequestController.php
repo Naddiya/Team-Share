@@ -9,8 +9,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RequestController extends AbstractController
 {
@@ -19,19 +21,20 @@ class RequestController extends AbstractController
      */
     public function new(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager)
     {
+        // Récupére le contenu du json reçu
+        $jsonContent = $request->getContent();
 
-         // Récupére le contenu du json reçu
-         $jsonContent = $request->getContent();
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
+    
+        // Crée une nouvelle requête
+        $newRequest = new \App\Entity\Request;
 
-         // Transforme le json en tableau
-         $jsonContentArray = json_decode($jsonContent, true);
-        
-         $newRequest = new \App\Entity\Request;
-
+        // Récupère le user qui crée la requête
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]); 
-        // dd($user);
+
+        // Récupère le projet concerné par la requête
         $project = $projectRepository->findOneBy(['id' => $jsonContentArray['project']]);
-        //dd($project);
 
          // Hydrate la requête en fonction du tableau
         $newRequest->setTitle($jsonContentArray['title']);
@@ -39,6 +42,7 @@ class RequestController extends AbstractController
         $newRequest->setUser($user);
         $newRequest->setProject($project);
 
+        // Enregistre la nouvelle requête en BDD
         $entityManager->persist($newRequest);
         $entityManager->flush();
 
@@ -51,7 +55,7 @@ class RequestController extends AbstractController
     /**
      * @Route("/request/index", name="_index", methods={"GET"})
      */
-    public function index(Request $request, RequestRepository $requestRepository, UserRepository $userRepository)
+    public function index(Request $request, RequestRepository $requestRepository, UserRepository $userRepository, SerializerInterface $serializer)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
@@ -59,21 +63,25 @@ class RequestController extends AbstractController
         // Transforme le json en tableau
         $jsonContentArray = json_decode($jsonContent, true);
 
+        // Récupère le destinataire de la requête
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
-      
+
+        // Récupère les projets du destinataire
         $userProjects = $user->getProjects();
+
+        // Boucle sur les projets du destinataire
         foreach ($userProjects as $project){
-            //dd($project);
+            //récupère l'auteur du projet en question
             $author = $project->getUsers()[0];
-            //dd($author);
-            if ($author = $user){
-                $requests = [];
-                foreach($project->getRequests() as $request){
-                    array_push($requests, $request);
-                    dd($request);
-                }
+            //si l'auteur du projet est bien le destinataire de la requête
+            if ($author === $user){
+                //on ajoute dans un tableau les requêtes qui correspondent au projet en cours
+                $requestsOfProject = new ArrayCollection;
+                $requestsOfProject->add($requestRepository->findByProjectId($project->getId()));
             }
         }
-        return new JsonResponse($requests);
+        dd($requestsOfProject);
+
+        return new JsonResponse($requestsOfProject);
     }
 }
