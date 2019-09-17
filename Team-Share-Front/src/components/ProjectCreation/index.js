@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
-import { Button, Input, Select, Divider, Form, TextArea, Dropdown } from 'semantic-ui-react'
-import { IoIosFolderOpen } from 'react-icons/io';
+import { Button, Input, Select, Divider, Form, TextArea, Dropdown, Checkbox } from 'semantic-ui-react'
+// import { IoIosFolderOpen } from 'react-icons/io';
 import PropTypes from 'prop-types';
 
 // == Import : local
@@ -103,7 +103,7 @@ const ProjectCreation = (
             <div className="project-heading">
                 <h1 className="project-heading-title">Ton super projet</h1>
             <Divider />
-                <Form.Input  value={projectName} onChange={handleChangeProjectName} placeholder='Nom du projet' />
+                <Form.Input value={projectName} onChange={handleChangeProjectName} placeholder='Nom du projet' />
             <Divider />
             </div>
 
@@ -111,15 +111,15 @@ const ProjectCreation = (
             <div className="project-intro">
                 <div className="project-intro-inputs">
                     <h3 className="input-title">Date de début</h3>
-                        <Form.Input onChange={handleChangeStartDate} type="date" />
+                        <Form.Input fluid onChange={handleChangeStartDate} type="date" />
                     <h3 className="input-title">Date de fin</h3>
-                        <Form.Input onChange={handleChangeEndDate} type="date" />
+                        <Form.Input fluid onChange={handleChangeEndDate} type="date" />
                     <h3 className="input-title">Type de projet</h3>
-                        <Dropdown multiple selection onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
+                        <Dropdown fluid multiple selection onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
                     <h3 className="input-title">Nombre de collaborateurs souhaité</h3>
-                        <Select onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs} />
+                        <Select fluid onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs}  />
                     <h3 className="input-title">Description en quelques mots</h3>
-                        <Form.Input onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
+                        <Form.Input fluid  onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
                 </div>
 
                 <img className="teamPic" src="src/assets/teamPic.png" />
@@ -163,11 +163,14 @@ const ProjectCreation = (
                 </ul>
                 </div>
             </div> */}
-            <div className="project-links-validation">
-                <Form.Input name="send-project" type="checkbox" label="I agress, à tout ce que vous voudez"/>
-            <Button className="submit" color="blue">Envoyer</Button>
+            <div className="project-terms">
+            <Form.Field className="project-terms">
+                <Checkbox label='I agree to the Terms and Conditions' />
+            </Form.Field>
+            <Button className="project-terms" color="blue" type='submit' >Submit</Button>
             </div>
-            </Form>
+        </Form>
+           
         </div>
     );
 };

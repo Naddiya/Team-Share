@@ -52,41 +52,36 @@
         
     }
 
-    &-links {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 2em 0 4em;
-        font-size: 1.2em;
-        &-left {
-            width: 45%;
-        }
-        &-right {
-            &>ul>li {
-                padding: .5em;
-            }
-        }
-        &-validation {
-            display: flex;
-            &>input {
-                height: 20px;
-                width: 20px;
-            }
-            &>button {
-                margin-bottom: 4em;
-            }
+    &-terms {
+        margin: 2rem;
+        text-align : center;
+    }
+
+    .ui.checkbox {
+        & label {
+            width:inherit;
         }
     }
 
+
+    // &-links {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     margin: 2em 0 4em;
+    //     font-size: 1.2em;
+    //     &-left {
+    //         width: 45%;
+    //     }
+    //     &-right {
+    //         &>ul>li {
+    //             padding: .5em;
+    //         }
+    //     }
+
+
 }
 
-// .add-file {
-//     margin-bottom: 2em;
-// }
 
-.project-validation {
-    margin: 0 2em;
-    font-size: 1.2em;
-}
 
 // RESPONSIVE 
 
@@ -97,17 +92,12 @@
         img {
             display:none !important;
         }
-
         &-heading {
-            text-align: center;
             margin-top: 3rem;
             margin-bottom:0;
         }
-    
         &-intro {
-            display:block;
-            justify-content:space-around;
-            margin-bottom: 2em;
+            margin-bottom: 0;
             &-inputs {
                 font-size:0.8em;
                 margin:0;
@@ -118,9 +108,10 @@
     &-intro {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 4em;
+        margin-bottom: 0;
         &-inputs {
             .input-title {
+                margin:0.5rem;
                 font-size: 1.2em;
                 font-weight: 600;
                 color: $dark-cerulean;
@@ -129,62 +120,19 @@
     }
 
     &-filter {
-        padding: 3rem;
-        display:flex;
+        padding: 0;
+        display:block;
         justify-content:space-around;
         margin:auto;
         & h3 {
            text-align:center;
-           font-weight:700;
-           font-size:1.7rem;
+           font-weight: 700;
+           font-size:0.9rem;
            color: $dark-cerulean;
         }
         
     }
 
-    &-links {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 2em 0 4em;
-        font-size: 1.2em;
-        &-left {
-            width: 45%;
-        }
-        &-right {
-            &>ul>li {
-                padding: .5em;
-            }
-        }
-        &-validation {
-            display: flex;
-            &>input {
-                height: 20px;
-                width: 20px;
-            }
-            &>button {
-                margin-bottom: 4em;
-            }
-        }
-    }
-
-}
-
-.input {
-    font-size: 1.2em;
-    height: 35px;
-    width: 350px;
-    border: none;
-    margin: 1em 0;
-}
-
-.add-file {
-    margin-bottom: 2em;
-}
-
-.project-validation {
-    margin: 0 2em;
-    font-size: 1.2em;
-    font-weight: bold;
 }
 
 
