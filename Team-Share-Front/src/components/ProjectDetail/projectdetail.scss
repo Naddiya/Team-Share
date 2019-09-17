@@ -37,8 +37,11 @@
     &-content{
       width:90%;
       align-self: flex-end;
+      &-text {
+        font-weight:400;
+      }
       &-icons, &-text, &-progress {
-        width:80%;
+        width: 80%;
         margin-top: 5rem;
       }
       & i {
@@ -56,10 +59,11 @@
   }
 
   &-description {
-    &h1 {
+    & h1 {
       font-weight: 700;
     }
     &-text {
+      font-weight:400;
       margin: 4rem 0;
       padding: 1rem;
       font-size: 1.5em; 
@@ -72,7 +76,7 @@
       justify-content:space-between;
       color: $links;
       & a:hover {
-        color: darken($links, 30%);
+        color: darken($links, 20%);
       }
     }
   }

@@ -141,7 +141,7 @@ const ProjectCreation = (
 
 
 
-            <Divider /> 
+            <Divider />
 
                 <div className="project-description">
                     <h2 className="project-title">Décris ton projet</h2>

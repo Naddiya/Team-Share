@@ -28,7 +28,7 @@ const ProjectDetail = ({
   <div className="project">
     <div className="project-title">
       <h1>{title}</h1>
-      <div className="project-title-likeCount">{nbLike} <FaHeartbeat /> &nbsp; </div>
+      <div className="project-title-likeCount"> <FaHeartbeat />  {nbLike} &nbsp; Likes </div>
     </div>
     <div className="project-presentation" >
 
@@ -89,9 +89,6 @@ const ProjectDetail = ({
         <p className="project-description-text">
         {description}
         </p>
-        <div className="project-description-files">
-          5 piéces jointes
-        </div>
       </section>
 
       <section className="project-description-actions">
