@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-import { DO_SUBSCRIBE } from 'src/store/reducer';
-import { DO_CONNECT } from 'src/store/reducer';
+import { DO_SUBSCRIBE, DO_CONNECT, changeToken } from 'src/store/reducer';
 
 const connectionMiddleware = store => next => (action) => {
     const state = store.getState();
@@ -38,9 +37,9 @@ const connectionMiddleware = store => next => (action) => {
             console.log(dataConnect);
             axios.post('http://92.243.10.99/Team-Share/team-share-back/public/login', dataConnect, headers)
             .then((response) => {
-                console.log(response);
-                console.log(response.data.token);
-                store.setState({ token: response.data.token });
+                let token = response.data.token;
+                console.log(token);
+                store.dispatch(changeToken(token));
             })
             .catch((error) => {
                 console.log(error);

@@ -1,46 +1,55 @@
+@import 'src/styles/_vars';
+
 .project {
     width: 70%;
     margin: auto;
 
-    &-title, &-presentation, &-team, &-description {
-        border-top: none;
+    & img {
+        border-radius:15px;
+        box-shadow: 0 0 2rem  gray;
     }
+
+    &-title, &-presentation, &-team, &-description {
+        font-weight: 600;
+
+    }
+
+    &-title {
+        color: $dark-cerulean;
+        text-align: center;
+    }
+
     &-heading {
         text-align: center;
-        margin-bottom: 4em;
-
-        // &>input {
-        // }
+        margin-bottom: 4rem;
+        color: $dark-cerulean;
     }
 
     &-intro {
         display: flex;
         justify-content: space-between;
         margin-bottom: 4em;
-
         &-inputs {
-
             .input-title {
-                font-size: 1.5em;
-            }
-
-            &>input {
-                // width: 250px;
-                // height: 35px;
-                // border: none;
+                font-size: 1.2em;
+                font-weight: 600;
+                color: $dark-cerulean;
             }
         }
     }
 
-    &-description {
-        margin: 2em 0 4em;
-    }
-
-    &-technos, &-skills {
-        margin: 2em auto 4em;
-        display: flex;
-        justify-content: space-between;
-        width: 50%;
+    &-filter {
+        padding: 3rem;
+        display:flex;
+        justify-content:space-around;
+        margin:auto;
+        & h3 {
+           text-align:center;
+           font-weight:700;
+           font-size:1.7rem;
+           color: $dark-cerulean;
+        }
+        
     }
 
     &-links {
@@ -48,26 +57,20 @@
         flex-wrap: wrap;
         margin: 2em 0 4em;
         font-size: 1.2em;
-
         &-left {
             width: 45%;
         }
-
         &-right {
-
             &>ul>li {
                 padding: .5em;
             }
         }
-
         &-validation {
             display: flex;
-            
             &>input {
                 height: 20px;
                 width: 20px;
             }
-
             &>button {
                 margin-bottom: 4em;
             }
@@ -76,6 +79,95 @@
 
 }
 
+// .add-file {
+//     margin-bottom: 2em;
+// }
+
+.project-validation {
+    margin: 0 2em;
+    font-size: 1.2em;
+}
+
+// RESPONSIVE 
+
+
+@media (max-width: 768px) {
+
+    .project {
+        img {
+            display:none !important;
+        }
+
+        &-heading {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom:0;
+        }
+    
+        &-intro {
+            display:block;
+            justify-content:space-around;
+            margin-bottom: 2em;
+            &-inputs {
+                font-size:0.8em;
+                margin:0;
+            }
+        }
+    
+
+    &-intro {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4em;
+        &-inputs {
+            .input-title {
+                font-size: 1.2em;
+                font-weight: 600;
+                color: $dark-cerulean;
+            }
+        }
+    }
+
+    &-filter {
+        padding: 3rem;
+        display:flex;
+        justify-content:space-around;
+        margin:auto;
+        & h3 {
+           text-align:center;
+           font-weight:700;
+           font-size:1.7rem;
+           color: $dark-cerulean;
+        }
+        
+    }
+
+    &-links {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 2em 0 4em;
+        font-size: 1.2em;
+        &-left {
+            width: 45%;
+        }
+        &-right {
+            &>ul>li {
+                padding: .5em;
+            }
+        }
+        &-validation {
+            display: flex;
+            &>input {
+                height: 20px;
+                width: 20px;
+            }
+            &>button {
+                margin-bottom: 4em;
+            }
+        }
+    }
+
+}
 
 .input {
     font-size: 1.2em;
@@ -93,4 +185,14 @@
     margin: 0 2em;
     font-size: 1.2em;
     font-weight: bold;
+}
+
+
+@media (max-width: 1024px) {
+    .project {
+        img {
+            display:none !important;
+        }
+    }
+}
 }

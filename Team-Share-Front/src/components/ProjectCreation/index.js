@@ -102,41 +102,54 @@ const ProjectCreation = (
             <Form onSubmit={handleSubmit}>
             <div className="project-heading">
                 <h1 className="project-heading-title">Ton super projet</h1>
+            <Divider />
                 <Form.Input  value={projectName} onChange={handleChangeProjectName} placeholder='Nom du projet' />
+            <Divider />
             </div>
+
+
             <div className="project-intro">
                 <div className="project-intro-inputs">
                     <h3 className="input-title">Date de début</h3>
-                    <Form.Input onChange={handleChangeStartDate} type="date" />
+                        <Form.Input onChange={handleChangeStartDate} type="date" />
                     <h3 className="input-title">Date de fin</h3>
-                    <Form.Input onChange={handleChangeEndDate} type="date" />
+                        <Form.Input onChange={handleChangeEndDate} type="date" />
                     <h3 className="input-title">Type de projet</h3>
-                    <Dropdown multiple selection onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
+                        <Dropdown multiple selection onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
                     <h3 className="input-title">Nombre de collaborateurs souhaité</h3>
-                    <Select onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs} />
+                        <Select onChange={handleChangeCollabNumber} placeholder='Choisir' options={collabs} />
                     <h3 className="input-title">Description en quelques mots</h3>
-                    <Form.Input onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
+                        <Form.Input onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
                 </div>
-                <img src="src/assets/teamPic.png" />
+
+                <img className="teamPic" src="src/assets/teamPic.png" />
             </div>
+
             <Divider />
-            <h2>Les technos</h2>
-            <div className="project-technos">
-                <Dropdown multiple selection onChange={handleChangeTechnos} placeholder='Choisir' options={technos} />
-            </div>  
-            <h2>Compétences subsidiaires</h2>
+            <div className="project-filter">
+                <div className="technos">
+                     <h3 className="project-technos">Les technologies</h3>
+                            <Dropdown fluid multiple selection onChange={handleChangeTechnos} placeholder='Choisir' options={technos} />
+                </div>
+                <div className="skills">
+                     <h3 className="project-skills">Compétences Subsidiaires</h3>
+                        <Dropdown fluid multiple selection onChange={handleChangeSkills} placeholder='Choisir'  options={skillsList
+                        } />
+                </div>
+            </div>
+                
+
+
+
+            <Divider /> 
+
+                <div className="project-description">
+                    <h2 className="project-title">Décris ton projet</h2>
+                        <TextArea rows={15} onChange={handleChangeDescription} placeholder='Description complète du projet' />
+                </div> 
+
             <Divider />
-            <div className="project-skills">
-                <Dropdown multiple selection onChange={handleChangeSkills} placeholder='Choisir'  options={skillsList
-                } />
-            </div> 
-            <Divider />
-            <div className="project-description">
-                <h2 className="project-title">Décris ton projet</h2>
-                    <TextArea rows={15} onChange={handleChangeDescription} placeholder='Description complète du projet' />
-            </div> 
-            <Divider />
-            <div className="project-links">
+            {/* <div className="project-links">
                 <div className="project-links-left">
                 <h3 className="add-file">Ajouter un fichier</h3>
                 <Form.Input type="file" />
@@ -149,12 +162,11 @@ const ProjectCreation = (
                     <li><IoIosFolderOpen />fichier 4</li>
                 </ul>
                 </div>
-            </div>
+            </div> */}
             <div className="project-links-validation">
-                <Form.Input name="send-project" type="checkbox" />
-                <label htmlFor="send-project" className="project-validation">I agree, à tout ce que vous voudrez</label>
-            </div>
+                <Form.Input name="send-project" type="checkbox" label="I agress, à tout ce que vous voudez"/>
             <Button className="submit" color="blue">Envoyer</Button>
+            </div>
             </Form>
         </div>
     );
