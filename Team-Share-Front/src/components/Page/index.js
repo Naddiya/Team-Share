@@ -54,11 +54,17 @@ class Page extends React.Component {
         <Route path="/project-creation" render={() => (
           <ProjectCreation />
         )} />
-        <Route path="/projectdetail" render={() => (
+        <Route path="/project-detail" render={() => (
           <ProjectDetail key={projectdetails.title} {...projectdetails} />
         )} />
-        <Route path="/legalmentions" render={() => (
+        <Route path="/legal-mentions" render={() => (
           <LegalMentions />
+        )} />
+                <Route path="/login" render={() => (
+          <SubscribeModa />
+        )} />
+                <Route path="/subscribe" render={() => (
+          <LoginModal />
         )} />
       </>
   )};
