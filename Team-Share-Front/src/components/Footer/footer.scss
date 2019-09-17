@@ -16,7 +16,6 @@
     }
     &-links, &-contacts {
       padding:0.5rem;
-      color: $gainsboro;
       & li {
         margin:0.3rem;
         font-size: 1.1em;
@@ -31,7 +30,6 @@
   
     }
   }
-
   &-bottom {
     color: $gainsboro;
     text-align:center;
@@ -44,29 +42,22 @@
   .footer {
     margin:0;
     border-radius:0;
-    &-upper {
-      display: flex;
-      & h3 {
-        font-size:1em;
-        margin-left:0.6rem;
-        margin-bottom:1rem;
+      &-upper {
+        & h3 {
+          font-size:1em;
+          margin: 0.5rem 0 0.5rem 0.5rem;
+        }
+      &-contacts {
+        padding:1rem;
+        font-size:1.2em;
       }
-      &-links, &-contacts {
-        padding:0.4rem;
-        & li {
-          font-size: 0.8em;
+      &-links {
+        display:none;
         }
-        & a {
-          font-size: 0.9em;
-        }
-        }
-      &-contacts a {
-      font-size: 1.5rem;
       }
-    }
-    &-bottom {
+      &-bottom {
       text-align:center;
-      padding-bottom:0.1rem;
+      padding-bottom:0.5rem;
       font-size:0.6em;
     }
   }

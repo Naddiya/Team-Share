@@ -3,6 +3,8 @@ import React from 'react';
 import { IoIosAt , IoLogoGithub , IoLogoTwitter, IoLogoFacebook, IoLogoLinkedin } from "react-icons/io";
 import { NavLink } from 'react-router-dom';
 
+
+
 // == Import : local
 import './footer.scss';
 
@@ -25,10 +27,10 @@ const Footer = () => (
           <h3> Contacts </h3>
             <div className="footer-upper-contacts">
               <a href="#"><IoIosAt /></a>
-              <a href="#"><IoLogoGithub/></a>
-              <a href="#"><IoLogoFacebook /></a>
-              <a href="#"><IoLogoTwitter /></a>
-              <a href="#"><IoLogoLinkedin /></a>
+              <a href="https://github.com"><IoLogoGithub/></a>
+              <a href="https://www.facebook.com"><IoLogoFacebook /></a>
+              <a href="https://twitter.com"><IoLogoTwitter /></a>
+              <a href="https://www.linkedin.com"><IoLogoLinkedin /></a>
             </div>
       </div>
     </div>
