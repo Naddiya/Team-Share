@@ -36,7 +36,7 @@ const SubscribeModal = (
     };
 
     const handleSubmit = (e) => {
-      sendSubscribe()
+      sendSubscribe();
     };
 
   return (

@@ -136,20 +136,6 @@ const ProjectCreation = (
                     <TextArea rows={15} onChange={handleChangeDescription} placeholder='Description complète du projet' />
             </div> 
             <Divider />
-            <div className="project-links">
-                <div className="project-links-left">
-                <h3 className="add-file">Ajouter un fichier</h3>
-                <Form.Input type="file" />
-                </div>
-                <div className="project-links-right">
-                <ul>
-                    <li><IoIosFolderOpen />fichier 1</li>
-                    <li><IoIosFolderOpen />fichier 2</li>
-                    <li><IoIosFolderOpen />fichier 3</li>
-                    <li><IoIosFolderOpen />fichier 4</li>
-                </ul>
-                </div>
-            </div>
             <div className="project-links-validation">
                 <Form.Input name="send-project" type="checkbox" />
                 <label htmlFor="send-project" className="project-validation">I agree, à tout ce que vous voudrez</label>

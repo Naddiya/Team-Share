@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 // == Import : local
 import './home.scss';
+import SubscribeModal from 'src/containers/Subscribe';
 
 // == Composant
-const Home = () => (
+const Home = ({token}) => (
   <div className="div-home">
     <main className="main-container">
 
@@ -15,7 +16,8 @@ const Home = () => (
         <p className="welcome-subtitle">Première plateforme d'appel à projets collaboratifs en France.</p>
 
         <div className="welcome-buttons">
-          <NavLink to="/project-creation"><button className="welcome-buttons-button cta-button">Lancez-vous !</button></NavLink>
+          {token.length > 3 && <NavLink to="/project-creation"><button className="welcome-buttons-button cta-button">Lancez-vous !</button></NavLink>}
+          {token === '' && <SubscribeModal className="welcome-buttons-button cta-button">Lancez-vous !</SubscribeModal>}
           <button className="welcome-buttons-button">En savoir plus</button>
         </div>
       </div>
