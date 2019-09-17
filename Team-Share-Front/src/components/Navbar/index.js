@@ -11,7 +11,7 @@ import SubscribeModal from 'src/containers/Subscribe';
 
 
 
-const NavBar = ({ logged }) => {
+const NavBar = ({ token }) => {
 
     return(
       <div className="navbar">
@@ -25,7 +25,7 @@ const NavBar = ({ logged }) => {
             <NavLink to="/projects" className="navbar-link">Projets</NavLink>
           </li>
           <li>
-            {logged && <NavLink to="/profile" className="navbar-link">Mon Profil</NavLink>}
+            {token.length > 3 && <NavLink to="/profile" className="navbar-link">Mon Profil</NavLink>}
           </li>
           <li>
             <LoginModal className="button-link-connect"/>
@@ -40,7 +40,7 @@ const NavBar = ({ logged }) => {
 };
 
 NavBar.propTypes = {
-  logged: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
 }
 
 export default NavBar;

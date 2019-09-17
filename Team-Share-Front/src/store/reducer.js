@@ -16,12 +16,11 @@ const initialState = {
   urlTipeee: '',
   urlGithub: '',
   // === Subscribe props ===
-  logged: false,
   email: '',
   password: '',
   passwordConfirmation: '',
-  phoneNumber: 0,
-  token: 'is8jEVwg6iy89i9bdTT7AnnLBKMWBdDs_mNCZwnl1El2v1MyzS0Exy1QknibI7QLEMc',
+  phoneNumber: '',
+  token: '',
 };
 
 // == Types
@@ -150,16 +149,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         phoneNumber: action.value,
       };
+    case CHANGE_TOKEN:
+      return {
+        ...state,
+        token: action.token,
+      };
     case DO_SUBSCRIBE:
       return {
         ...state,
-        logged: true,
       }; 
     case DO_CONNECT:
       return {
         ...state,
-        logged: true,
-        token: response.data.token,
       };    
     default:
       return state;
@@ -264,14 +265,17 @@ export const changePhoneNumber = value => ({
   value,
 });
 
+export const changeToken = token => ({
+  type: CHANGE_TOKEN,
+  token: token,
+});
+
 export const doSubscribe = () => ({
   type: DO_SUBSCRIBE,
 });
 
-export const doConnect = (logged, token) => ({
+export const doConnect = () => ({
   type: DO_CONNECT,
-  logged,
-  token,
 });
 // == Selectors
 
