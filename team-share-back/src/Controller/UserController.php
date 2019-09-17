@@ -13,9 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\User as SymfonyUser;
 
 /**
  * @Route("/user", name="user",)
@@ -25,7 +23,7 @@ class UserController extends AbstractController
     /**
      * @Route("/register", name="_register", methods={"POST"})
      */
-    public function register(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, RoleRepository $roleRepository)
+    public function register(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, RoleRepository $roleRepository)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
@@ -103,11 +101,12 @@ class UserController extends AbstractController
      /**
      * @Route("/update", name="_update", methods={"POST"})
      */
-    public function update(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, RoleRepository $roleRepository)
+    public function update(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, UserRepository $userRepository)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
-        // Déserialize le json et crée un objet User avec les propriétés du json reçu
+
+        // Transforme le json en tableau
         $jsonContentArray = json_decode($jsonContent, true);
 
         $userToken = $userRepository->findOneBy(['token' => $jsonContent['token']]);
@@ -131,7 +130,7 @@ class UserController extends AbstractController
 
         $userToken->setUsername($userToken->getMail());
 
-        $entityManager->persist($userToken);
+        // $entityManager->persist($userToken);
         $entityManager->flush();
 
         return new Response(
