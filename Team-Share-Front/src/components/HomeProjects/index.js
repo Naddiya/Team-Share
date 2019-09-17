@@ -14,7 +14,7 @@ const HomeProjects = ({ projects }) => (
     <h2 className="projects-title">Projets mis en avant</h2>
     <div className="projects-container">
       <Card.Group>
-        {projects.map((project) => (
+        {projects.slice(0, 4).map((project) => (
           <HomeProject key={project.title} {...project} />
         ))}
       </Card.Group>
