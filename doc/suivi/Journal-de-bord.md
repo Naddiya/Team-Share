@@ -197,8 +197,48 @@
 >## Alexandre :
 > créations des routes tags/skills/technos + routes filtres selon tags/skills/technos + mise en place de JWT TOKEN
 >## Nadia :
-> responsiv design
+> responsiv design + menu Burger
 #### À Suivre
 >* Terminer l'inté et le responsive
 >* Mettre en place toutes les routes
 >* Finir la dynamisation du front
+
+---
+# 16/09/2019 - J12 - Sprint 2
+>* Gestion Login + création de projet
+>* Gestion d'un token 
+>* API creation projet
+>* Flush BDD
+>* Gestion login côté front 
+#### Infos individuelles
+>## Julien :
+> Gestion Login avec creation et gestion d'un token + API creation projet + flush BDD
+>## Alexis :
+> Gestion login côté front + récupération token / Gestion création nouveau projet
+>## Alexandre :
+> Gestion Login avec creation et gestion d'un token + API creation projet + flush BDD
+>## Nadia :
+> Responsive design
+#### À Suivre
+>* Terminer l'inté et le responsive
+>* Mettre en place toutes les requetes
+ 
+
+---
+# 17/09/2019 - J13 - Sprint 2
+>* 
+>* 
+>* 
+#### Infos individuelles
+>## Julien :
+> 
+>## Alexis :
+> 
+>## Alexandre :
+> 
+>## Nadia :
+> 
+#### À Suivre
+>* 
+>* 
+>* 
