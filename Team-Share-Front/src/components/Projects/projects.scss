@@ -46,39 +46,24 @@
 @media (max-width:768px) {
 
     .project-container {
-        width: 90%;
+        width: 80%;
         margin: 0 auto;
         padding:0;
-        &-inputs {
-            margin:0 auto;
-            padding:0;
-            & .ui.icon.input{
-                display:none;
-            }
-        }
         &-divider2 {
             margin:0;
         }
     }
-    .ui.input {
-        margin:0!important;
-        padding:0!important;
-        }
+
+    .ui.selection.dropdown {
+        margin: 0.2rem 0 !important;
+    }
 
     .radio {
-        margin-top:2rem;
-        display:flex;
-        justify-content: space-around;
-            &-left, &-right {
-                display:flex;
-            }
+            justify-content: space-around;
+            &
             &-label {
-                margin-left:0.3rem;
-                margin-top:0.25rem;
-
-                & h3 {
-                    font-size:0.8em;
-                }
+                margin-left:0.1rem !important;
+                font-size:0.8em;
             }
     }
 
@@ -98,5 +83,4 @@
     .description {
     font-size: 1.5em;
     }
-
 }
