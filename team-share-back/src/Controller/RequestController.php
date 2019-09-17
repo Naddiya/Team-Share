@@ -9,7 +9,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -76,12 +75,12 @@ class RequestController extends AbstractController
             //si l'auteur du projet est bien le destinataire de la requête
             if ($author === $user){
                 //on ajoute dans un tableau les requêtes qui correspondent au projet en cours
-                $requestsOfProject = new ArrayCollection;
-                $requestsOfProject->add($requestRepository->findByProjectId($project->getId()));
+                foreach($requestRepository->findByProjectId($project->getId()) as $request){
+                    $requestsForUser[] = $request;
+                }
             }
         }
-        dd($requestsOfProject);
 
-        return new JsonResponse($requestsOfProject);
+        return new JsonResponse($requestsForUser);
     }
 }

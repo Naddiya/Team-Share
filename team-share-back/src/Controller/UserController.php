@@ -35,20 +35,10 @@ class UserController extends AbstractController
         // Crée un nouveau projet vide
         $newUserObject = New User();
 
-        // Hydrate le nouveau projet en fonction du tableau
-        // $newUserObject->setFirstname($jsonContentArray['firstname']);
-        // $newUserObject->setLastname($jsonContentArray['lastname']);
-        // $newUserObject->setJobTitle($jsonContentArray['jobTitle']);
+        // Hydrate le nouvel utilisateur en fonction du tableau
         $newUserObject->setMail($jsonContentArray['mail']);
         $newUserObject->setPassword($jsonContentArray['password']);
-        // $newUserObject->setCity($jsonContentArray['city']);
         $newUserObject->setPhone($jsonContentArray['phone']);
-        // $newUserObject->setPhoto($jsonContentArray['photo']);
-        // $newUserObject->setDescription($jsonContentArray['description']);
-        // $newUserObject->setUrlFacebook($jsonContentArray['urlFacebook']);
-        // $newUserObject->setUrlTwitter($jsonContentArray['urlTwitter']);
-        // $newUserObject->setUrlGithub($jsonContentArray['urlGithub']);
-        // $newUserObject->setUrlLinkedin($jsonContentArray['urlLinkedin']);
 
         // Encode le password
         $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getPassword());
