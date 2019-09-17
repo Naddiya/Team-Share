@@ -1,6 +1,6 @@
 @import 'src/styles/_vars.scss';
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
 
   .bm {
     display:none;
@@ -41,18 +41,20 @@
 
   #App {
     font-family: sans-serif;
-
     /* Give app full page to work with */
     height: 100%;
   }
 
   #page-wrap {
     text-align: center;
-
     /* Prevent sidebar from showing a scrollbar on page */
     overflow: auto;
   }
 
+  .divider {
+    outline:none;
+  }
+  
   .menu-item {
     padding:1rem;
     outline: none;
@@ -61,17 +63,16 @@
   /* Individual item */
   .bm-item {
     display: inline-block;
-
     /* Our sidebar item styling */
     text-decoration: none;
     margin-bottom: 10px;
     color: $gainsboro;
-    transition: color 0.2s;
+    transition: color 0.1s;
   }
 
   /* Change color on hover */
   .bm-item:hover {
-    color: gray;
+    color: $links;
   }
 
   /* The rest copied directly from react-burger-menu docs */

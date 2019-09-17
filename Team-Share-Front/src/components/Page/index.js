@@ -13,6 +13,8 @@ import ProjectDetail from 'src/components/ProjectDetail';
 import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
+import SubscribeModal from 'src/components/LegalMentions';
+import LoginModal from 'src/components/LegalMentions';
 
 
 // == Composant
@@ -51,11 +53,17 @@ class Page extends React.Component {
         <Route path="/project-creation" render={() => (
           <ProjectCreation />
         )} />
-        <Route path="/projectdetail" render={() => (
+        <Route path="/project-detail" render={() => (
           <ProjectDetail key={projectdetails.title} {...projectdetails} />
         )} />
-        <Route path="/legalmentions" render={() => (
+        <Route path="/legal-mentions" render={() => (
           <LegalMentions />
+        )} />
+                <Route path="/login" render={() => (
+          <SubscribeModa />
+        )} />
+                <Route path="/subscribe" render={() => (
+          <LoginModal />
         )} />
       </>
   )};

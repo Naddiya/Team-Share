@@ -1,10 +1,17 @@
-@import '../../styles/_vars';
+@import 'src/styles/_vars';
 
 .project-container {
     width: 70%;
-    margin: auto auto 6em auto;
+    margin: 4rem auto 6em auto;
+}
 
+.ui.selection.dropdown {
+    margin: 1rem 0 !important;
+}
 
+.ui.icon.input {
+    margin:1rem 0 !important;
+    width: 100% !important;
 }
 
 .radio {
@@ -21,14 +28,12 @@
         }
 }
 
-
 .item-follow {
     font-weight: 400;
     float:right;
     color: #000;
     vertical-align: baseline;
     font-size: 1.5em;
-    
     &>svg {
         margin-right: .6em;
     }
@@ -41,43 +46,24 @@
 @media (max-width:768px) {
 
     .project-container {
-        width: 90%;
+        width: 80%;
         margin: 0 auto;
         padding:0;
-        &-inputs {
-            margin:0 auto;
-            padding:0;
-            & .ui.icon.input{
-                display:none;
-                // & input{
-                //     display:none;
-                //     margin-left:0;
-                // }
-            }
-        }
         &-divider2 {
             margin:0;
         }
     }
-    .ui.input {
-        margin:0!important;
-        padding:0!important;
-        }
+
+    .ui.selection.dropdown {
+        margin: 0.2rem 0 !important;
+    }
 
     .radio {
-        margin-top:2rem;
-        display:flex;
-        justify-content: space-around;
-            &-left, &-right {
-                display:flex;
-            }
+            justify-content: space-around;
+            &
             &-label {
-                margin-left:0.3rem;
-                margin-top:0.25rem;
-
-                & h3 {
-                    font-size:0.8em;
-                }
+                margin-left:0.1rem !important;
+                font-size:0.8em;
             }
     }
 
@@ -97,5 +83,4 @@
     .description {
     font-size: 1.5em;
     }
-
 }
