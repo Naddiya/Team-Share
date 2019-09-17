@@ -39,16 +39,17 @@ class UserRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getArrayResult();
     }
+    // public function findRequestByUSer($id)
+    // {
+    //     $qb = $this->CreateQueryBuilder('u')
+    //         ->where('u.id = :idOfUser')
+    //         ->setParameter('idOfUser', $id)
+    //         ->leftJoin('u.requests', 're')
+    //         ->addSelect('r', 't', 's', 're', 'c', 'p');
+    //         //pour enlever password...
+    //         //->select('u.id', 'u.username', 'u.firstname', 'u.lastname', 'u.jobTitle', 'u.mail', 'u.city', 'u.phone', 'u.score', 'u.photo', 'u.description', 'u.isActive', 'u.urlFacebook', 'u.urlGithub', 'u.urlTwitter', 'u.urlLinkedin');
 
-    /*
-    public function findOneBySomeField($value): ?User
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+    //     return $qb->getQuery()->getArrayResult();
+    // }
+
 }

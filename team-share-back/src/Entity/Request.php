@@ -57,6 +57,8 @@ class Request
     public function __construct()
     {
         $this->createdAt = new DateTime();
+        $this->statut = null;
+        $this->response = null;
     }
 
     public function getId(): ?int
