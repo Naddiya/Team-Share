@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Repository\RoleRepository;
 use App\Repository\UserRepository;
+use App\Repository\SkillRepository;
+use App\Repository\TechnoRepository;
 use Nelmio\CorsBundle\NelmioCorsBundle;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,19 +36,19 @@ class UserController extends AbstractController
         $newUserObject = New User();
 
         // Hydrate le nouveau projet en fonction du tableau
-        $newUserObject->setFirstname($jsonContentArray['firstname']);
-        $newUserObject->setLastname($jsonContentArray['lastname']);
-        $newUserObject->setJobTitle($jsonContentArray['jobTitle']);
+        // $newUserObject->setFirstname($jsonContentArray['firstname']);
+        // $newUserObject->setLastname($jsonContentArray['lastname']);
+        // $newUserObject->setJobTitle($jsonContentArray['jobTitle']);
         $newUserObject->setMail($jsonContentArray['mail']);
         $newUserObject->setPassword($jsonContentArray['password']);
-        $newUserObject->setCity($jsonContentArray['city']);
+        // $newUserObject->setCity($jsonContentArray['city']);
         $newUserObject->setPhone($jsonContentArray['phone']);
-        $newUserObject->setPhoto($jsonContentArray['photo']);
-        $newUserObject->setDescription($jsonContentArray['description']);
-        $newUserObject->setUrlFacebook($jsonContentArray['urlFacebook']);
-        $newUserObject->setUrlTwitter($jsonContentArray['urlTwitter']);
-        $newUserObject->setUrlGithub($jsonContentArray['urlGithub']);
-        $newUserObject->setUrlLinkedin($jsonContentArray['urlLinkedin']);
+        // $newUserObject->setPhoto($jsonContentArray['photo']);
+        // $newUserObject->setDescription($jsonContentArray['description']);
+        // $newUserObject->setUrlFacebook($jsonContentArray['urlFacebook']);
+        // $newUserObject->setUrlTwitter($jsonContentArray['urlTwitter']);
+        // $newUserObject->setUrlGithub($jsonContentArray['urlGithub']);
+        // $newUserObject->setUrlLinkedin($jsonContentArray['urlLinkedin']);
 
         // Encode le password
         $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getMail());
@@ -58,20 +60,6 @@ class UserController extends AbstractController
         // Récupère l'objet Role "USER" et l'attribut par défaut
         $role = $roleRepository->findOneBy(['code' => 'USER']);
         $newUserObject->setRole($role);
-
-        // // Déserialize le json et crée un objet User avec les propriétés du json reçu
-        // $newUserObject = $serializer->deserialize($jsonContent, User::class, 'json');
-        // // dd($newUserObject);
-        // // Encode le password
-        
-        // $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getMail());
-        // $newUserObject->setPassword($encodedPassword);
-        
-        // $newUserObject->setUsername($newUserObject->getMail());
-        // // dd($newUserObject);
-        // // Récupère l'objet Role "USER" et l'attribut par défaut
-        // $role = $roleRepository->findOneBy(['code' => 'USER']);
-        // $newUserObject->setRole($role);
 
         // Enregistre le nouvel utilisateur en bdd
         $entityManager->persist($newUserObject);
@@ -100,7 +88,7 @@ class UserController extends AbstractController
      /**
      * @Route("/update", name="_update", methods={"POST"})
      */
-    public function update(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, UserRepository $userRepository)
+    public function update(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, UserRepository $userRepository, TechnoRepository $technoRepository, SkillRepository $skillRepository)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
@@ -128,6 +116,18 @@ class UserController extends AbstractController
         $userToken->setPassword($encodedPassword);
 
         $userToken->setUsername($userToken->getMail());
+
+        // Ajout des technos
+        foreach ($jsonContentArray['technos'] as $jsonTechno) {
+          $dbTechno = $technoRepository->findOneBy(['name' => $jsonTechno]);
+          $userToken->addTechno($dbTechno);
+        }
+
+        // Ajout des skills
+        foreach ($jsonContentArray['skills'] as $jsonSkill) {
+          $dbSkill = $skillRepository->findOneBy(['name' => $jsonSkill]);
+          $userToken->addSkill($dbSkill);
+        }
 
         // $entityManager->persist($userToken);
         $entityManager->flush();
