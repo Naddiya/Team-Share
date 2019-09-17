@@ -99,7 +99,7 @@ const ProjectDetail = ({
               <a href="#">Rejoindre le projet ? <FaRegCheckCircle /></a>
             </div>
             <div className="project-description-actions-right-git">
-              <a href="https://github.com/">Curieux ? <FaGithubSquare /></a>
+              <a href="https://github.com/" target="blank">Curieux ? <FaGithubSquare /></a>
               </div>
             <div className="project-description-actions-right-tip">
             <a href="https://fr.tipeee.com/" target="blank">Soutenir le projet ? <FaCarrot /></a>

@@ -1,10 +1,17 @@
-@import '../../styles/_vars';
+@import 'src/styles/_vars';
 
 .project-container {
     width: 70%;
-    margin: auto auto 6em auto;
+    margin: 4rem auto 6em auto;
+}
 
+.ui.selection.dropdown {
+    margin: 1rem 0 !important;
+}
 
+.ui.icon.input {
+    margin:1rem 0 !important;
+    width: 100% !important;
 }
 
 .radio {
@@ -21,14 +28,12 @@
         }
 }
 
-
 .item-follow {
     font-weight: 400;
     float:right;
     color: #000;
     vertical-align: baseline;
     font-size: 1.5em;
-    
     &>svg {
         margin-right: .6em;
     }
@@ -49,10 +54,6 @@
             padding:0;
             & .ui.icon.input{
                 display:none;
-                // & input{
-                //     display:none;
-                //     margin-left:0;
-                // }
             }
         }
         &-divider2 {

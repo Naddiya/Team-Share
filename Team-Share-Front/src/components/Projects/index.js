@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Item, Select, Input, Divider, Radio, Label } from 'semantic-ui-react';
+import { Item, Select, Input, Divider, Radio } from 'semantic-ui-react';
 
 
 // == Import : local
@@ -40,18 +40,12 @@ const skills = [
 // == Composant
 const Projects = ({ projects }) => (
     <div className="project-container">
-
-        <div className="project-container-line">
-            <div className="project-container-select">
-                <Select placeholder='Trier par' options={sortBy} />
-                <Select placeholder='Filtrer' options={category} />
-                <Select placeholder='Technologies' options={technos} />
-                <Select placeholder='Compétences' options={skills} />
-            </div>
-            <div className="project-container-search">
-                <Input fluid icon='search' placeholder='Recherche...' />
-            </div>
-        </div>
+        <Select placeholder='Trier par' options={sortBy} />
+        <Select placeholder='Filtrer' options={category} />
+        <Select placeholder='Technologies' options={technos} />
+        <Select placeholder='Compétences' options={skills} />
+        <Divider />
+        <Input className="searchfluid" icon='search' placeholder='Search...' />
 
             <Divider className="project-container-divider1"/>
         <div className="radio">
