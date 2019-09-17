@@ -15,6 +15,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\User\User as SymfonyUser;
 
 /**
  * @Route("/user", name="user",)
@@ -28,19 +29,52 @@ class UserController extends AbstractController
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
-        // Déserialize le json et crée un objet User avec les propriétés du json reçu
-        $newUserObject = $serializer->deserialize($jsonContent, User::class, 'json');
-        // dd($newUserObject);
+
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
+
+        // Crée un nouveau projet vide
+        $newUserObject = New User();
+
+        // Hydrate le nouveau projet en fonction du tableau
+        $newUserObject->setFirstname($jsonContentArray['firstname']);
+        $newUserObject->setLastname($jsonContentArray['lastname']);
+        $newUserObject->setJobTitle($jsonContentArray['jobTitle']);
+        $newUserObject->setMail($jsonContentArray['mail']);
+        $newUserObject->setPassword($jsonContentArray['password']);
+        $newUserObject->setCity($jsonContentArray['city']);
+        $newUserObject->setPhone($jsonContentArray['phone']);
+        $newUserObject->setPhoto($jsonContentArray['photo']);
+        $newUserObject->setDescription($jsonContentArray['description']);
+        $newUserObject->setUrlFacebook($jsonContentArray['urlFacebook']);
+        $newUserObject->setUrlTwitter($jsonContentArray['urlTwitter']);
+        $newUserObject->setUrlGithub($jsonContentArray['urlGithub']);
+        $newUserObject->setUrlLinkedin($jsonContentArray['urlLinkedin']);
+
         // Encode le password
-        
         $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getMail());
         $newUserObject->setPassword($encodedPassword);
-        
+
+        // Set username = mail
         $newUserObject->setUsername($newUserObject->getMail());
-        // dd($newUserObject);
+
         // Récupère l'objet Role "USER" et l'attribut par défaut
         $role = $roleRepository->findOneBy(['code' => 'USER']);
         $newUserObject->setRole($role);
+
+        // // Déserialize le json et crée un objet User avec les propriétés du json reçu
+        // $newUserObject = $serializer->deserialize($jsonContent, User::class, 'json');
+        // // dd($newUserObject);
+        // // Encode le password
+        
+        // $encodedPassword = $encoder->encodePassword($newUserObject, $newUserObject->getMail());
+        // $newUserObject->setPassword($encodedPassword);
+        
+        // $newUserObject->setUsername($newUserObject->getMail());
+        // // dd($newUserObject);
+        // // Récupère l'objet Role "USER" et l'attribut par défaut
+        // $role = $roleRepository->findOneBy(['code' => 'USER']);
+        // $newUserObject->setRole($role);
 
         // Enregistre le nouvel utilisateur en bdd
         $entityManager->persist($newUserObject);

@@ -2,6 +2,7 @@ security:
     encoders:
         App\Entity\User:
             algorithm: auto
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     #cette section définit qui fournit les utilisateurs , notre cas nous souhaiterons avoir des données de la BDD
     providers:
@@ -13,40 +14,13 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        login:
-            pattern:  ^/api/login
-            stateless: true
-            anonymous: true
-            provider: teamshare_provider
-            json_login:
-                check_path:               /api/login_check
-                success_handler:          lexik_jwt_authentication.handler.authentication_success
-                failure_handler:          lexik_jwt_authentication.handler.authentication_failure
-            guard:
-                authenticators:
-                    - App\Security\AppCustomAuthenticator
-            logout:
-                path: app_logout
-                # where to redirect after logout
-                # target: app_any_route
 
-        api:
-            pattern:   ^/api
-            stateless: true
-            provider: teamshare_provider
-            guard:
-                authenticators:
-                    - lexik_jwt_authentication.jwt_token_authenticator
+        # cette section firewalls / main est destiné a notre application
+        # elle definie si notre utilisateur peux etre anonyme ou non 
+        # et surtout elle va definir par quel biais je peux me connecter a mon application ( form ou HTTP basic)                    
         main:          
             anonymous: true
-                # where to redirect after logout
-                # target: app_any_route
 
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#firewalls-authentication
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
