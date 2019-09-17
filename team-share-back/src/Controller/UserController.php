@@ -103,33 +103,39 @@ class UserController extends AbstractController
      /**
      * @Route("/update", name="_update", methods={"POST"})
      */
-    // public function update(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, RoleRepository $roleRepository)
-    // {
-    //     $random = random_bytes(40);
-    //     dd($random);
+    public function update(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, SerializerInterface $serializer, RoleRepository $roleRepository)
+    {
+        // Récupére le contenu du json reçu
+        $jsonContent = $request->getContent();
+        // Déserialize le json et crée un objet User avec les propriétés du json reçu
+        $jsonContentArray = json_decode($jsonContent, true);
 
-    //     // // Récupére le contenu du json reçu
-    //     // $jsonContent = $request->getContent();
-    //     // // Déserialize le json et crée un objet User avec les propriétés du json reçu
-    //     // $newUserObjectUpdated = $serializer->deserialize($jsonContent, User::class, 'json');
-    //     // // dd($newUserObject);
-    //     // // Encode le password
-    //     // $encodedPassword = $encoder->encodePassword($newUserObjectUpdated, $newUserObjectUpdated->getPassword());
-    //     // $newUserObjectUpdated->setPassword($encodedPassword);
-        
-    //     // $newUserObjectUpdated->setUsername($newUserObjectUpdated->getMail());
-    //     // // dd($newUserObject);
-    //     // // Récupère l'objet Role "USER" et l'attribut par défaut
-    //     // $role = $roleRepository->findOneBy(['code' => 'USER']);
-    //     // $newUserObjectUpdated->setRole($role);
+        $userToken = $userRepository->findOneBy(['token' => $jsonContent['token']]);
 
-    //     // // Enregistre le nouvel utilisateur en bdd
-    //     // $entityManager->persist($newUserObjectUpdated);
-    //     // $entityManager->flush();
+        $userToken->setFirstname($jsonContentArray['firstname']);
+        $userToken->setLastname($jsonContentArray['lastname']);
+        $userToken->setJobTitle($jsonContentArray['jobTitle']);
+        $userToken->setMail($jsonContentArray['mail']);
+        $userToken->setPassword($jsonContentArray['password']);
+        $userToken->setCity($jsonContentArray['city']);
+        $userToken->setPhone($jsonContentArray['phone']);
+        $userToken->setPhoto($jsonContentArray['photo']);
+        $userToken->setDescription($jsonContentArray['description']);
+        $userToken->setUrlFacebook($jsonContentArray['urlFacebook']);
+        $userToken->setUrlTwitter($jsonContentArray['urlTwitter']);
+        $userToken->setUrlGithub($jsonContentArray['urlGithub']);
+        $userToken->setUrlLinkedin($jsonContentArray['urlLinkedin']);
 
-    //     // // Réponse temporaire si l'ajout a été effectué
-    //     return new Response(
-    //       '<html><body>L\'utilisateur "' . $newUserObjectUpdated->getUsername() . '" a été modifié avec succés !</body></html>'
-    //     );
-    // }
+        $encodedPassword = $encoder->encodePassword($userToken, $userToken->getMail());
+        $userToken->setPassword($encodedPassword);
+
+        $userToken->setUsername($userToken->getMail());
+
+        $entityManager->persist($userToken);
+        $entityManager->flush();
+
+        return new Response(
+          '<html><body>L\'utilisateur "' . $userToken->getUsername() . '" a été modifié avec succés !</body></html>'
+        );
+    }
 }
