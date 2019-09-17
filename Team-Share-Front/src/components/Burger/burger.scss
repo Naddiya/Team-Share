@@ -1,6 +1,6 @@
 @import 'src/styles/_vars.scss';
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
 
   .bm {
     display:none;
@@ -41,7 +41,6 @@
 
   #App {
     font-family: sans-serif;
-
     /* Give app full page to work with */
     height: 100%;
   }
