@@ -2,6 +2,7 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
 import { NavLink } from 'react-router-dom';
+import { Divider } from 'semantic-ui-react'
 
 
 // local import
@@ -12,29 +13,32 @@ const Burger = () => {
 
   return (
     <Menu right>
-      <NavLink className="menu-item" to="/legaleMentions" exact>
-          Inscription 
+      <NavLink className="menu-item" to="/subscribe" exact>
+          S'inscrire 
       </NavLink>
-      <NavLink className="menu-item" to="/legaleMentions" exact>
-          Connexion
+      <NavLink className="menu-item" to="/login" exact>
+          Se connecter
       </NavLink>
-      <NavLink className="menu-item" to="/" exact>
-          Acceuil
+      <NavLink className="menu-item" to="/profil" exact>
+          Ton profil
       </NavLink>
+      <Divider />
       <NavLink className="menu-item" to="/projects" exact>
-          Projets
-      </NavLink>
-      <NavLink className="menu-item" to="/project-details" exact>
           Liste des projets
       </NavLink>
       <NavLink className="menu-item" to="/project-creation" exact>
           Creer un projet
       </NavLink>
-      <NavLink className="menu-item" to="/legaleMentions" exact>
-          About
+      <Divider />
+      <NavLink className="menu-item" to="/about" exact>
+          A propos
       </NavLink>
-      <NavLink className="menu-item" to="/legalmentions" exact>
-          Mentions legales
+      <NavLink className="menu-item" to="/legal-mentions" exact>
+          Mentions légales
+      </NavLink>
+      <Divider />
+      <NavLink className="menu-item" to="/Logout" exact>
+          Logout
       </NavLink>
     </Menu>
   );

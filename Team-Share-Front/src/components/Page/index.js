@@ -13,6 +13,8 @@ import ProjectDetail from 'src/components/ProjectDetail';
 import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
+import SubscribeModal from 'src/components/LegalMentions';
+import LoginModal from 'src/components/LegalMentions';
 
 
 // == Composant
@@ -32,11 +34,17 @@ const Page = () => (
     <Route path="/project-creation" render={() => (
       <ProjectCreation />
     )} />
-    <Route path="/projectdetail" render={() => (
+    <Route path="/project-detail" render={() => (
       <ProjectDetail key={projectdetails.title} {...projectdetails} />
     )} />
-    <Route path="/legalmentions" render={() => (
+    <Route path="/legal-mentions" render={() => (
       <LegalMentions />
+    )} />
+    <Route path="/login" render={() => (
+      <LoginModal />
+    )} />
+    <Route path="/subscribe" render={() => (
+      <SubscribeModal />
     )} />
   </>
 );

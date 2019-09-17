@@ -10,7 +10,7 @@ import './homeprojects.scss';
 
 // == Composant
 const HomeProject = ({ image, title, tag, description, nbLike }) => (
-  <Card as={NavLink} to="/projectdetail">
+  <Card as={NavLink} to="/project-detail">
     <Image src={image} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{title}</Card.Header>
