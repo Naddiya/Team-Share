@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +13,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Nelmio\CorsBundle\NelmioCorsBundle;
 
 class SecurityController extends AbstractController
 {
@@ -44,9 +44,23 @@ class SecurityController extends AbstractController
     /**
      * @Route("/logout", name="app_logout")
      */
-    public function logout()
+    public function logout(Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager)
     {
+        // Récupére le contenu du json reçu
+        $jsonContent = $request->getContent();
+
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
         
-        throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
+        $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
+
+        if(!$user) {
+            return new Response("L'utilisatteur n'existe pas !");
+        }
+        $user->setToken(null);
+        $entityManager->flush();
+        return new Response("Token is null");
+
+        //throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
 }

@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RequestController extends AbstractController
@@ -52,9 +51,9 @@ class RequestController extends AbstractController
     }
 
     /**
-     * @Route("/request/index", name="_index", methods={"GET"})
+     * @Route("/request/index", name="request_index", methods={"GET"})
      */
-    public function index(Request $request, RequestRepository $requestRepository, UserRepository $userRepository, SerializerInterface $serializer)
+    public function index(Request $request, RequestRepository $requestRepository, UserRepository $userRepository)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
@@ -82,5 +81,42 @@ class RequestController extends AbstractController
         }
 
         return new JsonResponse($requestsForUser);
+    }
+
+    /**
+     * @Route("/request/response", name="request_response", methods={"POST"})
+     */
+    public function response(Request $request, RequestRepository $requestRepository, ProjectRepository $projectRepository, UserRepository $userRepository, EntityManagerInterface $entityManager)
+    {
+        // Récupére le contenu du json reçu
+        $jsonContent = $request->getContent();
+        
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
+        
+        // Récupère la requête à mettre à jour
+        $request = $requestRepository->findOneBy(['id' => $jsonContentArray['id']]);
+        
+        // Met à jour la réponse sur la requête
+        $request->setResponse($jsonContentArray['response']);
+
+        // Récupère l'utilisateur qui a répondu à la requête
+        $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
+
+        // Récupère le projet concerné
+        $requestProject = $projectRepository->findOneBy(['id' => $jsonContentArray['project']['id']]);
+
+        // Récupère l'auteur du projet
+        $author = $requestProject->getUsers()[0];
+        //si l'auteur du projet est l'utilisateur qui a répondu à la requête
+        if ($author === $user){
+            //on flush la requête avec la réponse mise à jour et si la réponse est oui on ajoute l'utilisateur au projet
+            if ($jsonContentArray['response'] == true){
+                $requestProject->addUser($userRepository->findOneBy(['id' => $jsonContentArray['user']['id']]));
+            }
+            $entityManager->flush();
+            return new Response("Requête mise a jour");
+        }
+        return new Response("Utilisateur non authorisé");
     }
 }
