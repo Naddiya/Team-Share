@@ -136,6 +136,11 @@ class Project
      */
     private $requests;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Follow", mappedBy="project", orphanRemoval=true)
+     */
+    private $follows;
+
     public function __construct()
     {
         $this->createdAt = new DateTime();
@@ -147,6 +152,7 @@ class Project
         $this->users = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->requests = new ArrayCollection();
+        $this->follows = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -519,6 +525,37 @@ class Project
             // set the owning side to null (unless already changed)
             if ($request->getProject() === $this) {
                 $request->setProject(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Follow[]
+     */
+    public function getFollows(): Collection
+    {
+        return $this->follows;
+    }
+
+    public function addFollow(Follow $follow): self
+    {
+        if (!$this->follows->contains($follow)) {
+            $this->follows[] = $follow;
+            $follow->setProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFollow(Follow $follow): self
+    {
+        if ($this->follows->contains($follow)) {
+            $this->follows->removeElement($follow);
+            // set the owning side to null (unless already changed)
+            if ($follow->getProject() === $this) {
+                $follow->setProject(null);
             }
         }
 

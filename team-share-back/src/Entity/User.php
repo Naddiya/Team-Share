@@ -136,6 +136,11 @@ class User implements UserInterface, \Serializable
      */
     private $token;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Follow", mappedBy="user")
+     */
+    private $follows;
+
     public function __construct()
     {
         $this->isActive = true;
@@ -146,6 +151,7 @@ class User implements UserInterface, \Serializable
         $this->requests = new ArrayCollection();
         $this->username = $this->mail;
         $this->mail = $this->username;
+        $this->follows = new ArrayCollection();
     }
 
     public function getSalt()
@@ -548,6 +554,37 @@ class User implements UserInterface, \Serializable
     public function setToken(?string $token): self
     {
         $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Follow[]
+     */
+    public function getFollows(): Collection
+    {
+        return $this->follows;
+    }
+
+    public function addFollow(Follow $follow): self
+    {
+        if (!$this->follows->contains($follow)) {
+            $this->follows[] = $follow;
+            $follow->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFollow(Follow $follow): self
+    {
+        if ($this->follows->contains($follow)) {
+            $this->follows->removeElement($follow);
+            // set the owning side to null (unless already changed)
+            if ($follow->getUser() === $this) {
+                $follow->setUser(null);
+            }
+        }
 
         return $this;
     }
