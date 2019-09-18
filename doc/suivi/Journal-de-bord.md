@@ -226,19 +226,19 @@
 
 ---
 # 17/09/2019 - J13 - Sprint 2
->* 
->* 
->* 
+>* Route demande de participation (demander à se placer sur un projet)
+>* Route d'acces a la liste des demandes par projet (pour les les créateurs)
+>* Intégration : modif différences prod/dev
+>*
 #### Infos individuelles
->## Julien :
-> 
+>## Julien : 
+> Création d'une route pour envoyer une demande de participation à un projet + création d'une route pour envoi des candidature concernant un créateur de projet
 >## Alexis :
-> 
+> Dynamisation + requetes vers le back
 >## Alexandre :
-> 
+> Création d'une route pour envoyer une demande de participation à un projet + création d'une route pour envoi des candidature concernant un créateur de projet
 >## Nadia :
-> 
+> Intégration
 #### À Suivre
->* 
->* 
->* 
+>* Terminer l'inté et le responsive
+>* Mettre en place toutes les requetes
