@@ -46,7 +46,7 @@
   &-connect {
     background-color: $easy-blue;
   }
-  &-connect:hover {
+  &-connect:hover , &-subscribe:hover {
     color: #2185D0;
   }
 }
