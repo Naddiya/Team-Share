@@ -59,10 +59,10 @@ class Page extends React.Component {
         <Route path="/legal-mentions" render={() => (
           <LegalMentions />
         )} />
-                <Route path="/login" render={() => (
-          <SubscribeModa />
-        )} />
                 <Route path="/subscribe" render={() => (
+          <SubscribeModal />
+        )} />
+                <Route path="/login" render={() => (
           <LoginModal />
         )} />
       </>

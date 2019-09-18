@@ -167,11 +167,6 @@
         }
     }
 }
-.modifiable:hover {
-    padding: 0.5em;
-    background-color: darken($gainsboro, 10%);
-    cursor: uri('../../assets/cross.png'), auto;
-}
 
 .sized {
     width: 180px;

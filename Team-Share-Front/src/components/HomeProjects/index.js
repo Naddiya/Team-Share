@@ -21,7 +21,6 @@ const HomeProjects = ({ projects }) => (
     </div>
     <svg className="wave-bottom" viewBox="0 0 1170 126" xmlns="http://www.w3.org/2000/svg">
       <path className="wave-path-bottom" fill="#E2E9ED" fillRule="evenodd" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"/>
-
     </svg>
   </div>
 

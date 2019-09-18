@@ -21,6 +21,11 @@ const initialState = {
   passwordConfirmation: '',
   phoneNumber: '',
   token: '',
+  // === ProfileUpdate props === 
+  firstName: '',
+  lastName: '',
+  job: '',
+  city: '',
 };
 
 // == Types
@@ -49,6 +54,14 @@ export const CHANGE_PHONENUMBER = 'CHANGE_PHONENUMBER';
 export const CHANGE_TOKEN = 'CHANGE_TOKEN';
 export const DO_SUBSCRIBE = 'DO_SUBSCRIBE';
 export const DO_CONNECT = 'DO_CONNECT';
+
+// === UPDATEMODAL ACTION TYPES ===
+
+export const CHANGE_FIRSTNAME = 'CHANGE_FIRSTNAME';
+export const CHANGE_LASTNAME = 'CHANGE_LASTNAME';
+export const CHANGE_JOB = 'CHANGE_JOB';
+export const CHANGE_CITY = 'CHANGE_CITY';
+export const DO_UPDATE = 'DO_UPDATE';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -161,7 +174,32 @@ const reducer = (state = initialState, action = {}) => {
     case DO_CONNECT:
       return {
         ...state,
-      };    
+      };
+    /* === UPDATEMODAL ACTIONS === */
+    case CHANGE_FIRSTNAME:
+      return {
+        ...state,
+        firstName: action.value,
+    };
+    case CHANGE_LASTNAME:
+      return {
+        ...state,
+        lastName: action.value,
+    };
+    case CHANGE_JOB:
+      return {
+        ...state,
+        job: action.value,
+    };
+    case CHANGE_CITY:
+      return {
+        ...state,
+        city: action.value,
+      };
+    case DO_UPDATE:
+      return {
+        ...state,
+    };
     default:
       return state;
   }
@@ -239,7 +277,7 @@ export const changeUrlGit = value => ({
   value,
 });
 
-export const doSubmit = value => ({
+export const doSubmit = () => ({
   type: DO_SUBMIT,
 });
 
@@ -277,6 +315,33 @@ export const doSubscribe = () => ({
 export const doConnect = () => ({
   type: DO_CONNECT,
 });
+
+// === UPDATEMODAL ACTION CREATORS ===
+
+export const changeFirstName = value => ({
+  type: CHANGE_FIRSTNAME,
+  value,
+});
+
+export const changeLastName = value => ({
+  type: CHANGE_LASTNAME,
+  value,
+});
+
+export const changeJob = value => ({
+  type: CHANGE_JOB,
+  value,
+});
+
+export const changeCity = value => ({
+  type: CHANGE_CITY,
+  value,
+});
+
+export const doUpdate = () => ({
+  type: DO_UPDATE,
+});
+
 // == Selectors
 
 

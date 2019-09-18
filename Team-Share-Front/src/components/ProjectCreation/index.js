@@ -110,10 +110,10 @@ const ProjectCreation = (
 
             <div className="project-intro">
                 <div className="project-intro-inputs">
-                    <h3 className="input-title">Date de début</h3>
-                        <Form.Input fluid onChange={handleChangeStartDate} type="date" />
-                    <h3 className="input-title">Date de fin</h3>
-                        <Form.Input fluid onChange={handleChangeEndDate} type="date" />
+                    <h3 className="input-title">Date de début souhaitée</h3>
+                        <Form.Input fluid onChange={handleChangeStartDate} type="text" />
+                    <h3 className="input-title">Date de fin prévue</h3>
+                        <Form.Input fluid onChange={handleChangeEndDate} type="text" />
                     <h3 className="input-title">Type de projet</h3>
                         <Dropdown fluid multiple selection onChange={handleChangeProjectType} placeholder='Choisir' options={projType} />
                     <h3 className="input-title">Nombre de collaborateurs souhaité</h3>
@@ -136,7 +136,7 @@ const ProjectCreation = (
                         <Dropdown fluid multiple selection onChange={handleChangeSkills} placeholder='Choisir'  options={skillsList
                         } />
                 </div>
-            </div>
+            </div>  
             <Divider />
 
                 <div className="project-description">
