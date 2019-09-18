@@ -122,7 +122,7 @@ const ProjectCreation = (
                         <Form.Input fluid  onChange={handleChangeShortDescription} placeholder='Description succinte du projet...' />
                 </div>
 
-                <img className="teamPic" src="src/assets/teamPic.png" />
+                <img className="teamPic" src="http://92.243.10.99/pics/teamPic.png" />
             </div>
 
             <Divider />

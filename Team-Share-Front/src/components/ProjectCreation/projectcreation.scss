@@ -2,21 +2,23 @@
 
 .project {
     width: 70%;
-    margin: auto;
+    margin: 4rem auto;
+
 
     & img {
         border-radius:15px;
-        box-shadow: 0 0 2rem  gray;
+        box-shadow: 0 0 2rem gray;
     }
 
     &-title, &-presentation, &-team, &-description {
-        font-weight: 600;
-
+        font-weight: 700;
+        font-size:1.5rem;
     }
 
     &-title {
         color: $dark-cerulean;
         text-align: center;
+        margin: 1rem !important;
     }
 
     &-heading {
