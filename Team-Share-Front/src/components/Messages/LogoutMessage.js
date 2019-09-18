@@ -7,8 +7,8 @@ import './logoutMessage.scss';
 // == Composant
 const LogoutMessage = () => (
   <div id="logout-message">
-    Merci pour votre venu !
-    A très bientot
+    Merci pour votre venue !
+    À très bientôt
   </div>
 );
 

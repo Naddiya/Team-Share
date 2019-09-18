@@ -137,10 +137,6 @@ const ProjectCreation = (
                         } />
                 </div>
             </div>
-                
-
-
-
             <Divider />
 
                 <div className="project-description">
@@ -149,28 +145,12 @@ const ProjectCreation = (
                 </div> 
 
             <Divider />
-            {/* <div className="project-links">
-                <div className="project-links-left">
-                <h3 className="add-file">Ajouter un fichier</h3>
-                <Form.Input type="file" />
-                </div>
-                <div className="project-links-right">
-                <ul>
-                    <li><IoIosFolderOpen />fichier 1</li>
-                    <li><IoIosFolderOpen />fichier 2</li>
-                    <li><IoIosFolderOpen />fichier 3</li>
-                    <li><IoIosFolderOpen />fichier 4</li>
-                </ul>
-                </div>
-            </div> */}
-            <div className="project-terms">
-            <Form.Field className="project-terms">
-                <Checkbox label='I agree to the Terms and Conditions' />
-            </Form.Field>
-            <Button className="project-terms" color="blue" type='submit' >Submit</Button>
+            <div className="project-links-validation">
+                <Form.Input name="send-project" type="checkbox" />
+                <label htmlFor="send-project" className="project-validation">I agree, à tout ce que vous voudrez</label>
             </div>
-        </Form>
-           
+            <Button className="submit" color="blue">Envoyer</Button>
+            </Form>
         </div>
     );
 };

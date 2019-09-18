@@ -37,6 +37,7 @@ const connectionMiddleware = store => next => (action) => {
             console.log(dataConnect);
             axios.post('http://92.243.10.99/Team-Share/team-share-back/public/login', dataConnect, headers)
             .then((response) => {
+                console.log(response);
                 let token = response.data.token;
                 console.log(token);
                 store.dispatch(changeToken(token));
