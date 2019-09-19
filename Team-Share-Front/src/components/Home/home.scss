@@ -37,7 +37,7 @@
 
 
         &-button {
-            padding: 1em 3em;
+            padding: 1rem 3rem;
             background-color: $yankees-blue;
             color: #FFF;
             border: none;
@@ -47,6 +47,7 @@
             &.cta-button {
                 background-color: $dark-cerulean;
             }
+
         }
     }
 }

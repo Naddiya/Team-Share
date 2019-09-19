@@ -54,33 +54,16 @@
         
     }
 
-    &-terms {
-        margin: 2rem;
-        text-align : center;
-    }
-
-    .ui.checkbox {
+    &-links-validation {
+        margin-left: 2rem;
         & label {
-            width:inherit;
+            width:300px;
         }
     }
 
-
-    // &-links {
-    //     display: flex;
-    //     flex-wrap: wrap;
-    //     margin: 2em 0 4em;
-    //     font-size: 1.2em;
-    //     &-left {
-    //         width: 45%;
-    //     }
-    //     &-right {
-    //         &>ul>li {
-    //             padding: .5em;
-    //         }
-    //     }
-
-
+    .submit {
+        margin-left:2rem;
+    }
 }
 
 
