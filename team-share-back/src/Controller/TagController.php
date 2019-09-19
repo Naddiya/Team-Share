@@ -19,8 +19,15 @@ class TagController extends AbstractController
      */
     public function index(TagRepository $tagRepository)
     {
+        foreach ($tagRepository->findAllTags() as $tag){
+            $tag['id'] = $tag['id'];
+            $tag['name'] = $tag['name'];
+            $tag['key'] = $tag['id'];
+            $tab[] = $tag;
+        }
+ 
         // Crée une response au format json avec la liste des tags par ordre alphabétique
-        $response = new JsonResponse($tagRepository->findAllTags());
+        $response = new JsonResponse($tab);
 
         return $response;
     }

@@ -18,8 +18,16 @@ class TechnoController extends AbstractController
      */
     public function index(TechnoRepository $technoRepository)
     {
-        // Crée une response au format json avec la liste des technos par ordre alphabétique
-        $response = new JsonResponse($technoRepository->findAllTechnos());
+        foreach ($technoRepository->findAllTechnos() as $techno){
+            $techno['id'] = $techno['id'];
+            $techno['name'] = $techno['name'];
+            $techno['type'] = $techno['type'];
+            $techno['key'] = $techno['id'];
+            $tab[] = $techno;
+        }
+ 
+        // Crée une response au format json avec la liste des tags par ordre alphabétique
+        $response = new JsonResponse($tab);
 
         return $response;
     }

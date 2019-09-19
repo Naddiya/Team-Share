@@ -18,8 +18,15 @@ class SkillController extends AbstractController
      */
     public function index(SkillRepository $skillRepository)
     {
-        // Crée une response au format json avec la liste des skills par ordre alphabétique
-        $response = new JsonResponse($skillRepository->findAllSkills());
+        foreach ($skillRepository->findAllSkills() as $skill){
+            $skill['id'] = $skill['id'];
+            $skill['name'] = $skill['name'];
+            $skill['key'] = $skill['id'];
+            $tab[] = $skill;
+        }
+ 
+        // Crée une response au format json avec la liste des tags par ordre alphabétique
+        $response = new JsonResponse($tab);
 
         return $response;
     }
