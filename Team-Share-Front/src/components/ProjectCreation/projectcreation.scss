@@ -12,10 +12,12 @@
 
     &-title, &-presentation, &-team, &-description {
         font-weight: 700;
-        font-size:1.5rem;
+        font-size:1.5em;
     }
 
     &-title {
+        font-weight: 700;
+        font-size:1.5em;
         color: $dark-cerulean;
         text-align: center;
         margin: 1rem !important;
@@ -25,12 +27,16 @@
         text-align: center;
         margin-bottom: 4rem;
         color: $dark-cerulean;
+        &-title {
+            font-weight: 700;
+            font-size:2em;
+        }
     }
 
     &-intro {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 4em;
+        margin-bottom: 4rem;
         &-inputs {
             .input-title {
                 font-size: 1.2em;
@@ -54,33 +60,16 @@
         
     }
 
-    &-terms {
-        margin: 2rem;
-        text-align : center;
-    }
-
-    .ui.checkbox {
+    &-links-validation {
+        margin-left: 2rem;
         & label {
-            width:inherit;
+            width:300px;
         }
     }
 
-
-    // &-links {
-    //     display: flex;
-    //     flex-wrap: wrap;
-    //     margin: 2em 0 4em;
-    //     font-size: 1.2em;
-    //     &-left {
-    //         width: 45%;
-    //     }
-    //     &-right {
-    //         &>ul>li {
-    //             padding: .5em;
-    //         }
-    //     }
-
-
+    .submit {
+        margin-left:2rem;
+    }
 }
 
 
@@ -133,6 +122,17 @@
            color: $dark-cerulean;
         }
         
+    }
+
+    &-links-validation {
+        margin-left: 0;
+        & label {
+            width:300px;
+        }
+    }
+
+    .ui.blue.button.submit {
+        margin: 0 auto;
     }
 
 }

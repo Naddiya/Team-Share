@@ -32,6 +32,7 @@
             &>img {
                 width: 350px;
                 height: 350px;
+                margin:0.5rem;
                 border-radius: 50%;
                 box-shadow: 0 0 2em grey;
             }
@@ -108,19 +109,20 @@
         display: block;
         &-left {
             width: 95%;
-            text-align: left;
+            text-align: center;
             position: static;
             margin-top: 4rem;
-            // &-picture {
-            //     &>img {
-            //         position: absolute;
-            //         top:19rem;
-            //         width: 5rem;
-            //         height: 5rem;
-            //         border-radius: 50%;
-            //         box-shadow: 0 0 2em grey;
-            //     }
-            // }
+            &-picture {
+                &>img {
+                    position: absolute;
+                    top:19rem;
+                    left:0.5rem;
+                    width: 7rem;
+                    height: 7rem;
+                    border-radius: 50%;
+                    box-shadow: 0 0 2em grey;
+                }
+            }
             &-contact {
                 width: 90%;
                 margin: 0.5rem auto;

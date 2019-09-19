@@ -2,6 +2,8 @@
 import React from 'react';
 import { Item, Button, Header, Icon, Modal, Form, Dropdown } from 'semantic-ui-react';
 import { IoIosContact, IoLogoFacebook, IoLogoGithub, IoLogoTwitter, IoMdPin } from "react-icons/io";
+import { NavLink } from 'react-router-dom';
+
 
 // == Import : local
 import './profile.scss';
@@ -61,6 +63,14 @@ const Profile = ({ projects, technos }) => (
                         <Projects key={project.title} {...project} />
                     ))}
                 </Item.Group>
+
+                <NavLink to="/participations">
+                <Button 
+                    color="blue" 
+                    label="Demandes de participations" 
+                />
+                </NavLink>
+
             </div>
         </div>
     </div>

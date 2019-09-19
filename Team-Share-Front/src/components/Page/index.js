@@ -13,8 +13,7 @@ import ProjectDetail from 'src/components/ProjectDetail';
 import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
-import SubscribeModal from 'src/components/LegalMentions';
-import LoginModal from 'src/components/LegalMentions';
+import Participations from 'src/components/Participations';
 
 
 // == Composant
@@ -94,12 +93,10 @@ class Page extends React.Component {
         <Route path="/legal-mentions" render={() => (
           <LegalMentions />
         )} />
-                <Route path="/subscribe" render={() => (
-          <SubscribeModal />
+        <Route path="/participations" render={() => (
+          <Participations />
         )} />
-                <Route path="/login" render={() => (
-          <LoginModal />
-        )} />
+
       </>
   )};
 };

@@ -146,8 +146,7 @@ const ProjectCreation = (
 
             <Divider />
             <div className="project-links-validation">
-                <Form.Input name="send-project" type="checkbox" />
-                <label htmlFor="send-project" className="project-validation">I agree, à tout ce que vous voudrez</label>
+                <Checkbox label='I agree to Terms and Conditions' />
             </div>
             <Button className="submit" color="blue">Envoyer</Button>
             </Form>
