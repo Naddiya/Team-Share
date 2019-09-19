@@ -1,14 +1,15 @@
 // == Import : npm
 import React from 'react';
-import { Item, Button, Header, Icon, Modal, Form, Dropdown } from 'semantic-ui-react';
+import { Item, Message,  Button, Header, Icon, Modal, Form, Dropdown , Divider } from 'semantic-ui-react';
 import { IoIosContact, IoLogoFacebook, IoLogoGithub, IoLogoTwitter, IoMdPin } from "react-icons/io";
-import { NavLink } from 'react-router-dom';
 
 
 // == Import : local
 import './profile.scss';
 import Projects from './projects';
 import UpdateModal from 'src/containers/UpdateModal';
+import ParticipationMessage from 'src/components/Messages/ParticipationMessage';
+
 
 // == Composant
 const Profile = ({ projects }) => (
@@ -20,6 +21,7 @@ const Profile = ({ projects }) => (
             <div className="select-left-picture">
                 <img src="https://freerangestock.com/thumbnail/21180/a-casual-man.jpg" alt="pic" />
             </div>
+
             <div className="select-left-contact">
                 <IoIosContact />
                 <span>adresse.mail@mail.com</span>
@@ -46,30 +48,25 @@ const Profile = ({ projects }) => (
                 <IoLogoGithub /><span>Github</span>
             </div>
             <div className="select-right-container">
-                <h3>Description :</h3>
+                <h3>Profil :</h3>
                 <p className="select-right-description">
                 Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
                 </p>
                 <h2 className="select-right-subtitle">Projets en cours :
                 </h2>
                 <Item.Group divided>
+                    <ParticipationMessage />
                     {projects.slice(0, 2).map((project) => (
                         <Projects key={project.title} {...project} />
                     ))}
                 </Item.Group>
+
                 <h2 className="select-right-subtitle">Projets réalisés :</h2>
                 <Item.Group divided>
                     {projects.slice(2, 4).map((project) => (
                         <Projects key={project.title} {...project} />
                     ))}
                 </Item.Group>
-
-                <NavLink to="/participations">
-                <Button 
-                    color="blue" 
-                    label="Demandes de participations" 
-                />
-                </NavLink>
 
             </div>
         </div>

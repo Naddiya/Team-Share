@@ -13,7 +13,7 @@ import ProjectDetail from 'src/components/ProjectDetail';
 import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
-import Participations from 'src/components/Participations';
+import Error from './Error';
 
 
 // == Composant
@@ -58,10 +58,7 @@ class Page extends React.Component {
         <Route path="/legal-mentions" render={() => (
           <LegalMentions />
         )} />
-        <Route path="/participations" render={() => (
-          <Participations />
-        )} />
-
+        {/* <Route component={Error} /> */}
       </>
   )};
 };
