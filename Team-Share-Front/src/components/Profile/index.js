@@ -9,7 +9,7 @@ import Projects from './projects';
 import UpdateModal from 'src/containers/UpdateModal';
 
 // == Composant
-const Profile = ({ projects }) => (
+const Profile = ({ projects, technos }) => (
   <div className="profile">
     <div className="profile-headpic">
     </div>
@@ -29,7 +29,7 @@ const Profile = ({ projects }) => (
                 <span>REACT/REDUX</span>
                 <span>GESTION DE PROJET</span>
             </div>
-            <UpdateModal />
+                <UpdateModal technos={technos} />
         </div>
 
         <div className="select-right">

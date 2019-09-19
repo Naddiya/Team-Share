@@ -22,6 +22,7 @@ class Page extends React.Component {
 
   state = {
     projects: [],
+    technos: [],  
   }
 
   componentDidMount() {
@@ -34,6 +35,35 @@ class Page extends React.Component {
       .catch((error) => {
           console.log(error);
       });
+
+    axios.get('http://92.243.10.99/Team-Share/team-share-back/public/techno/index')
+      .then((response) => {
+          let profiletechnos = response.data;
+          console.log(response.data)
+          this.setState({technos: profiletechnos});
+          console.log(this.state.technos);  
+      })
+      .catch((error) => {
+          console.log(error);
+      });
+    // axios.get('http://92.243.10.99/Team-Share/team-share-back/public/tag/index')
+    //   .then((response) => {
+    //       let tag = response.data;
+    //       this.setState({tag: tag});
+    //       console.log(this.state.tag);
+    //   })
+    //   .catch((error) => {
+    //       console.log(error);
+    //   });
+    // axios.get('http://92.243.10.99/Team-Share/team-share-back/public/skill/index')
+    //   .then((response) => {
+    //       let skills = response.data;
+    //       this.setState({skills: skills});
+    //       console.log(this.state.skills);
+    //   })
+    //   .catch((error) => {
+    //       console.log(error);
+    //   });
   }
 
   render() {
@@ -45,7 +75,12 @@ class Page extends React.Component {
         )} />
         <Route path="/" exact component={Team} />
         <Route path="/profile" render={() => (
-          <Profile projects={this.state.projects} />
+          <Profile 
+            projects={this.state.projects} 
+            technos={this.state.technos}
+            tag={this.state.tag}
+            skills={this.state.skills}
+          />
         )} />
         <Route path="/projects" render={() => (
           <Projects projects={this.state.projects} />

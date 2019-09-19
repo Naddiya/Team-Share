@@ -15,6 +15,7 @@ const initialState = {
   urlTwitter: '',
   urlTipeee: '',
   urlGithub: '',
+  urlLinkedin: '',
   // === Subscribe props ===
   email: '',
   password: '',
@@ -26,6 +27,7 @@ const initialState = {
   lastName: '',
   job: '',
   city: '',
+  photo: '',
 };
 
 // == Types
@@ -44,6 +46,7 @@ export const CHANGE_URLFB = 'CHANGE_URLFB';
 export const CHANGE_URLTWIT = 'CHANGE_URLTWIT';
 export const CHANGE_URLTIP = 'CHANGE_URLTIP';
 export const CHANGE_URLGIT = 'CHANGE_URLGIT';
+export const CHANGE_URLLINK = 'CHANGE_URLLINK';
 export const DO_SUBMIT = 'DO_SUBMIT';
 
 // === SUBSCRIBE & LOGIN ACTION TYPES ===
@@ -137,6 +140,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         urlGithub: action.value,
       };
+    case CHANGE_URLLINK:
+      return {
+        ...state,
+        urlLinkedin: action.value,
+    };
     case DO_SUBMIT:
       return {
         ...state,
@@ -274,6 +282,11 @@ export const changeUrlTip = value => ({
 
 export const changeUrlGit = value => ({
   type: CHANGE_URLGIT,
+  value,
+});
+
+export const changeUrlLink = value => ({
+  type: CHANGE_URLLINK,
   value,
 });
 
