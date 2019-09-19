@@ -21,7 +21,7 @@ class TagController extends AbstractController
     {
         foreach ($tagRepository->findAllTags() as $tag){
             $tag['id'] = $tag['id'];
-            $tag['name'] = $tag['name'];
+            $tag['value'] = $tag['name'];
             $tag['key'] = $tag['id'];
             $tag['text'] = $tag['name'];
             $tab[] = $tag;

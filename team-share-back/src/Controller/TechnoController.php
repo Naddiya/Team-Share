@@ -20,7 +20,7 @@ class TechnoController extends AbstractController
     {
         foreach ($technoRepository->findAllTechnos() as $techno){
             $techno['id'] = $techno['id'];
-            $techno['name'] = $techno['name'];
+            $techno['value'] = $techno['name'];
             $techno['type'] = $techno['type'];
             $techno['key'] = $techno['id'];
             $techno['text'] = $techno['name'];

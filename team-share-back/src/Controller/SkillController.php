@@ -20,7 +20,7 @@ class SkillController extends AbstractController
     {
         foreach ($skillRepository->findAllSkills() as $skill){
             $skill['id'] = $skill['id'];
-            $skill['name'] = $skill['name'];
+            $skill['value'] = $skill['name'];
             $skill['key'] = $skill['id'];
             $skill['text'] = $skill['name'];
             $tab[] = $skill;
