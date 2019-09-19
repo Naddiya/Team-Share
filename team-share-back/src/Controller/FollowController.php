@@ -42,6 +42,7 @@ class FollowController extends AbstractController
             if ($follow->getProject() === $project){
                 // Si oui on inverse le follow
                 $follow->setFollow(!$follow->getFollow());
+                $entityManager->flush();
                 $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLikes'];
                 $project->setNbLike($nbLike);
                 $entityManager->flush();

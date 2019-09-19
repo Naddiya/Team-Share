@@ -103,7 +103,7 @@ class UserController extends AbstractController
         $userToken->setUrlLinkedin($jsonContentArray['urlLinkedin']);
         $userToken->setToken($userToken->getToken());
 
-        $encodedPassword = $encoder->encodePassword($userToken, $userToken->getMail());
+        $encodedPassword = $encoder->encodePassword($userToken, $jsonContentArray['mail']);
         $userToken->setPassword($encodedPassword);
 
         $userToken->setUsername($userToken->getMail());
