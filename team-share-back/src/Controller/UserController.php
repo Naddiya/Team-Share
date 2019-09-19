@@ -86,8 +86,8 @@ class UserController extends AbstractController
         // Transforme le json en tableau
         $jsonContentArray = json_decode($jsonContent, true);
 
-        $userToken = $userRepository->findOneBy(['token' => $jsonContent['token']]);
         dd($jsonContentArray);
+        $userToken = $userRepository->findOneBy(['token' => $jsonContent['token']]);
 
         $userToken->setFirstname($jsonContentArray['firstname']);
         $userToken->setLastname($jsonContentArray['lastname']);
