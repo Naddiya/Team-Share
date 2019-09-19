@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FollowController extends AbstractController
@@ -65,5 +66,35 @@ class FollowController extends AbstractController
         $entityManager->flush();
 
         return new Response("Nouveau follow");
+    }
+
+    /**
+     * @Route("/follow/show", name="follow_show")
+     */
+    public function show(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager, FollowRepository $followRepository)
+    {
+        // Récupére le contenu du json reçu
+        $jsonContent = $request->getContent();
+
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
+
+        // Récupère le user qui crée la requête
+        $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
+
+        // Récupère le projet concerné par la requête
+        $project = $projectRepository->findOneBy(['id' => $jsonContentArray['project']]);
+
+        // Pour chaques follows de l'utilisateur
+        foreach ($user->getFollows() as $follow){
+            // On vérifie si il y en a un qui correspond au projet
+            if ($follow->getProject() === $project){
+                // Si oui on renvoie la valeur du follow (0 ou 1)
+                return new JsonResponse(["follow" => $follow->getFollow()]);
+            }
+        }
+
+        // Si aucune correspondance on renvoie false
+        return new JsonResponse(["follow" => "false"]);
     }
 }
