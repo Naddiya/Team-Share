@@ -75,6 +75,25 @@ class UserController extends AbstractController
         return $response;
     }
 
+    /**
+     * @Route("/myprofil", name="_myprofil", methods={"GET"})
+     */
+    public function profil(Request $request, UserRepository $userRepository)
+    {
+        // Récupére le contenu du json reçu
+        $jsonContent = $request->getContent();
+
+        // Transforme le json en tableau
+        $jsonContentArray = json_decode($jsonContent, true);
+
+        $userToken = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
+        
+        $response = new JsonResponse($userRepository->findOneUserById($userToken->getId()));
+ 
+        return $response;
+
+    }
+
      /**
      * @Route("/update", name="_update", methods={"POST"})
      */

@@ -62,7 +62,7 @@ class FollowController extends AbstractController
         $entityManager->flush();
         $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLikes'];
         $project->setNbLike($nbLike);
-        $entityManager->flush();git
+        $entityManager->flush();
 
         return new Response("Nouveau follow");
     }
