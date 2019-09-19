@@ -7,18 +7,21 @@ import { Divider } from 'semantic-ui-react'
 
 // local import
 import './burger.scss';
-
+import LoginModal from "src/components/Login";
+import SubscribeModal from "src/components/Subscribe";
 
 const Burger = () => {
 
+
   return (
     <Menu right>
-      <NavLink className="menu-item" to="/subscribe" exact>
-          S'inscrire 
+      <NavLink className="menu-item">
+          <SubscribeModal />
       </NavLink>
-      <NavLink className="menu-item" to="/login" exact>
-          Se connecter
+      <NavLink className="menu-item">
+        <LoginModal />
       </NavLink>
+      <Divider />
       <NavLink className="menu-item" to="/profil" exact>
           Ton profil
       </NavLink>
