@@ -63,7 +63,8 @@ const Profile = ({ projects }) => (
                         <Projects key={project.title} {...project} />
                     ))}
                 </Item.Group>
-                <NavLink to="/project-Participations">
+
+                <NavLink to="/participations">
                 <Button 
                     color="blue" 
                     label="Demandes de participations" 

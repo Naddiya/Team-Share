@@ -2,12 +2,11 @@
 
 
 
-#app , #root, body, html {
+#root, body, html {
   background-color: $gainsboro;
   height: 100%;
   display:flex;
   flex-direction:column;
   justify-content: space-between;
 }
-
 
