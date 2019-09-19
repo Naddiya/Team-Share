@@ -14,10 +14,10 @@ import 'semantic-ui-css/semantic.min.css';
 //     { key: 'aw', value: 'Symfony', text: 'Symfony' },
 // ]
 
-const skillsList = [
-    { key: 'af', name: 'Graphisme', text: 'Graphisme' },
-    { key: 'ax', name: 'Big Data', text: 'Big Data' },
-]
+// const skillsList = [
+//     { key: 'af', value: 'Graphisme', text: 'Graphisme' },
+//     { key: 'ax', value: 'Big Data', text: 'Big Data' },
+// ]
 
 // == Composant
 const UpdateModal = (
@@ -39,6 +39,7 @@ const UpdateModal = (
     changeTechnos,
     sendUpdate,
     technos,
+    skillsList,
   }
   ) => {
 

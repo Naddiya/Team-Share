@@ -14,7 +14,7 @@ import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
 import Error from './Error';
-
+import store from 'src/store';
 
 // == Composant
 class Page extends React.Component {
@@ -22,6 +22,7 @@ class Page extends React.Component {
   state = {
     projects: [],
     technos: [],  
+
   }
 
   componentDidMount() {
@@ -54,15 +55,16 @@ class Page extends React.Component {
     //   .catch((error) => {
     //       console.log(error);
     //   });
-    // axios.get('http://92.243.10.99/Team-Share/team-share-back/public/skill/index')
-    //   .then((response) => {
-    //       let skills = response.data;
-    //       this.setState({skills: skills});
-    //       console.log(this.state.skills);
-    //   })
-    //   .catch((error) => {
-    //       console.log(error);
-    //   });
+    axios.get('http://92.243.10.99/Team-Share/team-share-back/public/skill/index')
+      .then((response) => {
+          let skills = response.data;
+          this.setState({skills: skills});
+          console.log(this.state.skills);
+      })
+      .catch((error) => {
+          console.log(error);
+      });
+
   }
 
   render() {
@@ -75,9 +77,8 @@ class Page extends React.Component {
         <Route path="/" exact component={Team} />
         <Route path="/profile" render={() => (
           <Profile 
-            projects={this.state.projects} 
+            projects={this.state.projects}
             technos={this.state.technos}
-            tag={this.state.tag}
             skills={this.state.skills}
           />
         )} />

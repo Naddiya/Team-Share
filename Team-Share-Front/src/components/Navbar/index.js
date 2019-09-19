@@ -28,10 +28,13 @@ const NavBar = ({ token }) => {
             {token.length > 3 && <NavLink to="/profile" className="navbar-link">Mon Profil</NavLink>}
           </li>
           <li>
-            <LoginModal className="button-link-connect"/>
+          {token === "" &&  <LoginModal className="button-link-connect"/>}
           </li>
           <li className="navbar-link">
-            <SubscribeModal className="button-link button-link-subscribe"/>
+          {token === "" && <SubscribeModal className="button-link button-link-subscribe"/>}
+          </li>
+          <li className="navbar-link">
+          {token.length > 3 && <NavLink to="/disconnect" className="button-link button-link-connect">Se Déconnecter</NavLink>}
           </li>
         </ul>
         

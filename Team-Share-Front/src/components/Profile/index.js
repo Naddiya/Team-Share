@@ -12,7 +12,7 @@ import ParticipationMessage from 'src/components/Messages/ParticipationMessage';
 
 
 // == Composant
-const Profile = ({ projects, technos }) => (
+const Profile = ({ projects, technos, skills }) => (
   <div className="profile">
     <div className="profile-headpic">
     </div>
@@ -33,7 +33,7 @@ const Profile = ({ projects, technos }) => (
                 <span>REACT/REDUX</span>
                 <span>GESTION DE PROJET</span>
             </div>
-                <UpdateModal technos={technos} />
+                <UpdateModal technos={technos} skillsList={skills} />
         </div>
 
         <div className="select-right">
@@ -76,3 +76,18 @@ const Profile = ({ projects, technos }) => (
 
 // == Export
 export default Profile;
+
+
+// const data = {
+//     token: store.getState().token,
+//   }
+
+//   axios.get('http://92.243.10.99/Team-Share/team-share-back/public/user/myprofil', data)
+//   .then((response) => {
+//       let personalInfos = response.data;
+//       this.setState({data: personalInfos});
+//       console.log(this.state.personalInfos);
+//   })
+//   .catch((error) => {
+//       console.log(error);
+//   });

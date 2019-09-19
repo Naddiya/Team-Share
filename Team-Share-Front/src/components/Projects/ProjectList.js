@@ -3,6 +3,7 @@ import React from 'react';
 import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import { IoIosAddCircle, IoIosBatteryCharging } from "react-icons/io";
+import { NavLink } from 'react-router-dom'; 
 
 // == Import : local
 
@@ -13,7 +14,7 @@ const ProjectList = ({ image, title, tag, description, nbLike }) => (
       <Item.Image src={image} />
 
       <Item.Content>
-        <Item.Header as='a'>{title}
+        <Item.Header as={NavLink} to="/project-detail">{title}
         </Item.Header>
           <span className="item-follow"><IoIosAddCircle size="28px" />Follow</span>
         <Item.Extra>
