@@ -15,11 +15,9 @@ const Burger = () => {
 
   return (
     <Menu right>
-      <NavLink className="menu-item">
-          <SubscribeModal />
+      <NavLink className="menu-item" to="#">
       </NavLink>
-      <NavLink className="menu-item">
-        <LoginModal />
+      <NavLink className="menu-item" to="#">
       </NavLink>
       <Divider />
       <NavLink className="menu-item" to="/profil" exact>
