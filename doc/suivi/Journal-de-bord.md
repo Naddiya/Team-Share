@@ -229,7 +229,6 @@
 >* Route demande de participation (demander à se placer sur un projet)
 >* Route d'acces a la liste des demandes par projet (pour les les créateurs)
 >* Intégration : modif différences prod/dev
->*
 #### Infos individuelles
 >## Julien : 
 > Création d'une route pour envoyer une demande de participation à un projet + création d'une route pour envoi des candidature concernant un créateur de projet
@@ -242,3 +241,41 @@
 #### À Suivre
 >* Terminer l'inté et le responsive
 >* Mettre en place toutes les requetes
+
+---
+# 18/09/2019 - J14 - Sprint 2
+>* Route likes
+>* Intégration : modif différences prod/dev
+>* Requetes front vers le back
+#### Infos individuelles
+>## Julien : 
+> Création de la fonction pour liker une page
+>## Alexis :
+> Dynamisation + requetes vers le back
+>## Alexandre :
+> Création de la fonction pour liker une page
+>## Nadia :
+> Intégration 
+#### À Suivre
+>* Terminer l'inté et le responsive
+>* Mettre en place toutes les requetes
+
+---
+# 19/09/2019 - J15 - Sprint 2
+>* Route demande de participation (demander à se placer sur un projet)
+>* Route d'acces a la liste des demandes par projet (pour les les créateurs)
+>* Intégration : modif différences prod/dev
+>* Présentation à l'équipe pédagogique
+#### Infos individuelles
+>## Julien : 
+> Création de la fonction pour liker une page + présentation 
+>## Alexis :
+> Dynamisation + requetes vers le back
+>## Alexandre :
+> Création de la fonction pour liker une page
+>## Nadia :
+> Intégration 
+#### À Suivre
+>* Ajustements responsive finaux
+>* Mettre en place toutes les requetes front
+>* V1 terminé pour le back
