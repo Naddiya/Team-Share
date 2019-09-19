@@ -101,7 +101,7 @@ class UserController extends AbstractController
         $userToken->setUrlTwitter($jsonContentArray['urlTwitter']);
         $userToken->setUrlGithub($jsonContentArray['urlGithub']);
         $userToken->setUrlLinkedin($jsonContentArray['urlLinkedin']);
-        $userToken->setToken($jsonContentArray['token']);
+        $userToken->setToken($userToken->getToken());
 
         $encodedPassword = $encoder->encodePassword($userToken, $userToken->getMail());
         $userToken->setPassword($encodedPassword);
