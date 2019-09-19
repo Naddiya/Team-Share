@@ -1,6 +1,6 @@
 //npm imports
 import React from 'react'
-import { Button, Header, Icon, Modal, Form } from 'semantic-ui-react'
+import { Button, Header, Icon, Modal, Form, Divider } from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 
 import './subscribe.scss'; 
@@ -49,6 +49,7 @@ const SubscribeModal = (
         <Form.Input onChange={handleChangePasswordConfirmation} label='Confirmation' placeholder="Confirmation du mot de passe" type='password' />
         <Form.Input onChange={handleChangePhoneNumber} label='Téléphone' placeholder="06 43 55 99 00" type='text' />
       </Modal.Content>
+      <Divider />
       <Modal.Actions>
         <Button className="submit" color='green'>
           <Icon name='checkmark' />Envoyer

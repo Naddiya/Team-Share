@@ -1,6 +1,6 @@
 //npm imports
 import React from 'react'
-import { Button, Header, Icon, Modal, Form } from 'semantic-ui-react'
+import { Button, Header, Icon, Modal, Form , Divider } from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 
 
@@ -32,6 +32,7 @@ const LoginModal = ({
         <Form.Input onChange={handleChangeEmail} label='Email' placeholder='joe@schmoe.com' type='email' />
         <Form.Input onChange={handleChangePassword} label='Mot de passe' placeholder="Mot de passe" type='password' />
       </Modal.Content>
+      <Divider />
       <Modal.Actions>
         <Button className="submit" color='green'>
           <Icon name='checkmark' />Connexion

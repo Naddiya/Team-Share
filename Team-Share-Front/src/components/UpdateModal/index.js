@@ -143,6 +143,7 @@ const UpdateModal = (
                 <Form.Input onChange={handleChangePasswordConfirmation} label='Confirmation' placeholder="Confirmation du mot de passe" type='password' />
             </Modal.Content>
             <Modal.Actions>
+                <Divider />
                 <Button className="submit" color='green'>
                 <Icon name='checkmark' />Envoyer
                 </Button>
