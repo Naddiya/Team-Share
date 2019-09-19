@@ -42,7 +42,9 @@ class FollowController extends AbstractController
             if ($follow->getProject() === $project){
                 // Si oui on inverse le follow
                 $follow->setFollow(!$follow->getFollow());
+                // On flush le nouveau follow en base
                 $entityManager->flush();
+                // On met à jour le champ nbLike du projet + flush
                 $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLikes'];
                 $project->setNbLike($nbLike);
                 $entityManager->flush();
@@ -58,6 +60,9 @@ class FollowController extends AbstractController
         $newFollow->setFollow(true);
         $entityManager->persist($newFollow);
         $entityManager->flush();
+        $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLikes'];
+        $project->setNbLike($nbLike);
+        $entityManager->flush();git
 
         return new Response("Nouveau follow");
     }
