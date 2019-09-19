@@ -7,19 +7,21 @@ const profileModificationMiddleware = store => next => (action) => {
     case DO_UPDATE:
         const state = store.getState();
         let data = {
-          firstName: state.firstName,
-          lastName: state.lastName,
-          job: state.job,
+          firstname: state.firstName,
+          lastname: state.lastName,
+          jobTitle: state.job,
           city: state.city,
-          description: state.shortDescription,
+          description: state.description,
           skills: state.skills,
-          email: state.email,
+          technos: state.technos,
+          mail: state.email,
           password: state.password,
           phone: state.phoneNumber,
           urlFacebook: state.urlFacebook,
           urlTwitter: state.urlTwitter,
-          urlTipeee: state.urlTipeee,
+          urlLinkedin: state.urlLinkedin,
           urlGithub: state.urlGithub,
+          photo: state.photo,
           token: state.token,
         }
         const headers = {
@@ -29,7 +31,7 @@ const profileModificationMiddleware = store => next => (action) => {
             'cache-control': 'no-cache',
         }
         console.log(data);
-        axios.post('http://92.243.10.99/Team-Share/team-share-back/public/profile/update', data, headers)
+        axios.post('http://92.243.10.99/Team-Share/team-share-back/public/user/update', data, headers)
         .then((response) => {
             console.log(response);
         })

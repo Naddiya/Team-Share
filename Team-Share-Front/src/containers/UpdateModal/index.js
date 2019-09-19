@@ -11,12 +11,14 @@ import {
     changeUrlFb,
     changeUrlTwit,
     changeUrlGit,
+    changeUrlLink,
     changeDescription,
     changeEmail,
     changePassword,
     changePasswordConfirmation,
     changePhoneNumber,
     changeSkills,
+    changeTechnos,
     doUpdate,
     } from 'src/store/reducer';
 
@@ -55,6 +57,10 @@ const mapDispatchToProps = (dispatch) => ({
         const action = changeUrlGit(value);
         dispatch(action);
     },
+    changeInputUrlLink: (value) => {
+        const action = changeUrlLink(value);
+        dispatch(action);
+    },
     changeInputDescription: (value) => {
         const action = changeDescription(value);
         dispatch(action);
@@ -77,6 +83,10 @@ const mapDispatchToProps = (dispatch) => ({
     },
     changeSkills: value => {
         const action = changeSkills(value);
+        dispatch(action);
+    },
+    changeTechnos: value => {
+        const action = changeTechnos(value);
         dispatch(action);
     },
     sendUpdate: () => {

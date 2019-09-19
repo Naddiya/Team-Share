@@ -12,7 +12,7 @@ import ParticipationMessage from 'src/components/Messages/ParticipationMessage';
 
 
 // == Composant
-const Profile = ({ projects }) => (
+const Profile = ({ projects, technos }) => (
   <div className="profile">
     <div className="profile-headpic">
     </div>
@@ -33,7 +33,7 @@ const Profile = ({ projects }) => (
                 <span>REACT/REDUX</span>
                 <span>GESTION DE PROJET</span>
             </div>
-            <UpdateModal />
+                <UpdateModal technos={technos} />
         </div>
 
         <div className="select-right">
