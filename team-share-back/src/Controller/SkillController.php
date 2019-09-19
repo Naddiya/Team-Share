@@ -22,6 +22,7 @@ class SkillController extends AbstractController
             $skill['id'] = $skill['id'];
             $skill['name'] = $skill['name'];
             $skill['key'] = $skill['id'];
+            $skill['text'] = $skill['name'];
             $tab[] = $skill;
         }
  

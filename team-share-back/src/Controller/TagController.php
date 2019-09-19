@@ -23,6 +23,7 @@ class TagController extends AbstractController
             $tag['id'] = $tag['id'];
             $tag['name'] = $tag['name'];
             $tag['key'] = $tag['id'];
+            $tag['text'] = $tag['name'];
             $tab[] = $tag;
         }
  

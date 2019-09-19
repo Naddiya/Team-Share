@@ -23,6 +23,7 @@ class TechnoController extends AbstractController
             $techno['name'] = $techno['name'];
             $techno['type'] = $techno['type'];
             $techno['key'] = $techno['id'];
+            $techno['text'] = $techno['name'];
             $tab[] = $techno;
         }
  
