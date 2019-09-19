@@ -19,6 +19,19 @@ class FollowRepository extends ServiceEntityRepository
         parent::__construct($registry, Follow::class);
     }
 
+    public function nbLikesByProjectId($id)
+    {
+        $qb = $this->createQueryBuilder('f');
+
+        $qb->select('COUNT(f.follow) AS nbLikes')
+            ->leftJoin('f.project', 'p')
+            ->where('p.id = :idOfProject')
+            ->setParameter('idOfProject', $id)
+            ->andWhere('f.follow = true');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
     // /**
     //  * @return Follow[] Returns an array of Follow objects
     //  */

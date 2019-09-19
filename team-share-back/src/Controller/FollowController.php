@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Follow;
 use App\Repository\UserRepository;
+use App\Repository\FollowRepository;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ class FollowController extends AbstractController
     /**
      * @Route("/follow", name="follow")
      */
-    public function add(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager)
+    public function add(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager, FollowRepository $followRepository)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
@@ -41,6 +42,8 @@ class FollowController extends AbstractController
             if ($follow->getProject() === $project){
                 // Si oui on inverse le follow
                 $follow->setFollow(!$follow->getFollow());
+                $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLikes'];
+                $project->setNbLike($nbLike);
                 $entityManager->flush();
 
                 return new Response("Le follow a été modifié");
