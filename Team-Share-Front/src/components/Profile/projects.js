@@ -8,9 +8,8 @@ import 'semantic-ui-css/semantic.min.css';
 
 // == Composant
 const Projects = ({ image, title, tag, description, nbLike }) => (
-<Item>
+    <Item>
       <Item.Image src={image} />
-
       <Item.Content>
         <Item.Header as='a'>{title}</Item.Header>
         <Item.Description>{description}</Item.Description>

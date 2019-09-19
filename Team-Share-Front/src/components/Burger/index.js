@@ -16,8 +16,10 @@ const Burger = () => {
   return (
     <Menu right>
       <NavLink className="menu-item" to="#">
+        Se connecter
       </NavLink>
       <NavLink className="menu-item" to="#">
+        S'inscrire
       </NavLink>
       <Divider />
       <NavLink className="menu-item" to="/profil" exact>
