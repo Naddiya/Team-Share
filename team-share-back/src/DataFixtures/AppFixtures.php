@@ -30,6 +30,18 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        // RAZ des ID de toutes les tables
+        $manager->getConnection()->exec('ALTER TABLE comment AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE follow AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE project AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE request AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE role AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE skill AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE statut AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE tag AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE techno AUTO_INCREMENT = 1');
+        $manager->getConnection()->exec('ALTER TABLE user AUTO_INCREMENT = 1');
+        
         $generator = Factory::create('fr_FR');
 
         // Ajout provider custom Provider 
@@ -152,9 +164,7 @@ class AppFixtures extends Fixture
             'updatedAt' => null,
             'startedAt' => 'Le plus vite possible',
             'finishedAt' => 'Fin 2020',
-            'nbLike' => function () use ($generator) {
-                return $generator->numberBetween($min = 0, $max = 1000);
-            },
+            'nbLike' => 0,
             'urlFacebook' => function () use ($generator) {
                 return $generator->url();
             },
@@ -312,18 +322,22 @@ class AppFixtures extends Fixture
             $manager->persist($user);
         }
 
-        // // table "follow"
-        // foreach ($projects as $project) {
-        //     shuffle($users);
-        //     $userCount = mt_rand(1, 1000);
-        //     for ($i = 1; $i <= $userCount; $i++) {
-        //         $follow = new Follow;
-        //         $follow->setProject($project);
-        //         $follow->setUser($users[$i]);
-        //         $follow->setFollow(true);
-        //     }
-        //     $manager->persist($follow);
-        // }
+        // table "follow"
+        foreach ($projects as $project) {
+            $nbLike = 0;
+            shuffle($users);
+            $userCount = mt_rand(1, 9);
+            for ($i = 1; $i <= $userCount; $i++) {
+                $follow = new Follow;
+                $follow->setProject($project);
+                $follow->setUser($users[$i]);
+                $follow->setFollow(true);
+                $manager->persist($follow);
+                // On met à jour le champ nbLike du projet + flush
+                $nbLike++;
+                $project->setNbLike($nbLike);
+            }
+        }
 
         $manager->flush();
     }

@@ -139,8 +139,6 @@ class UserController extends AbstractController
         // $entityManager->persist($userToken);
         $entityManager->flush();
 
-        return new Response(
-          '<html><body>L\'utilisateur "' . $userToken->getUsername() . '" a été modifié avec succés !</body></html>'
-        );
+        return new JsonResponse(["type" => "success", "message" => "L'utilisateur a été modifié"]);
     }
 }
