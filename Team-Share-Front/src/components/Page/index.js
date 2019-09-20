@@ -58,13 +58,7 @@ class Page extends React.Component {
       })
       .catch((error) => {
           console.log(error);
-      });
-   
-      // const datas = {
-      //     token: store.getState().token,
-      // }
-
-      
+      });      
   }
 
   render() {
@@ -80,7 +74,6 @@ class Page extends React.Component {
             projects={this.state.projects}
             technos={this.state.technos}
             skills={this.state.skills}
-            {...this.state.persoInfos}
           />
         )} />
         <Route path="/projects" render={() => (

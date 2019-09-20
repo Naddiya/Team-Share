@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import './navbar.scss';
 import LoginModal from 'src/containers/Login';
 import SubscribeModal from 'src/containers/Subscribe';
+import DisconnectModal from 'src/containers/Disconnect';
 
 
 
@@ -34,7 +35,7 @@ const NavBar = ({ token }) => {
           {token === "" && <SubscribeModal className="button-link button-link-subscribe"/>}
           </li>
           <li className="navbar-link">
-          {token.length > 3 && <NavLink to="/disconnect" className="button-link button-link-connect">Se Déconnecter</NavLink>}
+          {token.length > 3 && <DisconnectModal className="button-link-connect"/>}
           </li>
         </ul>
         

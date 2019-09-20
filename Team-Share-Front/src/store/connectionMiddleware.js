@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { DO_SUBSCRIBE, DO_CONNECT, changeToken } from 'src/store/reducer';
+import { DO_SUBSCRIBE, DO_CONNECT, DO_DISCONNECT, changeToken, giveProfileInfos } from 'src/store/reducer';
 
 const connectionMiddleware = store => next => (action) => {
     const state = store.getState();
@@ -51,10 +51,26 @@ const connectionMiddleware = store => next => (action) => {
             .then((response) => {
                 const persoInfos = response.data[0];
                 console.log(persoInfos);
+                store.dispatch(giveProfileInfos(persoInfos));
             })
             .catch((error) => {
                 console.log(error);
             });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+            break;
+        case DO_DISCONNECT:
+            const dataDc = {
+                token: state.token,
+                }
+            headers,
+            console.log(dataDc);
+            axios.post('http://92.243.10.99/Team-Share/team-share-back/public/logout', dataDc, headers)
+            .then((response) => {
+                console.log(response);
+                store.dispatch(changeToken(''));
             })
             .catch((error) => {
                 console.log(error);

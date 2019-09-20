@@ -17,20 +17,10 @@ const Profile = (
     { 
         projects,
         technos,
-        skills,
-        firstname,
-        lastname,
-        description,
-        city,
-        jobTitle,
-        mail,
-        phone, 
-        photo,
-        urlFacebook,
-        urlTwitter,
-        urlGithub,
+        skills
     }) => {
     
+    const state = store.getState();
     
 
     return (
@@ -40,38 +30,37 @@ const Profile = (
     <div className="select">
         <div className="select-left">
             <div className="select-left-picture">
-                <img src={photo} alt="pic" />
+                <img src={state.photo} alt="pic" />
             </div>
 
             <div className="select-left-contact">
                 <IoIosContact />
-                <span>{mail}</span>
-                <span>{phone}</span>
+                <span>{state.email}</span>
+                <span>{state.phoneNumber}</span>
             </div>
             <div className="select-left-contact">
-                <span>Compétences</span>    
-                <span>HTML/CSS/JS</span>
-                <span>REACT/REDUX</span>
-                <span>GESTION DE PROJET</span>
+                <span>Compétences :</span>    
+                <span>{state.technos[0].name}</span>
+                <span>{state.skills[0].name}</span>
             </div>
                 <UpdateModal technos={technos} skillsList={skills} />
         </div>
 
         <div className="select-right">
             <div className="select-right-name">
-                <h2 className="sized">{firstname} {lastname}</h2>
-                <p className="sized">{jobTitle}</p>
+                <h2 className="sized">{state.firstName} {state.lastName}</h2>
+                <p className="sized">{state.jobtitle}</p>
             </div>
             <div className="select-right-links">
-                <IoMdPin /><span>{city}</span>
-                <IoLogoFacebook /><span>{urlFacebook}</span>
-                <IoLogoTwitter /><span>{urlTwitter}</span>
-                <IoLogoGithub /><span>{urlGithub}</span>
+                <IoMdPin /><span>{state.city}</span>
+                <IoLogoFacebook /><span>{state.urlFacebook}</span>
+                <IoLogoTwitter /><span>{state.urlTwitter}</span>
+                <IoLogoGithub /><span>{state.urlGithub}</span>
             </div>
             <div className="select-right-container">
                 <h3>Profil :</h3>
                 <p className="select-right-description">
-                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+                {state.description}
                 </p>
                 <h2 className="select-right-subtitle">Projets en cours :
                 </h2>

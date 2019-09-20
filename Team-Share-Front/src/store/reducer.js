@@ -58,6 +58,8 @@ export const CHANGE_TOKEN = 'CHANGE_TOKEN';
 export const DO_SUBSCRIBE = 'DO_SUBSCRIBE';
 export const DO_CONNECT = 'DO_CONNECT';
 
+export const DO_DISCONNECT = 'DO_DISCONNECT';
+
 // === UPDATEMODAL ACTION TYPES ===
 
 export const CHANGE_FIRSTNAME = 'CHANGE_FIRSTNAME';
@@ -65,6 +67,10 @@ export const CHANGE_LASTNAME = 'CHANGE_LASTNAME';
 export const CHANGE_JOB = 'CHANGE_JOB';
 export const CHANGE_CITY = 'CHANGE_CITY';
 export const DO_UPDATE = 'DO_UPDATE';
+
+// === PROFIILE ACTION TYPES ===
+
+export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -183,6 +189,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
       };
+
+    case DO_DISCONNECT:
+      return {
+        ...state,
+      };
     /* === UPDATEMODAL ACTIONS === */
     case CHANGE_FIRSTNAME:
       return {
@@ -208,6 +219,26 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
     };
+    /* === PROFILE ACTIONS */
+    case GIVE_PROFILEINFOS:
+      return {
+        ...state,
+        description: action.value.description,
+        urlFacebook: action.value.urlFacebook,
+        urlTwitter: action.value.urlTwitter,
+        urlGithub: action.value.urlGithub,
+        urlLinkedin: action.value.urlLinkedin,
+        email: action.value.mail,
+        password: action.value.password,
+        phoneNumber: action.value.phone,
+        firstName: action.value.firstname,
+        lastName: action.value.lastname,
+        job: action.value.jobTitle,
+        city: action.value.city,
+        photo: action.value.photo,
+        skills: action.value.skills,
+        technos: action.value.technos,
+      };
     default:
       return state;
   }
@@ -329,6 +360,10 @@ export const doConnect = () => ({
   type: DO_CONNECT,
 });
 
+export const doDisconnect = () => ({
+  type: DO_DISCONNECT,
+});
+
 // === UPDATEMODAL ACTION CREATORS ===
 
 export const changeFirstName = value => ({
@@ -353,6 +388,11 @@ export const changeCity = value => ({
 
 export const doUpdate = () => ({
   type: DO_UPDATE,
+});
+
+export const giveProfileInfos = value => ({
+  type: GIVE_PROFILEINFOS,
+  value,
 });
 
 // == Selectors
