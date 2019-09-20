@@ -52,7 +52,7 @@ class RequestController extends AbstractController
     }
 
     /**
-     * @Route("/index", name="_index", methods={"GET"})
+     * @Route("/index", name="_index", methods={"GET", "POST"})
      */
     public function index(Request $request, RequestRepository $requestRepository, UserRepository $userRepository)
     {

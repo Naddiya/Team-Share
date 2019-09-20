@@ -77,7 +77,7 @@ class FollowController extends AbstractController
     }
 
     /**
-     * @Route("/state", name="_state", methods={"GET"})
+     * @Route("/state", name="_state", methods={"GET", "POST"})
      */
     public function showState(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager, FollowRepository $followRepository)
     {
