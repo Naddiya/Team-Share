@@ -11,11 +11,10 @@ use App\Repository\TechnoRepository;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Nelmio\CorsBundle\NelmioCorsBundle;
+
 
 /**
  * @Route("/project", name="project")
@@ -107,9 +106,6 @@ class ProjectController extends AbstractController
         $entityManager->persist($newProjectObject);
         $entityManager->flush();
 
-        // Réponse temporaire si l'ajout a été effectué
-        return new Response(
-          '<html><body>Le projet "' . $newProjectObject->getTitle() . '" a été ajouté avec succés !</body></html>'
-        );
+        return new JsonResponse(["type" => "success", "message" => "Le projet a bien été ajouté"]);
     }
 }

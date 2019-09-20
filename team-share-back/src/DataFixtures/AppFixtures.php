@@ -7,15 +7,16 @@ use App\Entity\Tag;
 use App\Entity\Role;
 use App\Entity\User;
 use App\Entity\Skill;
+use App\Entity\Follow;
 use App\Entity\Statut;
 use App\Entity\Techno;
 use App\Entity\Comment;
 use App\Entity\Project;
 use App\Entity\Request;
+use App\DataFixtures\Provider;
 use Faker\ORM\Doctrine\Populator;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\DataFixtures\Provider;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
@@ -310,6 +311,20 @@ class AppFixtures extends Fixture
             }
             $manager->persist($user);
         }
+
+        // // table "follow"
+        // foreach ($projects as $project) {
+        //     shuffle($users);
+        //     $userCount = mt_rand(1, 1000);
+        //     for ($i = 1; $i <= $userCount; $i++) {
+        //         $follow = new Follow;
+        //         $follow->setProject($project);
+        //         $follow->setUser($users[$i]);
+        //         $follow->setFollow(true);
+        //     }
+        //     $manager->persist($follow);
+        // }
+
         $manager->flush();
     }
 }

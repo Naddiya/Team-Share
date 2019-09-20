@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use Doctrine\ORM\EntityManager;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +12,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 class SecurityController extends AbstractController
 {
@@ -28,7 +28,7 @@ class SecurityController extends AbstractController
         $user = $userRepository->findOneBy(['username' => $checkUser->getUsername()]);
 
         if(!$user) {
-            return new Response("L'utilisatteur n'existe pas !");
+            return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'existe pas"]);
         }
         if ($encoder->isPasswordValid($user, $checkUser->getPassword())){
             $tokenBrut = rtrim(strtr(base64_encode(random_bytes(50)), '+/', '-_'), '=');
@@ -38,7 +38,7 @@ class SecurityController extends AbstractController
             return new JsonResponse($token);
         }
 
-        return new Response("Mot de passe invalide");
+        return new JsonResponse(["type" => "error", "message" => "Mot de passe invalide"]);
     }
 
     /**
@@ -52,15 +52,18 @@ class SecurityController extends AbstractController
         // Transforme le json en tableau
         $jsonContentArray = json_decode($jsonContent, true);
         
+
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
 
+        // Si le token n'existe pas on envoie un message d'erreur
         if(!$user) {
-            return new Response("L'utilisatteur n'existe pas !");
+            return new JsonResponse(["type" => "success", "message" => "L'utilisateur n'existe pas"]);
         }
+
+        // Sinon on set le token à null
         $user->setToken(null);
         $entityManager->flush();
-        return new Response("Token is null");
 
-        //throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
+        return new JsonResponse(["type" => "success", "message" => "Le token a été setté à null"]);
     }
 }

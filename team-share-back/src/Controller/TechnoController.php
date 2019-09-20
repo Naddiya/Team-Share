@@ -6,7 +6,7 @@ use App\Repository\TechnoRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Nelmio\CorsBundle\NelmioCorsBundle;
+
 
 /**
  * @Route("/techno", name="techno")
@@ -18,6 +18,7 @@ class TechnoController extends AbstractController
      */
     public function index(TechnoRepository $technoRepository)
     {
+        // On rajoute les clés key et value pour le front
         foreach ($technoRepository->findAllTechnos() as $techno){
             $techno['id'] = $techno['id'];
             $techno['value'] = $techno['name'];
@@ -38,7 +39,7 @@ class TechnoController extends AbstractController
      */
     public function show($id, TechnoRepository $technoRepository)
     {
-        // Crée une response au format json avec la liste des projets d'un techno
+        // Crée une response au format json avec la liste des projets d'une techno
         $response = new JsonResponse($technoRepository->findProjectsByTechno($id));
 
         return $response;

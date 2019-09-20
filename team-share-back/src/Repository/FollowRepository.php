@@ -23,7 +23,7 @@ class FollowRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('f');
 
-        $qb->select('SUM(f.follow) AS nbLikes')
+        $qb->select('SUM(f.follow) AS nbLike')
             ->leftJoin('f.project', 'p')
             ->where('p.id = :idOfProject')
             ->setParameter('idOfProject', $id);

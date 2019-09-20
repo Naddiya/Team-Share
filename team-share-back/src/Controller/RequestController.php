@@ -7,15 +7,18 @@ use App\Repository\ProjectRepository;
 use App\Repository\RequestRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+/**
+ * @Route("/request", name="request")
+ */
 class RequestController extends AbstractController
 {
     /**
-     * @Route("/request/new", name="request_new", methods={"POST"})
+     * @Route("/new", name="_new", methods={"POST"})
      */
     public function new(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager)
     {
@@ -45,13 +48,11 @@ class RequestController extends AbstractController
         $entityManager->flush();
 
         // Réponse temporaire si l'ajout a été effectué
-        return new Response(
-            '<html><body>Lea requête été ajouté avec succés !</body></html>'
-          );
+        return new JsonResponse(["type" => "success", "message" => "La requête a été ajouté avec succés"]);
     }
 
     /**
-     * @Route("/request/index", name="request_index", methods={"GET"})
+     * @Route("/index", name="_index", methods={"GET"})
      */
     public function index(Request $request, RequestRepository $requestRepository, UserRepository $userRepository)
     {
@@ -84,7 +85,7 @@ class RequestController extends AbstractController
     }
 
     /**
-     * @Route("/request/response", name="request_response", methods={"POST"})
+     * @Route("/response", name="_response", methods={"POST"})
      */
     public function response(Request $request, RequestRepository $requestRepository, ProjectRepository $projectRepository, UserRepository $userRepository, EntityManagerInterface $entityManager)
     {
@@ -115,8 +116,8 @@ class RequestController extends AbstractController
                 $requestProject->addUser($userRepository->findOneBy(['id' => $jsonContentArray['user']['id']]));
             }
             $entityManager->flush();
-            return new Response("Requête mise a jour");
+            return new JsonResponse(["type" => "success", "message" => "La réponse a été enregistrée"]);
         }
-        return new Response("Utilisateur non authorisé");
+        return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'est pas autorisé à répondre"]);
     }
 }

@@ -6,7 +6,7 @@ use App\Repository\SkillRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Nelmio\CorsBundle\NelmioCorsBundle;
+
 
 /**
  * @Route("/skill", name="skill")
@@ -18,6 +18,8 @@ class SkillController extends AbstractController
      */
     public function index(SkillRepository $skillRepository)
     {
+
+        // On rajoute les clés key et value pour le front
         foreach ($skillRepository->findAllSkills() as $skill){
             $skill['id'] = $skill['id'];
             $skill['value'] = $skill['name'];

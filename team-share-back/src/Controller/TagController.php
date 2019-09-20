@@ -2,12 +2,11 @@
 
 namespace App\Controller;
 
-use App\Entity\Tag;
 use App\Repository\TagRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Nelmio\CorsBundle\NelmioCorsBundle;
+
 
 /**
  * @Route("/tag", name="tag")
@@ -19,6 +18,7 @@ class TagController extends AbstractController
      */
     public function index(TagRepository $tagRepository)
     {
+        // On rajoute les clés key et value pour le front
         foreach ($tagRepository->findAllTags() as $tag){
             $tag['id'] = $tag['id'];
             $tag['value'] = $tag['name'];

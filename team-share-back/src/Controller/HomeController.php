@@ -6,7 +6,7 @@ use App\Repository\ProjectRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Nelmio\CorsBundle\NelmioCorsBundle;
+
 
 class HomeController extends AbstractController
 {

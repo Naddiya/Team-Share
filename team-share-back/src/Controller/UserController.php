@@ -7,7 +7,6 @@ use App\Repository\RoleRepository;
 use App\Repository\UserRepository;
 use App\Repository\SkillRepository;
 use App\Repository\TechnoRepository;
-use Nelmio\CorsBundle\NelmioCorsBundle;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 /**
  * @Route("/user", name="user",)
@@ -55,10 +55,7 @@ class UserController extends AbstractController
         $entityManager->persist($newUserObject);
         $entityManager->flush();
 
-        // Réponse temporaire si l'ajout a été effectué
-        return new Response(
-          '<html><body>L\'utilisateur "' . $newUserObject->getUsername() . '" a été ajouté avec succés !</body></html>'
-        );
+        return new JsonResponse(["type" => "success", "message" => "L'utilisateur a été ajouté"]);
     }
 
     /**
@@ -76,7 +73,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/myprofil", name="_myprofil", methods={"GET"})
+     * @Route("/myprofile", name="_myprofile", methods={"GET"})
      */
     public function profil(Request $request, UserRepository $userRepository)
     {

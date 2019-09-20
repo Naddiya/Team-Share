@@ -8,15 +8,18 @@ use App\Repository\FollowRepository;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+/**
+ * @Route("/follow", name="follow")
+ */
 class FollowController extends AbstractController
 {
     /**
-     * @Route("/follow", name="follow")
+     * @Route("/add", name="_add", methods={"POST"})
      */
     public function add(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager, FollowRepository $followRepository)
     {
@@ -31,7 +34,7 @@ class FollowController extends AbstractController
 
         // On renvoie un message d'erreur si l'utilisateur n'existe pas ou que le token n'a pas été trouvé dans la BDD
         if (!$user){
-            return new Response("L'utilisateur n'existe pas ou le token n'est plus valide...");
+            return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'existe pas ou le token n'est plus valide"]);
         }
 
         // Récupère le projet concerné par la requête
@@ -46,11 +49,16 @@ class FollowController extends AbstractController
                 // On flush le nouveau follow en base
                 $entityManager->flush();
                 // On met à jour le champ nbLike du projet + flush
-                $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLikes'];
+                $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLike'];
                 $project->setNbLike($nbLike);
                 $entityManager->flush();
 
-                return new Response("Le follow a été modifié");
+                if ($follow->getFollow()){
+                    $state = "Un nouveau like a été ajouté au projet";
+                } else {
+                    $state = "Le projet a été disliké";
+                }
+                return new JsonResponse(["type" => "success", "message" => $state]);
             }
         }
 
@@ -61,17 +69,17 @@ class FollowController extends AbstractController
         $newFollow->setFollow(true);
         $entityManager->persist($newFollow);
         $entityManager->flush();
-        $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLikes'];
+        $nbLike = $followRepository->nbLikesByProjectId($project->getId())[0]['nbLike'];
         $project->setNbLike($nbLike);
         $entityManager->flush();
 
-        return new Response("Nouveau follow");
+        return new JsonResponse(["type" => "success", "message" => "Un nouveau like a été ajouté au projet"]);
     }
 
     /**
-     * @Route("/follow/show", name="follow_show")
+     * @Route("/state", name="_state", methods={"GET"})
      */
-    public function show(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager, FollowRepository $followRepository)
+    public function showState(Request $request, UserRepository $userRepository, ProjectRepository $projectRepository, EntityManagerInterface $entityManager, FollowRepository $followRepository)
     {
         // Récupére le contenu du json reçu
         $jsonContent = $request->getContent();
