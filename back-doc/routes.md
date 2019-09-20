@@ -6,31 +6,33 @@
 | `/project/index` | Liste des projets | Page affichant les différents projets | GET | ProjectController | project_index |  |
 | `/project/[id]` | Titre du projet | Affichage du détail d'un projet | GET | ProjectController | project_show |  |
 | `/project/new` | Votre projet | Création d'un nouveau projet | POST | ProjectController | project_new |  |
-| `/project/delete` | Supprimer mon projet | Supprimer mon projet | POST | ProjectController | project_delete |  |
-| `/project/[id]/delete` | Supprimer un utilisateur | Supprimer un utilisateur | POST | ProjectController | project_user_delete |  |
-| `/project/like` | Liker une page | Ajouter ou supprimer son like | POST | ProjectController | project_like |  |
-| `/user/[id]` | Profil de **** | Affichage du profil de l'utilisateur | GET | UserController | user_show |  |
-| `/user/edit` | Mon profil | Affichage/modification de mon profil utilisateur | GET POST | UserController | user_edit |  |
-| `/user/delete` | Supprimer mon compte | Supprimer mon compte | POST | UserController | user_delete |  |
-| `/user/register` | Inscription | Page d'inscription | POST | UserController | user_register |  |
-| `/login` | Connexion | Page de connexion | POST | SecurityController | login |  |
-| `/logout` | Déconnexion | déonnexion | - | SecurityController | logout |  |
-| `/request/new` | Demande de participation | Demande de participation | POST | RequestController | request_new |  |
-| `/request/[id]` | Affichage de la demande | Demande de participation | GET | RequestController | request_show |  |
-| `/tag` | Tags | Liste des tags | GET POST | TagController | tag_index |  |
-| `/tag/[id]` | Nom du tag | Affichage de la liste des projets liées au tag | GET | TagController | tag_project_index |  |
-| `/techno` | Technos | Liste des technos | GET POST | TechnoController | techno_index |  |
-| `/techno/[id]` | Nom d'une techno | Affichage de la liste des projets liées à la techno | GET | TechnoController | techno_project_index |  |
-| `/skill/index` | Liste des compétences | Liste des compétences | GET | SkillController | skill_index |  |
-| `/skill/[id]` | Liste des projets recherchant cette compétence | Liste des projets recherchant cette compétence | GET | skillController | skill_project_index |  |
+| `/user/register` | Inscription | Page d'inscription | POST | UserController | user_register | A fournir: tous les champs du formulaire même vides |
+| `/user/update` | Modifier son profil | Modification de mon profil utilisateur | POST | UserController | user_update | A fournir: tous les champs du formulaire même vides + token |
+| `/user/myprofile` | Affichage de mon profil | Affichage de mon profil | GET | UserController | user_myprofile |  |
+| `/user/[id]` | Profil de **** | Affichage du profil de **** | GET | UserController | user_show |  |
+| `/login` | Connexion | Page de connexion | - | SecurityController | app_login | A fournir: username + password |
+| `/logout` | Déconnexion | déconnexion | - | SecurityController | app_logout | A fournir: token |
+| `/request/new` | Demande de participation | Demande de participation de l'utilisateur à un projet | POST | RequestController | request_new | A fournir: token + id du projet |
+| `/request/index` | Affichage des demandes | Affichage des demandes concernant l'utilisateur connecté | GET | RequestController | request_index | A fournir: token  |
+| `/request/response` | Affichage de la demande | Demande de participation | POST | RequestController | request_response | A fournir: token + id du projet + response (0 ou 1) |
+| `/tag/index` | Tags | Liste des tags | GET | TagController | tag_index |  |
+| `/tag/[id]` | Liste des projets du tag | Affichage de la liste des projets liés au tag | GET | TagController | tag_show_ |  |
+| `/techno/index` | Technologies | Liste des technologies | GET | TechnoController | techno_index |  |
+| `/techno/[id]` | Liste des projets d'une techno | Affichage de la liste des projets liés à la techno | GET | TechnoController | techno_show_ |  |
+| `/skill/index` | Compétences | Liste des compétences | GET | SkillController | skill_index |  |
+| `/skill/[id]` | Liste des projets d'une compétence | Liste des projets d'une compétence | GET | skillController | skill_show_ |  |
+| `/follow/add` | Like/Dislike | Ajoute ou retire un like à chaque appel | POST | FollowController | follow_add | A fournir: token + id du projet |
+| `/follow/state` | Etat du like | Renvoie true ou false en fonction du like du projet par l'utilisateur | GET | FollowController | follow_state | A fournir: token + id du projet |
 
 # Routes optionnelles
 
 | URL | Titre | Description de la page | Méthode HTTP | Controller | Méthode | commentaire |
 |--|--|--|--|--|--|--|
+| `/project/delete` | Supprimer mon projet | Supprimer mon projet | POST | ProjectController | project_delete |  |
+| `/project/[id]/delete` | Supprimer un utilisateur | Supprimer un utilisateur | POST | ProjectController | project_user_delete |  |
+| `/user/delete` | Supprimer mon compte | Supprimer mon compte | POST | UserController | user_delete |  |
 | `/project/[id]` | Titre du projet | Modification de mon projet | POST | ProjectController | project_show |  |
 | `/project/[id]/sleep` | Titre du projet | Modification de mon projet | POST | ProjectController | project_show |  |
-| `/project/follow` | Suivre un projet | Suivre un projet | POST | ProjectController | user_follow |  |
 | `/user/note` | Noter un utilisateur | Noter un utilisateur | POST | UserController | user_note |  |
 | `/user/list` | Les utilisateurs | Liste des utilisateurs | GET | UserController | user_index |  |
 | `/request/delete` | Demande de participation | Demande de participation | POST | RequestController | request_new |  |
