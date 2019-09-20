@@ -41,6 +41,20 @@ const connectionMiddleware = store => next => (action) => {
                 let token = response.data.token;
                 console.log(token);
                 store.dispatch(changeToken(token));
+
+                const params = {
+                    token,
+                }
+                console.log(params);
+
+            axios.post('http://92.243.10.99/Team-Share/team-share-back/public/user/myprofile', params)
+            .then((response) => {
+                const persoInfos = response.data[0];
+                console.log(persoInfos);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
             })
             .catch((error) => {
                 console.log(error);

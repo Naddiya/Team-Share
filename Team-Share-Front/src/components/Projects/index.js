@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { Item, Select, Input, Divider, Radio } from 'semantic-ui-react';
+import { Item, Select, Input, Divider, Radio, Dropdown } from 'semantic-ui-react';
 
 
 // == Import : local
@@ -13,39 +13,16 @@ const sortBy = [
     { key: 'pop', value: 'pop', text: 'Popularité' },
 ]
 
-const category = [
-    { key: 'all', value: 'all', text: 'Tous' },
-    { key: 'ecom', value: 'ecom', text: 'E-commerce' },
-    { key: 'jv', vjvue: 'al', text: 'Jeux vidéo' },
-    { key: 'blog', value: 'blog', text: 'Blog' },
-    { key: 'newtec', value: 'newtec', text: 'Nouvelles tech' },
-    { key: 'serv', value: 'serv', text: 'Services' },
-]
-
-const technos = [
-    { key: 'html', value: 'html', text: 'HTML' },
-    { key: 'css', value: 'css', text: 'CSS' },
-    { key: 'js', value: 'js', text: 'Javascript' },
-    { key: 'php', value: 'php', text: 'PHP' },
-    { key: 'git', value: 'git', text: 'Git' },
-]
-
-const skills = [
-    { key: 'gesproj', value: 'gesproj', text: 'Gestion de projet' },
-    { key: 'manag', value: 'manag', text: 'Management' },
-    { key: 'cm', value: 'cm', text: 'Community Management' },
-    { key: 'fin', value: 'fin', text: 'Finance' },
-]
 
 // == Composant
-const Projects = ({ projects }) => (
+const Projects = ({ projects, technos, skills, tag }) => (
     <div className="project-container">
-        <Select placeholder='Trier par' options={sortBy} />
-        <Select placeholder='Filtrer' options={category} />
-        <Select placeholder='Technologies' options={technos} />
-        <Select placeholder='Compétences' options={skills} />
+        <Dropdown selection placeholder='Trier par' options={sortBy} />
+        <Dropdown selection placeholder='Filtrer' options={tag} />
+        <Dropdown selection placeholder='Technologies' options={technos} />
+        <Dropdown selection placeholder='Compétences' options={skills} />
         <Divider />
-        <Input className="searchfluid" icon='search' placeholder='Search...' />
+        <Input className="searchfluid" icon='search' placeholder='Rechercher...' />
 
             <Divider className="project-container-divider1"/>
         <div className="radio">
