@@ -28,6 +28,11 @@ const initialState = {
   job: '',
   city: '',
   photo: '',
+
+  // === Projects props === 
+  inputFilter:'',
+  loading: false,
+  // projects: projectsData.items,
 };
 
 // == Types
@@ -71,6 +76,11 @@ export const DO_UPDATE = 'DO_UPDATE';
 // === PROFIILE ACTION TYPES ===
 
 export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
+
+// === PROJECT FILTER ACTION TYPES ===
+
+export const CHANGE_FILTER = 'CHANGE_FILTER';
+
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -239,6 +249,13 @@ const reducer = (state = initialState, action = {}) => {
         skills: action.value.skills,
         technos: action.value.technos,
       };
+      /* === Projects Filter ACTIONS === */
+      case CHANGE_FILTER:
+        return {
+          ...state, 
+          inputFilter: action.value,
+        }
+
     default:
       return state;
   }
@@ -394,6 +411,14 @@ export const giveProfileInfos = value => ({
   type: GIVE_PROFILEINFOS,
   value,
 });
+
+// === SUBSCRIBE & LOGIN ACTION CREATORS ===
+
+export const changeFilter = value => ({
+  type: CHANGE_FILTER,
+  value,
+})
+
 
 // == Selectors
 
