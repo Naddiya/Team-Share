@@ -42,6 +42,7 @@ class Page extends React.Component {
       .catch((error) => {
           console.log(error);
       });
+      
     axios.get('http://92.243.10.99/Team-Share/team-share-back/public/tag/index')
       .then((response) => {
           let tag = response.data;

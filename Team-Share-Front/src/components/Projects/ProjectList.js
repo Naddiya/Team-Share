@@ -4,12 +4,22 @@ import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import { IoIosAddCircle, IoIosBatteryCharging } from "react-icons/io";
 import { NavLink } from 'react-router-dom'; 
+import Projects from '.';
+
 
 // == Import : local
 
 
+
+
 // == Composant
-const ProjectList = ({ image, title, tag, description, nbLike }) => (
+const ProjectList = ({
+  image, 
+  title, 
+  tag, 
+  description, 
+  nbLike, 
+  skills }) => (
 <Item>
       <Item.Image src={image} />
 
@@ -29,13 +39,23 @@ const ProjectList = ({ image, title, tag, description, nbLike }) => (
         <Item.Description>{description}</Item.Description>
         <Item.Extra>
           <span>Catégories : </span>
-          <Label>{tag}</Label>
+          {skills.map((skill) => (
+          <Label key={skill.id} {...skill}>{skill.name}</Label>
+          ))}
+          <Label> </Label>
           <span>Compétences : </span>
-          <Label>{tag}</Label>
+          <Label>{}</Label>
         </Item.Extra>
       </Item.Content>
     </Item>
 );
+
+
+{/* <Item.Group divided>
+            {projects.map((project) => (
+                <ProjectList key={project.id} {...project} />
+            ))}
+        </Item.Group> */}
 
 // == Export
 export default ProjectList;

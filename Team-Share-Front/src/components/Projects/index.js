@@ -21,6 +21,8 @@ const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput }) 
             const { value } = evt.target;
             changeInput(value);
         };
+        console.log(skills);
+        
     return(
     <div className="project-container">
         <Dropdown  placeholder='Trier par' options={sortBy} />
@@ -56,7 +58,7 @@ const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput }) 
         <Divider className="project-container-divider2" />
         <Item.Group divided>
             {projects.map((project) => (
-                <ProjectList key={project.title} {...project} />
+                <ProjectList key={project.id} {...project} />
             ))}
         </Item.Group>
         <Divider />
