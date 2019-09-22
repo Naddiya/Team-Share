@@ -4,7 +4,6 @@ import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import { IoIosAddCircle, IoIosBatteryCharging } from "react-icons/io";
 import { NavLink } from 'react-router-dom'; 
-import Projects from '.';
 
 
 // == Import : local
@@ -19,7 +18,8 @@ const ProjectList = ({
   tag, 
   description, 
   nbLike, 
-  skills }) => (
+  skills,
+  technos }) => (
 <Item>
       <Item.Image src={image} />
 
@@ -28,7 +28,6 @@ const ProjectList = ({
         </Item.Header>
           <span className="item-follow"><IoIosAddCircle size="28px" />Follow</span>
         <Item.Extra>
-          <Label>{tag}</Label>
           <Label>le 20/12/2015</Label>
           <a>
             <Icon name='heart' />
@@ -38,13 +37,16 @@ const ProjectList = ({
         </Item.Extra>
         <Item.Description>{description}</Item.Description>
         <Item.Extra>
-          <span>Catégories : </span>
+          <div>Catégories : </div>
+          {technos.map((techno) => (
+          <Label key={techno.id} {...techno}>{techno.name}</Label>
+          ))}
+          
+          <Label >{tag}</Label>
+          <div>Compétences : </div>
           {skills.map((skill) => (
           <Label key={skill.id} {...skill}>{skill.name}</Label>
           ))}
-          <Label> </Label>
-          <span>Compétences : </span>
-          <Label>{}</Label>
         </Item.Extra>
       </Item.Content>
     </Item>

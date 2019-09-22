@@ -421,18 +421,18 @@ export const changeFilter = value => ({
 
 
 // == Selectors
-export const getArt = tag =>
-tag.filter(tag => tag.name === 'Art');
+// export const getArt = tag =>
+// tag.filter(tag => tag.name === 'Art');
 
 
-export const getFilterdList = (tag) => {
+// export const getFilterdList = (tag) => {
 
-  const artList = getArt(tag);
-  const filteredList = [
-    ...artList,
-  ];
-  return filteredList;
-};
+//   const artList = getArt(tag);
+//   const filteredList = [
+//     ...artList,
+//   ];
+//   return filteredList;
+// };
 
 // == Export
 export default reducer;
