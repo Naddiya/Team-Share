@@ -79,7 +79,7 @@ class RequestController extends AbstractController
         $userProjects = $user->getProjects();
 
         // On renvoie un message d'erreur si l'utilisateur n'a jamais crée de projet
-        if (!$userProjects){
+        if (!$userProjects === []){
             return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'est créateur d'aucun projet"]);
         }
 
