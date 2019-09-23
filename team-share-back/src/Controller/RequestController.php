@@ -65,6 +65,11 @@ class RequestController extends AbstractController
         // Récupère le destinataire de la requête
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
 
+        // On renvoie un message d'erreur si l'utilisateur n'existe pas ou que le token n'a pas été trouvé dans la BDD
+        if (!$user){
+            return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'existe pas ou le token n'est plus valide"]);
+        }
+
         // Récupère les projets du destinataire
         $userProjects = $user->getProjects();
 
