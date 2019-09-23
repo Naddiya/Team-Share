@@ -38,8 +38,8 @@ class RequestController extends AbstractController
         $project = $projectRepository->findOneBy(['id' => $jsonContentArray['project']]);
 
          // Hydrate la requête en fonction du tableau
-        $newRequest->setTitle($jsonContentArray['title']);
-        $newRequest->setContent($jsonContentArray['content']);
+        //$newRequest->setTitle($jsonContentArray['title']);
+        //$newRequest->setContent($jsonContentArray['content']);
         $newRequest->setUser($user);
         $newRequest->setProject($project);
 
