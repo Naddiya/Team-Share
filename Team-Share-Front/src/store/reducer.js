@@ -32,7 +32,8 @@ const initialState = {
   // === Projects props === 
   inputFilter:'',
   loading: false,
-  filtered: [],
+  filteredProjects: [''],
+
 
   // projects: projectsData.items,
 };
@@ -83,6 +84,7 @@ export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 export const DO_FILTER = 'DO_FILTER';
+export const FILTER_SELECT = 'FILTER_SELECT';
 
 
 // == Reducer
@@ -261,7 +263,13 @@ const reducer = (state = initialState, action = {}) => {
       case DO_FILTER:
         return {
           ...state,
-          filtered: action.value,
+          filteredProjects: action.value,
+        }
+      case FILTER_SELECT:
+        return {
+          ...state,
+          filteredSelection: action.value,
+
         }
 
 
@@ -430,6 +438,11 @@ export const changeFilter = value => ({
 
 export const doFilter = value => ({
   type: DO_FILTER,
+  value,
+})
+
+export const filterSelection = value => ({
+  type: FILTER_SELECT,
   value,
 })
 

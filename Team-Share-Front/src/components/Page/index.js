@@ -20,9 +20,12 @@ class Page extends React.Component {
 
   state = {
     projects: [],
-    technos: [],  
-
+    technos: [],
+    tag: [],
+    skills: [],
+    filteredProjects: [],
   }
+
 
   componentDidMount() {
     axios.get('http://92.243.10.99/Team-Share/team-share-back/public/project/index')
@@ -58,7 +61,8 @@ class Page extends React.Component {
       })
       .catch((error) => {
           console.log(error);
-      });      
+      });
+
   }
 
   render() {
@@ -80,7 +84,7 @@ class Page extends React.Component {
           <Projects 
             projects={this.state.projects}
             technos={this.state.technos}
-            tag={this.state.tag}
+            tags={this.state.tag}
             skills={this.state.skills}
           />
         )} />

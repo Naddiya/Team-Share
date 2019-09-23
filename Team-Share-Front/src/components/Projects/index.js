@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 // == Import : local
 import './projects.scss';
 import ProjectList from './ProjectList';
-import { doSubmit } from '../../store/reducer';
+
 
 const sortBy = [
     { key: 'date', value: 'date', text: 'Date de création' },
@@ -17,79 +17,88 @@ const sortBy = [
 
 
 // == Composant
-const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput, submitSearch }) => {
+const Projects = ({ projects, technos, skills, tags, inputFilter, changeInput, submitFilter }) => {
         const handleChange = (evt) => {
             const { value } = evt.target;
             changeInput(value);
         };
-
+        const handleSelection = (evt) => {
+            const { value } = evt.target;
+            submitFilter(value);
+        }
  
     return(
-    <div className="project-container">
 
-        <Dropdown  
-            placeholder='Trier par' 
-            options={sortBy} 
-            multiple 
-            
-            />
-        <Dropdown  
-            placeholder='Filtrer' 
-            options={tag} 
-            />
+        <div className="project-container">
+            <Form onSubmit={submitFilter}>
+                <Dropdown  
+                    placeholder='Trier par' 
+                    options={sortBy} 
+                    onChange={handleSelection}
+                    />
+                <Dropdown  
+                    placeholder='Filtrer' 
+                    options={tags} 
+                    onChange={handleSelection}
+                    />
+                <Dropdown
+                    placeholder='Technologies' 
+                    options={technos}
+                    onChange={handleSelection}
+                    />
+                <Dropdown 
+                    placeholder='Compétences' 
+                    options={skills}
+                    onChange={handleSelection}
+                    />
+            </Form>
 
-        <Dropdown
-        // hide the labels
-            renderLabel={() => false}
-            placeholder='Technologies' 
-            options={technos}
-            
-            
-            />
-        <Dropdown  placeholder='Compétences' options={skills} />
-        <Divider />
-        <Form onSubmit={submitSearch}>
-        <Input 
-            className="searchfluid" 
-            icon='search' 
-            placeholder='Rechercher...' 
-            value={inputFilter}
-            onChange={handleChange}
-            />
-        </Form>
+            <Divider />
+
+                <Form onSubmit={submitFilter}>
+                    <Input 
+                        className="searchfluid" 
+                        icon='search' 
+                        placeholder='Rechercher...' 
+                        value={inputFilter}
+                        onChange={handleChange}
+                        // onSubmit={()=>filterBy(Array.name, projects)}
+                        />
+                </Form>
 
 
-            <Divider className="project-container-divider1"/>
-        <div className="radio">
-            <div className="radio-left">
-                <Radio toggle />
-                <div className="radio-label">
-                    Projets Suivis
+                    <Divider className="project-container-divider1"/>
+                <div className="radio">
+                    <div className="radio-left">
+                        <Radio toggle />
+                        <div className="radio-label">
+                            Projets Suivis
+                        </div>
+                    </div>
+
+                    <div className="radio-right">
+                        <Radio toggle />
+                        <div className="radio-label">
+                        Projets Disponibles
+                        </div>
+                    </div>
+
                 </div>
+                <Divider className="project-container-divider2" />
+                <Item.Group divided>
+                    {projects.map((project) => (
+                        <ProjectList key={project.id} {...project} />
+                    ))}
+                </Item.Group>
+                <Divider />
             </div>
-
-            <div className="radio-right">
-                <Radio toggle />
-                <div className="radio-label">
-                Projets Disponibles
-                </div>
-            </div>
-
-        </div>
-        <Divider className="project-container-divider2" />
-        <Item.Group divided>
-            {projects.map((project) => (
-                <ProjectList key={project.id} {...project} />
-            ))}
-        </Item.Group>
-        <Divider />
-    </div>
     );
 };
 
 Projects.propTypes = {
     inputFilter: PropTypes.string.isRequired,
     changeInput: PropTypes.func.isRequired,
+    handleSelection: PropTypes.func.isRequired,
 }
 
 // == Export

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import Projects from 'src/components/Projects';
-import { changeFilter, doFilter } from 'src/store/reducer';
+import { changeFilter, doFilter, filterSelection } from 'src/store/reducer';
 
 /* === State (donnÃ©es) === */
 const mapStateToProps = (state) => ({
@@ -18,19 +18,16 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeFilter(value);
     dispatch(action);
   },
-  submitSearch: () => {
+  submitFilter: (value) => {
     console.log('soumission du filtre');
-      const action = doFilter();
+      const action = doFilter(value);
       dispatch(action);
   },
-
-  
-  // filterBy : (value) => {
-  //   console.log('je voudrais afficher les projects par technos');
-  //   const filterTechnos = technos.filter((technos, projects) => technos === projects.name)
-  //   const action = doFilter(value);
-  //    dispatch(action);
-  //   }
+  handleSelection : (value) => {
+    console.log('je voudrais afficher les projects par technos');
+    const action = filterSelection(value);
+     dispatch(action);
+    }
 });
 
 

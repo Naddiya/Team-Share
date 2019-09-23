@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 const ProjectList = ({
   image, 
   title, 
-  tag, 
+  tags, 
   description, 
   nbLike, 
   skills,
@@ -23,7 +23,6 @@ const ProjectList = ({
   createdAt }) => (
 <Item>
       <Item.Image src={image} />
-
       <Item.Content>
         <Item.Header as={NavLink} to="/project-detail">{title}
         </Item.Header>
@@ -38,16 +37,19 @@ const ProjectList = ({
         </Item.Extra>
         <Item.Description>{description}</Item.Description>
         <Item.Extra>
-          <div>Technologies: </div>
+          <div>Technologies : </div>
           {technos.map((techno) => (
           <Label key={techno.id} {...techno}>{techno.name}</Label>
           ))}
-          
-          <Label >{tag}</Label>
           <div>Compétences : </div>
           {skills.map((skill) => (
           <Label key={skill.id} {...skill}>{skill.name}</Label>
           ))}
+          <div>Tags : </div>
+          {tags.map((tag) => (
+          <Label key={tag.id} {...tag}>{tag.name}</Label>
+          ))}
+
         </Item.Extra>
       </Item.Content>
     </Item>
