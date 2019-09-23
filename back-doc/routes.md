@@ -4,8 +4,12 @@
 |--|--|--|--|--|--|--|
 | `/` | Accueil | Page d'accueil | GET | HomeController | home |  |
 | `/project/index` | Liste des projets | Page affichant les différents projets | GET | ProjectController | project_index |  |
+| `/project/index/title` | Liste des projets par titre | Page affichant les différents projets classées par ordre alphabétique en fonction du titre | GET | ProjectController | project_index_title |  |
+| `/project/index/createdat` | Liste des projets par date | Page affichant les différents projets classés par date de création | GET | ProjectController | project_index_createdat |  |
+| `/project/search/[title]` | Recherche des projects par titre | Page affichant les projets dont le titre correspond à la chaine de caractère tapée dans la barre de recherche | GET | ProjectController | project_search |  |
 | `/project/[id]` | Titre du projet | Affichage du détail d'un projet | GET | ProjectController | project_show |  |
 | `/project/new` | Votre projet | Création d'un nouveau projet | POST | ProjectController | project_new |  |
+
 | `/user/register` | Inscription | Page d'inscription | POST | UserController | user_register | A fournir: tous les champs du formulaire même vides |
 | `/user/update` | Modifier son profil | Modification de mon profil utilisateur | POST | UserController | user_update | A fournir: tous les champs du formulaire même vides + token |
 | `/user/myprofile` | Affichage de mon profil | Affichage de mon profil | GET | UserController | user_myprofile |  |

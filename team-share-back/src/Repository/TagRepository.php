@@ -40,7 +40,10 @@ class TagRepository extends ServiceEntityRepository
             ->where('t.id = :idOfTag')
             ->setParameter('idOfTag', $id)
             ->leftJoin('t.projects', 'p')
-            ->addSelect('PARTIAL p.{id, title}')
+            ->leftJoin('p.skills', 's')
+            ->leftJoin('p.technos', 'te')
+            ->leftJoin('p.statut', 'st')
+            ->addSelect('p', 's', 'te', 'st')
             ->orderBy('p.title', 'ASC');
 
         return $qb->getQuery()->getArrayResult();

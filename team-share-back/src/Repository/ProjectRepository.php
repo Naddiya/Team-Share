@@ -22,7 +22,7 @@ class ProjectRepository extends ServiceEntityRepository
     /**
      * @return Project[] Returns an array of Project objects
      */
-    public function findBestProjects()
+    public function findBestProjects($tri = 'nbLike')
     {
         $qb = $this->CreateQueryBuilder('p')
           ->leftJoin('p.statut', 'st')
@@ -31,7 +31,41 @@ class ProjectRepository extends ServiceEntityRepository
           ->leftJoin('p.skills', 's')
           ->leftJoin('p.users', 'u')
           ->addSelect('t', 'te', 's', 'PARTIAL u.{id, username}', 'st')
-          ->orderBy('p.nbLike', 'DESC');
+          ->orderBy('p.'. $tri . '', 'DESC');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    /**
+     * @return Project[] Returns an array of Project objects
+     */
+    public function findProjectsByTitle()
+    {
+        $qb = $this->CreateQueryBuilder('p')
+          ->leftJoin('p.statut', 'st')
+          ->leftJoin('p.tags', 't')
+          ->leftJoin('p.technos', 'te')
+          ->leftJoin('p.skills', 's')
+          ->leftJoin('p.users', 'u')
+          ->addSelect('t', 'te', 's', 'PARTIAL u.{id, username}', 'st')
+          ->orderBy('p.title' . '', 'ASC');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    /**
+     * @return Project[] Returns an array of Project objects
+     */
+    public function findProjectsByCreatedAt()
+    {
+        $qb = $this->CreateQueryBuilder('p')
+          ->leftJoin('p.statut', 'st')
+          ->leftJoin('p.tags', 't')
+          ->leftJoin('p.technos', 'te')
+          ->leftJoin('p.skills', 's')
+          ->leftJoin('p.users', 'u')
+          ->addSelect('t', 'te', 's', 'PARTIAL u.{id, username}', 'st')
+          ->orderBy('p.createdAt', 'DESC');
 
         return $qb->getQuery()->getArrayResult();
     }
@@ -52,6 +86,26 @@ class ProjectRepository extends ServiceEntityRepository
           ->leftJoin('p.users', 'u')
           ->leftJoin('p.requests', 'r')
           ->addSelect('t', 'th', 's', 'PARTIAL u.{id, username}', 'st', 'c', 'r');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+ /**
+     * @return Project[] Returns an array of Project objects
+     */
+    public function findProjectsBySearchTitle($title)
+    {
+        $qb = $this->CreateQueryBuilder('p')
+          ->where('p.title LIKE :titleOfProject')
+          ->setParameter('titleOfProject', '%' . $title . '%')
+          ->leftJoin('p.tags', 't')
+          ->leftJoin('p.technos', 'th')
+          ->leftJoin('p.skills', 's')
+          ->leftJoin('p.statut', 'st')
+          ->leftJoin('p.comments', 'c')
+          ->leftJoin('p.users', 'u')
+          ->leftJoin('p.requests', 'r')
+          ->addSelect('p', 't', 'th', 's', 'PARTIAL u.{id, username}', 'st', 'c', 'r');
 
         return $qb->getQuery()->getArrayResult();
     }

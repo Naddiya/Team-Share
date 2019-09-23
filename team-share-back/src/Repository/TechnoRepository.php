@@ -37,11 +37,14 @@ class TechnoRepository extends ServiceEntityRepository
      */
     public function findProjectsByTechno($id)
     {
-        $qb = $this->CreateQueryBuilder('t')
-            ->where('t.id = :idOfTechno')
+        $qb = $this->CreateQueryBuilder('te')
+            ->where('te.id = :idOfTechno')
             ->setParameter('idOfTechno', $id)
-            ->leftJoin('t.projects', 'p')
-            ->addSelect('PARTIAL p.{id, title}')
+            ->leftJoin('te.projects', 'p')
+            ->leftJoin('p.skills', 's')
+            ->leftJoin('p.tags', 't')
+            ->leftJoin('p.statut', 'st')
+            ->addSelect('p', 's', 't', 'st')
             ->orderBy('p.title', 'ASC');
 
         return $qb->getQuery()->getArrayResult();

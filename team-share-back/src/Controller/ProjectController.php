@@ -22,15 +22,43 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProjectController extends AbstractController
 {
     /**
-     * @Route("/index", name="_index", methods={"GET"})
+     * @Route("/index/title", name="_index_title", methods={"GET"})
      */
     public function index(ProjectRepository $projetcRepository)
     {
         // Récupére tous les projets du plus grand au plus petits nombres de likes
-        $bestProjects = $projetcRepository->findBestProjects();
+        $projects = $projetcRepository->findProjectsByTitle();
 
         // Crée une response au format json
-        $response = new JsonResponse($bestProjects);
+        $response = new JsonResponse($projects);
+
+        return $response;
+    }
+
+    /**
+     * @Route("/index/createdat", name="_index_createdat", methods={"GET"})
+     */
+    public function indexByCreatedAt(ProjectRepository $projetcRepository)
+    {
+        // Récupére tous les projets du plus grand au plus petits nombres de likes
+        $projects = $projetcRepository->findProjectsByCreatedAt();
+
+        // Crée une response au format json
+        $response = new JsonResponse($projects);
+
+        return $response;
+    }
+
+     /**
+     * @Route("/search/{title}", name="_search", methods={"GET"})
+     */
+    public function indexBySearchTitle($title, ProjectRepository $projetcRepository)
+    {
+        // Récupére tous les projets du plus grand au plus petits nombres de likes
+        $projects = $projetcRepository->findProjectsBySearchTitle($title);
+
+        // Crée une response au format json
+        $response = new JsonResponse($projects);
 
         return $response;
     }
