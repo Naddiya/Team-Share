@@ -9,12 +9,12 @@ import { NavLink } from 'react-router-dom';
 
 
 // == Composant
-const ProjectList = ({ image, title, tag, description, nbLike }) => (
+const ProjectList = ({ image, title, tag, description, nbLike, id }) => (
 <Item>
       <Item.Image src={image} />
 
       <Item.Content>
-        <Item.Header as={NavLink} to="/project-detail">{title}
+        <Item.Header as={NavLink} to={`project-detail/${id}`}>{title}
         </Item.Header>
           <span className="item-follow"><IoIosAddCircle size="28px" />Follow</span>
         <Item.Extra>

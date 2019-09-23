@@ -6,7 +6,6 @@ import reducer from 'src/store/reducer';
 import connectionMiddleware from './connectionMiddleware';
 import projectCreationMiddleware from './projectCreationMiddleware';
 import profileModificationMiddleware from './profileModificationMiddleware';
-import requestsMiddleware from './requestsMiddleware';
 
 // == Store
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -16,7 +15,6 @@ const enhancers = composeEnhancers(
     connectionMiddleware,
     projectCreationMiddleware,
     profileModificationMiddleware,
-    requestsMiddleware,
   ),
 );
 

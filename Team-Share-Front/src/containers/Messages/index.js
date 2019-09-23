@@ -2,13 +2,11 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import ProjectDetail from 'src/components/ProjectDetail';
-import { doRequest } from 'src/store/reducer';
+import ParticipationMessage from 'src/components/Messages/ParticipationMessage';
 
 /* === State (donnÃ©es) === */
 const mapStateToProps = (state) => ({
     token: state.token,
-    id: state.id,
 });
 
 /* === Actions === */
@@ -16,11 +14,11 @@ const mapDispatchToProps = (dispatch) => ({});
 
 
 // Container
-const ProjectDetailContainer = connect(
+const ParticipationMessageContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ProjectDetail);
+)(ParticipationMessage);
 
 // == Export
-export default ProjectDetailContainer;
+export default ParticipationMessageContainer;
 
