@@ -279,3 +279,38 @@
 >* Ajustements responsive finaux
 >* Mettre en place toutes les requetes front
 >* V1 terminé pour le back
+
+---
+# 20/09/2019 - J16 - Sprint 2
+>* Routes logout
+>* Fonction logout + filtres sur projects
+#### Infos individuelles
+>## Julien : 
+> Adaptation des requetes back
+>## Alexis :
+> Fonction logout
+>## Alexandre :
+> Adaptation des requetes back
+>## Nadia :
+> Page Projects ajout des filtres
+#### À Suivre
+>* Faire fonctionner les filtres en front
+>* Ajout de la demande de participation en front
+
+
+---
+# 23/09/2019 - J17 - Sprint 3
+>* Routes Projects filtrées
+>* Routes vers le projet en detail
+#### Infos individuelles
+>## Julien : 
+> Routes Projects filtrées
+>## Alexis :
+> Route vers le projet en detail
+>## Alexandre :
+> Routes Projects filtrées
+>## Nadia :
+> Page Projects ajout des filtres + correction sur integration
+#### À Suivre
+>* Mettre en place toutes les requetes front
+>* Faire fonctionner les filtres
