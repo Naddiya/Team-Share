@@ -3,28 +3,37 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import Projects from 'src/components/Projects';
-import { changeFilter, doFilter } from 'src/store/reducer';
+import { changeFilter, doFilter, submitFilter, changeFilterSelection } from 'src/store/reducer';
 
 /* === State (donnÃ©es) === */
 const mapStateToProps = (state) => ({
   inputFilter: state.inputFilter,
-  filtered: state.filtered,
+  selectedFilter: state.selectedFilter,
 });
 
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
-  changeInput: (value) => {
+  changeInput: (currentSearch) => {
     console.log('changement de la valeur de input');
-    const action = changeFilter(value);
+    const action = changeFilter(currentSearch);
     dispatch(action);
   },
-  
-  // filterBy : (value) => {
-  //   console.log('je voudrais afficher les projects par technos');
-  //   const filterTechnos = technos.filter((technos, projects) => technos === projects.name)
-  //   const action = doFilter(value);
-  //    dispatch(action);
-  //   }
+  submitFilter: () => {
+    console.log('soumission du filtre de search');
+      const action = doFilter();
+      dispatch(action);
+  },
+  changeFilter: (currentSelection) => {
+    console.log('changement du filtre de selection');
+      const action = changeFilterSelection(currentSelection);
+      dispatch(action);
+  },
+  submitSelection : ()=> {
+    console.log('soumission du filtre de selection')
+    const action = submitFilter();
+    dispatch(action);
+  }
+
 });
 
 

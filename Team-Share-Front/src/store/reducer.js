@@ -31,8 +31,7 @@ const initialState = {
 
   // === Projects props === 
   inputFilter:'',
-  loading: false,
-  selected:[],
+  selectedFilter:'',
   id: '9',
 
   // projects: projectsData.items,
@@ -83,7 +82,9 @@ export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 // === PROJECT FILTER ACTION TYPES ===
 
 export const CHANGE_FILTER = 'CHANGE_FILTER';
-// export const DO_FILTER = 'DO_FILTER';
+export const DO_FILTER = 'DO_FILTER';
+export const CHANGE_FILTER_SELECTION = 'CHANGE_FILTER_SELECTION';
+export const SUBMIT_FILTER_SELECTION = 'SUBMIT_FILTER_SELECTION';
 
 // === REQUESTS ACTION TYPES ===
 
@@ -260,13 +261,22 @@ const reducer = (state = initialState, action = {}) => {
       case CHANGE_FILTER:
         return {
           ...state, 
-          inputFilter: action.value,
+          inputFilter: action.currentFilter,
         }
-      // case DO_FILTER:
-      //   return {
-      //     ...state,
-      //     filtred: action.value,
-      //   }
+      case DO_FILTER:
+        return {
+          ...state,
+        }
+      case CHANGE_FILTER_SELECTION:
+        return {
+          ...state,
+          selectedFilter: action.currentSelection,
+
+        }
+      case SUBMIT_FILTER_SELECTION:
+        return {
+          ...state,
+        }
 
     /* === REQUESTS ACTIONS */
     case DO_REQUEST:
@@ -430,17 +440,25 @@ export const giveProfileInfos = value => ({
   value,
 });
 
-// === SUBSCRIBE & LOGIN ACTION CREATORS ===
+// === PROJECTS FILTERS ===
 
-export const changeFilter = value => ({
+export const changeFilter = currentFilter => ({
   type: CHANGE_FILTER,
-  value,
+  currentFilter,
 })
 
-// export const doFilter = value => ({
-//   type: DO_FILTER,
-//   value,
-// })
+export const doFilter = () => ({
+  type: DO_FILTER,
+})
+
+export const changeFilterSelection = currentSelection => ({
+  type: CHANGE_FILTER_SELECTION,
+  currentSelection,
+})
+
+export const submitFilter = () => ({
+  type: SUBMIT_FILTER_SELECTION,
+})
 
 // == Selectors
 // export const getArt = tag =>

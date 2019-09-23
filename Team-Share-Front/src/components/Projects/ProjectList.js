@@ -11,36 +11,43 @@ import store from 'src/store';
 
 
 // == Composant
-const ProjectList = ({ image, title, tag, description, nbLike, id }) => {
-  
-  const state = store.getState();
+const ProjectList = ({
+  image, 
+  title, 
+  tags, 
+  description, 
+  nbLike, 
+  skills,
+  technos,
+  createdAt,
+  id }) => {
 
-  const data = {
-    token: state.token,
-    id,
-  }
-  const handleClickLike = () => {
-    axios.post('http://92.243.10.99/Team-Share/team-share-back/public/follow/add', data)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-      console.log(data);
-    });
-  }
+    const state = store.getState();
 
-  return (
-    <Item>
+    const data = {
+      token: state.token,
+      id,
+    }
+    const handleClickLike = () => {
+      axios.post('http://92.243.10.99/Team-Share/team-share-back/public/follow/add', data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(data);
+      });
+    }
+
+    return (
+      <Item>
         <Item.Image src={image} />
-
         <Item.Content>
-          <Item.Header as={NavLink} to={`project-detail/${id}`}>{title}
+          <Item.Header as={NavLink} to="/project-detail">{title}
           </Item.Header>
-            <Button onClick={handleClickLike} className="item-follow"><IoIosAddCircle size="28px" />Follow</Button>
+            <span className="item-follow"><IoIosAddCircle size="28px" />Follow</span>
           <Item.Extra>
-            <Label>{tag}</Label>
-            <Label>le 20/12/2015</Label>
+            <Label>{createdAt.date}</Label>
             <a>
               <Icon name='heart' />
               {nbLike} likes
@@ -49,15 +56,24 @@ const ProjectList = ({ image, title, tag, description, nbLike, id }) => {
           </Item.Extra>
           <Item.Description>{description}</Item.Description>
           <Item.Extra>
-            <span>Catégories : </span>
-            <Label>{tag}</Label>
-            <span>Compétences : </span>
-            <Label>{tag}</Label>
+            <div>Technologies : </div>
+            {technos.map((techno) => (
+            <Label key={techno.id} {...techno}>{techno.name}</Label>
+            ))}
+            <div>Compétences : </div>
+            {skills.map((skill) => (
+            <Label key={skill.id} {...skill}>{skill.name}</Label>
+            ))}
+            <div>Tags : </div>
+            {tags.map((tag) => (
+            <Label key={tag.id} {...tag}>{tag.name}</Label>
+            ))}
+
           </Item.Extra>
         </Item.Content>
       </Item>
     );
-  };
+};
 
 // == Export
 export default ProjectList;
