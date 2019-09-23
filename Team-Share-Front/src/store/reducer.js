@@ -32,7 +32,7 @@ const initialState = {
   // === Projects props === 
   inputFilter:'',
   loading: false,
-  selected:[],
+  filtered: [],
 
   // projects: projectsData.items,
 };
@@ -82,7 +82,7 @@ export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 // === PROJECT FILTER ACTION TYPES ===
 
 export const CHANGE_FILTER = 'CHANGE_FILTER';
-// export const DO_FILTER = 'DO_FILTER';
+export const DO_FILTER = 'DO_FILTER';
 
 
 // == Reducer
@@ -258,11 +258,11 @@ const reducer = (state = initialState, action = {}) => {
           ...state, 
           inputFilter: action.value,
         }
-      // case DO_FILTER:
-      //   return {
-      //     ...state,
-      //     filtred: action.value,
-      //   }
+      case DO_FILTER:
+        return {
+          ...state,
+          filtered: action.value,
+        }
 
 
     default:
@@ -428,10 +428,10 @@ export const changeFilter = value => ({
   value,
 })
 
-// export const doFilter = value => ({
-//   type: DO_FILTER,
-//   value,
-// })
+export const doFilter = value => ({
+  type: DO_FILTER,
+  value,
+})
 
 // == Selectors
 // export const getArt = tag =>

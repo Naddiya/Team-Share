@@ -18,6 +18,12 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeFilter(value);
     dispatch(action);
   },
+  submitSearch: () => {
+    console.log('soumission du filtre');
+      const action = doFilter();
+      dispatch(action);
+  },
+
   
   // filterBy : (value) => {
   //   console.log('je voudrais afficher les projects par technos');

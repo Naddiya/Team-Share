@@ -1,12 +1,13 @@
 // == Import : npm
 import React from 'react';
-import { Item, Select, Input, Divider, Radio, Dropdown } from 'semantic-ui-react';
+import { Item, Select, Input, Divider, Radio, Dropdown, Form } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 
 // == Import : local
 import './projects.scss';
 import ProjectList from './ProjectList';
+import { doSubmit } from '../../store/reducer';
 
 const sortBy = [
     { key: 'date', value: 'date', text: 'Date de création' },
@@ -16,11 +17,12 @@ const sortBy = [
 
 
 // == Composant
-const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput, filterBy }) => {
+const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput, submitSearch }) => {
         const handleChange = (evt) => {
             const { value } = evt.target;
             changeInput(value);
         };
+
  
     return(
     <div className="project-container">
@@ -46,14 +48,16 @@ const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput, fi
             />
         <Dropdown  placeholder='Compétences' options={skills} />
         <Divider />
+        <Form onSubmit={submitSearch}>
         <Input 
             className="searchfluid" 
             icon='search' 
             placeholder='Rechercher...' 
             value={inputFilter}
             onChange={handleChange}
-            // onSubmit={()=>filterBy(Array.name, projects)}
             />
+        </Form>
+
 
             <Divider className="project-container-divider1"/>
         <div className="radio">
