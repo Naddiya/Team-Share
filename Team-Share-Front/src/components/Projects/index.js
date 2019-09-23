@@ -17,20 +17,20 @@ const sortBy = [
 
 
 // == Composant
-const Projects = ({ projects, technos, skills, tags, inputFilter, changeInput, submitFilter }) => {
+const Projects = ({ projects, technos, skills, tags, inputFilter, changeInput, submitFilter, submitSelection }) => {
         const handleChange = (evt) => {
             const { value } = evt.target;
             changeInput(value);
         };
         const handleSelection = (evt) => {
             const { value } = evt.target;
-            submitFilter(value);
+            submitSelection(value);
         }
  
     return(
 
         <div className="project-container">
-            <Form onSubmit={submitFilter}>
+            <Form>
                 <Dropdown  
                     placeholder='Trier par' 
                     options={sortBy} 
@@ -40,6 +40,7 @@ const Projects = ({ projects, technos, skills, tags, inputFilter, changeInput, s
                     placeholder='Filtrer' 
                     options={tags} 
                     onChange={handleSelection}
+                    onClick={submitSelection}
                     />
                 <Dropdown
                     placeholder='Technologies' 
@@ -98,7 +99,7 @@ const Projects = ({ projects, technos, skills, tags, inputFilter, changeInput, s
 Projects.propTypes = {
     inputFilter: PropTypes.string.isRequired,
     changeInput: PropTypes.func.isRequired,
-    handleSelection: PropTypes.func.isRequired,
+    submitSelection: PropTypes.func.isRequired,
 }
 
 // == Export

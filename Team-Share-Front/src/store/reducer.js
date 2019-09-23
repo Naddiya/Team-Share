@@ -84,7 +84,7 @@ export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 export const DO_FILTER = 'DO_FILTER';
-export const FILTER_SELECT = 'FILTER_SELECT';
+export const SUBMIT_FILTER_SELECTION = 'SUBMIT_FILTER_SELECTION';
 
 
 // == Reducer
@@ -265,11 +265,10 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           filteredProjects: action.value,
         }
-      case FILTER_SELECT:
+      case SUBMIT_FILTER_SELECTION:
         return {
           ...state,
-          filteredSelection: action.value,
-
+          submitSelection: action.value,
         }
 
 
@@ -441,8 +440,8 @@ export const doFilter = value => ({
   value,
 })
 
-export const filterSelection = value => ({
-  type: FILTER_SELECT,
+export const submitFilter = value => ({
+  type: SUBMIT_FILTER_SELECTION,
   value,
 })
 
