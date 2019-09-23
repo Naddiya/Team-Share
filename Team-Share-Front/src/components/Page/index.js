@@ -9,7 +9,7 @@ import HomeProjects from 'src/components/HomeProjects';
 import Team from 'src/components/Team';
 import Profile from 'src/components/Profile';
 import Projects from 'src/containers/Projects';
-import ProjectDetail from 'src/components/ProjectDetail';
+import ProjectDetail from 'src/containers/ProjectDetail';
 import projectdetails from 'src/data/projects.json';
 import ProjectCreation from 'src/containers/ProjectCreation';
 import LegalMentions from 'src/components/LegalMentions';
@@ -21,7 +21,6 @@ class Page extends React.Component {
   state = {
     projects: [],
     technos: [],  
-
   }
 
   componentDidMount() {

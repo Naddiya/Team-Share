@@ -33,6 +33,7 @@ const initialState = {
   inputFilter:'',
   loading: false,
   selected:[],
+  id: '9',
 
   // projects: projectsData.items,
 };
@@ -84,6 +85,9 @@ export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 // export const DO_FILTER = 'DO_FILTER';
 
+// === REQUESTS ACTION TYPES ===
+
+export const DO_REQUEST = 'DO_REQUEST';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -264,6 +268,11 @@ const reducer = (state = initialState, action = {}) => {
       //     filtred: action.value,
       //   }
 
+    /* === REQUESTS ACTIONS */
+    case DO_REQUEST:
+      return {
+        ...state,
+      }
 
     default:
       return state;
@@ -446,6 +455,12 @@ export const changeFilter = value => ({
 //   ];
 //   return filteredList;
 // };
+
+// === REQUESTS ACTION CREATORS ===
+
+export const doRequest = () => ({
+  type: DO_REQUEST,
+});
 
 // == Export
 export default reducer;

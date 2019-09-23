@@ -5,22 +5,11 @@ import 'semantic-ui-css/semantic.min.css';
 import { IoIosAddCircle, IoIosBatteryCharging } from "react-icons/io";
 import { NavLink } from 'react-router-dom'; 
 
-
 // == Import : local
 
 
-
-
 // == Composant
-const ProjectList = ({
-  image, 
-  title, 
-  tag, 
-  description, 
-  nbLike, 
-  skills,
-  technos,
-  createdAt }) => (
+const ProjectList = ({ image, title, tag, description, nbLike }) => (
 <Item>
       <Item.Image src={image} />
 
@@ -29,7 +18,8 @@ const ProjectList = ({
         </Item.Header>
           <span className="item-follow"><IoIosAddCircle size="28px" />Follow</span>
         <Item.Extra>
-          <Label>{createdAt.date}</Label>
+          <Label>{tag}</Label>
+          <Label>le 20/12/2015</Label>
           <a>
             <Icon name='heart' />
             {nbLike} likes
@@ -38,22 +28,14 @@ const ProjectList = ({
         </Item.Extra>
         <Item.Description>{description}</Item.Description>
         <Item.Extra>
-          <div>Technologies: </div>
-          {technos.map((techno) => (
-          <Label key={techno.id} {...techno}>{techno.name}</Label>
-          ))}
-          
-          <Label >{tag}</Label>
-          <div>Compétences : </div>
-          {skills.map((skill) => (
-          <Label key={skill.id} {...skill}>{skill.name}</Label>
-          ))}
+          <span>Catégories : </span>
+          <Label>{tag}</Label>
+          <span>Compétences : </span>
+          <Label>{tag}</Label>
         </Item.Extra>
       </Item.Content>
     </Item>
 );
-
-
 
 // == Export
 export default ProjectList;
