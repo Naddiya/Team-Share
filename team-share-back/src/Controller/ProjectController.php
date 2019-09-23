@@ -22,9 +22,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProjectController extends AbstractController
 {
     /**
-     * @Route("/index/title", name="_index_title", methods={"GET"})
+     * @Route("/index/", name="_index", methods={"GET"})
      */
     public function index(ProjectRepository $projetcRepository)
+    {
+        // Récupére tous les projets du plus grand au plus petits nombres de likes
+        $projects = $projetcRepository->findBestProjects()();
+
+        // Crée une response au format json
+        $response = new JsonResponse($projects);
+
+        return $response;
+    }
+
+        /**
+     * @Route("/index/title", name="_index_title", methods={"GET"})
+     */
+    public function indexByTitle(ProjectRepository $projetcRepository)
     {
         // Récupére tous les projets du plus grand au plus petits nombres de likes
         $projects = $projetcRepository->findProjectsByTitle();
