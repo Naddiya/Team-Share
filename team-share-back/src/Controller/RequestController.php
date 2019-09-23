@@ -62,6 +62,11 @@ class RequestController extends AbstractController
         // Transforme le json en tableau
         $jsonContentArray = json_decode($jsonContent, true);
 
+        // On renvoie un message d'erreur si le token est à null
+        if ($jsonContentArray['token'] === null){
+            return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'existe pas ou le token n'est plus valide"]);
+        }
+        
         // Récupère le destinataire de la requête
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
 
