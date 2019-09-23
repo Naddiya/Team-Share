@@ -16,18 +16,34 @@ const sortBy = [
 
 
 // == Composant
-const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput }) => {
+const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput, filterBy }) => {
         const handleChange = (evt) => {
             const { value } = evt.target;
             changeInput(value);
         };
-        console.log(skills);
-        
+ 
     return(
     <div className="project-container">
-        <Dropdown  placeholder='Trier par' options={sortBy} />
-        <Dropdown  placeholder='Filtrer' options={tag} />
-        <Dropdown  placeholder='Technologies' options={technos} />
+
+        <Dropdown  
+            placeholder='Trier par' 
+            options={sortBy} 
+            multiple 
+            
+            />
+        <Dropdown  
+            placeholder='Filtrer' 
+            options={tag} 
+            />
+
+        <Dropdown
+        // hide the labels
+            renderLabel={() => false}
+            placeholder='Technologies' 
+            options={technos}
+            
+            
+            />
         <Dropdown  placeholder='Compétences' options={skills} />
         <Divider />
         <Input 
@@ -36,6 +52,7 @@ const Projects = ({ projects, technos, skills, tag, inputFilter, changeInput }) 
             placeholder='Rechercher...' 
             value={inputFilter}
             onChange={handleChange}
+            // onSubmit={()=>filterBy(Array.name, projects)}
             />
 
             <Divider className="project-container-divider1"/>

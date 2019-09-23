@@ -19,7 +19,8 @@ const ProjectList = ({
   description, 
   nbLike, 
   skills,
-  technos }) => (
+  technos,
+  createdAt }) => (
 <Item>
       <Item.Image src={image} />
 
@@ -28,7 +29,7 @@ const ProjectList = ({
         </Item.Header>
           <span className="item-follow"><IoIosAddCircle size="28px" />Follow</span>
         <Item.Extra>
-          <Label>le 20/12/2015</Label>
+          <Label>{createdAt.date}</Label>
           <a>
             <Icon name='heart' />
             {nbLike} likes
@@ -37,7 +38,7 @@ const ProjectList = ({
         </Item.Extra>
         <Item.Description>{description}</Item.Description>
         <Item.Extra>
-          <div>Catégories : </div>
+          <div>Technologies: </div>
           {technos.map((techno) => (
           <Label key={techno.id} {...techno}>{techno.name}</Label>
           ))}
@@ -53,11 +54,6 @@ const ProjectList = ({
 );
 
 
-{/* <Item.Group divided>
-            {projects.map((project) => (
-                <ProjectList key={project.id} {...project} />
-            ))}
-        </Item.Group> */}
 
 // == Export
 export default ProjectList;
