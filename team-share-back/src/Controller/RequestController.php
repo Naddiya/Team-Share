@@ -78,6 +78,11 @@ class RequestController extends AbstractController
         // Récupère les projets du destinataire
         $userProjects = $user->getProjects();
 
+        // On renvoie un message d'erreur si l'utilisateur n'a jamais crée de projet
+        if (!$userProjects){
+            return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'est créateur d'aucun projet"]);
+        }
+
         // Boucle sur les projets du destinataire
         foreach ($userProjects as $project){
             //récupère l'auteur du projet en question
