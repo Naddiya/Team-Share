@@ -22,7 +22,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProjectController extends AbstractController
 {
     /**
-     * @Route("/index/", name="_index", methods={"GET"})
+     * @Route("/index", name="_index", methods={"GET"})
      */
     public function index(ProjectRepository $projetcRepository)
     {
