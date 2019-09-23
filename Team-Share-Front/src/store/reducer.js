@@ -31,8 +31,7 @@ const initialState = {
 
   // === Projects props === 
   inputFilter:'',
-  loading: false,
-  filteredProjects: [''],
+  selectedFilter:'',
 
 
   // projects: projectsData.items,
@@ -84,6 +83,7 @@ export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 
 export const CHANGE_FILTER = 'CHANGE_FILTER';
 export const DO_FILTER = 'DO_FILTER';
+export const CHANGE_FILTER_SELECTION = 'CHANGE_FILTER_SELECTION';
 export const SUBMIT_FILTER_SELECTION = 'SUBMIT_FILTER_SELECTION';
 
 
@@ -258,17 +258,21 @@ const reducer = (state = initialState, action = {}) => {
       case CHANGE_FILTER:
         return {
           ...state, 
-          inputFilter: action.value,
+          inputFilter: action.currentFilter,
         }
       case DO_FILTER:
         return {
           ...state,
-          filteredProjects: action.value,
+        }
+      case CHANGE_FILTER_SELECTION:
+        return {
+          ...state,
+          selectedFilter: action.currentSelection,
+
         }
       case SUBMIT_FILTER_SELECTION:
         return {
           ...state,
-          submitSelection: action.value,
         }
 
 
@@ -428,21 +432,24 @@ export const giveProfileInfos = value => ({
   value,
 });
 
-// === SUBSCRIBE & LOGIN ACTION CREATORS ===
+// === PROJECTS FILTERS ===
 
-export const changeFilter = value => ({
+export const changeFilter = currentFilter => ({
   type: CHANGE_FILTER,
-  value,
+  currentFilter,
 })
 
-export const doFilter = value => ({
+export const doFilter = () => ({
   type: DO_FILTER,
-  value,
 })
 
-export const submitFilter = value => ({
+export const changeFilterSelection = currentSelection => ({
+  type: CHANGE_FILTER_SELECTION,
+  currentSelection,
+})
+
+export const submitFilter = () => ({
   type: SUBMIT_FILTER_SELECTION,
-  value,
 })
 
 // == Selectors

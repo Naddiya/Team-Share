@@ -17,53 +17,67 @@ const sortBy = [
 
 
 // == Composant
-const Projects = ({ projects, technos, skills, tags, inputFilter, changeInput, submitFilter, submitSelection }) => {
+const Projects = ({
+    projects, 
+    technos, 
+    skills, 
+    tags, 
+    inputFilter, //valeur de l'input
+    changeInput , //changement de la valeur de l'input
+    changeFilter, //changement de la selection dropdown
+    submitFilter, //envois de la selection
+    currentSelection, //valeur de la selection
+    submitSelection , //soumission de la seletion en dropdown
+
+}) => {
         const handleChange = (evt) => {
             const { value } = evt.target;
             changeInput(value);
         };
         const handleSelection = (evt) => {
-            const { value } = evt.target;
-            submitSelection(value);
-        }
- 
+            const { currentSelection } = evt.target;
+            changeFilter(currentSelection);
+        };
+
     return(
 
         <div className="project-container">
             <Form>
                 <Dropdown  
                     placeholder='Trier par' 
-                    options={sortBy} 
-                    onChange={handleSelection}
+                    options={sortBy}
+                    value={currentSelection}
+                    onChange={handleSelection, submitSelection}
                     />
                 <Dropdown  
                     placeholder='Filtrer' 
-                    options={tags} 
-                    onChange={handleSelection}
-                    onClick={submitSelection}
+                    options={tags}
+                    value={currentSelection}
+                    onChange={handleSelection, submitSelection}
                     />
                 <Dropdown
                     placeholder='Technologies' 
                     options={technos}
-                    onChange={handleSelection}
+                    value={currentSelection}
+                    onChange={handleSelection, submitSelection}
                     />
                 <Dropdown 
                     placeholder='Compétences' 
                     options={skills}
-                    onChange={handleSelection}
+                    value={currentSelection}
+                    onChange={handleSelection, submitSelection}
                     />
             </Form>
 
             <Divider />
 
-                <Form onSubmit={submitFilter}>
+                <Form onSubmit={() => submitFilter(inputFilter)}>
                     <Input 
                         className="searchfluid" 
                         icon='search' 
                         placeholder='Rechercher...' 
                         value={inputFilter}
                         onChange={handleChange}
-                        // onSubmit={()=>filterBy(Array.name, projects)}
                         />
                 </Form>
 
@@ -100,6 +114,7 @@ Projects.propTypes = {
     inputFilter: PropTypes.string.isRequired,
     changeInput: PropTypes.func.isRequired,
     submitSelection: PropTypes.func.isRequired,
+    // selectedFilter: PropTypes.string.isRequired,
 }
 
 // == Export
