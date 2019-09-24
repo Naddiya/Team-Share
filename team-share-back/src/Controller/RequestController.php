@@ -92,7 +92,7 @@ class RequestController extends AbstractController
             }
         }
 
-        if (!empty($requestForUser)){
+        if (!empty($requestsForUser)){
 
             return new JsonResponse($requestsForUser);
         } else {
