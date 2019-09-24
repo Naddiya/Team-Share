@@ -44,18 +44,26 @@ const ProjectList = ({
       <Item>
         <Item.Image src={image} />
         <Item.Content>
-          <Item.Header as={NavLink} to={`project-detail/${id}`}>{title}
+          <Item.Header 
+            className="projectTitle" 
+            as={NavLink} 
+            to={`project-detail/${id}`}>{title}
           </Item.Header>
-            <Button onClick={handleClickLike} color="grey" className="item-follow"><IoIosAddCircle size="28px" />Follow</Button>
+
+          <Button onClick={handleClickLike} color="grey" className="item-follow"><IoIosAddCircle size="28px" />Follow</Button>
+          
           <Item.Extra>
+
             <Label>{createdAt.date}</Label>
             <a>
               <Icon name='heart' />
               {nbLike} likes
-          </a>
+            </a>
+
           <span className="item-follow"><IoIosBatteryCharging size="28px" />Progression</span>
+          
           </Item.Extra>
-          <Item.Description>{description}</Item.Description>
+            <Item.Description>{description}</Item.Description>
           <Item.Extra>
             <div>Technologies : </div>
             {technos.map((techno) => (
@@ -69,8 +77,8 @@ const ProjectList = ({
             {tags.map((tag) => (
             <Label key={tag.id} {...tag}>{tag.name}</Label>
             ))}
-
           </Item.Extra>
+          
         </Item.Content>
       </Item>
     );

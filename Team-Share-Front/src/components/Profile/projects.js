@@ -1,20 +1,21 @@
 // == Import : npm
 import React from 'react';
-import { Button, Icon, Image, Item, Label } from 'semantic-ui-react'
+import { Button, Icon, Image, Item, Label } from 'semantic-ui-react';
+import { MdPerson } from 'react-icons';
 import 'semantic-ui-css/semantic.min.css';
 
 // == Import : local
 
 
 // == Composant
-const Projects = ({ image, title, tag, description, nbLike }) => (
+const Projects = ({ image, title, tags, description, nbLike }) => (
     <Item>
       <Item.Image src={image} />
       <Item.Content>
         <Item.Header as='a'>{title}</Item.Header>
         <Item.Description>{description}</Item.Description>
         <Item.Extra>
-          <Label>{tag}</Label>
+          <Label>{console.log(tags)}</Label>
           <a>
             <Icon name='heart' />
             {nbLike} likes

@@ -2,6 +2,9 @@ import React from 'react'
 import { Message, Button } from 'semantic-ui-react'
 import axios from 'axios';
 
+
+import './participation.scss'
+
 class ParticipationMessage extends React.Component {
 
   state = {
@@ -51,17 +54,15 @@ class ParticipationMessage extends React.Component {
   render() {  
     return (  
       <div>
-        
-          {this.state.requests === [] && <Message info header='Pas de demande en cours' />}
-        
-        
+          {this.state.requests === [] && <Message info header='Pas de demande en cours' />}       
           {this.state.requests.length > 0 && this.state.requests.map((request) => (
             <Message info key={request.id}>{request.user.firstname} {request.user.lastname} - {request.title}
-              <Button onClick={this.handleClickAccept} size="mini" color="green">Valider</Button>
-              <Button onClick={this.handleClickDecline} size="mini" color="red">Refuser</Button>
+              <div className="message-buttons">
+                <Button onClick={this.handleClickAccept} size="mini" color="green">Valider</Button>
+                <Button onClick={this.handleClickDecline} size="mini" color="red">Refuser</Button>
+              </div>
             </Message>
           ))}
-        
       </div>    
     );
   };
