@@ -19,7 +19,6 @@ const mapStateToProps = (state) => ({
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
   changeInput: (value) => {
-    console.log('changement de la valeur de input');
     const action = changeFilter(value);
     dispatch(action);
   },
@@ -36,13 +35,11 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   changeInputSortBy: (value) => {
-    console.log('changement de la valeur du tri');
     const action = changeSort(value);
     dispatch(action);
   },
   submitInputFilter: (value) => {
     const action = submitFilter(value);
-    console.log('soummission du filtre')
     dispatch(action);
   },
   changeInputTechnos: value => {
