@@ -31,8 +31,9 @@ const initialState = {
 
   // === Projects props === 
   inputFilter:'',
-  selectedFilter:'',
-  id: '9',
+  tags: [''],
+  sortBy: [''],
+
 
   // projects: projectsData.items,
 };
@@ -82,10 +83,9 @@ export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 // === PROJECT FILTER ACTION TYPES ===
 
 export const CHANGE_FILTER = 'CHANGE_FILTER';
-export const DO_FILTER = 'DO_FILTER';
-export const CHANGE_FILTER_SELECTION = 'CHANGE_FILTER_SELECTION';
-export const SUBMIT_FILTER_SELECTION = 'SUBMIT_FILTER_SELECTION';
-
+export const CHANGE_INPUTTAGS = 'CHANGE_INPUTTAGS';
+export const CHANGE_SORT = 'CHANGE_SORT';
+export const SUBMIT_FILTER = 'SUBMIT_FILTER';
 // === REQUESTS ACTION TYPES ===
 
 export const DO_REQUEST = 'DO_REQUEST';
@@ -261,22 +261,22 @@ const reducer = (state = initialState, action = {}) => {
       case CHANGE_FILTER:
         return {
           ...state, 
-          inputFilter: action.currentFilter,
+          inputFilter: action.value,
         }
-      case DO_FILTER:
+      case CHANGE_INPUTTAGS:
         return {
           ...state,
+          tags: action.value,
         }
-      case CHANGE_FILTER_SELECTION:
+      case CHANGE_SORT:
         return {
           ...state,
-          selectedFilter: action.currentSelection,
-
+          sortBy: action.value,
         }
-      case SUBMIT_FILTER_SELECTION:
-        return {
-          ...state,
-        }
+      case SUBMIT_FILTER:
+          return {
+            ...state,
+          }
 
     /* === REQUESTS ACTIONS */
     case DO_REQUEST:
@@ -442,38 +442,25 @@ export const giveProfileInfos = value => ({
 
 // === PROJECTS FILTERS ===
 
-export const changeFilter = currentFilter => ({
+export const changeFilter = value => ({
   type: CHANGE_FILTER,
-  currentFilter,
+  value,
 })
 
-export const doFilter = () => ({
-  type: DO_FILTER,
+export const changeTags = value => ({
+  type: CHANGE_INPUTTAGS,
+  value,
 })
 
-export const changeFilterSelection = currentSelection => ({
-  type: CHANGE_FILTER_SELECTION,
-  currentSelection,
+export const changeSort = value => ({
+  type: CHANGE_SORT,
+  value,
 })
 
-export const submitFilter = () => ({
-  type: SUBMIT_FILTER_SELECTION,
+export const submitFilter = (value) => ({
+  type: SUBMIT_FILTER,
+  value,
 })
-
-// == Selectors
-// export const getArt = tag =>
-// tag.filter(tag => tag.name === 'Art');
-
-
-// export const getFilterdList = (tag) => {
-
-//   const artList = getArt(tag);
-//   const filteredList = [
-//     ...artList,
-//   ];
-//   return filteredList;
-// };
-
 // === REQUESTS ACTION CREATORS ===
 
 export const doRequest = () => ({
@@ -482,3 +469,6 @@ export const doRequest = () => ({
 
 // == Export
 export default reducer;
+
+
+// == Selectors
