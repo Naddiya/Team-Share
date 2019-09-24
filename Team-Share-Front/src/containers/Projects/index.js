@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import Projects from 'src/components/Projects';
-import { changeFilter, doFilter, submitFilter, changeFilterSelection } from 'src/store/reducer';
+import { changeFilter, doFilter, submitFilter, changeFilterSelection, changeTechnos } from 'src/store/reducer';
 
 /* === State (donnÃ©es) === */
 const mapStateToProps = (state) => ({
@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
 
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
+  
   changeInput: (currentSearch) => {
     console.log('changement de la valeur de input');
     const action = changeFilter(currentSearch);
@@ -31,6 +32,10 @@ const mapDispatchToProps = (dispatch) => ({
   submitSelection : ()=> {
     console.log('soumission du filtre de selection')
     const action = submitFilter();
+    dispatch(action);
+  },
+  changeInputTechnos: value => {
+    const action = changeTechnos(value);
     dispatch(action);
   }
 

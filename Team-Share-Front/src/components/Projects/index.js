@@ -28,6 +28,7 @@ const Projects = ({
     submitFilter, //envois de la selection
     currentSelection, //valeur de la selection
     submitSelection , //soumission de la seletion en dropdown
+    changeInputTechnos,
 
 }) => {
         const handleChange = (evt) => {
@@ -38,28 +39,34 @@ const Projects = ({
             const { currentSelection } = evt.target;
             changeFilter(currentSelection);
         };
+        const handleChangeTechnos = (e, options) => {
+            const { value } = options;
+            changeInputTechnos(value);
+        };
 
     return(
 
         <div className="project-container">
             <Form>
                 <Dropdown  
+                    selection
                     placeholder='Trier par' 
                     options={sortBy}
                     value={currentSelection}
                     onChange={handleSelection, submitSelection}
                     />
                 <Dropdown  
+                    selection
                     placeholder='Filtrer' 
                     options={tags}
                     value={currentSelection}
                     onChange={handleSelection, submitSelection}
                     />
                 <Dropdown
+                    selection
                     placeholder='Technologies' 
                     options={technos}
-                    value={currentSelection}
-                    onChange={handleSelection, submitSelection}
+                    onChange={handleChangeTechnos}
                     />
                 <Dropdown 
                     placeholder='Compétences' 
