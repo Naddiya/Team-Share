@@ -60,7 +60,7 @@ class RequestController extends AbstractController
         $jsonContent = $request->getContent();
 
         // Transforme le json en tableau
-        $jsonContentArray = json_decode($jsonContent);
+        $jsonContentArray = json_decode($jsonContent, true);
         
         // Récupère le destinataire de la requête
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
