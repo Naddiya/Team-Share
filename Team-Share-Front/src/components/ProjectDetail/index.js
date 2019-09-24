@@ -2,6 +2,7 @@
 import React from 'react';
 import { FaHeartbeat, FaRegCheckCircle , FaGithubSquare, FaCarrot } from "react-icons/fa";
 import axios from 'axios';
+import { Divider } from 'semantic-ui-react';
 
 // == Import : local
 import './projectdetail.scss';
@@ -56,6 +57,7 @@ class ProjectDetail extends React.Component {
       <div className="project">
     <div className="project-title">
       <h1>{this.state.project.title}</h1>
+      <Divider />
       <div className="project-title-likeCount"> <FaHeartbeat />  {this.state.project.nbLike} &nbsp; Likes </div>
     </div>
     <div className="project-presentation" >
@@ -84,6 +86,7 @@ class ProjectDetail extends React.Component {
 
       <section className="project-team">
           <h1>La team</h1>
+        <Divider />
           <div className="team-members">
               <div className="team-member">
                   <img className="team-image" src="#" />
@@ -107,9 +110,9 @@ class ProjectDetail extends React.Component {
               </div>
           </div>
       </section>
-
       <section className="project-description">
         <h1> Détails </h1>
+        <Divider />
         <p className="project-description-text">
           {this.state.project.content}
         </p>
