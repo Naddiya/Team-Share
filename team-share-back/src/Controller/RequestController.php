@@ -60,16 +60,16 @@ class RequestController extends AbstractController
         $jsonContent = $request->getContent();
 
         // Transforme le json en tableau
-        $jsonContentArray = json_decode($jsonContent, true);
-
-        // On renvoie un message d'erreur si le token est à null
-        // if ($jsonContentArray['token'] === null){
-        //     return new JsonResponse(["type" => "error", "message" => "Votre token est à null ou n'a pas été renseigné"]);
-        // }
+        $jsonContentArray = json_decode($jsonContent);
         
         // Récupère le destinataire de la requête
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
 
+        // On renvoie un message d'erreur si le token est à null
+        if ($jsonContentArray['token'] === null){
+            return new JsonResponse(["type" => "error", "message" => "Votre token est à null ou n'a pas été renseigné"]);
+        }
+        
         // On renvoie un message d'erreur si l'utilisateur n'existe pas ou que le token n'a pas été trouvé dans la BDD
         if (!$user){
             return new JsonResponse(["type" => "error", "message" => "L'utilisateur n'existe pas ou le token n'est plus valide"]);
@@ -77,7 +77,6 @@ class RequestController extends AbstractController
 
         // Récupère les projets du destinataire
         $userProjects = $user->getProjects();
-
 
         // Boucle sur les projets du destinataire
         foreach ($userProjects as $project){

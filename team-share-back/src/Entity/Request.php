@@ -58,7 +58,7 @@ class Request
     {
         $this->createdAt = new DateTime();
         $this->statut = null;
-        $this->response = null;
+        $this->response = false;
     }
 
     public function getId(): ?int
