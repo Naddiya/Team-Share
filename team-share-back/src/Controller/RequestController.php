@@ -63,9 +63,9 @@ class RequestController extends AbstractController
         $jsonContentArray = json_decode($jsonContent, true);
 
         // On renvoie un message d'erreur si le token est à null
-        if ($jsonContentArray['token'] === null){
-            return new JsonResponse(["type" => "error", "message" => "Votre token est à null ou n'a pas été renseigné"]);
-        }
+        // if ($jsonContentArray['token'] === null){
+        //     return new JsonResponse(["type" => "error", "message" => "Votre token est à null ou n'a pas été renseigné"]);
+        // }
         
         // Récupère le destinataire de la requête
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
