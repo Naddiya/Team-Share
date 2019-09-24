@@ -29,6 +29,7 @@ const initialState = {
   city: '',
   photo: '',
   isProjectLiked: false,
+  
 
   // === Projects props === 
   inputFilter:'',
