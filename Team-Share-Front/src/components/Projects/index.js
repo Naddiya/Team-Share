@@ -77,6 +77,7 @@ const Projects = ({
                     onChange={handleChangeTechnos}
                     />
                 <Dropdown 
+                    selection
                     placeholder='Compétences' 
                     options={skills}
                     onChange={handleChangeSkills}
