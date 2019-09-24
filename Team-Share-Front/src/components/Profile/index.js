@@ -8,7 +8,7 @@ import axios from 'axios';
 import './profile.scss';
 import Projects from './projects';
 import UpdateModal from 'src/containers/UpdateModal';
-import ParticipationMessage from 'src/components/Messages/ParticipationMessage';
+import ParticipationMessage from 'src/containers/Messages';
 import store from 'src/store';
 
 
@@ -40,8 +40,8 @@ const Profile = (
             </div>
             <div className="select-left-contact">
                 <span>Compétences :</span>    
-                <span>{state.technos[0].name}</span>
-                <span>{state.skills[0].name}</span>
+                <span></span>
+                <span></span>
             </div>
                 <UpdateModal technos={technos} skillsList={skills} />
         </div>
@@ -62,10 +62,11 @@ const Profile = (
                 <p className="select-right-description">
                 {state.description}
                 </p>
+                <h3>Demandes de Participation :</h3>
+                <ParticipationMessage />
                 <h2 className="select-right-subtitle">Projets en cours :
                 </h2>
                 <Item.Group divided>
-                    <ParticipationMessage />
                     {projects.slice(0, 2).map((project) => (
                         <Projects key={project.title} {...project} />
                     ))}

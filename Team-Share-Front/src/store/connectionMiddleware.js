@@ -66,7 +66,6 @@ const connectionMiddleware = store => next => (action) => {
                 token: state.token,
                 }
             headers,
-            console.log(dataDc);
             axios.post('http://92.243.10.99/Team-Share/team-share-back/public/logout', dataDc, headers)
             .then((response) => {
                 console.log(response);

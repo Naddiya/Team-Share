@@ -7,6 +7,8 @@ import axios from 'axios';
 import './projectdetail.scss';
 import ProgressBar from "./ProgressBar/";
 import Comments from "./Comments/";
+import store from 'src/store';
+
 
 // == Composant
 class ProjectDetail extends React.Component {
@@ -14,11 +16,26 @@ class ProjectDetail extends React.Component {
   state = {
     project: {},
     colab1: '',
+    data: {
+      token: this.props.token,  
+      project: this.props.match.params.id,
+    },
+  }
+
+  handleRequestSubmit = () => {
+    axios.post('http://92.243.10.99/Team-Share/team-share-back/public/request/new', this.state.data)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(this.state.data);
+      console.log(error);
+    })
   }
 
   componentDidMount() {
     const { match: { params } } = this.props;
-    axios.get(`http://92.243.10.99/Team-Share/team-share-back/public/project/${params.id}`)
+    axios.get(`http://team-share.io/Team-Share/team-share-back/public/project/${params.id}`)
       .then((response) => {
         const data = response.data[0];
         this.setState({ 
@@ -100,7 +117,7 @@ class ProjectDetail extends React.Component {
 
       <section className="project-description-actions">
             <div className="project-description-actions-left">
-              <a href="#">Rejoindre le projet ? <FaRegCheckCircle /></a>
+              <a onClick={this.handleRequestSubmit} href="#">Rejoindre le projet ? <FaRegCheckCircle /></a>
             </div>
             <div className="project-description-actions-right-git">
               <a href="https://github.com/" target="blank">Curieux ? <FaGithubSquare /></a>

@@ -32,7 +32,7 @@ const initialState = {
   // === Projects props === 
   inputFilter:'',
   selectedFilter:'',
-
+  id: '9',
 
   // projects: projectsData.items,
 };
@@ -86,6 +86,9 @@ export const DO_FILTER = 'DO_FILTER';
 export const CHANGE_FILTER_SELECTION = 'CHANGE_FILTER_SELECTION';
 export const SUBMIT_FILTER_SELECTION = 'SUBMIT_FILTER_SELECTION';
 
+// === REQUESTS ACTION TYPES ===
+
+export const DO_REQUEST = 'DO_REQUEST';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -275,6 +278,11 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
         }
 
+    /* === REQUESTS ACTIONS */
+    case DO_REQUEST:
+      return {
+        ...state,
+      }
 
     default:
       return state;
@@ -465,6 +473,12 @@ export const submitFilter = () => ({
 //   ];
 //   return filteredList;
 // };
+
+// === REQUESTS ACTION CREATORS ===
+
+export const doRequest = () => ({
+  type: DO_REQUEST,
+});
 
 // == Export
 export default reducer;
