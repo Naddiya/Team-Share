@@ -26,12 +26,13 @@ const ProjectList = ({
 
     const data = {
       token: state.token,
-      id,
+      project: id,
     }
     const handleClickLike = () => {
       axios.post('http://92.243.10.99/Team-Share/team-share-back/public/follow/add', data)
       .then((response) => {
         console.log(response);
+        
       })
       .catch((error) => {
         console.log(error);
@@ -43,9 +44,9 @@ const ProjectList = ({
       <Item>
         <Item.Image src={image} />
         <Item.Content>
-          <Item.Header as={NavLink} to="/project-detail">{title}
+          <Item.Header as={NavLink} to={`project-detail/${id}`}>{title}
           </Item.Header>
-            <span className="item-follow"><IoIosAddCircle size="28px" />Follow</span>
+            <Button onClick={handleClickLike} color="grey" className="item-follow"><IoIosAddCircle size="28px" />Follow</Button>
           <Item.Extra>
             <Label>{createdAt.date}</Label>
             <a>

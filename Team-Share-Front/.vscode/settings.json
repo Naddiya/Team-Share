@@ -1,0 +1,10 @@
+{
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "intelephense.completion.insertUseDeclaration": false,
+  "editor.wordBasedSuggestions": false,
+  "editor.tabCompletion": "on",
+  "intelephense.completion.triggerParameterHints": false,
+  "emmet.showSuggestionsAsSnippets": true,
+  "javascript.suggest.names": false,
+  "javascript.suggest.completeJSDocs": false
+}

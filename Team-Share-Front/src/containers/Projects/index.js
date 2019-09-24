@@ -44,6 +44,10 @@ const mapDispatchToProps = (dispatch) => ({
     const action = submitFilter(value);
     console.log('soummission du filtre')
     dispatch(action);
+  },
+  changeInputTechnos: value => {
+    const action = changeTechnos(value);
+    dispatch(action);
   }
 
 });

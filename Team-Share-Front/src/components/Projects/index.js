@@ -59,16 +59,19 @@ const Projects = ({
         <div className="project-container">
             <Form>
                 <Dropdown  
+                    selection
                     placeholder='Trier par' 
                     options={sortBy}
                     onChange={handleChangeSortBy}
                     />
                 <Dropdown  
+                    selection
                     placeholder='Filtrer' 
                     options={tags}
                     onChange={handleChangeTags}
                     />
                 <Dropdown
+                    selection
                     placeholder='Technologies' 
                     options={technos}
                     onChange={handleChangeTechnos}

@@ -28,6 +28,7 @@ const initialState = {
   job: '',
   city: '',
   photo: '',
+  isProjectLiked: false,
 
   // === Projects props === 
   inputFilter:'',
@@ -326,7 +327,7 @@ export const changeShortDescription = value => ({
   value,
 });
 
-export const changeTechnos= value => ({
+export const changeTechnos = value => ({
   type: CHANGE_TECHNOS,
   value,
 });
