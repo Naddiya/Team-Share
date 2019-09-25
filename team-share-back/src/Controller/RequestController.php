@@ -120,7 +120,7 @@ class RequestController extends AbstractController
         $user = $userRepository->findOneBy(['token' => $jsonContentArray['token']]);
 
         // Récupère le projet concerné
-        $requestProject = $projectRepository->findOneBy(['id' => $jsonContentArray['project']['id']]);
+        $requestProject = $request->getProject();
 
         // Récupère l'auteur du projet
         $author = $requestProject->getUsers()[0];
