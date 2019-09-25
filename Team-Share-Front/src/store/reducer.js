@@ -32,7 +32,8 @@ const initialState = {
 
   // === Requests props ===
   requests: [],
-  request: 0,
+  response: 0,
+  requestId: 18,
 
   // === Projects props === 
   inputFilter:'',
@@ -89,7 +90,7 @@ export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
 // === REQUESTS ACTION TYPES ===
 
 export const CHANGE_REQUESTS = 'CHANGE_REQUESTS';
-export const CHANGE_REQUEST = 'CHANGE_REQUEST';
+export const CHANGE_REQUESTID = 'CHANGE_REQUESTID';
 export const ACCEPT_REQUEST = 'ACCEPT_REQUEST';
 export const DECLINE_REQUEST = 'DECLINE_REQUEST';
 
@@ -303,10 +304,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state, 
         requests: action.value,
       }
-    case CHANGE_REQUEST:
+    case CHANGE_REQUESTID:
       return {
         ...state, 
-        response: action.value,
+        requestId: action.value,
       }
     case ACCEPT_REQUEST:
       return {
@@ -506,12 +507,12 @@ export const changeRequests = () => ({
   value,
 });
 
-export const changeRequest = () => ({
-  type: CHANGE_REQUEST,
+export const changeRequestId = value => ({
+  type: CHANGE_REQUESTID,
   value,
 });
 
-export const acceptRequest = () => ({
+export const acceptRequest = (id) => ({
   type: ACCEPT_REQUEST,
 });
 

@@ -8,7 +8,8 @@ const requestsMiddleware = store => next => (action) => {
         const state = store.getState();
         let data = {
           token: state.token,
-          request: 1,
+          response: 1,
+          requestId: state.requestId,
         }
         axios.post('http://92.243.10.99/Team-Share/team-share-back/public/request/response', data)
         .then((response) => {

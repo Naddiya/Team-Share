@@ -10,12 +10,17 @@ import { acceptRequest } from '../../store/reducer';
 /* === State (donnÃ©es) === */
 const mapStateToProps = (state) => ({
     token: state.token,
+    requestId: state.requestId,
 });
 
 /* === Actions === */
 const mapDispatchToProps = (dispatch) => ({
-    sendAcceptRequest: () => {
-      const action = acceptRequest();
+    sendRequestId: (id) => {
+      const action = changeRequestId(id);
+      dispatch(action);
+    },
+    sendAcceptRequest: (id) => {
+      const action = acceptRequest(id);
       dispatch(action);
     },
     sendDeclineRequest: () => {

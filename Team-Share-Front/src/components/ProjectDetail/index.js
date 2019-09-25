@@ -39,10 +39,13 @@ class ProjectDetail extends React.Component {
     axios.get(`http://team-share.io/Team-Share/team-share-back/public/project/${params.id}`)
       .then((response) => {
         const data = response.data[0];
+        console.log(data.users);
+        
         this.setState({ 
           project: data,
           colab1: data.users[0].username,
         });
+        console.log(this.state.colabs);
       })
       .catch((error) => {
         console.log(error);
@@ -95,17 +98,17 @@ class ProjectDetail extends React.Component {
               </div>
               <div className="team-member">
                   <img className="team-image" src="src/assets/teamPic.png" />
-                  <h3 className="team-member-name"></h3>
+                  <h3 className="team-member-name">{this.state.colab2}</h3>
                   <p className="team-member-role">Product Owner</p>
               </div>
               <div className="team-member">
                   <img className="team-image" src="src/assets/teamPic.png" />
-                  <h3 className="team-member-name">Samantha</h3>
+                  <h3 className="team-member-name"></h3>
                   <p className="team-member-role">Lead Back</p>
               </div>
               <div className="team-member">
                   <img className="team-image" src="src/assets/teamPic.png" />
-                  <h3 className="team-member-name">Kelly</h3>
+                  <h3 className="team-member-name"></h3>
                   <p className="team-member-role">Lead Front</p>
               </div>
           </div>
