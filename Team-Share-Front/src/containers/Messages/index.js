@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import ParticipationMessage from 'src/components/Messages/ParticipationMessage';
+import { acceptRequest } from '../../store/reducer';
+
+
 
 /* === State (donnÃ©es) === */
 const mapStateToProps = (state) => ({
@@ -10,7 +13,16 @@ const mapStateToProps = (state) => ({
 });
 
 /* === Actions === */
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+    sendAcceptRequest: () => {
+      const action = acceptRequest();
+      dispatch(action);
+    },
+    sendDeclineRequest: () => {
+      const action = declineRequest();
+      dispatch(action);
+    }
+});
 
 
 // Container

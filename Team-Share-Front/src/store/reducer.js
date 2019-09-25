@@ -29,7 +29,10 @@ const initialState = {
   city: '',
   photo: '',
   isProjectLiked: false,
-  
+
+  // === Requests props ===
+  requests: [],
+  request: 0,
 
   // === Projects props === 
   inputFilter:'',
@@ -78,9 +81,16 @@ export const CHANGE_JOB = 'CHANGE_JOB';
 export const CHANGE_CITY = 'CHANGE_CITY';
 export const DO_UPDATE = 'DO_UPDATE';
 
-// === PROFIILE ACTION TYPES ===
+// === PROFILE ACTION TYPES ===
 
 export const GIVE_PROFILEINFOS = 'GIVE_PROFILEINFOS';
+
+// === REQUESTS ACTION TYPES ===
+
+export const CHANGE_REQUESTS = 'CHANGE_REQUESTS';
+export const CHANGE_REQUEST = 'CHANGE_REQUEST';
+export const ACCEPT_REQUEST = 'ACCEPT_REQUEST';
+export const DECLINE_REQUEST = 'DECLINE_REQUEST';
 
 // === PROJECT FILTER ACTION TYPES ===
 
@@ -285,6 +295,24 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
       }
+    case CHANGE_REQUESTS:
+      return {
+        ...state, 
+        requests: action.value,
+      }
+    case CHANGE_REQUEST:
+      return {
+        ...state, 
+        response: action.value,
+      }
+    case ACCEPT_REQUEST:
+      return {
+        ...state,
+      }
+    case DECLINE_REQUEST:
+      return {
+        ...state,
+      }
 
     default:
       return state;
@@ -468,6 +496,24 @@ export const submitFilter = (value) => ({
 export const doRequest = () => ({
   type: DO_REQUEST,
 });
+
+export const changeRequests = () => ({
+  type: CHANGE_REQUESTS,
+  value,
+});
+
+export const changeRequest = () => ({
+  type: CHANGE_REQUEST,
+  value,
+});
+
+export const acceptRequest = () => ({
+  type: ACCEPT_REQUEST,
+});
+
+export const declineRequest = () => ({
+  type: DECLINE_REQUEST,
+})
 
 // == Export
 export default reducer;
