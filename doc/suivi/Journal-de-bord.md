@@ -314,3 +314,44 @@
 #### À Suivre
 >* Mettre en place toutes les requetes front
 >* Faire fonctionner les filtres
+
+---
+# 24/09/2019 - J18 - Sprint 3
+>* Debug en back
+>* Requete rejoindre un projet
+>* Gestion de likes
+>* Accepter refuser une demande de participation 
+#### Infos individuelles
+>## Julien : 
+> Debug
+>## Alexis :
+> Requete rejoindre un projet + Gestion like + demandes de participation
+>## Alexandre :
+> Debug 
+>## Nadia :
+>* Page Projects ajout des filtres + correction sur integration
+#### À Suivre
+>* Gestion des refus de participation
+>* Finalisation avant prod
+>* Debug
+>* corrections scss
+
+---
+# 25/09/2019 - J19 - Sprint 3
+>* The END
+>* Presentation Twich
+#### Infos individuelles
+>## Julien : 
+> Debug + préparation de la présentation
+>## Alexis :
+> Gestion des Refus de participations + prep présentation
+>## Alexandre :
+> Debug + prep présentation
+>## Nadia :
+>* correction sur integration + mise en prod finale + prep présentation
+
+#### À Suivre
+>* Attaquer la V2
+
+
+# C'est les vaccances !
