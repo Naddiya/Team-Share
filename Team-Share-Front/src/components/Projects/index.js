@@ -39,8 +39,8 @@ const Projects = ({
             changeInputSkills(value);
         };
         const handleChangeTags = (evt, options) => {
-            const { value } = options;
-            changeInputTags(value);
+            const { value, id } = options;
+            changeInputTags(value, id);
         };
         const handleChangeSortBy = (evt, options) => {
             const { value } = options;
@@ -51,9 +51,6 @@ const Projects = ({
             changeInput(value);
         };
 
-
-
-
     return(
 
         <div className="project-container">
@@ -63,23 +60,33 @@ const Projects = ({
                     placeholder='Trier par' 
                     options={sortBy}
                     onChange={handleChangeSortBy}
+                    
                     />
                 <Dropdown  
                     selection
                     placeholder='Filtrer' 
-                    options={tags}
+                    options={tags.map(tag => ({
+                        value:tag.id,
+                        text:tag.name,
+                    }))}
                     onChange={handleChangeTags}
                     />
                 <Dropdown
                     selection
-                    placeholder='Technologies' 
-                    options={technos}
+                    placeholder='Technologies'
+                    options={technos.map(techno => ({
+                        value:techno.id,
+                        text:techno.name,
+                    }))}
                     onChange={handleChangeTechnos}
                     />
                 <Dropdown 
                     selection
                     placeholder='Compétences' 
-                    options={skills}
+                    options={skills.map(skill => ({
+                        value:skill.id,
+                        text:skill.name,
+                    }))}
                     onChange={handleChangeSkills}
                     />
             </Form>

@@ -1,47 +1,53 @@
-import axios from 'axios';
-
-import { DO_FILTER } from 'src/store/reducer';
-
-// Types
+// import axios from 'axios';
+// import { CHANGE_INPUTTAGS, CHANGE_TECHNOS, CHANGE_SKILLS } from 'src/store/reducer';
 
 
-const projectsMiddleware = store => next => (action) => {
-  // console.log('Je suis le middleware, et je laisse passer cette action: ', action);    
-  //   switch (action.type) {
-  //     case DO_FILTER:
-  //       // const state: store.getState();
-  //       console.log('on filtre avec le middleware') )
-  //       let data = {
-  //         projects: state.project,
-  //       }
-  //       const headers = {
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Content-Type': 'application/json',
-  //         'Postman-Token': 'f0d22539-4c31-4dc9-a6ca-b513778e229e,59c924e4-c4a5-4def-927c-e4281aa091a1',
-  //         'cache-control': 'no-cache',
-  //     }
-  //     console.log(data);
-  //     axios.get('http://92.243.10.99/Team-Share/team-share-back/public/projects', data, headers)
-  //     .then((response) => {
-  //         console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //   });
-  //     break;
-  //   default:
-  //     next(action);
-}
-   
+// // Types
+
+
+// const projectsMiddleware = store => next => (action) => {
+//    console.log('Je suis le middleware, et je laisse passer cette action: ', action);
+//   switch (action.type) {
+//     case CHANGE_INPUTTAGS :
+//       const state = store.getState();
+//       let data = {
+//         projects: state.projects,
+//       }
+//   axios.get(`http://92.243.10.99/Team-Share/team-share-back/public/tag/${state.tags}`)
+//   .then((response) => {
+//       const projectsTag = response;
+//       this.setState({projects: projectsTag});
+//       // console.log(response.data);
+//   })
+//   .catch((error) => {
+//       console.log(error);
+//   });
+//     case CHANGE_TECHNOS :
+//   axios.get(`http://92.243.10.99/Team-Share/team-share-back/public/techno/${state.technos}`)
+//   .then((response) => {
+//       let projectsTechnos = response;
+//       this.setState({projects: projectsTechnos});
+//       console.log(response.data);
+//   })
+//   .catch((error) => {
+//       console.log(error);
+//   });
+//   case  CHANGE_SKILLS :
+//   axios.get(`http://92.243.10.99/Team-Share/team-share-back/public/skill/${state.skills}`)
+//   .then((response) => {
+//       let ProjectsSkill = response;
+//       this.setState({projects: ProjectsSkill});
+//       console.log(response.data);
+//   })
+//   .catch((error) => {
+//       console.log(error);
+//   });
+//   default:
+//     next(action);
+// }
+// };
+
+// export default projectsMiddleware;
 
 
 
-
-
-
-
-
-// action creators
-
-
-export default projectsMiddleware;

@@ -33,10 +33,11 @@ const initialState = {
 
   // === Projects props === 
   inputFilter:'',
-  tags: [''],
   sortBy: [''],
-
-
+  tags: [''],
+  technos: [''],
+  skills: [''],
+  projects: [''],
   // projects: projectsData.items,
 };
 
@@ -88,6 +89,8 @@ export const CHANGE_FILTER = 'CHANGE_FILTER';
 export const CHANGE_INPUTTAGS = 'CHANGE_INPUTTAGS';
 export const CHANGE_SORT = 'CHANGE_SORT';
 export const SUBMIT_FILTER = 'SUBMIT_FILTER';
+
+
 // === REQUESTS ACTION TYPES ===
 
 export const DO_REQUEST = 'DO_REQUEST';
@@ -459,10 +462,11 @@ export const changeSort = value => ({
   value,
 })
 
-export const submitFilter = (value) => ({
+export const submitFilter = value => ({
   type: SUBMIT_FILTER,
   value,
 })
+
 // === REQUESTS ACTION CREATORS ===
 
 export const doRequest = () => ({
