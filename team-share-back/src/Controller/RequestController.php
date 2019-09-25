@@ -128,7 +128,7 @@ class RequestController extends AbstractController
         if ($author === $user){
             //on flush la requête avec la réponse mise à jour et si la réponse est oui on ajoute l'utilisateur au projet
             if ($jsonContentArray['response'] == true){
-                $requestProject->addUser($userRepository->findOneBy(['id' => $jsonContentArray['user']['id']]));
+                $requestProject->addUser($userRepository->findOneBy(['id' => $request->getUser()]));
             }
             $entityManager->flush();
             return new JsonResponse(["type" => "success", "message" => "La réponse a été enregistrée"]);
