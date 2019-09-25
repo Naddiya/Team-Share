@@ -11,6 +11,7 @@ import { changeFilter,
         submitFilter,
       } from 'src/store/reducer';
 
+
 /* === State (donnÃ©es) === */
 const mapStateToProps = (state) => ({
   inputFilter: state.inputFilter,
@@ -45,8 +46,7 @@ const mapDispatchToProps = (dispatch) => ({
   changeInputTechnos: value => {
     const action = changeTechnos(value);
     dispatch(action);
-  }
-
+  },
 });
 
 
