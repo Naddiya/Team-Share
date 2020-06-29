@@ -3,7 +3,7 @@ Plateforme d'appel à projet collaboratif
 
 ## 1. Notre Projet
 >
-Créer une plateforme facilitant la recontre et la collaboration entre porteur de projet et porteur de compétences.
+Créer une plateforme facilitant la rencontre et la collaboration entre porteur de projet et porteur de compétences.
 >
 Vous avez une idée, un projet web qui vous tient à coeur ?
 >
